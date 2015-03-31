@@ -1,0 +1,56 @@
+<!--
+component name:			Content component 
+Description: 			Used for standard web page content
+component type:			Editor managed component
+filename:				content.html
+querystring paremeters:	none
+dependencies: 
+	frameworks:			bootstrap
+	pure javascript:	none
+	pure css:			none
+
+-->
+<!--
+<div id="content.html">
+	<div class="container">
+		<div class="text">
+		<h1>DITBOC - Designing in the browser of course</h1>
+		<p class="lead">
+			Use this document as a way to quickly start any new project.<br>
+			All you get is this text and a mostly barebones HTML document.
+		</p>
+		</div>
+	</div>
+</div>
+
+-->
+
+
+<div id="hr">
+<script id="hr-template" type="text/x-handlebars-template">
+<div id="content.html">
+	<div class="container">
+		<div class="text">
+		<h1>DITBOC - Designing in the browser of course, {{cells.ID}}</h1>
+		<p class="lead">
+			Use this document as a way to quickly start any new project.<br>
+			All you get is this text and a mostly barebones HTML document.
+		</p>
+		</div>
+	</div>
+</div>
+</script>
+</div>
+
+
+<!--
+		 <h4>NL Home Run Leaders</h4>
+<ol id="hr">
+  <script id="hr-template" type="text/x-handlebars-template">
+    <li>
+      <strong>{{cells.ID}} {{cells.Title}}</strong>,
+      {{cells.Description}}
+    </li>
+  </script>
+</ol>
+-->

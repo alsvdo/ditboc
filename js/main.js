@@ -13,6 +13,8 @@ $(document).ready(function () {
         }
     }
 
+
+
     $('#menuTable').sheetrock({
         url: spreadSheet,
         sql: 'select %ID%, %NAME%',
@@ -25,21 +27,22 @@ $(document).ready(function () {
                 console.log(item);
                 $('ul[role="navigation"]').append("<li><a href='?id=" + item.ID + "'>" + item.NAME + "</a></li>")
             }
-        }
+        },
+        resetStatus: true
+
     });
 
     if (getUrlParameter('id') != null) {
-     $('#contentTable').sheetrock({
-         url: spreadSheet,
-         sql: 'select %TEXT% where %ID% = ' + getUrlParameter('id'),
-         chunkSize: 1,
-         userCallback: function () {
-             var contentTable = $('#contentTable').tableToJSON();
-             var item = contentTable[0];
-         }
-
-     })
-
- }
+        $('#contentTable').sheetrock({
+            resetStatus: true,
+            url: spreadSheet,
+            sql: 'select %TEXT% where %ID% = 1',
+            chunkSize: 1,
+            userCallback: function () {
+                var contentTable = $('#contentTable').tableToJSON();
+                var item = contentTable[0];
+            }
+        })
+    }
 
 });

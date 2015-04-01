@@ -13,13 +13,21 @@
 
 <body>
 
-    <table id="menuTable">
-        <script type="text/javascript">
+    <ul id="menu">
+        <script id="menuitem-template" type="text/x-handlebars-template">
+        {{#each menuItem}}
+            <li>
+              <a href="?page={{ID}}">{{NAME}}</a>                
+            </li>
+        {{/each}}
         </script>
+    </div>
+    
+    <table id="menuTable">
+        
     </table>
     <table id="contentTable">
-        <script type="text/javascript">
-        </script>
+
     </table>
     <nav>
         <ul role="navigation">
@@ -27,17 +35,60 @@
     </nav>
 
     <main>
-
+    <hr>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://chriszarate.github.io/sheetrock/dist/jquery.sheetrock.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
     <script src="js/jquery.tabletojson.js"></script>
-    <script src="js/main.js"></script>
+    
+    <script type=text/javascript>
+        var spreadSheet = 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0';
+
+        function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split("=");
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
+                }
+            }
+        }
+      
+        var createMenu = function() {
+            var menuTable = $('#menuTable').tableToJSON();
+                console.log(menuTable.length);
+            var source = $('#menuitem-template').html();
+            var template = Handlebars.compile(source);
+            var context = {menuItem: menuTable};
+            var html = template(context);
+            $('#menu').append(html);
+        };    
+
+        $('#menuTable').sheetrock({
+            url: spreadSheet,
+            sql: 'select %ID%, %NAME%',
+            chunkSize: 5,
+            userCallback: createMenu
+        });
+
+        if(getUrlParameter('page') != null) {
+
+            $('#contentTable').sheetrock({
+                    url: spreadSheet,
+                    sql: 'select %TEXT% where %ID% = ' + getUrlParameter('page'),
+                    chunkSize: 5
+                    userCallback: 
+                });
+        }
+        
+
+    
+    </script>
+
 
 </body>
-
-
 
 </html>

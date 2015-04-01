@@ -14,7 +14,7 @@
 <body>
     <data>        
          <table id="menuTable"></table>
-         <table id="pageContentTable"></table>
+         <table id="pageComponentsTable"></table>
     </data>
     
     <div id="nav"></div>
@@ -37,6 +37,8 @@
     
     <script type=text/javascript>
         var spreadSheet = 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0';
+        $.fn.sheetrock.options.url = spreadSheet;
+        $.fn.sheetrock.options.chunkSize = 25;
 
         function getUrlParameter(sParam) {
             var sPageURL = window.location.search.substring(1);
@@ -63,14 +65,45 @@
             $('#nav').html(data);
         });
        
+        function GetCompenent(latestCol, componentName) {
+            $.get('components/editorial-managed/'+ componentName +'.html').success(function(data){latestCol.append(data)}
+        )};
+     
+
 
         if(getUrlParameter('page') != null) {            
 
 
         } else {
+            $('#pageComponentsTable').sheetrock({
+                sql: "Select %COMPONENTS% where %ID% = 1",
+                userCallback: function(){
+                    var pageComponents = $('#pageComponentsTable').tableToJSON();
+                    var componentCollection = pageComponents[0].COMPONENTS;
 
+                    var lbSplitCollection = componentCollection.split("\n");
+
+                    for(var i=0; i < lbSplitCollection.length; i++) {
+                        var rowCompenents = lbSplitCollection[i].split(',');
+                        $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');
+                        var latestRow = $('main > .container > .row[data-id="'+ i +'"]');
+
+                        for(var j=0; j < rowCompenents.length; j++){
+                            var componentName = rowCompenents[j].trim();   
+                            var colSize = 12 / rowCompenents.length;
+                            latestRow.append('<div class="col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
+                            var latestCol = $('[data-component="'+ j +'"][data-row="'+ i +'"]');
+                            console.log(latestCol);    
+                            GetCompenent(latestCol, componentName);                                     
+                           
+                        }
+                    }
+                 
+                }
+            });
 
         }
+
         
 
     

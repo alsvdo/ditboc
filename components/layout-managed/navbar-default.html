@@ -13,9 +13,7 @@
    
     <script type="text/javascript">
          $('#menuTable').sheetrock({
-            url: spreadSheet,
             sql: 'select %ID%, %NAME%',
-            chunkSize: 5,
             userCallback: function(){
                 PopulateTemplate($('#menuTable'), $('#menuitem-template'), $('#menu'))
             }

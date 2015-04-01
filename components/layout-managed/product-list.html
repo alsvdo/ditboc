@@ -3,7 +3,7 @@
     {{each item}}
     <div class="col-md-3 col-sm-6 hero-feature">
         <div class="thumbnail">
-            <img src="http://placehold.it/{{{MAXSCALE}}}x{{{MINSCALE}}}" alt="">
+            <img src="http://placehold.it/{{{WIDTH}}}x{{{HEIGHT}}}" alt="">
             <div class="caption">
                 <h3>{{{TITLe}}}</h3>
                 <p>{{{INFO}}}</p>
@@ -19,7 +19,7 @@
 </script>
 <script type="text/javascript">
     $('#hightlight-table').sheetrock({
-        sql: 'select %ID%, %TITLE%, %MAXSCALE%, %MINSCALE%, %INFO%',
+        sql: 'select %ID%, %TITLE%, %WIDTH%, %MHEIGHT%, %INFO%',
         userCallback: function () {
             PopulateTemplate($('#hightlight-table'), $('#product-highlights'), $('###'))
         }

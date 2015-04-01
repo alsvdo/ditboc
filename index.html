@@ -12,31 +12,42 @@
 </head>
 
 <body>
+    <data>        
+         <table id="menuTable"></table>
+         <table id="pageContentTable"></table>
+    </data>
 
-    <ul id="menu">
-        <script id="menuitem-template" type="text/x-handlebars-template">
-        {{#each menuItem}}
-            <li>
-              <a href="?page={{ID}}">{{NAME}}</a>                
-            </li>
-        {{/each}}
-        </script>
-    </div>
-    
-    <table id="menuTable">
-        
-    </table>
-    <table id="contentTable">
-
-    </table>
-    <nav>
-        <ul role="navigation">
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+            <ul id="menu" role="navigation" class="nav navbar-nav">
+           <script id="menuitem-template" type="text/x-handlebars-template">
+                {{#each menuItem}}
+                    <li>
+                      <a href="?page={{ID}}">{{NAME}}</a>
+                    </li>
+                {{/each}}
+            </script>
         </ul>
+    </div>
+   
     </nav>
 
+   
+  
+
     <main>
-    <hr>
+        <div class="container">
+            <header>
+                <script type="text/x-handlebars-template" id="contenttitle-template">
+                    <h1>
+                        {{TEXT}}
+                    </h1>
+                </script>      
+            </header>
+        </div>
     </main>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://chriszarate.github.io/sheetrock/dist/jquery.sheetrock.min.js"></script>
@@ -57,29 +68,62 @@
             }
         }
       
-        var createMenu = function() {
-            var menuTable = $('#menuTable').tableToJSON();
-                console.log(menuTable.length);
-            var source = $('#menuitem-template').html();
+        // function PopulateTemplate(datatable, target, template) {
+        // // console.log(datatable);
+        // // console.log(target);
+        // // console.log(template);  
+        // console.log(datatable); 
+        //     var menuTable = $('#menuTable').tableToJSON();
+        //     var source = $('#menuitem-template').html();
+        //     var template = Handlebars.compile(source);
+        //     var context = {menuItem: menuTable};
+        //     var html = template(context);
+        //     $('#menu').append(html);
+
+        //     console.log(html);
+        //     return null;
+        // };
+
+
+        function PopulateTemplate(datatable, template, target) {
+         
+                console.log(datatable);
+                console.log(target);
+                console.log(template);  
+       
+            var menuTable = datatable.tableToJSON();
+            var source = template.html();
             var template = Handlebars.compile(source);
             var context = {menuItem: menuTable};
             var html = template(context);
-            $('#menu').append(html);
-        };    
+            target.append(html);
+        };
 
         $('#menuTable').sheetrock({
             url: spreadSheet,
             sql: 'select %ID%, %NAME%',
             chunkSize: 5,
-            userCallback: createMenu
+            userCallback: function(){PopulateTemplate($('#menuTable'), $('#menuitem-template'), $('#menu'))}
         });
 
         if(getUrlParameter('page') != null) {
 
-            $('#contentTable').sheetrock({
+            var getPageContent = function() {
+                var pageContentTable = $('#pageContentTable').tableToJSON();
+                var titleSource = $('#contenttitle-template').html();
+                var titleTemplate = Handlebars.compile(titleSource);
+                var context = {pageContent: pageContentTable};
+                var titleHtml = titleTemplate(context);
+                console.log(context);
+                $('main h1').append(titleHtml);
+
+            };
+
+            $('#pageContentTable').sheetrock({
                     url: spreadSheet,
                     sql: 'select %TEXT% where %ID% = ' + getUrlParameter('page'),
-                    chunkSize: 5
+                    chunkSize: 5,
+                    userCallback: getPageContent
                 });
         }
         

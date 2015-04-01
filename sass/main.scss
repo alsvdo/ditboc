@@ -16,3 +16,10 @@ a {
     display: flex;
     margin: 0 20px;
 }
+
+data {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    opacity: 0;
+}

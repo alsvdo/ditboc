@@ -21,9 +21,9 @@
     <div class="container-fluid">
             <ul id="menu" role="navigation" class="nav navbar-nav">
            <script id="menuitem-template" type="text/x-handlebars-template">
-                {{#each menuItem}}
+                {{#each item}}
                     <li>
-                      <a href="?page={{ID}}">{{NAME}}</a>
+                      <a href="?page={{ID}}">{{{NAME}}}</a>
                     </li>
                 {{/each}}
             </script>
@@ -40,7 +40,7 @@
             <header>
                 <script type="text/x-handlebars-template" id="contenttitle-template">
                     <h1>
-                        {{TEXT}}
+                        {{{item.0.TEXT}}}
                     </h1>
                 </script>      
             </header>
@@ -67,34 +67,13 @@
                 }
             }
         }
-      
-        // function PopulateTemplate(datatable, target, template) {
-        // // console.log(datatable);
-        // // console.log(target);
-        // // console.log(template);  
-        // console.log(datatable); 
-        //     var menuTable = $('#menuTable').tableToJSON();
-        //     var source = $('#menuitem-template').html();
-        //     var template = Handlebars.compile(source);
-        //     var context = {menuItem: menuTable};
-        //     var html = template(context);
-        //     $('#menu').append(html);
 
-        //     console.log(html);
-        //     return null;
-        // };
-
-
+    
         function PopulateTemplate(datatable, template, target) {
-         
-                console.log(datatable);
-                console.log(target);
-                console.log(template);  
-       
-            var menuTable = datatable.tableToJSON();
+            var tableData = datatable.tableToJSON();
             var source = template.html();
             var template = Handlebars.compile(source);
-            var context = {menuItem: menuTable};
+            var context = {item: tableData};
             var html = template(context);
             target.append(html);
         };
@@ -103,27 +82,22 @@
             url: spreadSheet,
             sql: 'select %ID%, %NAME%',
             chunkSize: 5,
-            userCallback: function(){PopulateTemplate($('#menuTable'), $('#menuitem-template'), $('#menu'))}
+            userCallback: function(){
+                PopulateTemplate($('#menuTable'), $('#menuitem-template'), $('#menu'))
+            }
         });
 
         if(getUrlParameter('page') != null) {
 
-            var getPageContent = function() {
-                var pageContentTable = $('#pageContentTable').tableToJSON();
-                var titleSource = $('#contenttitle-template').html();
-                var titleTemplate = Handlebars.compile(titleSource);
-                var context = {pageContent: pageContentTable};
-                var titleHtml = titleTemplate(context);
-                console.log(context);
-                $('main h1').append(titleHtml);
-
-            };
+            
 
             $('#pageContentTable').sheetrock({
                     url: spreadSheet,
                     sql: 'select %TEXT% where %ID% = ' + getUrlParameter('page'),
                     chunkSize: 5,
-                    userCallback: getPageContent
+                    userCallback: function() {
+                        PopulateTemplate($('#pageContentTable'), $('#contenttitle-template'), $('main > .container > header'))
+                    }
                 });
         }
         

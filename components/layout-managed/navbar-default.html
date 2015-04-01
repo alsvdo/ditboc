@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+            <ul id="menu" role="navigation" class="nav navbar-nav">
+           <script id="menuitem-template" type="text/x-handlebars-template">
+                {{#each item}}
+                    <li>
+                      <a href="?page={{ID}}">{{{NAME}}}</a>
+                    </li>
+                {{/each}}
+            </script>
+        </ul>
+    </div>
+   
+    <script type="text/javascript">
+         $('#menuTable').sheetrock({
+            url: spreadSheet,
+            sql: 'select %ID%, %NAME%',
+            chunkSize: 5,
+            userCallback: function(){
+                PopulateTemplate($('#menuTable'), $('#menuitem-template'), $('#menu'))
+            }
+        });
+    </script>
+</nav>

@@ -16,34 +16,15 @@
          <table id="menuTable"></table>
          <table id="pageContentTable"></table>
     </data>
-
-    <nav class="navbar navbar-default">
-    <div class="container-fluid">
-            <ul id="menu" role="navigation" class="nav navbar-nav">
-           <script id="menuitem-template" type="text/x-handlebars-template">
-                {{#each item}}
-                    <li>
-                      <a href="?page={{ID}}">{{{NAME}}}</a>
-                    </li>
-                {{/each}}
-            </script>
-        </ul>
-    </div>
-   
-    </nav>
+    
+    <div id="nav"></div>
 
    
   
 
     <main>
         <div class="container">
-            <header>
-                <script type="text/x-handlebars-template" id="contenttitle-template">
-                    <h1>
-                        {{{item.0.TEXT}}}
-                    </h1>
-                </script>      
-            </header>
+          
         </div>
     </main>
 
@@ -78,27 +59,17 @@
             target.append(html);
         };
 
-        $('#menuTable').sheetrock({
-            url: spreadSheet,
-            sql: 'select %ID%, %NAME%',
-            chunkSize: 5,
-            userCallback: function(){
-                PopulateTemplate($('#menuTable'), $('#menuitem-template'), $('#menu'))
-            }
+        $.get('components/layout-managed/navbar-default.html').success(function(data){
+            $('#nav').html(data);
         });
+       
 
-        if(getUrlParameter('page') != null) {
+        if(getUrlParameter('page') != null) {            
 
-            
 
-            $('#pageContentTable').sheetrock({
-                    url: spreadSheet,
-                    sql: 'select %TEXT% where %ID% = ' + getUrlParameter('page'),
-                    chunkSize: 5,
-                    userCallback: function() {
-                        PopulateTemplate($('#pageContentTable'), $('#contenttitle-template'), $('main > .container > header'))
-                    }
-                });
+        } else {
+
+
         }
         
 

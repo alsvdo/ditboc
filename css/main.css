@@ -11,7 +11,8 @@ a {
 
 [role="navigation"] {
   display: flex;
-  margin: 0 20px; }
+  margin: 0 20px;
+  display: flex; }
 
 data {
   position: absolute;

@@ -50,7 +50,6 @@
                 }
             }
         }
-
     
         function PopulateTemplate(datatable, template, target) {
             var tableData = datatable.tableToJSON();
@@ -60,23 +59,14 @@
             var html = template(context);
             target.append(html);
         };
-
-        $.get('components/layout-managed/navbar-default.html').success(function(data){
-            $('#nav').html(data);
-        });
-       
-        function GetCompenent(latestCol, componentName) {
-            $.get('components/editorial-managed/'+ componentName +'.html').success(function(data){latestCol.append(data)}
+   
+        function GetCompenent(target, componentName) {
+            $.get('components/editorial-managed/'+ componentName +'.html').success(function(data){target.append(data)}
         )};
-     
 
-
-        if(getUrlParameter('page') != null) {            
-
-
-        } else {
+        function GetPageComponenents(id){
             $('#pageComponentsTable').sheetrock({
-                sql: "Select %COMPONENTS% where %ID% = 1",
+                sql: "Select %COMPONENTS% where %ID% = " + id,
                 userCallback: function(){
                     var pageComponents = $('#pageComponentsTable').tableToJSON();
                     var componentCollection = pageComponents[0].COMPONENTS;
@@ -101,15 +91,19 @@
                  
                 }
             });
+        };     
 
+        $.get('components/layout-managed/navbar-default.html').success(function(data){
+            $('#nav').html(data);
+        });
+
+        if(getUrlParameter('page') != null) {            
+            GetPageComponenents(getUrlParameter('page'));
+
+        } else {
+            GetPageComponenents(1)
         }
-
-        
-
     
     </script>
-
-
 </body>
-
 </html>

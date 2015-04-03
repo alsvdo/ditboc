@@ -6,9 +6,7 @@
     <title>Ditboc</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
     <link rel="stylesheet" href="css/main.css">
-
 </head>
 
 <body>
@@ -16,7 +14,7 @@
          <table id="menuTable"></table>
          <table id="pageComponentsTable"></table>
     </data>
-    
+
     <div id="nav"></div>
 
     <main>
@@ -25,81 +23,74 @@
         </div>
     </main>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://chriszarate.github.io/sheetrock/dist/jquery.sheetrock.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
-    <script src="js/jquery.tabletojson.js"></script>
-    
+    <script src="js/jquery.tabletojson.js"></script>    
     <script type=text/javascript>
         var spreadSheet = 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0';
         $.fn.sheetrock.options.url = spreadSheet;
         $.fn.sheetrock.options.chunkSize = 25;
 
-        function getUrlParameter(sParam) {
-            var sPageURL = window.location.search.substring(1);
-            var sURLVariables = sPageURL.split('&');
-            for (var i = 0; i < sURLVariables.length; i++) {
-                var sParameterName = sURLVariables[i].split("=");
-                if (sParameterName[0] == sParam) {
-                    return sParameterName[1];
+        function GetUrlParameter(strParam) {
+            var strPageUrl = window.location.search.substring(1);
+            var strUrlVariables = strPageUrl.split('&');
+            for (var i = 0; i < strUrlVariables.length; i++) {
+                var strParameterName = strUrlVariables[i].split("=");
+                if (strParameterName[0] == strParam) {
+                    return strParameterName[1];
                 }
             }
         };
     
-        function PopulateTemplate(datatable, template, target) {
-            var tableData = datatable.tableToJSON();
-            var source = template.html();
-            var template = Handlebars.compile(source);
-            var context = {item: tableData};
-            var html = template(context);
-            target.append(html);
+        function PopulateTemplate($datatable, $template, $target) {
+
+            var tableData = $datatable.tableToJSON(),
+                source = $template.html(),
+                template = Handlebars.compile(source),
+                context = {item: tableData},
+                html = template(context);
+
+            $target.append(html);
         };
    
-        function GetCompenent(target, componentName) {
-            $.get('components/editorial-managed/'+ componentName +'.html').success(function(data){target.append(data)}
+        function GetComponent($target, strComponentName, strComponentGroup, bReplace) {
+            $.get('components/'+ strComponentGroup +'-managed/'+ strComponentName +'.html').success(function(data){
+                if(bReplace) {
+                    $target.replaceWith(data)
+                } else {
+                    $target.append(data)
+                }
+            }                
         )};
 
-        function GetPageComponenents(id){
+        function GetPageComponenents(iPageId){
             $('#pageComponentsTable').sheetrock({
-                sql: "Select %COMPONENTS% where %ID% = " + id,
+                sql: "Select %COMPONENTS% where %ID% = " + iPageId,
                 userCallback: function(){
-                    var pageComponents = $('#pageComponentsTable').tableToJSON();
-                    var componentCollection = pageComponents[0].COMPONENTS;
-
-                    var lbSplitCollection = componentCollection.split("\n");
-
+                    var pageComponents = $('#pageComponentsTable').tableToJSON(),
+                        componentCollection = pageComponents[0].COMPONENTS,
+                        lbSplitCollection = componentCollection.split("\n");
                     for(var i=0; i < lbSplitCollection.length; i++) {
-                        var rowCompenents = lbSplitCollection[i].split(',');
-                        $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');
-                        var latestRow = $('main > .container > .row[data-id="'+ i +'"]');
-
+                        $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');                        
+                        var rowCompenents = lbSplitCollection[i].split(','),
+                            latestRow = $('main > .container > .row[data-id="'+ i +'"]');      
                         for(var j=0; j < rowCompenents.length; j++){
-                            var componentName = rowCompenents[j].trim();   
-                            var colSize = 12 / rowCompenents.length;
-                            latestRow.append('<div class="col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
-                            var latestCol = $('[data-component="'+ j +'"][data-row="'+ i +'"]');
-                            console.log(latestCol);    
-                            GetCompenent(latestCol, componentName);                                     
-                           
+                            var componentName = rowCompenents[j].trim(),   
+                                colSize = 12 / rowCompenents.length;
+                            latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
+                            var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
+                            GetComponent(latestCol, componentName, 'editorial', false);                           
                         }
-                    }
-                 
+                    }                 
                 }
             });
         };     
 
-        $.get('components/layout-managed/navbar-default.html').success(function(data){
-            $('#nav').html(data);
-        });
+        GetComponent($('#nav'), 'navbar-default', 'layout', true);
 
-        if(getUrlParameter('page') != null) {            
-            GetPageComponenents(getUrlParameter('page'));
-
-        } else {
-            GetPageComponenents(1)
-        }
+        GetUrlParameter('page') != null ? GetPageComponenents(GetUrlParameter('page')) : GetPageComponenents(1)        
     
     </script>
 </body>

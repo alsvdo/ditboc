@@ -67,10 +67,10 @@
 
         function GetPageComponenents(iPageId){
             $('#pageComponentsTable').sheetrock({
-                sql: "Select %COMPONENTS% where %ID% = " + iPageId,
+                sql: "Select %Components% where %Id% = " + iPageId,
                 userCallback: function(){
                     var pageComponents = $('#pageComponentsTable').tableToJSON(),
-                        componentCollection = pageComponents[0].COMPONENTS,
+                        componentCollection = pageComponents[0].Components,
                         lbSplitCollection = componentCollection.split("\n");
                     for(var i=0; i < lbSplitCollection.length; i++) {
                         $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');                        

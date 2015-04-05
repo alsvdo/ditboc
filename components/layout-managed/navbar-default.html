@@ -4,7 +4,7 @@
            <script id="menuitem-template" type="text/x-handlebars-template">
                 {{#each item}}
                     <li>
-                      <a href="index.html?page={{Id}}">{{{Name}}}</a>
+                      <a data-page="{{Id}}">{{{Name}}}</a>
                     </li>
                 {{/each}}
             </script>
@@ -15,8 +15,17 @@
          $('#menuTable').sheetrock({
             sql: 'select %Id%, %Name%',
             userCallback: function(){
-                PopulateTemplate($('#menuTable'), $('#menuitem-template'), $('#menu'))
+                populateTemplate($('#menuTable'), $('#menuitem-template'), $('#menu'))
             }
         });
+
+         $(document).on('click','a[data-page]', function(e){
+
+            var pageId = $(e.target).data('page');
+            var currentLocation = window.location;
+            window.location.href = addParameter(currentLocation, 'page', pageId);
+
+         });
+       
     </script>
 </nav>

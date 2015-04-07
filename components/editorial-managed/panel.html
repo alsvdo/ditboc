@@ -10,7 +10,11 @@ dependencies:
 	pure css:			none
 
 -->
-
+	<script>
+		if(getUrlParameter('id') != null) {
+			$('.panel-heading>h3').html(getUrlParameter('id'));
+		}
+	</script>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3>Hello.</h3>

@@ -9,6 +9,9 @@ li {
 a {
   text-decoration: none; }
 
+a[data-page] {
+  cursor: pointer; }
+
 /*
 [role="navigation"] {
     display: flex;

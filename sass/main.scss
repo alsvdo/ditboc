@@ -1,27 +1,12 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-/*
-[role="navigation"] {
-    display: flex;
-    margin: 0 20px;
-    display: flex;
-}*/
+@charset "UTF-8";
+@import "compass/css3";
+@import "fonts";
+@import "mixins";
 
 data {
-    position: absolute;
-    visibility: hidden;
-    height: 0;
-    width: 0;
-    opacity: 0;
+	position: absolute;
+	visibility: hidden;
+	height: 0;
+	width: 0;
+	opacity: 0;
 }

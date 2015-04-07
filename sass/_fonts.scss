@@ -1,0 +1,38 @@
+@include font-face(
+	"GarageGothic",
+	font-files(
+		'GarageGothic-Bold.otf',
+		'GarageGothic-Bold.eot',
+		'GarageGothic-Bold.ttf',
+		'GarageGothic-Bold.woff'
+	),
+	false, // $eot is required by IE, and is a relative location of the eot file.
+	bold,  // $weight shows if the font is bold, defaults to normal
+	normal // $style defaults to normal, might be also italic
+);
+@include font-face(
+	"Signa",
+	font-files(
+		'SignaColumnLight.otf',
+		'SignaColumnLight.eot',
+		'SignaColumnLight.ttf',
+		'SignaColumnLight.woff',
+		'SignaColumnLight.svg'
+	),
+	false,
+	normal,
+	normal
+);
+@include font-face(
+	"Signa",
+	font-files(
+		'SignaColumnBold.otf',
+		'SignaColumnBold.eot',
+		'SignaColumnBold.ttf',
+		'SignaColumnBold.woff',
+		'SignaColumnBold.svg'
+	),
+	false,
+	bold,
+	normal
+);

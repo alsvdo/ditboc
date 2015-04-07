@@ -95,6 +95,7 @@
                 html = template(context);
                 target.append(html);
         };
+
         var componentData = new Array();
           $('#componentTable').sheetrock({
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
@@ -103,7 +104,6 @@
               // D = "Filename" & A = "Component"
               userCallback: function(){
                 componentData = $('#componentTable').tableToJSON();
-                console.log(componentData);
               }
             });
 
@@ -111,10 +111,8 @@
         function getComponent(target, componentName, componentType, replace) {
             
             for(var i = 0; i < componentData.length; i++) {
-
                 if(componentData[i].Component == componentName){
-
-                    console.log(componentData[i].Component);
+                    // console.log(componentData[i].Component);
 
                     $.get('components/'+componentType+'-managed/'+ componentData[i].Filename).success(function(data){
                         if(replace) {
@@ -123,9 +121,7 @@
                             target.append(data);
                         }
                     })
-
                 }
-
             }
         //
             // $('#componentTable').sheetrock({            
@@ -171,7 +167,7 @@
                             latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                             var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
                             getComponent(latestCol, componentName, 'editorial', false);  
-                            getComponent($('#nav'), 'global_menu', 'layout', true);                         
+                            getComponent($('#nav'), 'Global menu', 'layout', true);                         
                         }
                     }                 
                 }

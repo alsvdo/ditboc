@@ -103,7 +103,7 @@
               // D = "Filename" & A = "Component"
               userCallback: function(){
                 componentData = $('#componentTable').tableToJSON();
-                // console.log(componentData);
+                console.log(componentData);
               }
             });
 
@@ -170,14 +170,14 @@
                                 colSize = 12 / rowCompenents.length;
                             latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                             var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                            getComponent(latestCol, componentName, 'editorial', false);                           
+                            getComponent(latestCol, componentName, 'editorial', false);  
+                            getComponent($('#nav'), 'global_menu', 'layout', true);                         
                         }
                     }                 
                 }
             });
         };     
 
-        // getComponent($('#nav'), 'navbar-default', 'layout', true);
 
         getUrlParameter('page') != null ? getPageComponenents(getUrlParameter('page')) : getPageComponenents(1)        
     

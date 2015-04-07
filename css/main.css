@@ -9,11 +9,12 @@ li {
 a {
   text-decoration: none; }
 
+/*
 [role="navigation"] {
-  display: flex;
-  margin: 0 20px;
-  display: flex; }
-
+    display: flex;
+    margin: 0 20px;
+    display: flex;
+}*/
 data {
   position: absolute;
   visibility: hidden;

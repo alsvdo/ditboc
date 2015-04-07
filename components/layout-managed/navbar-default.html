@@ -1,29 +1,132 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-            <ul id="menu" role="navigation" class="nav navbar-nav">
-           <script id="menuitem-template" type="text/x-handlebars-template">
-                {{#each item}}
-                    <li>
-                      <a data-page="{{Id}}">{{{Name}}}</a>
-                    </li>
-                {{/each}}
-            </script>
-        </ul>
+            <ul id="main-menu" role="navigation" class="nav navbar-nav">
+
+
+             
+             
+                <!-- <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">                
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5   </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li> -->
+            </ul>
     </div>
    
     <script type="text/javascript">
          $('#menuTable').sheetrock({
-            sql: 'select %Id%, %Name%',
+            sql: 'select %Id%, %Name%, %Parent%',
+            url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1312722092',
             userCallback: function(){
-                populateTemplate($('#menuTable'), $('#menuitem-template'), $('#menu'))
+                var tableData = $('#menuTable').tableToJSON();                 
+                    mainMenu = $('ul#main-menu');
+
+                    for(var i = 0; i < tableData.length; i++) {
+                        var currentObject = tableData[i];
+                        if(currentObject.Name != (null || "")) {
+                            mainMenu.append('<li data-id="'+currentObject.Id+'"><a data-page="'+ currentObject.Id +'">'+ currentObject.Name +'</a></li>');
+                        }
+                    }
+                    for(var i = 0; i < tableData.length; i++) {
+                        var currentObject = tableData[i];
+                        if(currentObject.Name != (null || "")) {
+                            if(currentObject.Parent != (null || "")) {
+                                var parentElement = $('li[data-id="'+currentObject.Parent+'"]');
+                                if(parentElement.length) {
+                                    if(parentElement.hasClass('dropdown')) {
+                                        console.log(elementList);
+                                        elementList.append('<li data-id="'+ currentObject.Id +'"><a data-page="'+currentObject.Id+'">'+ currentObject.Name +'</a></li>');
+                                    } else {
+                                        parentElement.addClass('dropdown');
+                                        parentElement.children('a:first').addClass('dropdown-toggle');
+                                        parentElement.append('<ul class="dropdown-m" data-id="'+currentObject.Parent+'"></ul>');
+                                    }
+                                    var elementList = $('li[data-id="'+currentObject.Parent+'"]>ul[data-id="'+currentObject.Parent+'"]');
+
+                                    $('li[data-id="'+currentObject.Id+'"]').remove();
+                                    elementList.append('<li data-id="'+ currentObject.Id+'"><a data-page="'+ currentObject.Id+'">'+ currentObject.Name +'</a></li>');
+                                   
+                                }
+                            }
+                        }
+                    }
+//
+                // for(var i = 0; i < tableData.length; i++) {
+
+                //     var currentObject = tableData[i];
+                //     if (currentObject.Name != (null || "")) {
+                //         var objectLevels = currentObject.OverallOrder.split('.'),
+                //             objectLevelIds = new Array;
+                        
+                //         for (var j = 0; j < objectLevels.length; j++) { 
+                //             objectLevelIds.push(Number(objectLevels[j]).toString());
+                //         }
+
+                //         mainMenu.append('<li data-digit='+ currentObject.Id +'><a data-page="'+ currentObject.Id +'">'+ currentObject.Name +'</a></li>');
+                //         console.log(objectLevelIds);
+                //     }
+                // }
+
+                // for(var i = 0; i < tableData.length; i++) {
+
+                //     var menuObject = {id: tableData[i].Id, children: []};
+
+                //     for(var j = 0; j < tableData.length; j++) {
+                //         if(tableData[j].Parent == tableData[i].Id) {
+                //             menuObject.children.push({parent: tableData[j].Id, children: []});
+                //         }
+                //     }
+                //     menuObjects.push(menuObject);
+
+                // }
+                //                     console.log(menuObjects);
+
+
+                // for(var i=0; i < tableData.length; i++){
+                //    if(tableData[i].Parent != (null || "")) {
+                //      childList.push(tableData[i]);
+                //    } else {
+                //      parentList.push(tableData[i]);
+                //    }
+                // }
+
+                // for (var i = 0; i < parentList.length; i++) {
+                //     parentList[i];
+                //     var object = {parent: parentList[i].Id, children: []};
+
+                //     for(var j = 0; j < childList.length; j++) {
+                //         if(childList[j].Parent == parentList[i].Id) {
+                //             object.children.push(childList[j]);
+                //         }
+                //     }
+                //     menuObjects.push(object);
+                // };
+                // console.log(menuObjects);
+
+                // console.log(childList);
+                // console.log(parentList);
+              //
             }
         });
 
          $(document).on('click','a[data-page]', function(e){
 
-            var pageId = $(e.target).data('page');
-            var currentLocation = window.location;
-            window.location.href = addParameter(currentLocation, 'page', pageId);
+            var pageId = $(e.target).data('page'),
+                currentLocation = window.location;
+            window.location.href = addUrlParameter(currentLocation, 'page', pageId);
 
          });
        

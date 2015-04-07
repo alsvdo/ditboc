@@ -13,6 +13,7 @@
     <data>        
          <table id="menuTable"></table>
          <table id="pageComponentsTable"></table>
+         <table id="componentTable"></table>
     </data>
 
     <div id="nav"></div>
@@ -94,16 +95,64 @@
                 html = template(context);
                 target.append(html);
         };
-   
+        var componentData = new Array();
+          $('#componentTable').sheetrock({
+              url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
+              sql: 'Select %D%, %A%',
+              headersOff: true,
+              // D = "Filename" & A = "Component"
+              userCallback: function(){
+                componentData = $('#componentTable').tableToJSON();
+                console.log(componentData);
+              }
+            });
+
+
         function getComponent(target, componentName, componentType, replace) {
-            $.get('components/'+ componentType +'-managed/'+ componentName +'.html').success(function(data){
-                if(replace) {
-                    target.replaceWith(data)
-                } else {
-                    target.append(data)
+            
+            for(var i = 0; i < componentData.length; i++) {
+
+                if(componentData[i].Component == componentName){
+
+                    console.log(componentData[i].Component);
+
+                    $.get('components/'+componentType+'-managed/'+ componentData[i].Filename).success(function(data){
+                        if(replace) {
+                            target.replaceWith(data);
+                        } else {
+                            target.append(data);
+                        }
+                    })
+
                 }
-            }                
-        )};
+
+            }
+        //
+            // $('#componentTable').sheetrock({            
+            //       url: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
+            //       sql: 'Select %D% where %A% = "' + componentName + '"',
+            //       userCallback: function(){
+            //         var componentData = $('#componentTable').tableToJSON();
+
+            //          // $.get('components/'+ componentType +'-managed/'+ componentData[0].D).success(function(data){
+            //          //    if(replace) {
+            //          //        target.replaceWith(data);
+            //          //    } else {
+            //          //        target.append(data);
+            //          //    }
+            //          // };
+
+            //       }
+            // });
+
+            // $.get('components/'+ componentType +'-managed/'+ componentName +'.html').success(function(data){
+            //     if(replace) {
+            //         target.replaceWith(data)
+            //     } else {
+            //         target.append(data)
+            //     }
+            // }                
+        };
 
         function getPageComponenents(pageId){
             $('#pageComponentsTable').sheetrock({
@@ -121,14 +170,14 @@
                                 colSize = 12 / rowCompenents.length;
                             latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                             var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                            getComponent(latestCol, componentName, 'editorial', false);                           
+                            getComponent(latestCol, componentName, 'editorial', false);  
+                            getComponent($('#nav'), 'global_menu', 'layout', true);                         
                         }
                     }                 
                 }
             });
         };     
 
-        getComponent($('#nav'), 'navbar-default', 'layout', true);
 
         getUrlParameter('page') != null ? getPageComponenents(getUrlParameter('page')) : getPageComponenents(1)        
     

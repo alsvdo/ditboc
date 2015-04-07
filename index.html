@@ -35,7 +35,7 @@
         }
         var spreadSheet = 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=' + sheetId;
         $.fn.sheetrock.options.url = spreadSheet;
-        $.fn.sheetrock.options.chunkSize = 25;
+        $.fn.sheetrock.options.chunkSize = 50;
 
         function getUrlParameter(param) {
             var pageUrl = window.location.search.substring(1);
@@ -48,7 +48,7 @@
             }
         };
 
-        function addParameter(url, param, value) {
+        function addUrlParameter(url, param, value) {
             // Using a positive lookahead (?=\=) to find the
             // given parameter, preceded by a ? or &, and followed
             // by a = with a value after than (using a non-greedy selector)
@@ -95,8 +95,8 @@
                 target.append(html);
         };
    
-        function getComponent(target, componentName, componentGroup, replace) {
-            $.get('components/'+ componentGroup +'-managed/'+ componentName +'.html').success(function(data){
+        function getComponent(target, componentName, componentType, replace) {
+            $.get('components/'+ componentType +'-managed/'+ componentName +'.html').success(function(data){
                 if(replace) {
                     target.replaceWith(data)
                 } else {

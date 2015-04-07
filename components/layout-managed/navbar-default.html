@@ -46,15 +46,18 @@
                             if(currentObject.Parent != (null || "")) {
                                 var parentElement = $('li[data-id="'+currentObject.Parent+'"]');
                                 if(parentElement.length) {
-                                    console.log(parentElement);
                                     if(parentElement.hasClass('dropdown')) {
-                                        var elementList = $('ul[data-id="'+ currentObject.Parent +'"]');
+                                        console.log(elementList);
                                         elementList.append('<li data-id="'+ currentObject.Id +'"><a data-page="'+currentObject.Id+'">'+ currentObject.Name +'</a></li>');
                                     } else {
                                         parentElement.addClass('dropdown');
                                         parentElement.children('a:first').addClass('dropdown-toggle');
-                                        parentElement.append('<ul class="dropdown-toggle" data-id="'+currentObject.Parent+'"></ul>');
+                                        parentElement.append('<ul class="dropdown-m" data-id="'+currentObject.Parent+'"></ul>');
                                     }
+                                    var elementList = $('li[data-id="'+currentObject.Parent+'"]>ul[data-id="'+currentObject.Parent+'"]');
+
+                                    $('li[data-id="'+currentObject.Id+'"]').remove();
+                                    elementList.append('<li data-id="'+ currentObject.Id+'"><a data-page="'+ currentObject.Id+'">'+ currentObject.Name +'</a></li>');
                                    
                                 }
                             }

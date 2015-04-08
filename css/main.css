@@ -1,30 +1,18 @@
 @font-face {
   font-family: "GarageGothic";
-<<<<<<< HEAD
   src: url('/fonts/GarageGothic-Bold.otf?1428409108') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428409108') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428409108') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428409108') format('woff');
-=======
-  src: url('/fonts/GarageGothic-Bold.otf?1428492242') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428492242') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428492242') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428492242') format('woff');
->>>>>>> 9708f6b6f7ed0dcd2a5d19df5c9c9282f1e4bb36
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-<<<<<<< HEAD
   src: url('/fonts/SignaColumnLight.otf?1428409109') format('opentype'), url('/fonts/SignaColumnLight.eot?1428409109') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428409109') format('truetype'), url('/fonts/SignaColumnLight.woff?1428409109') format('woff'), url('/fonts/SignaColumnLight.svg?1428409109') format('svg');
-=======
-  src: url('/fonts/SignaColumnLight.otf?1428492242') format('opentype'), url('/fonts/SignaColumnLight.eot?1428492242') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428492242') format('truetype'), url('/fonts/SignaColumnLight.woff?1428492242') format('woff'), url('/fonts/SignaColumnLight.svg?1428492242') format('svg');
->>>>>>> 9708f6b6f7ed0dcd2a5d19df5c9c9282f1e4bb36
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-<<<<<<< HEAD
   src: url('/fonts/SignaColumnBold.otf?1428409109') format('opentype'), url('/fonts/SignaColumnBold.eot?1428409109') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428409109') format('truetype'), url('/fonts/SignaColumnBold.woff?1428409109') format('woff'), url('/fonts/SignaColumnBold.svg?1428409109') format('svg');
-=======
-  src: url('/fonts/SignaColumnBold.otf?1428492242') format('opentype'), url('/fonts/SignaColumnBold.eot?1428492242') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428492242') format('truetype'), url('/fonts/SignaColumnBold.woff?1428492242') format('woff'), url('/fonts/SignaColumnBold.svg?1428492242') format('svg');
->>>>>>> 9708f6b6f7ed0dcd2a5d19df5c9c9282f1e4bb36
   font-weight: bold;
   font-style: normal;
 }
@@ -42,10 +30,9 @@ a[data-page] {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 /* line 14, ../sass/1-Base/_base.scss */
 .stickyNav, .stickyElm {
-  /*display: none;*/
+  display: none;
 }
 
 /* line 17, ../sass/1-Base/_base.scss */
@@ -102,10 +89,7 @@ a[data-page] {
   background: gray;
 }
 
-/* line 1, ../sass/2-Modules/_mainmenu.scss */
-=======
 /* line 1, ../sass/2-Modules/_main-menu.scss */
->>>>>>> 9708f6b6f7ed0dcd2a5d19df5c9c9282f1e4bb36
 #main-menu {
   margin-bottom: 20px;
 }

@@ -10,6 +10,41 @@
 </head>
 
 <body>
+
+    <style type="text/css">
+        /* temp solution */
+        .stickyNav, .stickyElm {
+            display: none;
+        }
+        .stickyNav.sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        .stickyNav li.selected {
+            background: gray;
+        }
+    </style>
+    <ul class="stickyNav">
+        <li style="display:inline-block;padding:10px;"><a href="#">Link 1</a></li>
+        <li style="display:inline-block;padding:10px;"><a href="#">Link 2</a></li>
+        <li style="display:inline-block;padding:10px;"><a href="#">Link 3</a></li>
+        <li style="display:inline-block;padding:10px;"><a href="#">Link 4</a></li>
+    </ul>
+
+    <div class="stickyElm" style="height: 300px;border:1px solid red;">
+        1
+    </div>
+    <div class="stickyElm" style="height: 300px;border:1px solid red;">
+        2
+    </div>
+    <div class="stickyElm" style="height: 300px;border:1px solid red;">
+        3
+    </div>
+    <div class="stickyElm" style="height: 300px;border:1px solid red;">
+        4
+    </div>
+
     <data>        
          <table id="menuTable"></table>
          <table id="pageComponentsTable"></table>
@@ -28,7 +63,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://chriszarate.github.io/sheetrock/dist/jquery.sheetrock.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
-    <script src="js/jquery.tabletojson.js"></script>    
+    <script src="js/jquery.tabletojson.js"></script>
+    <script src="js/main.js"></script>
     <script type=text/javascript>
         var sheetId = 0;
         if(getUrlParameter('sheet') != null) {

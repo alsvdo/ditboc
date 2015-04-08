@@ -62,10 +62,7 @@
                             if(currentObject.Parent != (null || "")) {
                                 var parentElement = $('li[data-id="'+currentObject.Parent+'"]');
                                 if(parentElement.length) {
-                                    if(parentElement.data('dropdown')) {
-                                    // console.log(elementList);
-                                    // elementList.append('<li data-id="'+ currentObject.Id +'"><a data-page="'+currentObject.Id+'">'+ currentObject.Name +'</a></li>')
-                                    } else {
+                                    if(!parentElement.data('dropdown')) {  
                                         parentElement.attr('data-dropdown', true);
                                         parentElement.children('a:first').append(' <span class="caret"></span>');
                                         // parentElement.addClass  ('dropdown-toggle');

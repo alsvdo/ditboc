@@ -114,7 +114,7 @@ a[data-page] {
   margin-top: 0;
 }
 /* line 13, ../sass/2-Modules/_product-info.scss */
-.product-info .teaser {
+.product-info [data-dynamic="teaser"] {
   color: #666;
   font-size: 14px;
 }
@@ -151,7 +151,7 @@ a[data-page] {
   padding: 8px 20px;
 }
 /* line 45, ../sass/2-Modules/_product-info.scss */
-.product-info .price {
+.product-info [data-dynamic="price"] {
   margin: 5px 0;
   padding: 2px 20px;
   background: #ccc;

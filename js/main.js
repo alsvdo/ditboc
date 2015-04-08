@@ -7,16 +7,18 @@ DITBOC.Breadcrumb = (function (DITBOC)
 	var stickyAt = 100,
 		selected = 0,
 		$navigation = $('.stickyNav'),
-		$elements = $('.stickyElm');
+		navigationHeight = $navigation.height(),
+		$elements = $('.stickyElm'),
+		scrollPos;
 
 	// Set first
-	$navigation.children().eq(selected).addClass('selected');
+	//$navigation.children().eq(selected).addClass('selected');
 
 	function position()
 	{
-		var scrollPos = $(top.window).scrollTop();
+		scrollPos = $(top.window).scrollTop();
 
-		if (scrollPos > stickyAt)
+		if (scrollPos > (stickyAt - navigationHeight) )
 		{
 			$navigation.addClass('sticky');
 		}
@@ -25,51 +27,49 @@ DITBOC.Breadcrumb = (function (DITBOC)
 			$navigation.removeClass('sticky');
 		}
 
-		//selectByPos();
+		selectByPosition();
 	}
 
-	function selectByPos()
+	function selectByPosition()
 	{
-		$elements.each(function()
-		{
-			var that = $(this);
+		$elements
+			.each(function()
+			{
+				var that = $(this);
 
-			if ( that.inView() )
-			{ 
-				// Quick check - is top or bottom of section in viewport
-				var sectionDockBottomPos = scrollPos + sectionTopMinHeight + sectionBarHeight
-					thatOffsetTop = that.offset().top,
-					thatHeight = that.height();
-
-				if (thatOffsetTop < sectionDockBottomPos && thatOffsetTop + thatHeight > sectionDockBottomPos)
+				if ( that.inView() )
 				{
-					// Is bottom of sectiondock between top and bottom of this section
-					var relTab = arrTabs.filter("[href$='##" + that.attr("id") + "']").eq(0);
-					if (relTab.length)
-					{
-						selectTab(relTab);
-						sectionSelected = true;
-					}
-
-					return false;
+					that.addClass('inView');
 				}
-			}
-		});
+				else
+				{
+					that.removeClass('inView');
+				}
+			})
 
-		if (!sectionSelected)
-		{
-			if (scrollPos > firstSectionOffsetTop)
-			{
-				// If we have scrolled past all sections
-				objTabSelector.hide();
-			}
-			else
-			{
-				selectTab(arrTabs.eq(0));
-			}
-		}
+			// Remove old active state
+			.removeClass('active')
+
+			// Set active on current element
+			.filter('.inView:first').addClass('active');
+
+		// Animate active nav item
+		setActiveNav( $elements.index($elements.filter('.inView:first')) );
 	}
 
+	function setActiveNav(index)
+	{
+		// var $current = $navigation.children().eq(index+1),
+		// 	$toggler = $navigation.children().first();
+
+		// $toggler.css({
+		// 	width: $current.outerWidth(),
+		// 	left: function() {
+		// 		$current
+		// 		return '20px';
+		// 	}
+		// });
+	}
 
 	return {
 		init: function()

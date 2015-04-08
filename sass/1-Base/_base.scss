@@ -10,3 +10,44 @@ a[data-page] {
 	cursor: pointer;
 }
 
+
+.stickyNav, .stickyElm {
+	/*display: none;*/
+}
+.styckyWrapper {
+	position: relative;
+	padding-top: 100px;
+}
+.stickyNav {
+	width: 100%;
+	@include absolute(top 60px left 0);
+
+	&.sticky {
+		@include fixed(top 0);
+		margin-top: 0;
+		width: 100%;
+	}
+	li {
+		display: inline-block;
+		padding: 10px;
+
+		&.selected {
+			background: gray;
+			a { color: white; }
+		}
+		&.tabSelector {
+			@include absolute(left 0 top 0);
+		}
+	}
+	a {
+		color: black;
+	}
+}
+.stickyElm {
+	height: 300px;
+	border: 1px solid red;
+
+	&.active {
+		background: gray;
+	}
+}

@@ -30,61 +30,57 @@ a[data-page] {
   cursor: pointer;
 }
 
-/* line 14, ../sass/1-Base/_base.scss */
-.stickyNav, .stickyElm {
-  display: none;
-}
-
-/* line 17, ../sass/1-Base/_base.scss */
+/* line 13, ../sass/1-Base/_base.scss */
 .styckyWrapper {
   position: relative;
   padding-top: 100px;
+  display: none;
 }
 
-/* line 21, ../sass/1-Base/_base.scss */
+/* line 18, ../sass/1-Base/_base.scss */
 .stickyNav {
   width: 100%;
   position: absolute;
   top: 60px;
   left: 0;
 }
-/* line 25, ../sass/1-Base/_base.scss */
+/* line 22, ../sass/1-Base/_base.scss */
 .stickyNav.sticky {
   position: fixed;
   top: 0;
   margin-top: 0;
   width: 100%;
 }
-/* line 30, ../sass/1-Base/_base.scss */
+/* line 27, ../sass/1-Base/_base.scss */
 .stickyNav li {
   display: inline-block;
   padding: 10px;
 }
-/* line 34, ../sass/1-Base/_base.scss */
+/* line 31, ../sass/1-Base/_base.scss */
 .stickyNav li.selected {
   background: gray;
 }
-/* line 36, ../sass/1-Base/_base.scss */
+/* line 33, ../sass/1-Base/_base.scss */
 .stickyNav li.selected a {
   color: white;
 }
-/* line 38, ../sass/1-Base/_base.scss */
+/* line 35, ../sass/1-Base/_base.scss */
 .stickyNav li.tabSelector {
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 42, ../sass/1-Base/_base.scss */
+/* line 39, ../sass/1-Base/_base.scss */
 .stickyNav a {
   color: black;
 }
 
-/* line 46, ../sass/1-Base/_base.scss */
+/* line 43, ../sass/1-Base/_base.scss */
 .stickyElm {
   height: 300px;
   border: 1px solid red;
 }
-/* line 50, ../sass/1-Base/_base.scss */
+/* line 47, ../sass/1-Base/_base.scss */
 .stickyElm.active {
   background: gray;
 }

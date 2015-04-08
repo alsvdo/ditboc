@@ -10,13 +10,10 @@ a[data-page] {
 	cursor: pointer;
 }
 
-
-.stickyNav, .stickyElm {
-	display: none;
-}
 .styckyWrapper {
 	position: relative;
 	padding-top: 100px;
+	display: none;
 }
 .stickyNav {
 	width: 100%;

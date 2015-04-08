@@ -115,7 +115,6 @@
               // O = "Price"
               userCallback: function(){
                 componentData = $('#componentTable').tableToJSON();
-                console.log(componentData);
               }
             });
 
@@ -127,44 +126,73 @@
                 if(componentData[i].Component == componentName){
                     var currentComponent = componentData[i];
                     var filename = currentComponent.Filename;
-                    console.log(currentComponent);
-                    // console.log(componentData[i].Component);
-
-                    // if(filename.indexOf(',') > -1) {
-                    //     filenameParameter = currentComponent.Filename.split(',')[1].trim();
-                    //     filename = currentComponent.Filename.split(',')[0].trim();
-                    // }
-
-                    // if(filenameParameter != null) {                        
-                    //     // console.log(filenameParameter);
-                    //     // console.log(filename);
-                    //     // requestString = '"components/' + componentType +'-managed/' + filename + '",' + {parameter: filenameParameter};
-                    //     $.get('components/'+ componentType +'-managed/'+ filename +'', {parameter: filenameParameter}).success(function(data){
-                    //          if(componentType == "layout") {
-                    //             target.replaceWith(data);
-                    //         } else {
-                    //             target.append(data);
-                    //         }
-                    //     })
                     $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
                         if(componentType == "layout") {
                             target.replaceWith(data);
                         } else {
-                            target.append(data); 
+                            var boundTarget = target.append(data); 
+                            if(boundTarget.find('*[data-dynamic]').length) {
+                                var dynamicElements = boundTarget.find('*[data-dynamic]');                                
+                                dynamicElements.each(function(){
+                                    var dynamicElement = $(this);
+                                    // console.log($(this));
+                                    // console.log(dynamicElement.context)
+                                    switch(dynamicElement.prop('tagName')) {
+                                        case 'H1': 
+                                         if(currentComponent.HeadingOne != (null || "")) {
+                                            dynamicElement.text(currentComponent.HeadingOne);
+                                         }
+                                        break;
 
-                            if(target.find('*[data-dynamic]').length) {
-                                var dynamicElements = target.find('*[data-dynamic]');
-                                for(var i = 0; i < dynamicElements.length; i++) {
-                                    var dynamicElement = dynamicElements[i];
-
-                                    switch(dynamicElement.tagName) {
+                                        case 'H2':
+                                         if(currentComponent.HeadingTwo != (null || "")) {
+                                            dynamicElement.text(currentComponent.HeadingTwo);
+                                         }
+                                        break;
 
                                         case 'H3':         
-                                                // console.log(currentComponent.HeadingThree);                                  
-                                                console.log(dynamicElement);
-                                            break;
+                                         // console.log(dynamicElement.text());
+                                         if(currentComponent.HeadingThree != (null || "")) {
+                                            dynamicElement.text(currentComponent.HeadingThree);
+                                         }
+                                        break;
+
+                                        case 'A':
+                                          if(currentComponent.LinkText != (null || "")) {
+                                            dynamicElement.text(currentComponent.LinkText)
+                                          }
+                                          if(currentComponent.LinkUrl != (null || "")) {
+                                            dynamicElement.attr('href', currentComponent.LinkUrl);
+                                          }
+                                        break;
+
+                                        case 'IMG': 
+                                          if(currentComponent.Image != (null || "")) {
+                                             dynamicElement.attr('src', currentComponent.Image);
+                                          }
+                                        break;                                        
                                     }
-                                }
+                                    switch(dynamicElement.prop('class')) {
+
+                                        case 'teaser':
+                                        if(currentComponent.Teaser != (null || "")) {
+                                            dynamicElement.text(currentComponent.Teaser);
+                                        }
+
+                                        case 'rich-content':
+                                        if(currentComponent.RichContent != (null || "")) {
+                                            dynamicElement.text(currentComponent.RichContent);
+                                        }
+                                        case 'price':
+                                        if(currentComponent.Price != (null || "")) {
+                                            dynamicElement.text(currentComponent.Price);
+                                        }
+                                        break;
+
+                                    }
+
+                                })
+                               
                             }
 
                         }

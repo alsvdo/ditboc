@@ -45,7 +45,6 @@
     <script type="text/javascript">
          $('#menuTable').sheetrock({
             sql: 'select %Id%, %Name%, %Parent%',
-            url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1312722092',
             userCallback: function(){
                 var tableData = $('#menuTable').tableToJSON();                 
                     mainMenu = $('nav#main-menu>ul[role="navigation"]');

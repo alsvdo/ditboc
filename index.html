@@ -139,6 +139,9 @@
                                     var dynamicElement = $(this);
                                     // console.log($(this));
                                     // console.log(dynamicElement.context)
+
+                                    console.log(dynamicElement.data());
+
                                     switch(dynamicElement.prop('tagName')) {
                                         case 'H1': 
                                          if(currentComponent.HeadingOne != (null || "")) {
@@ -180,7 +183,7 @@
                                             if(currentComponent.Teaser != (null || "")) {
                                                 dynamicElement.text(currentComponent.Teaser);
                                             }
-                                        case 'rich-content':
+                                        case 'richcontent':
                                             if(currentComponent.RichContent != (null || "")) {
                                                 dynamicElement.text(currentComponent.RichContent);
                                             }

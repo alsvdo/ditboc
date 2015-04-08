@@ -1,0 +1,58 @@
+.product-info {
+	padding-bottom: 20px;
+	padding-left: 6px;
+	padding-right: 6px;
+	
+	li  {
+		list-style-type: none;
+	}
+	
+	h1 {
+		margin-top: 0;
+	}
+	.teaser {
+		color: #666;
+		font-size: 14px;
+	}
+	.print-out {
+		color: orange;
+		margin-bottom: 0;
+		margin-top: 30px;
+		text-decoration: underline;
+	}
+	ul {
+		margin: 20px 0;
+		padding: 0;
+		li {
+			small:first-child {
+				min-width: 90px;
+				display: inline-block;
+			}
+		}
+	}
+	hr {
+		margin: 20px 0;
+	}
+	.breadcrumb {
+		margin: 0;
+	}
+	big {
+		margin: 10px 0;
+		display: inline-block;
+		background: #ededed;
+		padding: 8px 20px;
+	}
+	.price {
+		margin: 5px 0;
+		padding: 2px 20px;
+		background: #ccc;
+		color: #33;
+	}
+	.buy {
+		span {
+			padding: 20px 70px !important;
+			display: inline-block !important;
+		}
+		margin: 20px 0;
+	}
+}

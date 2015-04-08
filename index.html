@@ -45,7 +45,6 @@
 
     <main>  
         <div class="container">
-          
         </div>
     </main>
 
@@ -127,6 +126,7 @@
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
               sql: 'Select *',
               headersOff: true,
+            // 
               // D = "Filename" 
               // A = "Component"
               // F = "Heading 1"
@@ -141,6 +141,8 @@
               // O = "Price"
               userCallback: function(){
                 componentData = $('#componentTable').tableToJSON();
+                          console.log(componentData);
+
               }
             });
 
@@ -201,18 +203,22 @@
                                     switch(dynamicElement.prop('class')) {
 
                                         case 'teaser':
-                                        if(currentComponent.Teaser != (null || "")) {
-                                            dynamicElement.text(currentComponent.Teaser);
-                                        }
-
+                                            if(currentComponent.Teaser != (null || "")) {
+                                                dynamicElement.text(currentComponent.Teaser);
+                                            }
                                         case 'rich-content':
-                                        if(currentComponent.RichContent != (null || "")) {
-                                            dynamicElement.text(currentComponent.RichContent);
-                                        }
+                                            if(currentComponent.RichContent != (null || "")) {
+                                                dynamicElement.text(currentComponent.RichContent);
+                                            }
                                         case 'price':
-                                        if(currentComponent.Price != (null || "")) {
-                                            dynamicElement.text(currentComponent.Price);
-                                        }
+                                            if(currentComponent.Price != (null || "")) {
+                                                dynamicElement.text(currentComponent.Price);
+                                            }
+                                        break;
+                                        case 'date':
+                                            if(currentComponent.Date != (null || "")) {
+                                                dynamicElement.text(currentComponent.Date);
+                                            }
                                         break;
 
                                     }

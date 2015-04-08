@@ -67,7 +67,7 @@
                                     // elementList.append('<li data-id="'+ currentObject.Id +'"><a data-page="'+currentObject.Id+'">'+ currentObject.Name +'</a></li>')
                                     } else {
                                         parentElement.attr('data-dropdown', true);
-                                        parentElement.children('a:first').append('<span class="caret"></span>');
+                                        parentElement.children('a:first').append(' <span class="caret"></span>');
                                         // parentElement.addClass  ('dropdown-toggle');
                                         parentElement.append('<ul data-id="'+currentObject.Parent+'"></ul>');
                                     }

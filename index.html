@@ -203,16 +203,18 @@
                                           }
                                         break;                                        
                                     }
-                                    switch(dynamicElement.prop('class')) {
+                                    switch(dynamicElement.attr('data-dynamic')) {
 
                                         case 'teaser':
                                             if(currentComponent.Teaser != (null || "")) {
                                                 dynamicElement.text(currentComponent.Teaser);
                                             }
+                                        break;
                                         case 'richcontent':
                                             if(currentComponent.RichContent != (null || "")) {
                                                 dynamicElement.text(currentComponent.RichContent);
                                             }
+                                        break;
                                         case 'price':
                                             if(currentComponent.Price != (null || "")) {
                                                 dynamicElement.text(currentComponent.Price);

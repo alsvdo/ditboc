@@ -1,18 +1,18 @@
 @font-face {
   font-family: "GarageGothic";
-  src: url('/fonts/GarageGothic-Bold.otf?1428492242') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428492242') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428492242') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428492242') format('woff');
+  src: url('/fonts/GarageGothic-Bold.otf?1428409108') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428409108') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428409108') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428409108') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-  src: url('/fonts/SignaColumnLight.otf?1428492242') format('opentype'), url('/fonts/SignaColumnLight.eot?1428492242') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428492242') format('truetype'), url('/fonts/SignaColumnLight.woff?1428492242') format('woff'), url('/fonts/SignaColumnLight.svg?1428492242') format('svg');
+  src: url('/fonts/SignaColumnLight.otf?1428409109') format('opentype'), url('/fonts/SignaColumnLight.eot?1428409109') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428409109') format('truetype'), url('/fonts/SignaColumnLight.woff?1428409109') format('woff'), url('/fonts/SignaColumnLight.svg?1428409109') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-  src: url('/fonts/SignaColumnBold.otf?1428492242') format('opentype'), url('/fonts/SignaColumnBold.eot?1428492242') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428492242') format('truetype'), url('/fonts/SignaColumnBold.woff?1428492242') format('woff'), url('/fonts/SignaColumnBold.svg?1428492242') format('svg');
+  src: url('/fonts/SignaColumnBold.otf?1428409109') format('opentype'), url('/fonts/SignaColumnBold.eot?1428409109') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428409109') format('truetype'), url('/fonts/SignaColumnBold.woff?1428409109') format('woff'), url('/fonts/SignaColumnBold.svg?1428409109') format('svg');
   font-weight: bold;
   font-style: normal;
 }
@@ -28,6 +28,65 @@ data {
 /* line 9, ../sass/1-Base/_base.scss */
 a[data-page] {
   cursor: pointer;
+}
+
+/* line 14, ../sass/1-Base/_base.scss */
+.stickyNav, .stickyElm {
+  display: none;
+}
+
+/* line 17, ../sass/1-Base/_base.scss */
+.styckyWrapper {
+  position: relative;
+  padding-top: 100px;
+}
+
+/* line 21, ../sass/1-Base/_base.scss */
+.stickyNav {
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
+}
+/* line 25, ../sass/1-Base/_base.scss */
+.stickyNav.sticky {
+  position: fixed;
+  top: 0;
+  margin-top: 0;
+  width: 100%;
+}
+/* line 30, ../sass/1-Base/_base.scss */
+.stickyNav li {
+  display: inline-block;
+  padding: 10px;
+}
+/* line 34, ../sass/1-Base/_base.scss */
+.stickyNav li.selected {
+  background: gray;
+}
+/* line 36, ../sass/1-Base/_base.scss */
+.stickyNav li.selected a {
+  color: white;
+}
+/* line 38, ../sass/1-Base/_base.scss */
+.stickyNav li.tabSelector {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 42, ../sass/1-Base/_base.scss */
+.stickyNav a {
+  color: black;
+}
+
+/* line 46, ../sass/1-Base/_base.scss */
+.stickyElm {
+  height: 300px;
+  border: 1px solid red;
+}
+/* line 50, ../sass/1-Base/_base.scss */
+.stickyElm.active {
+  background: gray;
 }
 
 /* line 1, ../sass/2-Modules/_main-menu.scss */

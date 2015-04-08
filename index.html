@@ -99,55 +99,77 @@
         var componentData = new Array();
           $('#componentTable').sheetrock({
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
-              sql: 'Select %D%, %A%',
+              sql: 'Select *',
               headersOff: true,
-              // D = "Filename" & A = "Component"
+              // D = "Filename" 
+              // A = "Component"
+              // F = "Heading 1"
+              // G = "Heading 2"
+              // H = "Heading 3"
+              // I = "Teaser"
+              // J = "Rich Content"
+              // K = "Link Text"
+              // L = "Link"
+              // M = "Image"
+              // N = "Date"
+              // O = "Price"
               userCallback: function(){
                 componentData = $('#componentTable').tableToJSON();
+                console.log(componentData);
               }
             });
 
 
-       
-
-        function getComponent(target, componentName, componentType, replace) {
-            
+    
+        function getComponent(target, componentName, componentType) {           
 
             for(var i = 0; i < componentData.length; i++) {
                 if(componentData[i].Component == componentName){
                     var currentComponent = componentData[i];
-                    var filenameParameter;
-                    var requestString;
                     var filename = currentComponent.Filename;
+                    console.log(currentComponent);
                     // console.log(componentData[i].Component);
 
+                    // if(filename.indexOf(',') > -1) {
+                    //     filenameParameter = currentComponent.Filename.split(',')[1].trim();
+                    //     filename = currentComponent.Filename.split(',')[0].trim();
+                    // }
 
-                    if(filename.indexOf(',') > -1) {
-                        filenameParameter = currentComponent.Filename.split(',')[1].trim();
-                        filename = currentComponent.Filename.split(',')[0].trim();
-                    }
+                    // if(filenameParameter != null) {                        
+                    //     // console.log(filenameParameter);
+                    //     // console.log(filename);
+                    //     // requestString = '"components/' + componentType +'-managed/' + filename + '",' + {parameter: filenameParameter};
+                    //     $.get('components/'+ componentType +'-managed/'+ filename +'', {parameter: filenameParameter}).success(function(data){
+                    //          if(componentType == "layout") {
+                    //             target.replaceWith(data);
+                    //         } else {
+                    //             target.append(data);
+                    //         }
+                    //     })
+                    $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
+                        if(componentType == "layout") {
+                            target.replaceWith(data);
+                        } else {
+                            target.append(data); 
 
-                    if(filenameParameter != null) {                        
-                        // console.log(filenameParameter);
-                        // console.log(filename);
-                        // requestString = '"components/' + componentType +'-managed/' + filename + '",' + {parameter: filenameParameter};
-                        $.get('components/'+ componentType +'-managed/'+ filename +'', {parameter: filenameParameter}).success(function(data){
-                             if(replace) {
-                                target.replaceWith(data);
-                            } else {
-                                target.append(data);
+                            if(target.find('*[data-dynamic]').length) {
+                                var dynamicElements = target.find('*[data-dynamic]');
+                                for(var i = 0; i < dynamicElements.length; i++) {
+                                    var dynamicElement = dynamicElements[i];
+
+                                    switch(dynamicElement.tagName) {
+
+                                        case 'H3':         
+                                                // console.log(currentComponent.HeadingThree);                                  
+                                                console.log(dynamicElement);
+                                            break;
+                                    }
+                                }
                             }
-                        })
-                    } else {
-                        $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
 
-                            if(replace) {
-                                target.replaceWith(data);
-                            } else {
-                                target.append(data);
-                            }
-                        })
-                    }
+                        }
+                    })
+
 
 
                     
@@ -180,6 +202,7 @@
             // }                
         };
 
+
         function getPageComponenents(pageId){
             $('#pageComponentsTable').sheetrock({
                 sql: "Select %Components% where %Id% = " + pageId,
@@ -196,10 +219,12 @@
                                 colSize = 12 / rowCompenents.length;
                             latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                             var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                            getComponent($('#nav'), 'Global menu', 'layout', true);                         
-                            getComponent(latestCol, componentName, 'editorial', false);  
+                            getComponent(latestCol, componentName, 'editorial');  
+
                         }
-                    }                 
+                    }     
+                    getComponent($('#nav'), 'Global menu', 'layout', true);                         
+            
                 }
             });
         };   

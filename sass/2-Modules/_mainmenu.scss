@@ -1,0 +1,59 @@
+#main-menu {
+	margin-bottom: 20px;
+	* {
+		z-index: 999;
+	}
+}
+
+#main-menu {
+	ul {
+		li[data-dropdown] {
+			position: static;
+			a {
+				text-decoration: none;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+			ul {
+				position: relative;
+				display: none;
+				right: 0;
+				left: 0;
+				padding: 0;
+				background: #ededed;
+				&:after {
+					content: "";
+					display: table;
+					clear: both;
+				}
+				@include breakpoint($tablet) {
+					position: absolute;
+					top: 50px;
+					padding: 0 10px;
+				}
+			}
+			li {
+				list-style-type: none;
+				a {
+					display: block;
+					padding: 15px;
+					color: #a7a7a7;
+					&:hover {
+						color: #333;
+					}
+				}
+				
+				@include breakpoint($tablet) {
+					float: left;
+				}
+			}
+			
+			&:hover {
+				> ul {
+					display: block;
+				}
+			}
+		}
+	}
+}

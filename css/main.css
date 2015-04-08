@@ -1,18 +1,18 @@
 @font-face {
   font-family: "GarageGothic";
-  src: url('/fonts/GarageGothic-Bold.otf?1428479043') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428479043') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428479043') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428479043') format('woff');
+  src: url('/fonts/GarageGothic-Bold.otf?1428411950') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428411950') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428411950') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428411950') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-  src: url('/fonts/SignaColumnLight.otf?1428479043') format('opentype'), url('/fonts/SignaColumnLight.eot?1428479043') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428479043') format('truetype'), url('/fonts/SignaColumnLight.woff?1428479043') format('woff'), url('/fonts/SignaColumnLight.svg?1428479043') format('svg');
+  src: url('/fonts/SignaColumnLight.otf?1428411950') format('opentype'), url('/fonts/SignaColumnLight.eot?1428411950') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428411950') format('truetype'), url('/fonts/SignaColumnLight.woff?1428411950') format('woff'), url('/fonts/SignaColumnLight.svg?1428411950') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-  src: url('/fonts/SignaColumnBold.otf?1428479043') format('opentype'), url('/fonts/SignaColumnBold.eot?1428479043') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428479043') format('truetype'), url('/fonts/SignaColumnBold.woff?1428479043') format('woff'), url('/fonts/SignaColumnBold.svg?1428479043') format('svg');
+  src: url('/fonts/SignaColumnBold.otf?1428411950') format('opentype'), url('/fonts/SignaColumnBold.eot?1428411950') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428411950') format('truetype'), url('/fonts/SignaColumnBold.woff?1428411950') format('woff'), url('/fonts/SignaColumnBold.svg?1428411950') format('svg');
   font-weight: bold;
   font-style: normal;
 }
@@ -97,4 +97,13 @@ a[data-page] {
 /* line 53, ../sass/2-Modules/_mainmenu.scss */
 #main-menu ul li[data-dropdown]:hover > ul {
   display: block;
+}
+
+/* line 3, ../sass/2-Modules/_productlist.scss */
+.productlist h2 {
+  font-size: 18px;
+}
+/* line 6, ../sass/2-Modules/_productlist.scss */
+.productlist h3 {
+  font-size: 14px;
 }

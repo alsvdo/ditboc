@@ -1,0 +1,12 @@
+data {
+	position: absolute;
+	visibility: hidden;
+	height: 0;
+	width: 0;
+	opacity: 0;
+}
+
+a[data-page] {
+	cursor: pointer;
+}
+

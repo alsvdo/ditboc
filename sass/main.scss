@@ -15,9 +15,13 @@ a[data-page] {
 	cursor: pointer;
 }
 
-nav#main-menu {
-	z-index: 99;
+#main-menu {
+	margin-bottom: 20px;
+	* {
+		z-index: 999;
+	}
 }
+
 #main-menu > ul > li[data-dropdown] {
 	position: static;
 	a {

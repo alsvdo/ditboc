@@ -6,6 +6,12 @@
 }
 
 #main-menu {
+	margin: 0 15px 10px;
+	
+	@include breakpoint($tablet) {
+		margin: 0 0 10px;
+	}
+	
 	ul {
 		li[data-dropdown] {
 			position: static;
@@ -43,17 +49,18 @@
 						color: #333;
 					}
 				}
-				
 				@include breakpoint($tablet) {
 					float: left;
 				}
 			}
-			
 			&:hover {
 				> ul {
 					display: block;
 				}
 			}
 		}
+	}
+	ul[role="navigation"] {
+		text-align: center;
 	}
 }

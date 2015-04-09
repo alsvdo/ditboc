@@ -249,6 +249,16 @@
                                                 dynamicElement.html(currentComponent.Date);
                                             }
                                         break;
+                                        case 'backgroundimage':
+                                            if(currentComponent.Image != (null || "")) {
+                                               dynamicElement.attr('style', 'background-size:cover;background-repeat:no-repeat;background-image: url("'+currentComponent.Image+'");');
+                                            }
+                                        break;
+                                        case 'video':
+                                            if(currentComponent.RichContent != (null || "")) {
+                                                dynamicElement.attr('src', currentComponent.RichContent);
+                                            }
+                                        break;
 
                                     }
 

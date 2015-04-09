@@ -1,0 +1,33 @@
+<!--
+component name:			Content component 
+Description: 			Used for standard web page content
+component type:			Editor managed component
+filename:				spot-with-background-video.html
+querystring paremeters:	none
+dependencies: 
+	frameworks:			bootstrap
+	pure javascript:	none
+	pure css:			none
+
+-->
+
+<style type="text/css">
+	.panel-video {
+		height: 200px;
+		position: relative;
+	}
+	.panel-video iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 200px;
+		width: 100%;
+	}
+</style>
+<div class="panel panel-default panel-video">
+	<div class="panel-body">
+		<iframe width="560" height="315" data-dynamic="video" frameborder="0"></iframe>
+	</div>
+</div>

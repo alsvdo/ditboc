@@ -1,9 +1,18 @@
-    <nav id="main-menu" class="nav navbar-default">
-        <ul role="navigation" class="nav navbar-nav">
-          
+<nav id="main-menu" class="nav navbar-default">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul role="navigation" class="nav navbar-nav">
 
 
-        <!--   <li><a href="#">Forside</a>
+
+			<!--   <li><a href="#">Forside</a>
             </li>
             <li data-dropdown data-level="1" data-id="2"><a href="#">Butikker <span class="caret"></span></a>
                 <ul>
@@ -39,53 +48,64 @@
                     </li>
                 </ul>
             </li> -->
-        </ul>
-    </nav>
-   
-    <script type="text/javascript">
-         $('#menuTable').sheetrock({
-            sql: 'select %Id%, %Name%, %Parent%',
-            userCallback: function(){
-                var tableData = $('#menuTable').tableToJSON();                 
-                    mainMenu = $('nav#main-menu>ul[role="navigation"]');
+		</ul>
+	</div>
+</nav>
 
-                    for(var i = 0; i < tableData.length; i++) {
-                        var currentObject = tableData[i];
-                        if(currentObject.Name != (null || "")) {
-                            mainMenu.append('<li data-id="'+currentObject.Id+'"><a data-page="'+ currentObject.Id +'">'+ currentObject.Name +'</a></li>');
-                        }
-                    }
-                    for(var i = 0; i < tableData.length; i++) {
-                        var currentObject = tableData[i];
-                        if(currentObject.Name != (null || "")) {
-                            if(currentObject.Parent != (null || "")) {
-                                var parentElement = $('li[data-id="'+currentObject.Parent+'"]');
-                                if(parentElement.length) {
-                                    if(!parentElement.data('dropdown')) {  
-                                        parentElement.attr('data-dropdown', true);
-                                        parentElement.children('a:first').append(' <span class="caret"></span>');
-                                        // parentElement.addClass  ('dropdown-toggle');
-                                        parentElement.append('<ul data-id="'+currentObject.Parent+'"></ul>');
-                                    }
-                                    var elementList = $('li[data-id="'+currentObject.Parent+'"]>ul[data-id="'+currentObject.Parent+'"]');
+<script type="text/javascript">
+	$('#menuTable').sheetrock({
+		sql: 'select %Id%, %Name%, %Parent%',
+		userCallback: function () {
+			var tableData = $('#menuTable').tableToJSON();
+			mainMenu = $('nav#main-menu div >ul[role="navigation"]');
 
-                                    $('li[data-id="'+currentObject.Id+'"]').remove();
-                                    elementList.append('<li data-id="'+ currentObject.Id+'"><a data-page="'+ currentObject.Id+'">'+ currentObject.Name +'</a></li>');
-                                   
-                                }
-                            }
-                        }
-                    }
-              
-            }
-        });
+			for (var i = 0; i < tableData.length; i++) {
+				var currentObject = tableData[i];
+				if (currentObject.Name != (null || "")) {
+					mainMenu.append('<li data-id="' + currentObject.Id + '"><a data-page="' + currentObject.Id + '">' + currentObject.Name + '</a></li>');
+				}
+			}
+			for (var i = 0; i < tableData.length; i++) {
+				var currentObject = tableData[i];
+				if (currentObject.Name != (null || "")) {
+					if (currentObject.Parent != (null || "")) {
+						var parentElement = $('li[data-id="' + currentObject.Parent + '"]');
+						if (parentElement.length) {
+							if (!parentElement.data('dropdown')) {
+								parentElement.attr('data-dropdown', true);
+								parentElement.children('a:first').append(' <span class="caret"></span>');
+								// parentElement.addClass  ('dropdown-toggle');
+								parentElement.append('<ul data-id="' + currentObject.Parent + '"></ul>');
+							}
+							var elementList = $('li[data-id="' + currentObject.Parent + '"]>ul[data-id="' + currentObject.Parent + '"]');
 
-         $(document).on('click','a[data-page]', function(e){
+							$('li[data-id="' + currentObject.Id + '"]').remove();
+							elementList.append('<li data-id="' + currentObject.Id + '"><a data-page="' + currentObject.Id + '">' + currentObject.Name + '</a></li>');
 
-            var pageId = $(e.target).data('page'),
-                currentLocation = window.location;
-            window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+						}
+					}
+				}
+			}
 
-         });
-       
-    </script>
+		}
+	});
+
+	$(document).on('click', 'a[data-page]', function (e) {
+
+		var pageId = $(e.target).data('page'),
+			currentLocation = window.location;
+
+		if ($(e.target).next('ul').length) {
+			if ($(e.target).hasClass('clicked')) {
+				window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+			} else {
+				$('a[data-page]').removeClass('clicked');
+				$(e.target).addClass('clicked')
+			}
+		} else {
+			window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+		}
+
+
+	});
+</script>

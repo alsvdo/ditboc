@@ -16,11 +16,10 @@
 <script type="text/javascript">
 	var tableData = new Array();
 	$(dataTable).sheetrock({
-		sql: 'select %Id%, %Name%, %Parent% order by %SortOrder% desc',
+		sql: 'select %Id%, %Name%, %Parent% where %HideInLists% != TRUE order by %SortOrder% desc',
 		labels: ['Id', 'Name', 'Parent', 'SortOrder'],
 		rowHandler: function(row) {
 			tableData.push(row.cells);
-			console.log(row.cells);
 		},
 		userCallback: function () {
 			mainMenu = $('nav#main-menu div >ul[role="navigation"]');
@@ -28,7 +27,6 @@
 
 			for (var i = 0; i < tableData.length; i++) {
 				var currentObject = tableData[i];
-				console.log(currentObject);
 				if (currentObject.Name != (null || "")) {
 					mainMenu.append('<li data-id="' + currentObject.Id + '"><a data-page="' + currentObject.Id + '">' + currentObject.Name + '</a></li>');
 				}
@@ -42,14 +40,11 @@
 							if (!parentElement.data('dropdown')) {
 								parentElement.attr('data-dropdown', true);
 								parentElement.children('a:first').append(' <span class="caret"></span>');
-								// parentElement.addClass  ('dropdown-toggle');
 								parentElement.append('<ul data-id="' + currentObject.Parent + '"></ul>');
 							}
 							var elementList = $('li[data-id="' + currentObject.Parent + '"]>ul[data-id="' + currentObject.Parent + '"]');
-
 							$('li[data-id="' + currentObject.Id + '"]').remove();
 							elementList.append('<li data-id="' + currentObject.Id + '"><a data-page="' + currentObject.Id + '">' + currentObject.Name + '</a></li>');
-
 						}
 					}
 				}

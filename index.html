@@ -119,14 +119,7 @@
             return newURL;
         }
     
-        // function populateTemplate(datatable, template, target) {
-        //     var tableData = datatable.tableToJSON(),
-        //         source = template.html(),
-        //         template = Handlebars.compile(source),
-        //         context = {item: tableData},
-        //         html = template(context);
-        //         target.append(html);
-        // };
+       
 
         var componentData = new Array();
           $(dataTable).sheetrock({
@@ -139,14 +132,7 @@
               },        
             });
 
-          function sortByKey(array, key) {
-                return array.sort(function(a, b) {
-                    var x = a[key]; var y = b[key];
-                    return ((x < y) ? +1 : ((x > y) ? 1 : 0));
-                });
-            }
-
-
+      
     
         function getComponent(target, componentName, componentType) {           
 
@@ -274,7 +260,6 @@
                 sql: "Select %Components% where %Id% = " + pageId,
                 rowHandler: function(row){
                     pageComponents.push(row.cells);
-                    console.log(row.cells);
                 },
                 userCallback: function(){
                     getComponent($('#main-menu'), 'Global menu', 'layout', true); 

@@ -35,9 +35,11 @@
             4
         </div>
     </div>      
+
     <table id="datatable"></table>
 
-    <div id="nav"></div>
+    <nav id="main-menu">      
+    </nav>
 
     <main>  
         <div class="container">
@@ -153,8 +155,6 @@
                                 var dynamicElements = boundTarget.find('*[data-dynamic]');                                
                                 dynamicElements.each(function(){
                                     var dynamicElement = $(this);
-                                  
-
                                     console.log(dynamicElement.data());
                                     switch(dynamicElement.prop('tagName')) {
                                         case 'H1': 
@@ -274,8 +274,7 @@
 
                         }
                     }     
-                    getComponent($('#nav'), 'Global menu', 'layout', true);                         
-            
+                    getComponent($('#main-menu'), 'Global menu', 'layout', true); 
                 }
             });
         };   

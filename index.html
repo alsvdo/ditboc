@@ -55,7 +55,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
     <script src="js/jquery.tabletojson.js"></script>
     <script src="js/main.js"></script>
-    <script type=text/javascript>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            cache: true
+        });
         var sheetId = 0;
         if(getUrlParameter('sheet') != null) {
             var sheetId = getUrlParameter('sheet');
@@ -206,6 +209,24 @@
                                         break;                                        
                                     }
                                     switch(dynamicElement.attr('data-dynamic')) {
+
+                                        case 'h1': 
+                                         if(currentComponent.HeadingOne != (null || "")) {
+                                            dynamicElement.html(currentComponent.HeadingOne);
+                                         }
+                                        break;
+
+                                        case 'h2':
+                                         if(currentComponent.HeadingTwo != (null || "")) {
+                                            dynamicElement.html(currentComponent.HeadingTwo);
+                                         }
+                                        break;
+
+                                        case 'h3':
+                                         if(currentComponent.HeadingThree != (null || "")) {
+                                            dynamicElement.html(currentComponent.HeadingThree);
+                                         }
+                                        break;
 
                                         case 'teaser':
                                             if(currentComponent.Teaser != (null || "")) {

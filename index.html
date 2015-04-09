@@ -128,28 +128,29 @@
         };
 
         var componentData = new Array();
+        var firstRow;
           $('#componentTable').sheetrock({
+              columns: {A: 'Component'},
+              labels: ['Component','Category','Description','Filename','Type','HeadingOne','HeadingTwo','HeadingThree','Teaser','RichContent','LinkText','LinkUrl' ,'Image','Date','Price','Status','UserStoryForPresentation','UserStoryForEditing','ExistsInAMF'],
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
               sql: 'Select *',
               headersOff: true,
-            // 
-              // D = "Filename" 
-              // A = "Component"
-              // F = "Heading 1"
-              // G = "Heading 2"
-              // H = "Heading 3"
-              // I = "Teaser"
-              // J = "Rich Content"
-              // K = "Link Text"
-              // L = "Link"
-              // M = "Image"
-              // N = "Date"
-              // O = "Price"
+              // headers: 19,
+              // columns: {A:'Component', D:'FileName', F:'HeadingOne', G:'HeadingTwo', H:'HeadingThree', I:'Teaser', J:'RichContent'},
+              // labels: ['Component', 'FileName', 'HeadingOne','HeadingTwo','HeadingThree', 'Teaser', 'RichContent'],
+              rowHandler: function(row){
+               
+                    componentData.push(row.cells);
+             
+                return "";
+              },
+          
               userCallback: function(){
-                componentData = $('#componentTable').tableToJSON({allowHTML: true});
+                // componentData = $('#componentTable').tableToJSON({allowHTML: true});
                           console.log(componentData);
 
               }
+
             });
 
 

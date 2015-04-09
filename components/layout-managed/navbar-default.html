@@ -9,58 +9,26 @@
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul role="navigation" class="nav navbar-nav">
-
-
-
-			<!--   <li><a href="#">Forside</a>
-            </li>
-            <li data-dropdown data-level="1" data-id="2"><a href="#">Butikker <span class="caret"></span></a>
-                <ul>
-                    <li><a href="#">Butik 1</a>
-                    </li>
-                    <li><a href="#">Butik 2</a>
-                    </li>
-                    <li><a href="#">Butik 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="#">Om os</a>
-            </li>
-            <li><a href="#">Kontakt</a>
-            </li>
-            <li data-dropdown data-level="1" data-id="5"><a href="#">Fede Ting <span class="caret"></span> <span style="margin-left: 4px">(◕ヮ◕)</span></a>
-                <ul>
-                    <li><a href="#">Biler</a>
-                    </li>
-                    <li><a href="#">Både</a>
-                    </li>
-                    <li><a href="#">Bikes</a>
-                    </li>
-                    <li data-dropdown data-level="2" data-id="3"><a href="#">Rune <span class="caret"></span></a>
-                        <ul>
-                            <li><a href="#">much</a>
-                            </li>
-                            <li><a href="#">cola</a>
-                            </li>
-                            <li><a href="#">wow</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li> -->
 		</ul>
 	</div>
 </nav>
 
 <script type="text/javascript">
-	$('#menuTable').sheetrock({
-		sql: 'select %Id%, %Name%, %Parent%',
+	var tableData = new Array();
+	$(dataTable).sheetrock({
+		sql: 'select %Id%, %Name%, %Parent% order by %SortOrder% desc',
+		labels: ['Id', 'Name', 'Parent', 'SortOrder'],
+		rowHandler: function(row) {
+			tableData.push(row.cells);
+			console.log(row.cells);
+		},
 		userCallback: function () {
-			var tableData = $('#menuTable').tableToJSON();
 			mainMenu = $('nav#main-menu div >ul[role="navigation"]');
+			tableData.reverse();
 
 			for (var i = 0; i < tableData.length; i++) {
 				var currentObject = tableData[i];
+				console.log(currentObject);
 				if (currentObject.Name != (null || "")) {
 					mainMenu.append('<li data-id="' + currentObject.Id + '"><a data-page="' + currentObject.Id + '">' + currentObject.Name + '</a></li>');
 				}

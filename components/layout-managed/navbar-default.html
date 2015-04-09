@@ -16,8 +16,8 @@
 <script type="text/javascript">
 	var tableData = new Array();
 	$(dataTable).sheetrock({
-		sql: 'select %Id%, %Name%, %Parent% where %HideInLists% != TRUE order by %SortOrder% desc',
-				// sql: 'select %Id%, %Name%, %Parent%',
+		// sql: 'select %Id%, %Name%, %Parent% where %HideInList% != TRUE order by %SortOrder% asc'
+		sql: 'select %Id%, %Name%, %Parent%',
 
 		labels: ['Id', 'Name', 'Parent'],
 		rowHandler: function(row) {
@@ -25,7 +25,7 @@
 		},
 		userCallback: function () {
 			mainMenu = $('nav#main-menu div >ul[role="navigation"]');
-			tableData.reverse();
+			// tableData.reverse();
 
 			for (var i = 0; i < tableData.length; i++) {
 				var currentObject = tableData[i];
@@ -35,6 +35,8 @@
 			}
 			for (var i = 0; i < tableData.length; i++) {
 				var currentObject = tableData[i];
+								console.log(currentObject);
+
 				if (currentObject.Name != (null || "")) {
 					if (currentObject.Parent != (null || "")) {
 						var parentElement = $('li[data-id="' + currentObject.Parent + '"]');

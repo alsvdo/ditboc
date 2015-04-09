@@ -52,6 +52,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
+
         $.ajaxSetup({
             cache: true
         });
@@ -137,6 +138,13 @@
                     componentData.push(row.cells);             
               },        
             });
+
+          function sortByKey(array, key) {
+                return array.sort(function(a, b) {
+                    var x = a[key]; var y = b[key];
+                    return ((x < y) ? +1 : ((x > y) ? 1 : 0));
+                });
+            }
 
 
     
@@ -259,6 +267,8 @@
                     console.log(row.cells);
                 },
                 userCallback: function(){
+                    getComponent($('#main-menu'), 'Global menu', 'layout', true); 
+
                         componentCollection = pageComponents[0].Components,
                         lbSplitCollection = componentCollection.split("\n");
                     for(var i=0; i < lbSplitCollection.length; i++) {
@@ -274,7 +284,6 @@
 
                         }
                     }     
-                    getComponent($('#main-menu'), 'Global menu', 'layout', true); 
                 }
             });
         };   

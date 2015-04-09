@@ -17,7 +17,9 @@
 	var tableData = new Array();
 	$(dataTable).sheetrock({
 		sql: 'select %Id%, %Name%, %Parent% where %HideInLists% != TRUE order by %SortOrder% desc',
-		labels: ['Id', 'Name', 'Parent', 'SortOrder'],
+				// sql: 'select %Id%, %Name%, %Parent%',
+
+		labels: ['Id', 'Name', 'Parent'],
 		rowHandler: function(row) {
 			tableData.push(row.cells);
 		},
@@ -53,21 +55,5 @@
 		}
 	});
 
-	$(document).on('click', 'a[data-page]', function (e) {
-
-		var pageId = $(e.target).data('page'),
-			currentLocation = window.location,
-			wWidth = $(window).width();
-
-		if ($(e.target).next('ul').length && wWidth <= 768) {
-			if ($(e.target).hasClass('clicked')) {
-				window.location.href = addUrlParameter(currentLocation, 'page', pageId);
-			} else {
-				$('a[data-page]').removeClass('clicked');
-				$(e.target).addClass('clicked')
-			}
-		} else {
-			window.location.href = addUrlParameter(currentLocation, 'page', pageId);
-		}
-	});
+	
 </script>

@@ -104,11 +104,28 @@
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
               sql: 'Select *',
               rowHandler: function(row){               
-                    componentData.push(row.cells);             
+                    componentData.push(row.cells);    
+
               },        
             });
 
-      
+        $(document).on('click', 'a[data-page]', function (e) {
+
+            var pageId = $(e.target).data('page'),
+                currentLocation = window.location,
+                wWidth = $(window).width();
+
+            if ($(e.target).next('ul').length && wWidth <= 768) {
+                if ($(e.target).hasClass('clicked')) {
+                    window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+                } else {
+                    $('a[data-page]').removeClass('clicked');
+                    $(e.target).addClass('clicked')
+                }
+            } else {
+                window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+            }
+        });
     
         function getComponent(target, componentName, componentType) {           
 
@@ -125,7 +142,6 @@
                                 var dynamicElements = boundTarget.find('*[data-dynamic]');                                
                                 dynamicElements.each(function(){
                                     var dynamicElement = $(this);
-                                    console.log(dynamicElement.data());
                                     switch(dynamicElement.prop('tagName')) {
                                         case 'H1': 
                                          if(currentComponent.HeadingOne != (null || "")) {
@@ -150,7 +166,11 @@
                                             dynamicElement.html(currentComponent.LinkText)
                                           }
                                           if(currentComponent.LinkUrl != (null || "")) {
-                                            dynamicElement.attr('href', currentComponent.LinkUrl);
+                                            if(currentComponent.LinkUrl.indexOf('http') > -1) {
+                                                dynamicElement.attr('href', currentComponent.LinkUrl);
+                                            } else if(currentComponent.LinkUrl.match(/\d+$/)){
+                                                dynamicElement.attr('data-page', currentComponent.LinkUrl);
+                                            }
                                           }
                                         break;
 

@@ -1,18 +1,18 @@
 @font-face {
   font-family: "GarageGothic";
-  src: url('/fonts/GarageGothic-Bold.otf?1428409108') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428409108') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428409108') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428409108') format('woff');
+  src: url('/fonts/GarageGothic-Bold.otf?1428492242') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428492242') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428492242') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428492242') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-  src: url('/fonts/SignaColumnLight.otf?1428409109') format('opentype'), url('/fonts/SignaColumnLight.eot?1428409109') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428409109') format('truetype'), url('/fonts/SignaColumnLight.woff?1428409109') format('woff'), url('/fonts/SignaColumnLight.svg?1428409109') format('svg');
+  src: url('/fonts/SignaColumnLight.otf?1428492242') format('opentype'), url('/fonts/SignaColumnLight.eot?1428492242') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428492242') format('truetype'), url('/fonts/SignaColumnLight.woff?1428492242') format('woff'), url('/fonts/SignaColumnLight.svg?1428492242') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-  src: url('/fonts/SignaColumnBold.otf?1428409109') format('opentype'), url('/fonts/SignaColumnBold.eot?1428409109') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428409109') format('truetype'), url('/fonts/SignaColumnBold.woff?1428409109') format('woff'), url('/fonts/SignaColumnBold.svg?1428409109') format('svg');
+  src: url('/fonts/SignaColumnBold.otf?1428492242') format('opentype'), url('/fonts/SignaColumnBold.eot?1428492242') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428492242') format('truetype'), url('/fonts/SignaColumnBold.woff?1428492242') format('woff'), url('/fonts/SignaColumnBold.svg?1428492242') format('svg');
   font-weight: bold;
   font-style: normal;
 }
@@ -94,19 +94,29 @@ a[data-page] {
   z-index: 999;
 }
 
-/* line 10, ../sass/2-Modules/_main-menu.scss */
+/* line 8, ../sass/2-Modules/_main-menu.scss */
+#main-menu {
+  margin: 0 15px 10px;
+}
+@media (min-width: 768px) {
+  /* line 8, ../sass/2-Modules/_main-menu.scss */
+  #main-menu {
+    margin: 0 0 10px;
+  }
+}
+/* line 16, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] {
   position: static;
 }
-/* line 12, ../sass/2-Modules/_main-menu.scss */
+/* line 18, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a {
   text-decoration: none;
 }
-/* line 14, ../sass/2-Modules/_main-menu.scss */
+/* line 20, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a:hover {
   text-decoration: none;
 }
-/* line 18, ../sass/2-Modules/_main-menu.scss */
+/* line 24, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul {
   position: relative;
   display: none;
@@ -115,43 +125,47 @@ a[data-page] {
   padding: 0;
   background: #ededed;
 }
-/* line 25, ../sass/2-Modules/_main-menu.scss */
+/* line 31, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul:after {
   content: "";
   display: table;
   clear: both;
 }
 @media (min-width: 768px) {
-  /* line 18, ../sass/2-Modules/_main-menu.scss */
+  /* line 24, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] ul {
     position: absolute;
     top: 50px;
     padding: 0 10px;
   }
 }
-/* line 36, ../sass/2-Modules/_main-menu.scss */
+/* line 42, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li {
   list-style-type: none;
 }
-/* line 38, ../sass/2-Modules/_main-menu.scss */
+/* line 44, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li a {
   display: block;
   padding: 15px;
   color: #a7a7a7;
 }
-/* line 42, ../sass/2-Modules/_main-menu.scss */
+/* line 48, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li a:hover {
   color: #333;
 }
 @media (min-width: 768px) {
-  /* line 36, ../sass/2-Modules/_main-menu.scss */
+  /* line 42, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] li {
     float: left;
   }
 }
-/* line 53, ../sass/2-Modules/_main-menu.scss */
+/* line 57, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown]:hover > ul {
   display: block;
+}
+/* line 63, ../sass/2-Modules/_main-menu.scss */
+#main-menu ul[role="navigation"] {
+  text-align: center;
 }
 
 /* line 1, ../sass/2-Modules/_product-info.scss */

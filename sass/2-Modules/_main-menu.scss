@@ -8,11 +8,25 @@
 #main-menu {
 	margin: 0 15px 10px;
 	min-height: 50px;
-	
 	@include breakpoint($tablet) {
 		margin: 0 0 10px;
 	}
-	
+	div > ul {
+		margin: 0 auto;
+		width: 100%;
+		float: none !important;
+		@include breakpoint($tablet) {
+			width: 768px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		@include breakpoint($desktop) {
+			width: 970px;
+		}
+		@include breakpoint($lgDesktop) {
+			width: 1170px;
+		}
+	}
 	ul {
 		width: 100%;
 		li[data-dropdown] {

@@ -105,19 +105,23 @@ a[data-page] {
     margin: 0 0 10px;
   }
 }
-/* line 17, ../sass/2-Modules/_main-menu.scss */
+/* line 16, ../sass/2-Modules/_main-menu.scss */
+#main-menu ul {
+  width: 100%;
+}
+/* line 18, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] {
   position: static;
 }
-/* line 19, ../sass/2-Modules/_main-menu.scss */
+/* line 20, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a {
   text-decoration: none;
 }
-/* line 21, ../sass/2-Modules/_main-menu.scss */
+/* line 22, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a:hover {
   text-decoration: none;
 }
-/* line 25, ../sass/2-Modules/_main-menu.scss */
+/* line 26, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul {
   position: relative;
   display: none;
@@ -126,44 +130,44 @@ a[data-page] {
   padding: 0;
   background: #ededed;
 }
-/* line 32, ../sass/2-Modules/_main-menu.scss */
+/* line 33, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul:after {
   content: "";
   display: table;
   clear: both;
 }
 @media (min-width: 768px) {
-  /* line 25, ../sass/2-Modules/_main-menu.scss */
+  /* line 26, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] ul {
     position: absolute;
     padding: 0 10px;
   }
 }
-/* line 42, ../sass/2-Modules/_main-menu.scss */
+/* line 43, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li {
   list-style-type: none;
 }
-/* line 44, ../sass/2-Modules/_main-menu.scss */
+/* line 45, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li a {
   display: block;
   padding: 15px;
   color: #a7a7a7;
 }
-/* line 48, ../sass/2-Modules/_main-menu.scss */
+/* line 49, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li a:hover {
   color: #333;
 }
 @media (min-width: 768px) {
-  /* line 42, ../sass/2-Modules/_main-menu.scss */
+  /* line 43, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] li {
     float: left;
   }
 }
-/* line 57, ../sass/2-Modules/_main-menu.scss */
+/* line 58, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown]:hover > ul {
   display: block;
 }
-/* line 63, ../sass/2-Modules/_main-menu.scss */
+/* line 64, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul[role="navigation"] {
   text-align: center;
 }
@@ -255,35 +259,37 @@ a[data-page] {
 
 /* line 16, ../sass/2-Modules/_orders.scss */
 .card-checkout {
+  margin-left: -15px;
+  margin-right: -15px;
   /* CSS for Credit Card Payment form */
 }
-/* line 19, ../sass/2-Modules/_orders.scss */
+/* line 21, ../sass/2-Modules/_orders.scss */
 .card-checkout .panel-title {
   display: inline;
   font-weight: bold;
 }
-/* line 23, ../sass/2-Modules/_orders.scss */
+/* line 25, ../sass/2-Modules/_orders.scss */
 .card-checkout .checkbox.pull-right {
   margin: 0;
 }
-/* line 26, ../sass/2-Modules/_orders.scss */
+/* line 28, ../sass/2-Modules/_orders.scss */
 .card-checkout .pl-ziro {
   padding-left: 0px;
 }
-/* line 29, ../sass/2-Modules/_orders.scss */
+/* line 31, ../sass/2-Modules/_orders.scss */
 .card-checkout .form-control.error {
   border-color: red;
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
 }
-/* line 34, ../sass/2-Modules/_orders.scss */
+/* line 36, ../sass/2-Modules/_orders.scss */
 .card-checkout label.error {
   font-weight: bold;
   color: red;
   padding: 2px 8px;
   margin-top: 2px;
 }
-/* line 40, ../sass/2-Modules/_orders.scss */
+/* line 42, ../sass/2-Modules/_orders.scss */
 .card-checkout .payment-errors {
   font-weight: bold;
   color: red;

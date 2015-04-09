@@ -53,7 +53,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://chriszarate.github.io/sheetrock/dist/jquery.sheetrock.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
-    <script src="js/jquery.tabletojson.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
         $.ajaxSetup({
@@ -67,6 +66,8 @@
         $.fn.sheetrock.options.url = spreadSheet;
         $.fn.sheetrock.options.chunkSize = 50;
         $.fn.sheetrock.options.formatting = true;
+        $.fn.sheetrock.options.headersOff = true;
+
 
 
         function getUrlParameter(param) {
@@ -118,39 +119,24 @@
             return newURL;
         }
     
-        function populateTemplate(datatable, template, target) {
-            var tableData = datatable.tableToJSON(),
-                source = template.html(),
-                template = Handlebars.compile(source),
-                context = {item: tableData},
-                html = template(context);
-                target.append(html);
-        };
+        // function populateTemplate(datatable, template, target) {
+        //     var tableData = datatable.tableToJSON(),
+        //         source = template.html(),
+        //         template = Handlebars.compile(source),
+        //         context = {item: tableData},
+        //         html = template(context);
+        //         target.append(html);
+        // };
 
         var componentData = new Array();
-        var firstRow;
           $('#componentTable').sheetrock({
-              columns: {A: 'Component'},
+              // This array becomes the property names of the output JSON object, it must have exactly the same amount of strings as the retrieved columns.
               labels: ['Component','Category','Description','Filename','Type','HeadingOne','HeadingTwo','HeadingThree','Teaser','RichContent','LinkText','LinkUrl' ,'Image','Date','Price','Status','UserStoryForPresentation','UserStoryForEditing','ExistsInAMF'],
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
               sql: 'Select *',
-              headersOff: true,
-              // headers: 19,
-              // columns: {A:'Component', D:'FileName', F:'HeadingOne', G:'HeadingTwo', H:'HeadingThree', I:'Teaser', J:'RichContent'},
-              // labels: ['Component', 'FileName', 'HeadingOne','HeadingTwo','HeadingThree', 'Teaser', 'RichContent'],
-              rowHandler: function(row){
-               
-                    componentData.push(row.cells);
-             
-                return "";
-              },
-          
-              userCallback: function(){
-                // componentData = $('#componentTable').tableToJSON({allowHTML: true});
-                          console.log(componentData);
-
-              }
-
+              rowHandler: function(row){               
+                    componentData.push(row.cells);             
+              },        
             });
 
 
@@ -170,8 +156,7 @@
                                 var dynamicElements = boundTarget.find('*[data-dynamic]');                                
                                 dynamicElements.each(function(){
                                     var dynamicElement = $(this);
-                                    // console.log($(this));
-                                    // console.log(dynamicElement.context)
+                                  
 
                                     console.log(dynamicElement.data());
                                     switch(dynamicElement.prop('tagName')) {
@@ -188,7 +173,6 @@
                                         break;
 
                                         case 'H3':         
-                                         // console.log(dynamicElement.text());
                                          if(currentComponent.HeadingThree != (null || "")) {
                                             dynamicElement.html(currentComponent.HeadingThree);
                                          }
@@ -264,39 +248,20 @@
                     
                 }
             }
-        //
-            // $('#componentTable').sheetrock({            
-            //       url: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
-            //       sql: 'Select %D% where %A% = "' + componentName + '"',
-            //       userCallback: function(){
-            //         var componentData = $('#componentTable').tableToJSON();
-
-            //          // $.get('components/'+ componentType +'-managed/'+ componentData[0].D).success(function(data){
-            //          //    if(replace) {
-            //          //        target.replaceWith(data);
-            //          //    } else {
-            //          //        target.append(data);
-            //          //    }
-            //          // };
-
-            //       }
-            // });
-
-            // $.get('components/'+ componentType +'-managed/'+ componentName +'.html').success(function(data){
-            //     if(replace) {
-            //         target.replaceWith(data)
-            //     } else {
-            //         target.append(data)
-            //     }
-            // }                
+  
         };
 
-
+        var pageComponents = new Array();
         function getPageComponenents(pageId){
             $('#pageComponentsTable').sheetrock({
+                labels: ['Components'],
+                headersOff: true,
                 sql: "Select %Components% where %Id% = " + pageId,
+                rowHandler: function(row){
+                    pageComponents.push(row.cells);
+                    console.log(row.cells);
+                },
                 userCallback: function(){
-                    var pageComponents = $('#pageComponentsTable').tableToJSON(),
                         componentCollection = pageComponents[0].Components,
                         lbSplitCollection = componentCollection.split("\n");
                     for(var i=0; i < lbSplitCollection.length; i++) {

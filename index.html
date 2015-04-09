@@ -238,11 +238,7 @@
                             }
 
                         }
-                    })
-
-
-
-                    
+                    })                    
                 }
             }
   
@@ -262,19 +258,19 @@
 
                         componentCollection = pageComponents[0].Components,
                         lbSplitCollection = componentCollection.split("\n");
-                    for(var i=0; i < lbSplitCollection.length; i++) {
-                        $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');                        
-                        var rowCompenents = lbSplitCollection[i].split(','),
-                            latestRow = $('main > .container > .row[data-id="'+ i +'"]');      
-                        for(var j=0; j < rowCompenents.length; j++){
-                            var componentName = rowCompenents[j].trim(),   
-                                colSize = 12 / rowCompenents.length;
-                            latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
-                            var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                            getComponent(latestCol, componentName, 'editorial');  
+                        for(var i=0; i < lbSplitCollection.length; i++) {
+                            $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');                        
+                            var rowCompenents = lbSplitCollection[i].split(','),
+                                latestRow = $('main > .container > .row[data-id="'+ i +'"]');      
+                            for(var j=0; j < rowCompenents.length; j++){
+                                var componentName = rowCompenents[j].trim(),   
+                                    colSize = 12 / rowCompenents.length;
+                                latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
+                                var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
+                                getComponent(latestCol, componentName, 'editorial');  
 
-                        }
-                    }     
+                            }
+                        }     
                 }
             });
         };   

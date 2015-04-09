@@ -54,7 +54,7 @@
 
 <script type="text/javascript">
 	var tableData = new Array();
-	$('#menuTable').sheetrock({
+	$(dataTable).sheetrock({
 		sql: 'select %Id%, %Name%, %Parent%',
 		labels: ['Id', 'Name', 'Parent'],
 		rowHandler: function(row) {

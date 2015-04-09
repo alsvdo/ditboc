@@ -34,13 +34,8 @@
         <div class="stickyElm">
             4
         </div>
-    </div>
-
-    <data>        
-         <table id="menuTable"></table>
-         <table id="pageComponentsTable"></table>
-         <table id="componentTable"></table>
-    </data>
+    </div>      
+    <table id="datatable"></table>
 
     <div id="nav"></div>
 
@@ -63,10 +58,12 @@
             var sheetId = getUrlParameter('sheet');
         }
         var spreadSheet = 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=' + sheetId;
+        var dataTable = $('#datatable');
         $.fn.sheetrock.options.url = spreadSheet;
         $.fn.sheetrock.options.chunkSize = 50;
         $.fn.sheetrock.options.formatting = true;
         $.fn.sheetrock.options.headersOff = true;
+
 
 
 
@@ -129,7 +126,7 @@
         // };
 
         var componentData = new Array();
-          $('#componentTable').sheetrock({
+          $(dataTable).sheetrock({
               // This array becomes the property names of the output JSON object, it must have exactly the same amount of strings as the retrieved columns.
               labels: ['Component','Category','Description','Filename','Type','HeadingOne','HeadingTwo','HeadingThree','Teaser','RichContent','LinkText','LinkUrl' ,'Image','Date','Price','Status','UserStoryForPresentation','UserStoryForEditing','ExistsInAMF'],
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
@@ -253,7 +250,7 @@
 
         var pageComponents = new Array();
         function getPageComponenents(pageId){
-            $('#pageComponentsTable').sheetrock({
+            $(dataTable).sheetrock({
                 labels: ['Components'],
                 headersOff: true,
                 sql: "Select %Components% where %Id% = " + pageId,

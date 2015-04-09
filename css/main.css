@@ -135,35 +135,34 @@ a[data-page] {
   /* line 24, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] ul {
     position: absolute;
-    top: 50%;
     padding: 0 10px;
   }
 }
-/* line 42, ../sass/2-Modules/_main-menu.scss */
+/* line 41, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li {
   list-style-type: none;
 }
-/* line 44, ../sass/2-Modules/_main-menu.scss */
+/* line 43, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li a {
   display: block;
   padding: 15px;
   color: #a7a7a7;
 }
-/* line 48, ../sass/2-Modules/_main-menu.scss */
+/* line 47, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li a:hover {
   color: #333;
 }
 @media (min-width: 768px) {
-  /* line 42, ../sass/2-Modules/_main-menu.scss */
+  /* line 41, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] li {
     float: left;
   }
 }
-/* line 57, ../sass/2-Modules/_main-menu.scss */
+/* line 56, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown]:hover > ul {
   display: block;
 }
-/* line 63, ../sass/2-Modules/_main-menu.scss */
+/* line 62, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul[role="navigation"] {
   text-align: center;
 }

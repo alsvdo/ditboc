@@ -93,9 +93,10 @@
 	$(document).on('click', 'a[data-page]', function (e) {
 
 		var pageId = $(e.target).data('page'),
-			currentLocation = window.location;
+			currentLocation = window.location,
+			wWidth = $(window).width();
 
-		if ($(e.target).next('ul').length) {
+		if ($(e.target).next('ul').length && wWidth <= 768) {
 			if ($(e.target).hasClass('clicked')) {
 				window.location.href = addUrlParameter(currentLocation, 'page', pageId);
 			} else {
@@ -105,7 +106,5 @@
 		} else {
 			window.location.href = addUrlParameter(currentLocation, 'page', pageId);
 		}
-
-
 	});
 </script>

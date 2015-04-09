@@ -1,30 +1,18 @@
 @font-face {
   font-family: "GarageGothic";
-<<<<<<< HEAD
-  src: url('/fonts/GarageGothic-Bold.otf?1428492242') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428492242') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428492242') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428492242') format('woff');
-=======
-  src: url('/fonts/GarageGothic-Bold.otf?1428411950') format('opentype'), url('/fonts/GarageGothic-Bold.eot?1428411950') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf?1428411950') format('truetype'), url('/fonts/GarageGothic-Bold.woff?1428411950') format('woff');
->>>>>>> 2f0d2b93dd6a2dc5c732ab7be3c6de86594cf4c9
+  src: url('/fonts/GarageGothic-Bold.otf') format('opentype'), url('/fonts/GarageGothic-Bold.eot') format('embedded-opentype'), url('/fonts/GarageGothic-Bold.ttf') format('truetype'), url('/fonts/GarageGothic-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-<<<<<<< HEAD
-  src: url('/fonts/SignaColumnLight.otf?1428492242') format('opentype'), url('/fonts/SignaColumnLight.eot?1428492242') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428492242') format('truetype'), url('/fonts/SignaColumnLight.woff?1428492242') format('woff'), url('/fonts/SignaColumnLight.svg?1428492242') format('svg');
-=======
-  src: url('/fonts/SignaColumnLight.otf?1428411950') format('opentype'), url('/fonts/SignaColumnLight.eot?1428411950') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf?1428411950') format('truetype'), url('/fonts/SignaColumnLight.woff?1428411950') format('woff'), url('/fonts/SignaColumnLight.svg?1428411950') format('svg');
->>>>>>> 2f0d2b93dd6a2dc5c732ab7be3c6de86594cf4c9
+  src: url('/fonts/SignaColumnLight.otf') format('opentype'), url('/fonts/SignaColumnLight.eot') format('embedded-opentype'), url('/fonts/SignaColumnLight.ttf') format('truetype'), url('/fonts/SignaColumnLight.woff') format('woff'), url('/fonts/SignaColumnLight.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Signa";
-<<<<<<< HEAD
-  src: url('/fonts/SignaColumnBold.otf?1428492242') format('opentype'), url('/fonts/SignaColumnBold.eot?1428492242') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428492242') format('truetype'), url('/fonts/SignaColumnBold.woff?1428492242') format('woff'), url('/fonts/SignaColumnBold.svg?1428492242') format('svg');
-=======
-  src: url('/fonts/SignaColumnBold.otf?1428411950') format('opentype'), url('/fonts/SignaColumnBold.eot?1428411950') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf?1428411950') format('truetype'), url('/fonts/SignaColumnBold.woff?1428411950') format('woff'), url('/fonts/SignaColumnBold.svg?1428411950') format('svg');
->>>>>>> 2f0d2b93dd6a2dc5c732ab7be3c6de86594cf4c9
+  src: url('/fonts/SignaColumnBold.otf') format('opentype'), url('/fonts/SignaColumnBold.eot') format('embedded-opentype'), url('/fonts/SignaColumnBold.ttf') format('truetype'), url('/fonts/SignaColumnBold.woff') format('woff'), url('/fonts/SignaColumnBold.svg') format('svg');
   font-weight: bold;
   font-style: normal;
 }

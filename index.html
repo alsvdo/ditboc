@@ -97,12 +97,42 @@
         var componentData = new Array();
           $(dataTable).sheetrock({
               // This array becomes the property names of the output JSON object, it must have exactly the same amount of strings as the retrieved columns.
-              labels: ['Component','Category','Description','Filename','Type','HeadingOne','HeadingTwo','HeadingThree','Teaser','RichContent','LinkText','LinkUrl' ,'Image','Date','Price','Status','UserStoryForPresentation','UserStoryForEditing','ExistsInAMF'],
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
-              sql: 'Select *',
+              
+              labels:     ['Component'
+                         , 'Filename'
+                         , 'Type'
+                         , 'HeadingOne'
+                         , 'HeadingTwo'
+                         , 'HeadingThree'
+                         , 'Teaser'
+                         , 'RichContent'
+                         , 'LinkText'
+                         , 'LinkUrl'
+                         , 'Image'
+                         , 'Date'
+                         , 'Price'],
+
+              columns: {A: 'Component'
+                        , D: 'Filename'
+                        , E: 'Type'
+                        , F: 'HeadingOne'
+                        , G: 'HeadingTwo'
+                        , H: 'HeadingThree'
+                        , I: 'Teaser'
+                        , J: 'RichContent'
+                        , K: 'LinkText'
+                        , L: 'LinkUrl'
+                        , M: 'Image'
+                        , N: 'Date'
+                        , O: 'Price'},
+
+              sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%',
+
+
               rowHandler: function(row){               
                     componentData.push(row.cells);    
-
+                    console.log(row.cells);
               },        
             });
 

@@ -43,7 +43,7 @@
 							if (!parentElement.data('dropdown')) {
 								parentElement.attr('data-dropdown', true);
 								parentElement.children('a:first').append(' <span class="caret"></span>');
-								parentElement.append('<ul data-id="' + currentObject.Parent + '"></ul>');
+								parentElement.append('<div class="menu-backgroun"><ul data-id="' + currentObject.Parent + '"></ul></div>');
 							}
 							var elementList = $('li[data-id="' + currentObject.Parent + '"]>ul[data-id="' + currentObject.Parent + '"]');
 							$('li[data-id="' + currentObject.Id + '"]').remove();

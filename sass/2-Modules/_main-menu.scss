@@ -46,27 +46,36 @@
 				a {
 					display: block;
 					padding: 15px;
-					color: #333;
 				}
 				@include breakpoint($tablet) {
 					float: left;
 				}
 			}
-			&:hover,
-			.onPage {
-				> a {
-					color: #3498db;
-				}
+			
+			&:hover {
 				> ul {
 					display: block;
 				}
 			}
+			
+			&.onPage,
+			.onPage {
+				> ul {
+					display: block;
+				}
+				> a {
+					color: #2980b9;
+				}
+			}
+		}
+		li a {
+			color: #000;
+		}
+		a:hover {
+			color: #3498db !important;
 		}
 	}
 	ul[role="navigation"] {
 		text-align: center;
-	}
-	li:hover a {
-		color: #3498db;
 	}
 }

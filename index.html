@@ -111,7 +111,9 @@
                          , 'LinkUrl'
                          , 'Image'
                          , 'Date'
-                         , 'Price'],
+                         , 'Price'
+                         , 'CTAText'
+                         , 'CTAUrl'],
 
               columns: {A: 'Component'
                         , D: 'Filename'
@@ -125,14 +127,15 @@
                         , L: 'LinkUrl'
                         , M: 'Image'
                         , N: 'Date'
-                        , O: 'Price'},
+                        , O: 'Price'
+                        , P: 'CTAText'
+                        , Q: 'CTAUrl'},
 
-              sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%',
+              sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%',
 
 
               rowHandler: function(row){               
                     componentData.push(row.cells);    
-                    console.log(row.cells);
               },        
             });
 
@@ -173,6 +176,8 @@
                                         case 'H1': 
                                          if(currentComponent.HeadingOne != (null || "")) {
                                             dynamicElement.html(currentComponent.HeadingOne);
+                                         } else {
+                                            dynamicElement.html(pageName)
                                          }
                                         break;
 
@@ -189,15 +194,17 @@
                                         break;
 
                                         case 'A':
-                                          if(currentComponent.LinkText != (null || "")) {
-                                            dynamicElement.html(currentComponent.LinkText)
-                                          }
-                                          if(currentComponent.LinkUrl != (null || "")) {
-                                            if(currentComponent.LinkUrl.indexOf('http') > -1) {
-                                                dynamicElement.attr('href', currentComponent.LinkUrl);
-                                            } else if(currentComponent.LinkUrl.match(/\d+$/)){
-                                                dynamicElement.attr('data-page', currentComponent.LinkUrl);
-                                            }
+                                          if (dynamicElement.attr('data-dynamic') != 'button') {
+                                              if(currentComponent.LinkText != (null || "")) {
+                                                dynamicElement.html(currentComponent.LinkText)
+                                              }
+                                              if(currentComponent.LinkUrl != (null || "")) {
+                                                if(currentComponent.LinkUrl.indexOf('http') > -1) {
+                                                    dynamicElement.attr('href', currentComponent.LinkUrl);
+                                                } else if(currentComponent.LinkUrl.match(/\d+$/)){
+                                                    dynamicElement.attr('data-page', currentComponent.LinkUrl);
+                                                }
+                                              }
                                           }
                                         break;
 
@@ -212,6 +219,8 @@
                                         case 'h1': 
                                          if(currentComponent.HeadingOne != (null || "")) {
                                             dynamicElement.html(currentComponent.HeadingOne);
+                                         } else {
+                                            dynamicElement.html(pageName)
                                          }
                                         break;
 
@@ -261,6 +270,20 @@
                                                 dynamicElement.attr('title', currentComponent.Component);
                                         break;
 
+                                        case 'button':
+                                        console.log(currentComponent);
+                                          if(currentComponent.CTAText != (null || "")) {
+                                            dynamicElement.html(currentComponent.CTAText)
+                                          }
+                                          if(currentComponent.CTAUrl != (null || "")) {
+                                            if(currentComponent.CTAUrl.indexOf('http') > -1) {
+                                                dynamicElement.attr('href', currentComponent.CTAUrl);
+                                            } else if(currentComponent.CTAUrl.match(/\d+$/)){
+                                                dynamicElement.attr('data-page', currentComponent.CTAUrl);
+                                            }
+                                          }
+                                        break;
+
                                     }
 
                                 })
@@ -275,12 +298,14 @@
         };
 
         var pageComponents = new Array();
+        var pageName;
         function getPageComponenents(pageId){
             $(dataTable).sheetrock({
-                labels: ['Components'],
+                labels: ['Components', 'Name'],
                 headersOff: true,
-                sql: "Select %Components% where %Id% = " + pageId,
+                sql: "Select %Components%, %Name% where %Id% = " + pageId,
                 rowHandler: function(row){
+                    pageName = row.cells.Name;
                     pageComponents.push(row.cells);
                 },
                 userCallback: function(){
@@ -298,7 +323,6 @@
                                 latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                                 var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
                                 getComponent(latestCol, componentName, 'editorial');  
-
                             }
                         }     
                 }

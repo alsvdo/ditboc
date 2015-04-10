@@ -10,24 +10,36 @@ dependencies:
 	pure css:			none
 
 -->
-
 <style type="text/css">
-	.panel-video {
-		height: 240px;
-		position: relative;
-	}
-	.panel-video iframe {
-		position: absolute;
-		top: 20px;
-		left: 20px;
-		right: 20px;
-		bottom: 20px;
-		height: 200px;
-		width: 95%;
-	}
+.panel-video {
+	height: 240px;
+	position: relative;
+	overflow: hidden;
+}
+.panel-video .panel-body {
+	position: relative;
+	z-index: 10;
+}
+.panel-video video {
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	height: auto;
+	min-height: 100%;
+	min-width: 100%;
+}
 </style>
-<div class="panel panel-default panel-video">
+<div class="panel panel-default panel-video" data-dynamic="component">
+	<video width="100%" height="100%" autoplay loop>
+		<source src="video/Pfa2_converted.m4v" type="video/mp4">
+	</video>
 	<div class="panel-body">
-		<iframe width="560" height="315" data-dynamic="video" frameborder="0"></iframe>
+		<h2 data-dynamic class="hideIfEmpty"></h2>
+		<p data-dynamic="richcontent" class="hideIfEmpty"></p>
+		<a class="btn btn-default hideIfEmpty" data-dynamic role="button"></a>
 	</div>
 </div>

@@ -48,3 +48,7 @@ a[data-page] {
 		background: gray;
 	}
 }
+
+.hideIfEmpty:empty {
+	display: none;
+}

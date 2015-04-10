@@ -17,7 +17,7 @@
 	var tableData = new Array();
 	$(dataTable).sheetrock({
 		// sql: 'select %Id%, %Name%, %Parent% where %HideInLists% != TRUE order by %SortOrder% desc',
-		sql: 'select %Id%, %Name%, %Parent%',
+		sql: 'select %Id%, %Name%, %Parent% where %HideInLists% != TRUE',
 
 		labels: ['Id', 'Name', 'Parent'],
 		rowHandler: function(row) {
@@ -25,7 +25,6 @@
 		},
 		userCallback: function () {
 			mainMenu = $('nav#main-menu div >ul[role="navigation"]');
-			tableData.reverse();
 
 			for (var i = 0; i < tableData.length; i++) {
 				var currentObject = tableData[i];
@@ -44,7 +43,7 @@
 							if (!parentElement.data('dropdown')) {
 								parentElement.attr('data-dropdown', true);
 								parentElement.children('a:first').append(' <span class="caret"></span>');
-								parentElement.append('<ul data-id="' + currentObject.Parent + '"></ul>');
+								parentElement.append('<div class="menu-background"><ul data-id="' + currentObject.Parent + '"></ul></div>');
 							}
 							var elementList = $('li[data-id="' + currentObject.Parent + '"]>ul[data-id="' + currentObject.Parent + '"]');
 							$('li[data-id="' + currentObject.Id + '"]').remove();

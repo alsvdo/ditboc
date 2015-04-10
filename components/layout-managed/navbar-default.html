@@ -17,7 +17,7 @@
 	var tableData = new Array();
 	$(dataTable).sheetrock({
 		// sql: 'select %Id%, %Name%, %Parent% where %HideInLists% != TRUE order by %SortOrder% desc',
-		sql: 'select %Id%, %Name%, %Parent% where %HideInLists% != "TRUE" and %Name% is not null',
+		sql: 'select %Id%, %Name%, %Parent% where %HideInLists% != TRUE and %Name% is not null',
 
 		labels: ['Id', 'Name', 'Parent'],
 		rowHandler: function(row) {

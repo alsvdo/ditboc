@@ -31,66 +31,61 @@ a[data-page] {
 }
 
 /* line 13, ../sass/1-Base/_base.scss */
-body {
-  padding-top: 60px;
-}
-
-/* line 17, ../sass/1-Base/_base.scss */
 .styckyWrapper {
   position: relative;
   padding-top: 100px;
   display: none;
 }
 
-/* line 22, ../sass/1-Base/_base.scss */
+/* line 18, ../sass/1-Base/_base.scss */
 .stickyNav {
   width: 100%;
   position: absolute;
   top: 60px;
   left: 0;
 }
-/* line 26, ../sass/1-Base/_base.scss */
+/* line 22, ../sass/1-Base/_base.scss */
 .stickyNav.sticky {
   position: fixed;
   top: 0;
   margin-top: 0;
   width: 100%;
 }
-/* line 31, ../sass/1-Base/_base.scss */
+/* line 27, ../sass/1-Base/_base.scss */
 .stickyNav li {
   display: inline-block;
   padding: 10px;
 }
-/* line 35, ../sass/1-Base/_base.scss */
+/* line 31, ../sass/1-Base/_base.scss */
 .stickyNav li.selected {
   background: gray;
 }
-/* line 37, ../sass/1-Base/_base.scss */
+/* line 33, ../sass/1-Base/_base.scss */
 .stickyNav li.selected a {
   color: white;
 }
-/* line 39, ../sass/1-Base/_base.scss */
+/* line 35, ../sass/1-Base/_base.scss */
 .stickyNav li.tabSelector {
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 43, ../sass/1-Base/_base.scss */
+/* line 39, ../sass/1-Base/_base.scss */
 .stickyNav a {
   color: black;
 }
 
-/* line 47, ../sass/1-Base/_base.scss */
+/* line 43, ../sass/1-Base/_base.scss */
 .stickyElm {
   height: 300px;
   border: 1px solid red;
 }
-/* line 51, ../sass/1-Base/_base.scss */
+/* line 47, ../sass/1-Base/_base.scss */
 .stickyElm.active {
   background: gray;
 }
 
-/* line 56, ../sass/1-Base/_base.scss */
+/* line 52, ../sass/1-Base/_base.scss */
 .hideIfEmpty:empty {
   display: none;
 }
@@ -102,33 +97,28 @@ body {
 
 /* line 7, ../sass/2-Modules/_main-menu.scss */
 #main-menu {
-  margin: 0 15px;
+  margin: 0 15px 10px;
   min-height: 50px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
 }
 @media (min-width: 768px) {
   /* line 7, ../sass/2-Modules/_main-menu.scss */
   #main-menu {
-    margin: 0;
+    margin: 0 0 15px;
   }
 }
-/* line 19, ../sass/2-Modules/_main-menu.scss */
+/* line 14, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] {
   position: static;
 }
-/* line 21, ../sass/2-Modules/_main-menu.scss */
+/* line 16, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a {
   text-decoration: none;
 }
-/* line 23, ../sass/2-Modules/_main-menu.scss */
+/* line 18, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a:hover {
   text-decoration: none;
 }
-/* line 27, ../sass/2-Modules/_main-menu.scss */
+/* line 22, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul {
   position: relative;
   display: none;
@@ -137,57 +127,58 @@ body {
   padding: 0;
   background: #ededed;
 }
-/* line 34, ../sass/2-Modules/_main-menu.scss */
+/* line 29, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul:after {
   content: "";
   display: table;
   clear: both;
 }
 @media (min-width: 768px) {
-  /* line 27, ../sass/2-Modules/_main-menu.scss */
+  /* line 22, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] ul {
     position: absolute;
     padding: 0 10px;
   }
 }
-/* line 44, ../sass/2-Modules/_main-menu.scss */
+/* line 39, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li {
   list-style-type: none;
 }
-/* line 46, ../sass/2-Modules/_main-menu.scss */
+/* line 41, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li a {
   display: block;
   padding: 15px;
 }
 @media (min-width: 768px) {
-  /* line 44, ../sass/2-Modules/_main-menu.scss */
+  /* line 39, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] li {
     float: left;
   }
 }
-/* line 56, ../sass/2-Modules/_main-menu.scss */
+/* line 51, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown]:hover > ul {
-  display: block;
+  display: block !important;
+  z-index: 9999;
 }
-/* line 63, ../sass/2-Modules/_main-menu.scss */
+/* line 59, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown].onPage > ul,
 #main-menu ul li[data-dropdown] .onPage > ul {
   display: block;
 }
-/* line 66, ../sass/2-Modules/_main-menu.scss */
+/* line 62, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown].onPage > a,
 #main-menu ul li[data-dropdown] .onPage > a {
   color: #2980b9;
 }
-/* line 71, ../sass/2-Modules/_main-menu.scss */
+/* line 67, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li a {
   color: #000;
 }
-/* line 74, ../sass/2-Modules/_main-menu.scss */
+/* line 70, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul a:hover {
   color: #3498db !important;
 }
-/* line 78, ../sass/2-Modules/_main-menu.scss */
+/* line 74, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul[role="navigation"] {
   text-align: center;
 }

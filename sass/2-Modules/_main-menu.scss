@@ -5,15 +5,10 @@
 }
 
 #main-menu {
-	margin: 0 15px;
+	margin: 0 15px 10px;
 	min-height: 50px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 999;
 	@include breakpoint($tablet) {
-		margin: 0;
+		margin: 0 0 15px;
 	}
 	ul {
 		li[data-dropdown] {
@@ -54,7 +49,8 @@
 			
 			&:hover {
 				> ul {
-					display: block;
+					display: block !important;
+					z-index: 9999;
 				}
 			}
 			

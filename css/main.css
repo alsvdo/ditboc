@@ -85,6 +85,11 @@ a[data-page] {
   background: gray;
 }
 
+/* line 52, ../sass/1-Base/_base.scss */
+.hideIfEmpty:empty {
+  display: none;
+}
+
 /* line 1, ../sass/2-Modules/_main-menu.scss */
 #main-menu {
   margin-bottom: 20px;

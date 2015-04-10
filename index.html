@@ -176,6 +176,8 @@
                                         case 'H1': 
                                          if(currentComponent.HeadingOne != (null || "")) {
                                             dynamicElement.html(currentComponent.HeadingOne);
+                                         } else {
+                                            dynamicElement.html(pageName)
                                          }
                                         break;
 
@@ -217,6 +219,8 @@
                                         case 'h1': 
                                          if(currentComponent.HeadingOne != (null || "")) {
                                             dynamicElement.html(currentComponent.HeadingOne);
+                                         } else {
+                                            dynamicElement.html(pageName)
                                          }
                                         break;
 
@@ -294,12 +298,14 @@
         };
 
         var pageComponents = new Array();
+        var pageName;
         function getPageComponenents(pageId){
             $(dataTable).sheetrock({
-                labels: ['Components'],
+                labels: ['Components', 'Name'],
                 headersOff: true,
-                sql: "Select %Components% where %Id% = " + pageId,
+                sql: "Select %Components%, %Name% where %Id% = " + pageId,
                 rowHandler: function(row){
+                    pageName = row.cells.Name;
                     pageComponents.push(row.cells);
                 },
                 userCallback: function(){
@@ -317,7 +323,6 @@
                                 latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                                 var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
                                 getComponent(latestCol, componentName, 'editorial');  
-
                             }
                         }     
                 }

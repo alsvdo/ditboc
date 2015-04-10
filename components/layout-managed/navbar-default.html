@@ -25,16 +25,20 @@
 		},
 		userCallback: function () {
 			mainMenu = $('nav#main-menu div >ul[role="navigation"]');
-
 			for (var i = 0; i < tableData.length; i++) {
 				var currentObject = tableData[i];
 				if (currentObject.Name != (null || "")) {
-					mainMenu.append('<li data-id="' + currentObject.Id + '"><a data-page="' + currentObject.Id + '">' + currentObject.Name + '</a></li>');
+					var onPage = " ";
+					if(currentObject.Id == getUrlParameter('page')){
+						onPage = "onPage";
+					}
+					
+					mainMenu.append('<li data-id="' + currentObject.Id + '" class="'+ onPage +'"><a data-page="' + currentObject.Id + '">' + currentObject.Name + '</a></li>');
 				}
 			}
 			for (var i = 0; i < tableData.length; i++) {
 				var currentObject = tableData[i];
-								console.log(currentObject);
+					console.log(currentObject);
 
 				if (currentObject.Name != (null || "")) {
 					if (currentObject.Parent != (null || "")) {
@@ -44,14 +48,22 @@
 								parentElement.attr('data-dropdown', true);
 								parentElement.children('a:first').append(' <span class="caret"></span>');
 								parentElement.append('<ul data-id="' + currentObject.Parent + '"></ul>');
+
 							}
 							var elementList = $('li[data-id="' + currentObject.Parent + '"]>ul[data-id="' + currentObject.Parent + '"]');
 							$('li[data-id="' + currentObject.Id + '"]').remove();
-							elementList.append('<li data-id="' + currentObject.Id + '"><a data-page="' + currentObject.Id + '">' + currentObject.Name + '</a></li>');
+								var onPage = "";
+								if(currentObject.Id == getUrlParameter('page')){
+									onPage = "onPage";
+								}
+
+							elementList.append('<li data-id="' + currentObject.Id + '" class="'+onPage+'"><a data-page="' + currentObject.Id + '">' + currentObject.Name + '</a></li>');
 						}
 					}
 				}
+
 			}
+			$('li.onPage').parents('li').addClass('onPage');
 
 		}
 	});

@@ -31,128 +31,104 @@ a[data-page] {
 }
 
 /* line 13, ../sass/1-Base/_base.scss */
+body {
+  padding-top: 60px;
+}
+
+/* line 17, ../sass/1-Base/_base.scss */
 .styckyWrapper {
   position: relative;
   padding-top: 100px;
   display: none;
 }
 
-/* line 18, ../sass/1-Base/_base.scss */
+/* line 22, ../sass/1-Base/_base.scss */
 .stickyNav {
   width: 100%;
   position: absolute;
   top: 60px;
   left: 0;
 }
-/* line 22, ../sass/1-Base/_base.scss */
+/* line 26, ../sass/1-Base/_base.scss */
 .stickyNav.sticky {
   position: fixed;
   top: 0;
   margin-top: 0;
   width: 100%;
 }
-/* line 27, ../sass/1-Base/_base.scss */
+/* line 31, ../sass/1-Base/_base.scss */
 .stickyNav li {
   display: inline-block;
   padding: 10px;
 }
-/* line 31, ../sass/1-Base/_base.scss */
+/* line 35, ../sass/1-Base/_base.scss */
 .stickyNav li.selected {
   background: gray;
 }
-/* line 33, ../sass/1-Base/_base.scss */
+/* line 37, ../sass/1-Base/_base.scss */
 .stickyNav li.selected a {
   color: white;
 }
-/* line 35, ../sass/1-Base/_base.scss */
+/* line 39, ../sass/1-Base/_base.scss */
 .stickyNav li.tabSelector {
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 39, ../sass/1-Base/_base.scss */
+/* line 43, ../sass/1-Base/_base.scss */
 .stickyNav a {
   color: black;
 }
 
-/* line 43, ../sass/1-Base/_base.scss */
+/* line 47, ../sass/1-Base/_base.scss */
 .stickyElm {
   height: 300px;
   border: 1px solid red;
 }
-/* line 47, ../sass/1-Base/_base.scss */
+/* line 51, ../sass/1-Base/_base.scss */
 .stickyElm.active {
   background: gray;
 }
 
-/* line 52, ../sass/1-Base/_base.scss */
+/* line 56, ../sass/1-Base/_base.scss */
 .hideIfEmpty:empty {
   display: none;
 }
 
-/* line 1, ../sass/2-Modules/_main-menu.scss */
-#main-menu {
-  margin-bottom: 20px;
-}
-/* line 3, ../sass/2-Modules/_main-menu.scss */
+/* line 2, ../sass/2-Modules/_main-menu.scss */
 #main-menu * {
   z-index: 999;
 }
 
-/* line 8, ../sass/2-Modules/_main-menu.scss */
+/* line 7, ../sass/2-Modules/_main-menu.scss */
 #main-menu {
-  margin: 0 15px 10px;
+  margin: 0 15px;
   min-height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
 }
 @media (min-width: 768px) {
-  /* line 8, ../sass/2-Modules/_main-menu.scss */
+  /* line 7, ../sass/2-Modules/_main-menu.scss */
   #main-menu {
-    margin: 0 0 10px;
+    margin: 0;
   }
 }
-/* line 14, ../sass/2-Modules/_main-menu.scss */
-#main-menu div > ul {
-  margin: 0 auto;
-  width: 100%;
-  float: none !important;
-}
-@media (min-width: 768px) {
-  /* line 14, ../sass/2-Modules/_main-menu.scss */
-  #main-menu div > ul {
-    width: 768px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-@media (min-width: 992px) {
-  /* line 14, ../sass/2-Modules/_main-menu.scss */
-  #main-menu div > ul {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  /* line 14, ../sass/2-Modules/_main-menu.scss */
-  #main-menu div > ul {
-    width: 1170px;
-  }
-}
-/* line 30, ../sass/2-Modules/_main-menu.scss */
-#main-menu ul {
-  width: 100%;
-}
-/* line 32, ../sass/2-Modules/_main-menu.scss */
+/* line 19, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] {
   position: static;
 }
-/* line 34, ../sass/2-Modules/_main-menu.scss */
+/* line 21, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a {
   text-decoration: none;
 }
-/* line 36, ../sass/2-Modules/_main-menu.scss */
+/* line 23, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a:hover {
   text-decoration: none;
 }
-/* line 40, ../sass/2-Modules/_main-menu.scss */
+/* line 27, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul {
   position: relative;
   display: none;
@@ -161,46 +137,52 @@ a[data-page] {
   padding: 0;
   background: #ededed;
 }
-/* line 47, ../sass/2-Modules/_main-menu.scss */
+/* line 34, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul:after {
   content: "";
   display: table;
   clear: both;
 }
 @media (min-width: 768px) {
-  /* line 40, ../sass/2-Modules/_main-menu.scss */
+  /* line 27, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] ul {
     position: absolute;
     padding: 0 10px;
   }
 }
-/* line 57, ../sass/2-Modules/_main-menu.scss */
+/* line 44, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li {
   list-style-type: none;
 }
-/* line 59, ../sass/2-Modules/_main-menu.scss */
+/* line 46, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] li a {
   display: block;
   padding: 15px;
-  color: #a7a7a7;
-}
-/* line 63, ../sass/2-Modules/_main-menu.scss */
-#main-menu ul li[data-dropdown] li a:hover {
   color: #333;
 }
 @media (min-width: 768px) {
-  /* line 57, ../sass/2-Modules/_main-menu.scss */
+  /* line 44, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] li {
     float: left;
   }
 }
-/* line 72, ../sass/2-Modules/_main-menu.scss */
-#main-menu ul li[data-dropdown]:hover > ul {
+/* line 57, ../sass/2-Modules/_main-menu.scss */
+#main-menu ul li[data-dropdown]:hover > a,
+#main-menu ul li[data-dropdown] .onPage > a {
+  color: #3498db;
+}
+/* line 60, ../sass/2-Modules/_main-menu.scss */
+#main-menu ul li[data-dropdown]:hover > ul,
+#main-menu ul li[data-dropdown] .onPage > ul {
   display: block;
 }
-/* line 78, ../sass/2-Modules/_main-menu.scss */
+/* line 66, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul[role="navigation"] {
   text-align: center;
+}
+/* line 69, ../sass/2-Modules/_main-menu.scss */
+#main-menu li:hover a {
+  color: #3498db;
 }
 
 /* line 1, ../sass/2-Modules/_product-info.scss */

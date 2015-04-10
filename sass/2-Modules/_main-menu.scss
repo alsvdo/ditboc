@@ -1,34 +1,21 @@
 #main-menu {
-	margin-bottom: 20px;
 	* {
 		z-index: 999;
 	}
 }
 
 #main-menu {
-	margin: 0 15px 10px;
+	margin: 0 15px;
 	min-height: 50px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
 	@include breakpoint($tablet) {
-		margin: 0 0 10px;
-	}
-	div > ul {
-		margin: 0 auto;
-		width: 100%;
-		float: none !important;
-		@include breakpoint($tablet) {
-			width: 768px;
-			padding-left: 10px;
-			padding-right: 10px;
-		}
-		@include breakpoint($desktop) {
-			width: 970px;
-		}
-		@include breakpoint($lgDesktop) {
-			width: 1170px;
-		}
+		margin: 0;
 	}
 	ul {
-		width: 100%;
 		li[data-dropdown] {
 			position: static;
 			a {
@@ -59,16 +46,17 @@
 				a {
 					display: block;
 					padding: 15px;
-					color: #a7a7a7;
-					&:hover {
-						color: #333;
-					}
+					color: #333;
 				}
 				@include breakpoint($tablet) {
 					float: left;
 				}
 			}
-			&:hover {
+			&:hover,
+			.onPage {
+				> a {
+					color: #3498db;
+				}
 				> ul {
 					display: block;
 				}
@@ -77,5 +65,8 @@
 	}
 	ul[role="navigation"] {
 		text-align: center;
+	}
+	li:hover a {
+		color: #3498db;
 	}
 }

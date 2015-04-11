@@ -27,7 +27,23 @@
             </div>
        </script> 
        <script type="text/x-handlebars-template" data-component="Global menu">
-
+        <nav id="main-menu" class="nav navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul role="navigation" class="nav navbar-nav">
+                    {{#each menuitems}}
+                        test
+                    {{/each}}
+                </ul>
+            </div>
+        </nav>
        </script>
     </templates>
 
@@ -45,10 +61,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
-
         $.ajaxSetup({
             cache: false
         });
+
         var sheetId = 0;
         if(getUrlParameter('sheet') != null) {
             var sheetId = getUrlParameter('sheet');
@@ -59,6 +75,31 @@
         $.fn.sheetrock.options.chunkSize = 50;
         $.fn.sheetrock.options.formatting = true;
         $.fn.sheetrock.options.headersOff = true;
+
+
+        var componentData = new Array();
+        var pageComponents = new Array();
+        var menuStructure = new Array()
+
+        var pageName = null;
+
+        $(document).on('click', 'a[data-page]', function (e) {
+
+            var pageId = $(e.target).data('page'),
+                currentLocation = window.location,
+                wWidth = $(window).width();
+
+            if ($(e.target).next('ul').length && wWidth <= 768) {
+                if ($(e.target).hasClass('clicked')) {
+                    window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+                } else {
+                    $('a[data-page]').removeClass('clicked');
+                    $(e.target).addClass('clicked')
+                }
+            } else {
+                window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+            }
+        });    
 
         function getUrlParameter(param) {
             var pageUrl = location.search.substring(1);
@@ -107,12 +148,10 @@
                 newURL += '#' + hash;
             }
             return newURL;
-        }
-    
-       
-
-        var componentData = new Array();
-          $(dataTable).sheetrock({
+        };
+  
+        (function getComponentsData(){
+            $(dataTable).sheetrock({
               // This array becomes the property names of the output JSON object, it must have exactly the same amount of strings as the retrieved columns.
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
               
@@ -155,45 +194,87 @@
                     componentData.push(row.cells);    
               },        
             });
+        })();
 
-        $(document).on('click', 'a[data-page]', function (e) {
-
-            var pageId = $(e.target).data('page'),
-                currentLocation = window.location,
-                wWidth = $(window).width();
-
-            if ($(e.target).next('ul').length && wWidth <= 768) {
-                if ($(e.target).hasClass('clicked')) {
-                    window.location.href = addUrlParameter(currentLocation, 'page', pageId);
-                } else {
-                    $('a[data-page]').removeClass('clicked');
-                    $(e.target).addClass('clicked')
-                }
-            } else {
-                window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+        function childCheck(parentObj, childObj){
+            if(parentObj.Children) {
+               for(var i = 0; i < parentObj.Children.length; i++){
+                    var parentItem = parentObj.Children[i];
+                    if(parentItem.Id == childObj.Parent) {
+                        if(!parentItem.Children){
+                            parentItem["Children"] = new Array();
+                        }
+                        parentItem.Children.push(childObj);
+                    } else {
+                        childCheck(parentItem, childObj);
+                    }
+               }
             }
-        });
-    
-        function getComponent(target, componentName, componentType, handlebars) {      
-            if(handlebars) {     
-                var obj = null;
-                for(var i = 0; i < componentData.length; i++){
+        }
+
+        function findParent(child , parentId){
+            
+        };
+
+        (function createMenuObject(){
+            $(dataTable).sheetrock({
+                sql: 'select %Id%, %Parent%, %Name% where %Name% is not null',
+                rowHandler: function(row){
+                    menuStructure.push(row.cells);
+                },
+                userCallback: function(){
+                    for(var i = 0; i < menuStructure.length; i++){
+                        var currentItem = menuStructure[i];
+                        // console.log(currentItem);
+                        if(currentItem.Parent != (null || "")) {
+                            for(var j = 0; j < menuStructure.length; j++){        
+                                var parentItem = menuStructure[j];
+                                if(currentItem.Parent == parentItem.Id) {
+                                    if(!parentItem.Children){
+                                        parentItem["Children"] = new Array();
+                                    }
+                                    parentItem.Children.push(currentItem);
+                                    // console.log(parentItem);
+                                } else {
+                                    childCheck(parentItem, currentItem);
+                                }
+                            }
+                        }
+                    }
+                    console.log(menuStructure);
+
+                }
+            })
+
+
+        })();
+
+        function getComponentObjectByName(string){
+            var obj = null;
+
+              for(var i = 0; i < componentData.length; i++){
                     var currentComponent = componentData[i];
                     if(currentComponent.Component != (null || "")){
-                        if(currentComponent.Component == componentName){
+                        if(currentComponent.Component == string){
                             obj = currentComponent;
                             break;
                         }
                     }
                 }
+
+            return obj
+        };
+
+        function populateTemplate(target, obj) {                    
                 if(obj != null){
-                    var templateElement = $('script[data-component="'+ componentName +'"]');
+                    var templateElement = $('script[data-component="'+ obj.Component +'"]');
                     if(templateElement.length){
                         var source = templateElement.html();
                         var template = Handlebars.compile(source);
                         var context = obj;
                         var html = template(context);
                         target.append(html);
+
                     } else {
                         console.log('Component template not found');
                     }
@@ -201,136 +282,134 @@
                 } else {
                     console.log('Component not found')
                 }
-            } else {
-                for(var i = 0; i < componentData.length; i++) {
-                    if(componentData[i].Component == componentName){
-                        var currentComponent = componentData[i];
-                        var filename = currentComponent.Filename;
-                        $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
-                            if(componentType == "layout") {
-                                target.replaceWith(data);
-                            } else {
-                                var boundTarget = target.append(data); 
-                                if(boundTarget.find('*[data-dynamic]').length) {
-                                    var dynamicElements = boundTarget.find('*[data-dynamic]');                                
-                                    dynamicElements.each(function(){
-                                        var dynamicElement = $(this);
-                                        switch(dynamicElement.prop('tagName')) {
-                                            case 'H1': 
-                                             if(currentComponent.HeadingOne != (null || "")) {
-                                                dynamicElement.html(currentComponent.HeadingOne);
-                                             } else {
-                                                dynamicElement.html(pageName)
-                                             }
-                                            break;
-                                            case 'H2':
-                                             if(currentComponent.HeadingTwo != (null || "")) {
-                                                dynamicElement.html(currentComponent.HeadingTwo);
-                                             }
-                                            break;
-                                            case 'H3':         
-                                             if(currentComponent.HeadingThree != (null || "")) {
-                                                dynamicElement.html(currentComponent.HeadingThree);
-                                             }
-                                            break;
-                                            case 'A':
-                                              if (dynamicElement.attr('data-dynamic') != 'button') {
-                                                  if(currentComponent.LinkText != (null || "")) {
-                                                    dynamicElement.html(currentComponent.LinkText)
-                                                  }
-                                                  if(currentComponent.LinkUrl != (null || "")) {
-                                                    if(currentComponent.LinkUrl.indexOf('http') > -1) {
-                                                        dynamicElement.attr('href', currentComponent.LinkUrl);
-                                                    } else if(currentComponent.LinkUrl.match(/\d+$/)){
-                                                        dynamicElement.attr('data-page', currentComponent.LinkUrl);
-                                                    }
-                                                  }
-                                              }
-                                            break;
-                                            case 'IMG': 
-                                              if(currentComponent.Image != (null || "")) {
-                                                 dynamicElement.attr('src', currentComponent.Image);
-                                              }
-                                            break;                                        
-                                        }
-                                        switch(dynamicElement.attr('data-dynamic')) {
-                                            case 'h1': 
-                                             if(currentComponent.HeadingOne != (null || "")) {
-                                                dynamicElement.html(currentComponent.HeadingOne);
-                                             } else {
-                                                dynamicElement.html(pageName)
-                                             }
-                                            break;
-                                            case 'h2':
-                                             if(currentComponent.HeadingTwo != (null || "")) {
-                                                dynamicElement.html(currentComponent.HeadingTwo);
-                                             }
-                                            break;
-                                            case 'h3':
-                                             if(currentComponent.HeadingThree != (null || "")) {
-                                                dynamicElement.html(currentComponent.HeadingThree);
-                                             }
-                                            break;
-                                            case 'teaser':
-                                                if(currentComponent.Teaser != (null || "")) {
-                                                    dynamicElement.html(currentComponent.Teaser);
-                                                }
-                                            break;
-                                            case 'richcontent':
-                                                if(currentComponent.RichContent != (null || "")) {
-                                                    dynamicElement.html(currentComponent.RichContent);
-                                                }
-                                            break;
-                                            case 'price':
-                                                if(currentComponent.Price != (null || "")) {
-                                                    dynamicElement.html(currentComponent.Price);
-                                                }
-                                            break;
-                                            case 'date':
-                                                if(currentComponent.Date != (null || "")) {
-                                                    dynamicElement.html(currentComponent.Date);
-                                                }
-                                            break;
-                                            case 'backgroundimage':
-                                                if(currentComponent.Image != (null || "")) {
-                                                   dynamicElement.attr('style', 'background-size: cover; background-position:center center;background-repeat:no-repeat;background-image: url("'+currentComponent.Image+'");');
-                                                }
-                                            break;
-                                            case 'video':
-                                                if(currentComponent.Image != (null || "")) {
-                                                    dynamicElement.attr('src', currentComponent.Image);
-                                                }
-                                            break;
-                                            case 'component':
-                                                    dynamicElement.attr('title', currentComponent.Component);
-                                            break;
-                                            case 'button':
-                                              if(currentComponent.CTAText != (null || "")) {
-                                                dynamicElement.html(currentComponent.CTAText)
-                                              }
-                                              if(currentComponent.CTAUrl != (null || "")) {
-                                                if(currentComponent.CTAUrl.indexOf('http') > -1) {
-                                                    dynamicElement.attr('href', currentComponent.CTAUrl);
-                                                } else if(currentComponent.CTAUrl.match(/\d+$/)){
-                                                    dynamicElement.attr('data-page', currentComponent.CTAUrl);
-                                                }
-                                              }
-                                            break;
-                                        }
-                                    })
+        // old code
+            // } else {
+            //     for(var i = 0; i < componentData.length; i++) {
+            //         if(componentData[i].Component == componentName){
+            //             var currentComponent = componentData[i];
+            //             var filename = currentComponent.Filename;
+            //             $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
+            //                 if(componentType == "layout") {
+            //                     target.replaceWith(data);
+            //                 } else {
+            //                     var boundTarget = target.append(data); 
+            //                     if(boundTarget.find('*[data-dynamic]').length) {
+            //                         var dynamicElements = boundTarget.find('*[data-dynamic]');                                
+            //                         dynamicElements.each(function(){
+            //                             var dynamicElement = $(this);
+            //                             switch(dynamicElement.prop('tagName')) {
+            //                                 case 'H1': 
+            //                                  if(currentComponent.HeadingOne != (null || "")) {
+            //                                     dynamicElement.html(currentComponent.HeadingOne);
+            //                                  } else {
+            //                                     dynamicElement.html(pageName)
+            //                                  }
+            //                                 break;
+            //                                 case 'H2':
+            //                                  if(currentComponent.HeadingTwo != (null || "")) {
+            //                                     dynamicElement.html(currentComponent.HeadingTwo);
+            //                                  }
+            //                                 break;
+            //                                 case 'H3':         
+            //                                  if(currentComponent.HeadingThree != (null || "")) {
+            //                                     dynamicElement.html(currentComponent.HeadingThree);
+            //                                  }
+            //                                 break;
+            //                                 case 'A':
+            //                                   if (dynamicElement.attr('data-dynamic') != 'button') {
+            //                                       if(currentComponent.LinkText != (null || "")) {
+            //                                         dynamicElement.html(currentComponent.LinkText)
+            //                                       }
+            //                                       if(currentComponent.LinkUrl != (null || "")) {
+            //                                         if(currentComponent.LinkUrl.indexOf('http') > -1) {
+            //                                             dynamicElement.attr('href', currentComponent.LinkUrl);
+            //                                         } else if(currentComponent.LinkUrl.match(/\d+$/)){
+            //                                             dynamicElement.attr('data-page', currentComponent.LinkUrl);
+            //                                         }
+            //                                       }
+            //                                   }
+            //                                 break;
+            //                                 case 'IMG': 
+            //                                   if(currentComponent.Image != (null || "")) {
+            //                                      dynamicElement.attr('src', currentComponent.Image);
+            //                                   }
+            //                                 break;                                        
+            //                             }
+            //                             switch(dynamicElement.attr('data-dynamic')) {
+            //                                 case 'h1': 
+            //                                  if(currentComponent.HeadingOne != (null || "")) {
+            //                                     dynamicElement.html(currentComponent.HeadingOne);
+            //                                  } else {
+            //                                     dynamicElement.html(pageName)
+            //                                  }
+            //                                 break;
+            //                                 case 'h2':
+            //                                  if(currentComponent.HeadingTwo != (null || "")) {
+            //                                     dynamicElement.html(currentComponent.HeadingTwo);
+            //                                  }
+            //                                 break;
+            //                                 case 'h3':
+            //                                  if(currentComponent.HeadingThree != (null || "")) {
+            //                                     dynamicElement.html(currentComponent.HeadingThree);
+            //                                  }
+            //                                 break;
+            //                                 case 'teaser':
+            //                                     if(currentComponent.Teaser != (null || "")) {
+            //                                         dynamicElement.html(currentComponent.Teaser);
+            //                                     }
+            //                                 break;
+            //                                 case 'richcontent':
+            //                                     if(currentComponent.RichContent != (null || "")) {
+            //                                         dynamicElement.html(currentComponent.RichContent);
+            //                                     }
+            //                                 break;
+            //                                 case 'price':
+            //                                     if(currentComponent.Price != (null || "")) {
+            //                                         dynamicElement.html(currentComponent.Price);
+            //                                     }
+            //                                 break;
+            //                                 case 'date':
+            //                                     if(currentComponent.Date != (null || "")) {
+            //                                         dynamicElement.html(currentComponent.Date);
+            //                                     }
+            //                                 break;
+            //                                 case 'backgroundimage':
+            //                                     if(currentComponent.Image != (null || "")) {
+            //                                        dynamicElement.attr('style', 'background-size: cover; background-position:center center;background-repeat:no-repeat;background-image: url("'+currentComponent.Image+'");');
+            //                                     }
+            //                                 break;
+            //                                 case 'video':
+            //                                     if(currentComponent.Image != (null || "")) {
+            //                                         dynamicElement.attr('src', currentComponent.Image);
+            //                                     }
+            //                                 break;
+            //                                 case 'component':
+            //                                         dynamicElement.attr('title', currentComponent.Component);
+            //                                 break;
+            //                                 case 'button':
+            //                                   if(currentComponent.CTAText != (null || "")) {
+            //                                     dynamicElement.html(currentComponent.CTAText)
+            //                                   }
+            //                                   if(currentComponent.CTAUrl != (null || "")) {
+            //                                     if(currentComponent.CTAUrl.indexOf('http') > -1) {
+            //                                         dynamicElement.attr('href', currentComponent.CTAUrl);
+            //                                     } else if(currentComponent.CTAUrl.match(/\d+$/)){
+            //                                         dynamicElement.attr('data-page', currentComponent.CTAUrl);
+            //                                     }
+            //                                   }
+            //                                 break;
+            //                             }
+            //                         })
                                    
-                                }
-                            }
-                        })                    
-                    }
-                }
+            //                     }
+            //                 }
+            //             })                    
+            //         }
+            //     }
             
-            }
-
+            // }
         };
 
-        var pageComponents = new Array();
-        var pageName = null;
         function getPageComponenents(pageId){
             $(dataTable).sheetrock({
                 labels: ['Components', 'Name'],
@@ -343,7 +422,7 @@
                     pageComponents.push(row.cells);
                 },
                 userCallback: function(){
-                        getComponent($('#main-menu'), 'Global menu', 'layout', false); 
+                        populateTemplate($('#main-menu'), menuStructure); 
                         componentCollection = pageComponents[0].Components,
                         lbSplitCollection = componentCollection.split("\n");
                         for(var i=0; i < lbSplitCollection.length; i++) {
@@ -355,7 +434,7 @@
                                     colSize = 12 / rowCompenents.length;
                                 latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                                 var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                                getComponent(latestCol, componentName, 'editorial', true);  
+                                populateTemplate(latestCol, getComponentObjectByName(componentName));  
                             }
                         }     
                 }

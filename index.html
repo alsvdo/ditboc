@@ -25,7 +25,10 @@
                     <a class="hideIfEmpty" data-dynamic role="button"></a>
                 </div>
             </div>
-       </script>        
+       </script>     
+       <script type="text/x-handlebars-template" data-component="Global menu">
+
+       </script>   
     </templates>
 
     <nav id="main-menu">      
@@ -60,7 +63,7 @@
 
         var componentData = new Array();
         var pageComponents = new Array();
-        var menuStructure = new Array();
+        var menuObjet = new Object();
 
         var pageName = null;
 
@@ -196,6 +199,8 @@
         }
 
         (function createMenuStructure(){
+            var menuStructure = new Array();
+
             $(dataTable).sheetrock({
                 sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
                 rowHandler: function(row){
@@ -226,16 +231,17 @@
                         var currentItem = menuStructure[i];
                         if(currentItem != null){
                             if(currentItem.Parent != (null || "")){
-                                menuStructure.splice(i, 1);                             }
+                                menuStructure.splice(i, 1);
+                            } else {
+                                delete currentItem["Parent"];
+                            }
                         }
                     }
-                    console.log(menuStructure);
+                    menuObject = {menuitems: menuStructure};
+                    console.log(menuObject);
                 }
                 
-            })
-
-
-        })();
+            })})();
 
         function getComponentObjectByName(string){
             var obj = null;
@@ -253,9 +259,9 @@
             return obj
         };
 
-        function populateTemplate(target, obj) {                    
+        function populateTemplate(target, obj, templateName) {                    
                 if(obj != null){
-                    var templateElement = $('script[data-component="'+ obj.Component +'"]');
+                    var templateElement = $('script[data-component="'+ templateName +'"]');
                     if(templateElement.length){
                         var source = templateElement.html();
                         var template = Handlebars.compile(source);
@@ -410,7 +416,7 @@
                     pageComponents.push(row.cells);
                 },
                 userCallback: function(){
-                        populateTemplate($('#main-menu'), menuStructure); 
+                        populateTemplate($('#main-menu'), menuObject, 'Global menu'); 
                         componentCollection = pageComponents[0].Components,
                         lbSplitCollection = componentCollection.split("\n");
                         for(var i=0; i < lbSplitCollection.length; i++) {
@@ -422,7 +428,7 @@
                                     colSize = 12 / rowCompenents.length;
                                 latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                                 var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                                populateTemplate(latestCol, getComponentObjectByName(componentName));  
+                                populateTemplate(latestCol, getComponentObjectByName(componentName), componentName);  
                             }
                         }     
                 }

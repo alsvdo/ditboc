@@ -10,9 +10,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>    
-
+<body>       
     <table id="datatable"></table>
+
+    <templates>
+       <script type="text/x-handlebars-template" data-component="Panel">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{{HeadingThree}}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div>{{{RichContent}}}</div>
+                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                    <a class="hideIfEmpty" data-dynamic role="button"></a>
+                </div>
+            </div>
+       </script> 
+       <script type="text/x-handlebars-template" data-component="Global menu">
+
+       </script>
+    </templates>
 
     <nav id="main-menu">      
     </nav>
@@ -157,159 +174,176 @@
             }
         });
     
-        function getComponent(target, componentName, componentType) {           
-
-            for(var i = 0; i < componentData.length; i++) {
-                if(componentData[i].Component == componentName){
+        function getComponent(target, componentName, componentType, handlebars) {      
+            if(handlebars) {     
+                var obj = null;
+                for(var i = 0; i < componentData.length; i++){
                     var currentComponent = componentData[i];
-                    var filename = currentComponent.Filename;
-                    $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
-                        if(componentType == "layout") {
-                            target.replaceWith(data);
-                        } else {
-                            var boundTarget = target.append(data); 
-                            if(boundTarget.find('*[data-dynamic]').length) {
-                                var dynamicElements = boundTarget.find('*[data-dynamic]');                                
-                                dynamicElements.each(function(){
-                                    var dynamicElement = $(this);
-                                    switch(dynamicElement.prop('tagName')) {
-                                        case 'H1': 
-                                         if(currentComponent.HeadingOne != (null || "")) {
-                                            dynamicElement.html(currentComponent.HeadingOne);
-                                         } else {
-                                            dynamicElement.html(pageName)
-                                         }
-                                        break;
-
-                                        case 'H2':
-                                         if(currentComponent.HeadingTwo != (null || "")) {
-                                            dynamicElement.html(currentComponent.HeadingTwo);
-                                         }
-                                        break;
-
-                                        case 'H3':         
-                                         if(currentComponent.HeadingThree != (null || "")) {
-                                            dynamicElement.html(currentComponent.HeadingThree);
-                                         }
-                                        break;
-
-                                        case 'A':
-                                          if (dynamicElement.attr('data-dynamic') != 'button') {
-                                              if(currentComponent.LinkText != (null || "")) {
-                                                dynamicElement.html(currentComponent.LinkText)
+                    if(currentComponent.Component != (null || "")){
+                        if(currentComponent.Component == componentName){
+                            obj = currentComponent;
+                            break;
+                        }
+                    }
+                }
+                if(obj != null){
+                    var templateElement = $('script[data-component="'+ componentName +'"]');
+                    if(templateElement.length){
+                        var source = templateElement.html();
+                        var template = Handlebars.compile(source);
+                        var context = obj;
+                        var html = template(context);
+                        target.append(html);
+                    } else {
+                        console.log('Component template not found');
+                    }
+                
+                } else {
+                    console.log('Component not found')
+                }
+            } else {
+                for(var i = 0; i < componentData.length; i++) {
+                    if(componentData[i].Component == componentName){
+                        var currentComponent = componentData[i];
+                        var filename = currentComponent.Filename;
+                        $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
+                            if(componentType == "layout") {
+                                target.replaceWith(data);
+                            } else {
+                                var boundTarget = target.append(data); 
+                                if(boundTarget.find('*[data-dynamic]').length) {
+                                    var dynamicElements = boundTarget.find('*[data-dynamic]');                                
+                                    dynamicElements.each(function(){
+                                        var dynamicElement = $(this);
+                                        switch(dynamicElement.prop('tagName')) {
+                                            case 'H1': 
+                                             if(currentComponent.HeadingOne != (null || "")) {
+                                                dynamicElement.html(currentComponent.HeadingOne);
+                                             } else {
+                                                dynamicElement.html(pageName)
+                                             }
+                                            break;
+                                            case 'H2':
+                                             if(currentComponent.HeadingTwo != (null || "")) {
+                                                dynamicElement.html(currentComponent.HeadingTwo);
+                                             }
+                                            break;
+                                            case 'H3':         
+                                             if(currentComponent.HeadingThree != (null || "")) {
+                                                dynamicElement.html(currentComponent.HeadingThree);
+                                             }
+                                            break;
+                                            case 'A':
+                                              if (dynamicElement.attr('data-dynamic') != 'button') {
+                                                  if(currentComponent.LinkText != (null || "")) {
+                                                    dynamicElement.html(currentComponent.LinkText)
+                                                  }
+                                                  if(currentComponent.LinkUrl != (null || "")) {
+                                                    if(currentComponent.LinkUrl.indexOf('http') > -1) {
+                                                        dynamicElement.attr('href', currentComponent.LinkUrl);
+                                                    } else if(currentComponent.LinkUrl.match(/\d+$/)){
+                                                        dynamicElement.attr('data-page', currentComponent.LinkUrl);
+                                                    }
+                                                  }
                                               }
-                                              if(currentComponent.LinkUrl != (null || "")) {
-                                                if(currentComponent.LinkUrl.indexOf('http') > -1) {
-                                                    dynamicElement.attr('href', currentComponent.LinkUrl);
-                                                } else if(currentComponent.LinkUrl.match(/\d+$/)){
-                                                    dynamicElement.attr('data-page', currentComponent.LinkUrl);
+                                            break;
+                                            case 'IMG': 
+                                              if(currentComponent.Image != (null || "")) {
+                                                 dynamicElement.attr('src', currentComponent.Image);
+                                              }
+                                            break;                                        
+                                        }
+                                        switch(dynamicElement.attr('data-dynamic')) {
+                                            case 'h1': 
+                                             if(currentComponent.HeadingOne != (null || "")) {
+                                                dynamicElement.html(currentComponent.HeadingOne);
+                                             } else {
+                                                dynamicElement.html(pageName)
+                                             }
+                                            break;
+                                            case 'h2':
+                                             if(currentComponent.HeadingTwo != (null || "")) {
+                                                dynamicElement.html(currentComponent.HeadingTwo);
+                                             }
+                                            break;
+                                            case 'h3':
+                                             if(currentComponent.HeadingThree != (null || "")) {
+                                                dynamicElement.html(currentComponent.HeadingThree);
+                                             }
+                                            break;
+                                            case 'teaser':
+                                                if(currentComponent.Teaser != (null || "")) {
+                                                    dynamicElement.html(currentComponent.Teaser);
+                                                }
+                                            break;
+                                            case 'richcontent':
+                                                if(currentComponent.RichContent != (null || "")) {
+                                                    dynamicElement.html(currentComponent.RichContent);
+                                                }
+                                            break;
+                                            case 'price':
+                                                if(currentComponent.Price != (null || "")) {
+                                                    dynamicElement.html(currentComponent.Price);
+                                                }
+                                            break;
+                                            case 'date':
+                                                if(currentComponent.Date != (null || "")) {
+                                                    dynamicElement.html(currentComponent.Date);
+                                                }
+                                            break;
+                                            case 'backgroundimage':
+                                                if(currentComponent.Image != (null || "")) {
+                                                   dynamicElement.attr('style', 'background-size: cover; background-position:center center;background-repeat:no-repeat;background-image: url("'+currentComponent.Image+'");');
+                                                }
+                                            break;
+                                            case 'video':
+                                                if(currentComponent.Image != (null || "")) {
+                                                    dynamicElement.attr('src', currentComponent.Image);
+                                                }
+                                            break;
+                                            case 'component':
+                                                    dynamicElement.attr('title', currentComponent.Component);
+                                            break;
+                                            case 'button':
+                                              if(currentComponent.CTAText != (null || "")) {
+                                                dynamicElement.html(currentComponent.CTAText)
+                                              }
+                                              if(currentComponent.CTAUrl != (null || "")) {
+                                                if(currentComponent.CTAUrl.indexOf('http') > -1) {
+                                                    dynamicElement.attr('href', currentComponent.CTAUrl);
+                                                } else if(currentComponent.CTAUrl.match(/\d+$/)){
+                                                    dynamicElement.attr('data-page', currentComponent.CTAUrl);
                                                 }
                                               }
-                                          }
-                                        break;
-
-                                        case 'IMG': 
-                                          if(currentComponent.Image != (null || "")) {
-                                             dynamicElement.attr('src', currentComponent.Image);
-                                          }
-                                        break;                                        
-                                    }
-                                    switch(dynamicElement.attr('data-dynamic')) {
-
-                                        case 'h1': 
-                                         if(currentComponent.HeadingOne != (null || "")) {
-                                            dynamicElement.html(currentComponent.HeadingOne);
-                                         } else {
-                                            dynamicElement.html(pageName)
-                                         }
-                                        break;
-
-                                        case 'h2':
-                                         if(currentComponent.HeadingTwo != (null || "")) {
-                                            dynamicElement.html(currentComponent.HeadingTwo);
-                                         }
-                                        break;
-
-                                        case 'h3':
-                                         if(currentComponent.HeadingThree != (null || "")) {
-                                            dynamicElement.html(currentComponent.HeadingThree);
-                                         }
-                                        break;
-
-                                        case 'teaser':
-                                            if(currentComponent.Teaser != (null || "")) {
-                                                dynamicElement.html(currentComponent.Teaser);
-                                            }
-                                        break;
-                                        case 'richcontent':
-                                            if(currentComponent.RichContent != (null || "")) {
-                                                dynamicElement.html(currentComponent.RichContent);
-                                            }
-                                        break;
-                                        case 'price':
-                                            if(currentComponent.Price != (null || "")) {
-                                                dynamicElement.html(currentComponent.Price);
-                                            }
-                                        break;
-                                        case 'date':
-                                            if(currentComponent.Date != (null || "")) {
-                                                dynamicElement.html(currentComponent.Date);
-                                            }
-                                        break;
-                                        case 'backgroundimage':
-                                            if(currentComponent.Image != (null || "")) {
-                                               dynamicElement.attr('style', 'background-size: cover; background-position:center center;background-repeat:no-repeat;background-image: url("'+currentComponent.Image+'");');
-                                            }
-                                        break;
-                                        case 'video':
-                                            if(currentComponent.Image != (null || "")) {
-                                                dynamicElement.attr('src', currentComponent.Image);
-                                            }
-                                        break;
-                                        case 'component':
-                                                dynamicElement.attr('title', currentComponent.Component);
-                                        break;
-
-                                        case 'button':
-                                          if(currentComponent.CTAText != (null || "")) {
-                                            dynamicElement.html(currentComponent.CTAText)
-                                          }
-                                          if(currentComponent.CTAUrl != (null || "")) {
-                                            if(currentComponent.CTAUrl.indexOf('http') > -1) {
-                                                dynamicElement.attr('href', currentComponent.CTAUrl);
-                                            } else if(currentComponent.CTAUrl.match(/\d+$/)){
-                                                dynamicElement.attr('data-page', currentComponent.CTAUrl);
-                                            }
-                                          }
-                                        break;
-
-                                    }
-
-                                })
-                               
+                                            break;
+                                        }
+                                    })
+                                   
+                                }
                             }
-
-                        }
-                    })                    
+                        })                    
+                    }
                 }
+            
             }
-  
+
         };
 
         var pageComponents = new Array();
-        var pageName;
+        var pageName = null;
         function getPageComponenents(pageId){
             $(dataTable).sheetrock({
                 labels: ['Components', 'Name'],
                 headersOff: true,
                 sql: "Select %Components%, %Name% where %Id% = " + pageId,
                 rowHandler: function(row){
-                    pageName = row.cells.Name;
+                    if(pageName == null){
+                      pageName = row.cells.Name;
+                    }
                     pageComponents.push(row.cells);
                 },
                 userCallback: function(){
-                    getComponent($('#main-menu'), 'Global menu', 'layout', true); 
-
+                        getComponent($('#main-menu'), 'Global menu', 'layout', false); 
                         componentCollection = pageComponents[0].Components,
                         lbSplitCollection = componentCollection.split("\n");
                         for(var i=0; i < lbSplitCollection.length; i++) {
@@ -321,7 +355,7 @@
                                     colSize = 12 / rowCompenents.length;
                                 latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                                 var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                                getComponent(latestCol, componentName, 'editorial');  
+                                getComponent(latestCol, componentName, 'editorial', true);  
                             }
                         }     
                 }

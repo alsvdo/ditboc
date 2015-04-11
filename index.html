@@ -25,26 +25,7 @@
                     <a class="hideIfEmpty" data-dynamic role="button"></a>
                 </div>
             </div>
-       </script> 
-       <script type="text/x-handlebars-template" data-component="Global menu">
-        <nav id="main-menu" class="nav navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul role="navigation" class="nav navbar-nav">
-                    {{#each menuitems}}
-                        test
-                    {{/each}}
-                </ul>
-            </div>
-        </nav>
-       </script>
+       </script>        
     </templates>
 
     <nav id="main-menu">      
@@ -79,7 +60,7 @@
 
         var componentData = new Array();
         var pageComponents = new Array();
-        var menuStructure = new Array()
+        var menuStructure = new Array();
 
         var pageName = null;
 
@@ -194,56 +175,37 @@
                     componentData.push(row.cells);    
               },        
             });
-        })();
+        })();        
+        
 
-        function childCheck(parentObj, childObj){
-            if(parentObj.Children) {
-               for(var i = 0; i < parentObj.Children.length; i++){
-                    var parentItem = parentObj.Children[i];
-                    if(parentItem.Id == childObj.Parent) {
-                        if(!parentItem.Children){
-                            parentItem["Children"] = new Array();
-                        }
-                        parentItem.Children.push(childObj);
-                    } else {
-                        childCheck(parentItem, childObj);
-                    }
-               }
-            }
-        }
-
-        function findParent(child , parentId){
-            
-        };
-
-        (function createMenuObject(){
+        (function createMenuStructure(){
             $(dataTable).sheetrock({
-                sql: 'select %Id%, %Parent%, %Name% where %Name% is not null',
+                sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
                 rowHandler: function(row){
                     menuStructure.push(row.cells);
                 },
                 userCallback: function(){
-                    for(var i = 0; i < menuStructure.length; i++){
-                        var currentItem = menuStructure[i];
-                        // console.log(currentItem);
-                        if(currentItem.Parent != (null || "")) {
-                            for(var j = 0; j < menuStructure.length; j++){        
-                                var parentItem = menuStructure[j];
-                                if(currentItem.Parent == parentItem.Id) {
-                                    if(!parentItem.Children){
-                                        parentItem["Children"] = new Array();
+                    for(var i = menuStructure.length; i >= 0; i--) {
+                        if(menuStructure[i] != null){
+                            currentItem = menuStructure[i];
+                            if(currentItem.Parent != (null || "")){
+                                for(var j = 0; j < menuStructure.length; j++){
+                                    if(menuStructure[j].Id == currentItem.Parent) {
+                                        var parentItem = menuStructure[j];
+                                        if(!parentItem.Children){
+                                            parentItem["Children"] = new Array();
+                                        }
+                                        parentItem.Children.push(currentItem);
+                                        menuStructure.splice(menuStructure.indexOf(currentItem), 1)
                                     }
-                                    parentItem.Children.push(currentItem);
-                                    // console.log(parentItem);
-                                } else {
-                                    childCheck(parentItem, currentItem);
                                 }
                             }
                         }
+
                     }
                     console.log(menuStructure);
-
                 }
+                
             })
 
 

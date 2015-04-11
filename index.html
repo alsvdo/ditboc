@@ -176,7 +176,24 @@
               },        
             });
         })();        
-        
+
+        function childrenCheck(parentObj, childObj){
+            if(parentObj.Children) {
+                for(var i = parentObj.Children.length; i >= 0; i--){
+                    if(parentObj.Children[i] != null) {
+                        var currentItem = parentObj.Children[i];
+                        if(currentItem.Id == childObj.Parent){
+                            if(!currentItem.Children){
+                                currentItem["Children"] = new Array();
+                            }
+                            currentItem.Children.unshift(childObj);
+                        } else {
+                            childrenCheck(currentItem, childObj);
+                        }
+                    }
+                }
+            }
+        }
 
         (function createMenuStructure(){
             $(dataTable).sheetrock({
@@ -195,13 +212,22 @@
                                         if(!parentItem.Children){
                                             parentItem["Children"] = new Array();
                                         }
-                                        parentItem.Children.push(currentItem);
-                                        menuStructure.splice(menuStructure.indexOf(currentItem), 1)
+                                        parentItem.Children.unshift(currentItem);
+                                        menuStructure.splice(menuStructure.indexOf(currentItem), 1);                                       
+                                    } else {
+                                        childrenCheck(menuStructure[j], currentItem);
                                     }
                                 }
                             }
                         }
 
+                    }
+                    for(var i = menuStructure.length; i >= 0; i--){
+                        var currentItem = menuStructure[i];
+                        if(currentItem != null){
+                            if(currentItem.Parent != (null || "")){
+                                menuStructure.splice(i, 1);                             }
+                        }
                     }
                     console.log(menuStructure);
                 }

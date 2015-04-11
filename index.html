@@ -27,7 +27,7 @@
             </div>
        </script>  
 
-       <script type="text/x-handlebars-template" data-template="recursive">
+       <script type="text/x-handlebars-template" data-partial="recursiveMenu">
                 <li {{#if Children}} data-dropdown {{/if}}>
                         <a data-page="{{{Id}}}">{{Name}}  
                             {{#if Children}}
@@ -37,7 +37,7 @@
                         {{#if Children}}
                             <ul>
                                 {{#each Children}}
-                                            {{> recursive}}    
+                                            {{> recursiveMenu}}    
                                 {{/each}}                                       
                             </ul>
                         {{/if}}                             
@@ -45,7 +45,6 @@
         </script>
 
        <script type="text/x-handlebars-template" data-component="Global menu">
-            <nav id="main-menu" class="nav navbar-default">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
@@ -66,7 +65,7 @@
                                 {{#if Children}}
                                     <ul>
                                         {{#each Children}}
-                                            {{> recursive}}    
+                                            {{> recursiveMenu}}    
                                         {{/each}}                                      
                                     </ul>
                                 {{/if}}                             
@@ -74,12 +73,68 @@
                         {{/each}}
                     </ul>
                 </div>
-            </nav>
        </script>   
-       
+
+       <script type="text/x-handlebars-template" data-component="Slider">
+          <div id="myCarousel" class="carousel slide" data-dynamic="component">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img
+                        src="{{#if Image}}{{Image}}{{else}}http://placehold.it/1500X500{{/if}}" style="width:100%" class="img-responsive">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>{{{HeadingOne}}}</h1>
+                                <p data-dynamic="teaser"><a class="btn btn-lg btn-primary" href="http://getbootstrap.com">{{{Teaser}}}</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img data-dynamic src="{{#if Image}}{{Image}}{{else}}http://placehold.it/1500X500{{/if}}" style="width:100%" class="img-responsive">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>{{{HeadingTwo}}}</h1>
+                                <p>{{{Teaser}}}</p>
+                                <p><a class="btn btn-large btn-primary" href="#">Learn more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img data-dynamic src="{{#if Image}}{{Image}}{{else}}http://placehold.it/1500X500{{/if}}" style="width:100%" class="img-responsive">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>{{{HeadingThree}}}</h1>                                
+                                <p data-dynamic="teaser">
+                                    {{{Teaser}}}
+                                <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="icon-prev"></span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="icon-next"></span>
+                </a>
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component=""></script>
+
     </templates>
 
-    <nav id="main-menu">      
+    <nav id="main-menu" class="nav navbar-default">
+
     </nav>
 
     <main>  
@@ -96,6 +151,9 @@
         $.ajaxSetup({
             cache: false
         });
+        if(window.location.href.indexOf(".html") == -1) {
+            window.location.href = "index.html";
+        }
 
         var sheetId = 0;
         if(getUrlParameter('sheet') != null) {
@@ -108,11 +166,9 @@
         $.fn.sheetrock.options.formatting = true;
         $.fn.sheetrock.options.headersOff = true;
 
-
         var componentData = new Array();
         var pageComponents = new Array();
         var menuObjet = new Object();
-
         var pageName = null;
 
         $(document).on('click', 'a[data-page]', function (e) {
@@ -182,7 +238,7 @@
             return newURL;
         };
   
-        (function getComponentsData(){
+        (function getComponentData(){
             $(dataTable).sheetrock({
               // This array becomes the property names of the output JSON object, it must have exactly the same amount of strings as the retrieved columns.
               url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
@@ -251,6 +307,8 @@
 
             $(dataTable).sheetrock({
                 sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
+                // sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != "TRUE"',
+
                 rowHandler: function(row){
                     menuStructure.push(row.cells);
                 },
@@ -479,7 +537,7 @@
         };   
 
      
-        Handlebars.registerPartial("recursive", $('script[data-template="recursive"]').html());
+        Handlebars.registerPartial("recursiveMenu", $('script[data-partial="recursiveMenu"]').html());
 
         getUrlParameter('page') != null ? getPageComponenents(getUrlParameter('page')) : getPageComponenents(1)        
     

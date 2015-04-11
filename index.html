@@ -25,10 +25,58 @@
                     <a class="hideIfEmpty" data-dynamic role="button"></a>
                 </div>
             </div>
-       </script>     
-       <script type="text/x-handlebars-template" data-component="Global menu">
+       </script>  
 
+       <script type="text/x-handlebars-template" data-template="recursive">
+                <li {{#if Children}} data-dropdown {{/if}}>
+                        <a data-page="{{{Id}}}">{{Name}}  
+                            {{#if Children}}
+                                <span class="caret"></span>
+                            {{/if}}
+                        </a> 
+                        {{#if Children}}
+                            <ul>
+                                {{#each Children}}
+                                            {{> recursive}}    
+                                {{/each}}                                       
+                            </ul>
+                        {{/if}}                             
+                    </li>
+        </script>
+
+       <script type="text/x-handlebars-template" data-component="Global menu">
+            <nav id="main-menu" class="nav navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul role="navigation" class="nav navbar-nav">
+                        {{#each menuitems}}
+                            <li {{#if Children}} data-dropdown {{/if}}>
+                                <a data-page="{{{Id}}}">{{Name}}  
+                                    {{#if Children}}
+                                        <span class="caret"></span>
+                                    {{/if}}
+                                </a> 
+                                {{#if Children}}
+                                    <ul>
+                                        {{#each Children}}
+                                            {{> recursive}}    
+                                        {{/each}}                                      
+                                    </ul>
+                                {{/if}}                             
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </nav>
        </script>   
+       
     </templates>
 
     <nav id="main-menu">      
@@ -244,19 +292,15 @@
             })})();
 
         function getComponentObjectByName(string){
-            var obj = null;
-
               for(var i = 0; i < componentData.length; i++){
                     var currentComponent = componentData[i];
                     if(currentComponent.Component != (null || "")){
                         if(currentComponent.Component == string){
                             obj = currentComponent;
-                            break;
+                            return currentComponent;
                         }
                     }
                 }
-
-            return obj
         };
 
         function populateTemplate(target, obj, templateName) {                    
@@ -265,8 +309,7 @@
                     if(templateElement.length){
                         var source = templateElement.html();
                         var template = Handlebars.compile(source);
-                        var context = obj;
-                        var html = template(context);
+                        var html = template(obj);
                         target.append(html);
 
                     } else {
@@ -434,6 +477,9 @@
                 }
             });
         };   
+
+     
+        Handlebars.registerPartial("recursive", $('script[data-template="recursive"]').html());
 
         getUrlParameter('page') != null ? getPageComponenents(getUrlParameter('page')) : getPageComponenents(1)        
     

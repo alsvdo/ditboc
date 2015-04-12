@@ -42,7 +42,7 @@
                             </ul>
                         {{/if}}                             
                     </li>
-        </script>
+       </script>
 
        <script type="text/x-handlebars-template" data-component="Global menu">
                 <div class="navbar-header">
@@ -129,6 +129,642 @@
             </div>
        </script>
 
+       <script type="text/x-handlebars-template" data-component="Page heading">
+            <div class="panel panel-default panel-video" data-dynamic="component">
+                <div class="panel-body">
+                    <div class="page-header">
+                        <h1>
+                            {{#if HeadingOne}}
+                                {{{HeadingOne}}}
+                            {{else}}
+                                {{currentPageName}}
+                            {{/if}}
+                        </h1>
+                            {{#if Image}}
+                                <img src="{{{Image}}}">
+                            {{/if}}
+                    </div>
+                </div>
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="News list">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                    <div class="hideIfEmpty">{{{RichContent}}}</div>
+                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                    <a class="hideIfEmpty" data-page="{{LinkUrl}}" role="button"></a>
+                </div>
+            </div>
+       </script>
+      
+       <script type="text/x-handlebars-template" data-component="Teaser">
+            <div class="panel panel-default panel-video">
+                <div class="panel-body">
+                    <p>{{Teaser}}</p>
+                </div>
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Rich text content">
+            <div class="panel panel-default panel-video">
+                <div class="panel-body">
+                    <div class="page-content">{{{RichContent}}}</div>
+                </div>
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Rich text content with tables">
+            <div class="page-content" data-dynamic="component">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+       </script>
+       
+       <script type="text/x-handlebars-template" data-component="Rich text content with tabs">
+            <div role="tabpanel" data-dynamic="component">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tab1</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tab2</a></li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Tab3</a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Tab4</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <div class="panel panel-default">
+                        <div class="panel-body" data-dynamic="richcontent">
+                                Basic panel example
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                        <div class="panel panel-default">
+                        <div class="panel-body" data-dynamic="richcontent">
+                                Basic panel example
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="messages">
+                        <div class="panel panel-default">
+                        <div class="panel-body" data-dynamic="richcontent">
+                                Basic panel example
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="settings">
+                        <div class="panel panel-default">
+                        <div class="panel-body" data-dynamic="richcontent">
+                                Basic panel example
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Rich text content with quote">
+            <blockquote>
+                <p>{{{RichContent}}}</p>
+            </blockquote>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Rich text content with accordion">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" data-dynamic="component">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                                {{{HeadingOne}}}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            {{{RichContent}}}
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    {{{HeadingTwo}}}                                
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            {{{RichContent}}}
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                {{{HeadingThree}}}                                
+                            </a>                                
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            {{{RichContent}}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Rich text content with inline video">
+            <div class="panel panel-default" data-dynamic="component">
+                <div class="panel-body">
+                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                    <div class="hideIfEmpty">{{{RichContent}}}}</div>
+                    <iframe width="100%" height="200" frameborder="0" allowfullscreen></iframe><br>
+                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" href="{{LinkUrl}}" role="button">{{{LinkText}}}</a><br>
+                    <a class="hideIfEmpty"  role="button">{{{LinkText}}}</a>
+                </div>
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="List with page links">
+            <div class="panel panel-default" data-dynamic="component">
+                <div class="panel-body">
+                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                    <div data-dynamic="richcontent" class="hideIfEmpty"></div>
+                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                    <a class="hideIfEmpty" data-dynamic role="button"></a>
+                </div>
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Product info">
+            <div class="panel product-info" data-dynamic="component">
+                <br>
+                <div class="col-md-4">
+                    <!-- Image -->
+                    <img src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}" class="img-responsive">
+
+                </div>
+                <div class="col-md-8">
+                    <!-- Title -->
+                    <h1>{{{HeadingOne}}}</h1>
+
+                    <hr>
+
+                    <!-- Small description -->
+                    <p>{{{Teaser}}}
+                    </p>
+
+                    <!-- Informations -->
+                    <ul>
+                        <li><small>Artikelnr:</small><small>27842</small>
+                        </li>
+                        <li><small>Antal i pakke:</small><small>1</small>
+                        </li>
+                        <li><small>Enhed:</small><small>fp</small>
+                        </li>
+                    </ul>
+                    <!-- Full Description -->
+                    <p>{{{RichContent}}}</p>
+                    <big>
+                            <p>{{{Price}}} kr</p>
+                    </big>   
+                    <div class="buy"><a data-dynamic href="{{{LinkUrl}}}" class="btn btn-success">Add to Cart</a>
+                    </div>
+                    <hr>
+                    <!-- Breadcrumbs -->
+                    <ol class="breadcrumb">
+                        <li>Kontorsmaterial</li>
+                        <li>Engångs-</li>
+                        <li class="active">hygien- &#38; säkerhetsprodukter</li>
+                    </ol>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Product list">
+            <div class="panel panel-info productlist" data-dynamic="component">
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-2"><small style="color: #a7a7a7">Product</small>
+                        </div>
+                        <div class="col-xs-3"><small style="color: #a7a7a7">Description</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                        </div>
+                        <div class="col-xs-2">
+                            <h2>{{{HeadingTwo}}}</h2>
+                        </div>
+                        <div class="col-xs-3">
+                            <h3>{{{HeadingThree}}}</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="col-xs-4 text-right">
+                                <h6><strong>Antal:</strong></h6>
+                            </div>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control input-sm" value="1">
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <button type="button" class="btn btn-success btn-block">
+                                Køb
+                            </button>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+       </script>
+       
+       <script type="text/x-handlebars-template" data-component="Product highlight">
+            <div class="thumbnail" >
+                <br>
+                <img src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}" alt="">
+                <div class="caption">
+                    <h3 class="text-center">{{{HeadingThree}}}</h3>
+                    <p class="text-center"><small>{{{Teaser}}}</small>
+                    </p>
+                    <p class="text-center">
+                        <a href="{{{LinkUrl}}}" class="btn btn-primary">Buy Now!</a>
+                        <a href="{{{LinkUrl}}}" class="btn btn-default">More Info</a>
+                    </p>
+                </div>
+            </div>    
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Shopping cart">
+            <div class="panel panel-info productlist">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-primary btn-sm btn-block">
+                                    <span class="glyphicon glyphicon-share-alt"></span> Continue shopping
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-2"><small style="color: #a7a7a7">Product</small>
+                        </div>
+                        <div class="col-xs-3"><small style="color: #a7a7a7">Description</small>
+                        </div>
+                    </div>                   
+                    <hr>                       
+                                <div class="row">
+                                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                                        </div>
+                                            <div class="col-xs-2">
+                                            <strong><h2>{{{HeadingTwo}}}</h2></strong>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <small><h3>{{{HeadingThree}}}</h3></small>
+                                        </div>
+                                        <div class="col-xs-5">
+                                            <div class="col-xs-6 text-right">
+                                                <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <input type="text" class="form-control input-sm" value="1">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <button type="button" class="btn btn-link btn-xs">
+                                                    <span class="glyphicon glyphicon-trash"> </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                                       <div class="row">
+                                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                                        </div>
+                                            <div class="col-xs-2">
+                                            <strong><h2>{{{HeadingTwo}}}</h2></strong>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <small><h3>{{{HeadingThree}}}</h3></small>
+                                        </div>
+                                        <div class="col-xs-5">
+                                            <div class="col-xs-6 text-right">
+                                                <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <input type="text" class="form-control input-sm" value="1">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <button type="button" class="btn btn-link btn-xs">
+                                                    <span class="glyphicon glyphicon-trash"> </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                                       <div class="row">
+                                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                                        </div>
+                                            <div class="col-xs-2">
+                                            <strong><h2>{{{HeadingTwo}}}</h2></strong>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <small><h3>{{{HeadingThree}}}</h3></small>
+                                        </div>
+                                        <div class="col-xs-5">
+                                            <div class="col-xs-6 text-right">
+                                                <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <input type="text" class="form-control input-sm" value="1">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <button type="button" class="btn btn-link btn-xs">
+                                                    <span class="glyphicon glyphicon-trash"> </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                                       <div class="row">
+                                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                                        </div>
+                                            <div class="col-xs-2">
+                                            <strong><h2>{{{HeadingTwo}}}</h2></strong>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <small><h3>{{{HeadingThree}}}</h3></small>
+                                        </div>
+                                        <div class="col-xs-5">
+                                            <div class="col-xs-6 text-right">
+                                                <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <input type="text" class="form-control input-sm" value="1">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <button type="button" class="btn btn-link btn-xs">
+                                                    <span class="glyphicon glyphicon-trash"> </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                    <div class="row">
+                        <div class="text-center">
+                            <div class="col-xs-9">
+                                <h6 class="text-right">Added items?</h6>
+                            </div>
+                            <div class="col-xs-3">
+                                <button type="button" class="btn btn-default btn-sm btn-block">
+                                    Update cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row text-center">
+                        <div class="col-xs-9">
+                            <h4 class="text-right">Total $<strong data-dynamic class="price">50.00</strong></h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <button type="button" class="btn btn-success btn-block">
+                                Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Order details">
+            <div class="order-details" data-dynamic="component">
+                    <div class="panel panel-default">
+                        <div class="row" style="padding-left: 15px; padding-right: 15px">
+                            <div class="col-xs-12">
+
+                                <div class="invoice-title">
+                                    <h2>Invoice</h2>
+                                    <h3 class="pull-right">Order # 12345</h3>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <address>
+                                    <strong>Billed To:</strong><br>
+                                        John Smith<br>
+                                        1234 Main<br>
+                                        Apt. 4B<br>
+                                        Springfield, ST 54321
+                                    </address>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <address>
+                                    <strong>Shipped To:</strong><br>
+                                        Jane Smith<br>
+                                        1234 Main<br>
+                                        Apt. 4B<br>
+                                        Springfield, ST 54321
+                                    </address>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <address>
+                                        <strong>Payment Method:</strong><br>
+                                        Visa ending **** 4242<br>
+                                        jsmith@email.com
+                                    </address>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <address>
+                                        <strong>Order Date:</strong><br>
+                                        March 7, 2014<br><br>
+                                    </address>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><strong>Order summary</strong></h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <td><strong>Item</strong>
+                                                    </td>
+                                                    <td class="text-center"><strong>Price</strong>
+                                                    </td>
+                                                    <td class="text-center"><strong>Quantity</strong>
+                                                    </td>
+                                                    <td class="text-right"><strong>Totals</strong>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                                <tr>
+                                                    <td>BS-200</td>
+                                                    <td class="text-center">$10.99</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-right">$10.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>BS-400</td>
+                                                    <td class="text-center">$20.00</td>
+                                                    <td class="text-center">3</td>
+                                                    <td class="text-right">$60.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>BS-1000</td>
+                                                    <td class="text-center">$600.00</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-right">$600.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="thick-line"></td>
+                                                    <td class="thick-line"></td>
+                                                    <td class="thick-line text-center"><strong>Subtotal</strong>
+                                                    </td>
+                                                    <td class="thick-line text-right">$670.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="no-line"></td>
+                                                    <td class="no-line"></td>
+                                                    <td class="no-line text-center"><strong>Shipping</strong>
+                                                    </td>
+                                                    <td class="no-line text-right">$15</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="no-line"></td>
+                                                    <td class="no-line"></td>
+                                                    <td class="no-line text-center"><strong>Total</strong>
+                                                    </td>
+                                                    <td class="no-line text-right">$685.99</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Order payment">
+            <div class="card-checkout" data-dynamic="component">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png">Payment Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" id="payment-form">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label for="cardNumber">CARD NUMBER</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="cardNumber" placeholder="Valid Card Number" required autofocus data-stripe="number" />
+                                                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-7 col-md-7">
+                                            <div class="form-group">
+                                                <label style="display: block" for="expMonth">EXPIRATION DATE</label>
+                                                <div class="col-xs-6 col-lg-6 pl-ziro custom">
+                                                    <input type="text" class="form-control" name="expMonth" placeholder="MM" required data-stripe="exp_month" />
+                                                </div>
+                                                <div class="col-xs-6 col-lg-6 pl-ziro">
+                                                    <input type="text" class="form-control" name="expYear" placeholder="YY" required data-stripe="exp_year" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-5 col-md-5 pull-right">
+                                            <div class="form-group">
+                                                <label for="cvCode">CV CODE</label>
+                                                <input type="password" class="form-control" name="cvCode" placeholder="CV" required data-stripe="cvc" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label for="couponCode">COUPON CODE</label>
+                                                <input type="text" class="form-control" name="couponCode" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <button class="btn btn-success btn-lg btn-block" type="submit">Place Order</button>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="display:none;">
+                                        <div class="col-xs-12">
+                                            <p class="payment-errors"></p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+       </script>
+
        <script type="text/x-handlebars-template" data-component=""></script>
 
     </templates>
@@ -148,9 +784,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
-        $.ajaxSetup({
-            cache: false
-        });
+       
         if(window.location.href.indexOf(".html") == -1) {
             window.location.href = "index.html";
         }
@@ -159,8 +793,10 @@
         if(getUrlParameter('sheet') != null) {
             var sheetId = getUrlParameter('sheet');
         }
+
         var spreadSheet = 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=' + sheetId;
         var dataTable = $('#datatable');
+
         $.fn.sheetrock.options.url = spreadSheet;
         $.fn.sheetrock.options.chunkSize = 50;
         $.fn.sheetrock.options.formatting = true;
@@ -172,7 +808,6 @@
         var pageName = null;
 
         $(document).on('click', 'a[data-page]', function (e) {
-
             var pageId = $(e.target).data('page'),
                 currentLocation = window.location,
                 wWidth = $(window).width();
@@ -186,8 +821,7 @@
                 }
             } else {
                 window.location.href = addUrlParameter(currentLocation, 'page', pageId);
-            }
-        });    
+            }});    
 
         function getUrlParameter(param) {
             var pageUrl = location.search.substring(1);
@@ -197,8 +831,7 @@
                 if (parameterName[0] == param) {
                     return parameterName[1];
                 }
-            }
-        };
+            }};
 
         function addUrlParameter(url, param, value) {
             // Using a positive lookahead (?=\=) to find the
@@ -235,8 +868,7 @@
             {
                 newURL += '#' + hash;
             }
-            return newURL;
-        };
+            return newURL;};
   
         (function getComponentData(){
             $(dataTable).sheetrock({
@@ -281,8 +913,7 @@
               rowHandler: function(row){               
                     componentData.push(row.cells);    
               },        
-            });
-        })();        
+            });})();        
 
         function childrenCheck(parentObj, childObj){
             if(parentObj.Children) {
@@ -299,8 +930,7 @@
                         }
                     }
                 }
-            }
-        }
+            }}
 
         (function createMenuStructure(){
             var menuStructure = new Array();
@@ -358,10 +988,9 @@
                             return currentComponent;
                         }
                     }
-                }
-        };
+                }};
 
-        function populateTemplate(target, obj, templateName) {                    
+        function populateTemplate(target, obj, templateName) {
                 if(obj != null){
                     var templateElement = $('script[data-component="'+ templateName +'"]');
                     if(templateElement.length){
@@ -535,9 +1164,17 @@
                 }
             });
         };   
-
      
+        Handlebars.registerHelper("currentPageName",function(){
+            return pageName;
+        });
         Handlebars.registerPartial("recursiveMenu", $('script[data-partial="recursiveMenu"]').html());
+        Handlebars.registerHelper("times", function(n, block) {
+            var accum = '';
+            for(var i = 0; i < n; ++i)
+                accum += block.fn(i);
+            return accum;
+        });
 
         getUrlParameter('page') != null ? getPageComponenents(getUrlParameter('page')) : getPageComponenents(1)        
     

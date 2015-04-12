@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Ditboc</title>
@@ -9,10 +8,9 @@
     <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body>       
     <table id="datatable"></table>
-    <templates>
+<templates>
        <script type="text/x-handlebars-template" data-component="Panel">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -36,7 +34,7 @@
                         {{#if Children}}
                             <ul>
                                 {{#each Children}}
-                                            {{> recursiveMenu}}    
+                                    {{> recursiveMenu}}    
                                 {{/each}}                                       
                             </ul>
                         {{/if}}                             
@@ -311,7 +309,7 @@
             <div class="panel panel-default" data-dynamic="component">
                 <div class="panel-body">
                     <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
-                    <div class="hideIfEmpty">{{{RichContent}}}}</div>
+                    <div class="hideIfEmpty">{{{RichContent}}}</div>
                     <iframe width="100%" height="200" frameborder="0" allowfullscreen></iframe><br>
                     <a class="btn btn-default hideIfEmpty" data-dynamic="button" href="{{LinkUrl}}" role="button">{{{LinkText}}}</a><br>
                     <a class="hideIfEmpty"  role="button">{{{LinkText}}}</a>
@@ -763,12 +761,59 @@
                     </div>
                 </div>
        </script>
+    
+      <style type="text/css">
+            .panel-video {
+                height: 240px;
+                position: relative;
+                overflow: hidden;
+            }
+            .panel-video .panel-body {
+                position: relative;
+                z-index: 10;
+            }
+            .panel-video video {
+                position: absolute;
+                z-index: 5;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: auto;
+                height: auto;
+                min-height: 100%;
+                min-width: 100%;
+            }
+        </style>
+       <script type="text/x-handlebars-template" data-component="Spot with background video">
+            <div class="panel panel-default panel-video">
+                <video width="100%" height="100%" autoplay loop>
+                    <source src="video/Pfa2_converted.m4v" type="video/mp4">
+                </video>
+                <div class="panel-body">
+                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                    <p class="hideIfEmpty">{{{RichContent}}}</p>
+                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                    <a class="hideIfEmpty" data-dynamic role="button"></a>
+                </div>
+            </div>
+       </script>
+
+       <script type="text/x-handlebars-template" data-component="Spot with background image">
+            <div class="panel panel-default" data-dynamic="component">
+                <div class="panel-body" data-dynamic="backgroundimage">
+                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                    <p class="hideIfEmpty">{{{RichContent}}}</p>
+                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                    <a class="hideIfEmpty" data-dynamic role="button"></a>
+                </div>
+            </div>
+       </script>
 
        <script type="text/x-handlebars-template" data-component=""></script>
-    </templates>
+</templates>
 
     <nav id="main-menu" class="nav navbar-default">
-
     </nav>
 
     <main>  
@@ -934,8 +979,8 @@
             var menuStructure = new Array();
 
             $(dataTable).sheetrock({
-                sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
-                // sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != "TRUE"',
+                // sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
+                sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != "TRUE"',
 
                 rowHandler: function(row){
                     menuStructure.push(row.cells);
@@ -996,13 +1041,14 @@
                         var template = Handlebars.compile(source);
                         var html = template(obj);
                         target.append(html);
+                        console.log(templateName);
 
                     } else {
-                        console.log('Component template not found');
+                        console.log('"'+templateName+'" template not found');
                     }
                 
                 } else {
-                    console.log('Component not found')
+                    console.log('"'+templateName+'" not found')
                 }
         // old code
             // } else {
@@ -1166,7 +1212,9 @@
         Handlebars.registerHelper("currentPageName",function(){
             return pageName;
         });
+       
         Handlebars.registerPartial("recursiveMenu", $('script[data-partial="recursiveMenu"]').html());
+        
         Handlebars.registerHelper("times", function(n, block) {
             var accum = '';
             for(var i = 0; i < n; ++i)

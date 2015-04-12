@@ -9,51 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>       
-    <table id="datatable"></table>
-<templates>
-       <script type="text/x-handlebars-template" data-component="Panel">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{{HeadingThree}}}</h3>
-                </div>
-                <div class="panel-body">
-                    <div>{{{RichContent}}}</div>
-                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
-                    <a class="hideIfEmpty" data-dynamic role="button"></a>
-                </div>
-            </div>
-       </script>  
+        <table id="datatable"></table>
+        <templates>
+               <script type="text/x-handlebars-template" data-component="Panel">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{{HeadingThree}}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>{{{RichContent}}}</div>
+                            <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                            <a class="hideIfEmpty" data-dynamic role="button"></a>
+                        </div>
+                    </div>
+               </script>  
 
-       <script type="text/x-handlebars-template" data-partial="recursiveMenu">
-                <li {{#if Children}} data-dropdown {{/if}}>
-                        <a data-page="{{{Id}}}">{{Name}}  
-                            {{#if Children}}
-                                <span class="caret"></span>
-                            {{/if}}
-                        </a> 
-                        {{#if Children}}
-                            <ul>
-                                {{#each Children}}
-                                    {{> recursiveMenu}}    
-                                {{/each}}                                       
-                            </ul>
-                        {{/if}}                             
-                    </li>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Global menu">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul role="navigation" class="nav navbar-nav">
-                        {{#each menuitems}}
-                            <li {{#if Children}} data-dropdown {{/if}}>
+               <script type="text/x-handlebars-template" data-partial="recursiveMenu">
+                        <li {{#if Children}} data-dropdown {{/if}} data-id="{{Id}}">
                                 <a data-page="{{{Id}}}">{{Name}}  
                                     {{#if Children}}
                                         <span class="caret"></span>
@@ -63,1167 +35,1204 @@
                                     <ul>
                                         {{#each Children}}
                                             {{> recursiveMenu}}    
-                                        {{/each}}                                      
+                                        {{/each}}                                       
                                     </ul>
                                 {{/if}}                             
                             </li>
-                        {{/each}}
-                    </ul>
-                </div>
-       </script>   
+               </script>
 
-       <script type="text/x-handlebars-template" data-component="Slider">
-          <div id="myCarousel" class="carousel slide" data-dynamic="component">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img
-                        src="{{#if Image}}{{Image}}{{else}}http://placehold.it/1500X500{{/if}}" style="width:100%" class="img-responsive">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>{{{HeadingOne}}}</h1>
-                                <p data-dynamic="teaser"><a class="btn btn-lg btn-primary" href="http://getbootstrap.com">{{{Teaser}}}</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img data-dynamic src="{{#if Image}}{{Image}}{{else}}http://placehold.it/1500X500{{/if}}" style="width:100%" class="img-responsive">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>{{{HeadingTwo}}}</h1>
-                                <p>{{{Teaser}}}</p>
-                                <p><a class="btn btn-large btn-primary" href="#">Learn more</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img data-dynamic src="{{#if Image}}{{Image}}{{else}}http://placehold.it/1500X500{{/if}}" style="width:100%" class="img-responsive">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>{{{HeadingThree}}}</h1>                                
-                                <p data-dynamic="teaser">
-                                    {{{Teaser}}}
-                                <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="icon-prev"></span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="icon-next"></span>
-                </a>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Page heading">
-            <div class="panel panel-default panel-video" data-dynamic="component">
-                <div class="panel-body">
-                    <div class="page-header">
-                        <h1>
-                            {{#if HeadingOne}}
-                                {{{HeadingOne}}}
-                            {{else}}
-                                {{currentPageName}}
-                            {{/if}}
-                        </h1>
-                            {{#if Image}}
-                                <img src="{{{Image}}}">
-                            {{/if}}
-                    </div>
-                </div>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="News list">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
-                    <div class="hideIfEmpty">{{{RichContent}}}</div>
-                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
-                    <a class="hideIfEmpty" data-page="{{LinkUrl}}" role="button"></a>
-                </div>
-            </div>
-       </script>
-      
-       <script type="text/x-handlebars-template" data-component="Teaser">
-            <div class="panel panel-default panel-video">
-                <div class="panel-body">
-                    <p>{{Teaser}}</p>
-                </div>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Rich text content">
-            <div class="panel panel-default panel-video">
-                <div class="panel-body">
-                    <div class="page-content">{{{RichContent}}}</div>
-                </div>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Rich text content with tables">
-            <div class="page-content" data-dynamic="component">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-       </script>
-       
-       <script type="text/x-handlebars-template" data-component="Rich text content with tabs">
-            <div role="tabpanel" data-dynamic="component">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tab1</a></li>
-                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tab2</a></li>
-                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Tab3</a></li>
-                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Tab4</a></li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="home">
-                        <div class="panel panel-default">
-                        <div class="panel-body" data-dynamic="richcontent">
-                                Basic panel example
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="profile">
-                        <div class="panel panel-default">
-                        <div class="panel-body" data-dynamic="richcontent">
-                                Basic panel example
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="messages">
-                        <div class="panel panel-default">
-                        <div class="panel-body" data-dynamic="richcontent">
-                                Basic panel example
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="settings">
-                        <div class="panel panel-default">
-                        <div class="panel-body" data-dynamic="richcontent">
-                                Basic panel example
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Rich text content with quote">
-            <blockquote>
-                <p>{{{RichContent}}}</p>
-            </blockquote>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Rich text content with accordion">
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" data-dynamic="component">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
-                                {{{HeadingOne}}}
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                            {{{RichContent}}}
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTwo">
-                        <h4 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    {{{HeadingTwo}}}                                
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                            {{{RichContent}}}
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                        <h4 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                {{{HeadingThree}}}                                
-                            </a>                                
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                        <div class="panel-body">
-                            {{{RichContent}}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Rich text content with inline video">
-            <div class="panel panel-default" data-dynamic="component">
-                <div class="panel-body">
-                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
-                    <div class="hideIfEmpty">{{{RichContent}}}</div>
-                    <iframe width="100%" height="200" frameborder="0" allowfullscreen></iframe><br>
-                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" href="{{LinkUrl}}" role="button">{{{LinkText}}}</a><br>
-                    <a class="hideIfEmpty"  role="button">{{{LinkText}}}</a>
-                </div>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="List with page links">
-            <div class="panel panel-default" data-dynamic="component">
-                <div class="panel-body">
-                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
-                    <div data-dynamic="richcontent" class="hideIfEmpty"></div>
-                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
-                    <a class="hideIfEmpty" data-dynamic role="button"></a>
-                </div>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Product info">
-            <div class="panel product-info" data-dynamic="component">
-                <br>
-                <div class="col-md-4">
-                    <!-- Image -->
-                    <img src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}" class="img-responsive">
-
-                </div>
-                <div class="col-md-8">
-                    <!-- Title -->
-                    <h1>{{{HeadingOne}}}</h1>
-
-                    <hr>
-
-                    <!-- Small description -->
-                    <p>{{{Teaser}}}
-                    </p>
-
-                    <!-- Informations -->
-                    <ul>
-                        <li><small>Artikelnr:</small><small>27842</small>
-                        </li>
-                        <li><small>Antal i pakke:</small><small>1</small>
-                        </li>
-                        <li><small>Enhed:</small><small>fp</small>
-                        </li>
-                    </ul>
-                    <!-- Full Description -->
-                    <p>{{{RichContent}}}</p>
-                    <big>
-                            <p>{{{Price}}} kr</p>
-                    </big>   
-                    <div class="buy"><a data-dynamic href="{{{LinkUrl}}}" class="btn btn-success">Add to Cart</a>
-                    </div>
-                    <hr>
-                    <!-- Breadcrumbs -->
-                    <ol class="breadcrumb">
-                        <li>Kontorsmaterial</li>
-                        <li>Engångs-</li>
-                        <li class="active">hygien- &#38; säkerhetsprodukter</li>
-                    </ol>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Product list">
-            <div class="panel panel-info productlist" data-dynamic="component">
-                <div class="panel-body">
-
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-2"><small style="color: #a7a7a7">Product</small>
-                        </div>
-                        <div class="col-xs-3"><small style="color: #a7a7a7">Description</small>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
-                        </div>
-                        <div class="col-xs-2">
-                            <h2>{{{HeadingTwo}}}</h2>
-                        </div>
-                        <div class="col-xs-3">
-                            <h3>{{{HeadingThree}}}</h3>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="col-xs-4 text-right">
-                                <h6><strong>Antal:</strong></h6>
-                            </div>
-                            <div class="col-xs-8">
-                                <input type="text" class="form-control input-sm" value="1">
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <button type="button" class="btn btn-success btn-block">
-                                Køb
+               <script type="text/x-handlebars-template" data-component="Global menu">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
                             </button>
                         </div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-       </script>
-       
-       <script type="text/x-handlebars-template" data-component="Product highlight">
-            <div class="thumbnail" >
-                <br>
-                <img src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}" alt="">
-                <div class="caption">
-                    <h3 class="text-center">{{{HeadingThree}}}</h3>
-                    <p class="text-center"><small>{{{Teaser}}}</small>
-                    </p>
-                    <p class="text-center">
-                        <a href="{{{LinkUrl}}}" class="btn btn-primary">Buy Now!</a>
-                        <a href="{{{LinkUrl}}}" class="btn btn-default">More Info</a>
-                    </p>
-                </div>
-            </div>    
-       </script>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul role="navigation" class="nav navbar-nav">
+                                {{#each menuitems}}
+                                    <li {{#if Children}} data-dropdown {{/if}} data-id="{{Id}}">
+                                        <a data-page="{{{Id}}}">{{Name}}  
+                                            {{#if Children}}
+                                                <span class="caret"></span>
+                                            {{/if}}
+                                        </a> 
+                                        {{#if Children}}
+                                            <ul>
+                                                {{#each Children}}
+                                                    {{> recursiveMenu}}    
+                                                {{/each}}                                      
+                                            </ul>
+                                        {{/if}}                             
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+               </script>   
 
-       <script type="text/x-handlebars-template" data-component="Shopping cart">
-            <div class="panel panel-info productlist">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
+               <script type="text/x-handlebars-template" data-component="Slider">
+                  <div id="myCarousel" class="carousel slide" data-dynamic="component">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img
+                                src="{{#if Image}}{{Image}}{{else}}http://placehold.it/1500X500{{/if}}" style="width:100%" class="img-responsive">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <h1>{{{HeadingOne}}}</h1>
+                                        <p data-dynamic="teaser"><a class="btn btn-lg btn-primary" href="http://getbootstrap.com">{{{Teaser}}}</a>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-xs-6">
-                                <button type="button" class="btn btn-primary btn-sm btn-block">
-                                    <span class="glyphicon glyphicon-share-alt"></span> Continue shopping
-                                </button>
+                            <div class="item">
+                                <img data-dynamic src="{{#if Image}}{{Image}}{{else}}http://placehold.it/1500X500{{/if}}" style="width:100%" class="img-responsive">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <h1>{{{HeadingTwo}}}</h1>
+                                        <p>{{{Teaser}}}</p>
+                                        <p><a class="btn btn-large btn-primary" href="#">Learn more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img data-dynamic src="{{#if Image}}{{Image}}{{else}}http://placehold.it/1500X500{{/if}}" style="width:100%" class="img-responsive">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <h1>{{{HeadingThree}}}</h1>                                
+                                        <p data-dynamic="teaser">
+                                            {{{Teaser}}}
+                                        <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="icon-prev"></span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="icon-next"></span>
+                        </a>
                     </div>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-2"><small style="color: #a7a7a7">Product</small>
-                        </div>
-                        <div class="col-xs-3"><small style="color: #a7a7a7">Description</small>
-                        </div>
-                    </div>                   
-                    <hr>                       
-                                <div class="row">
-                                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
-                                        </div>
-                                            <div class="col-xs-2">
-                                            <strong><h2>{{{HeadingTwo}}}</h2></strong>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <small><h3>{{{HeadingThree}}}</h3></small>
-                                        </div>
-                                        <div class="col-xs-5">
-                                            <div class="col-xs-6 text-right">
-                                                <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <input type="text" class="form-control input-sm" value="1">
-                                            </div>
-                                            <div class="col-xs-2">
-                                                <button type="button" class="btn btn-link btn-xs">
-                                                    <span class="glyphicon glyphicon-trash"> </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                                       <div class="row">
-                                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
-                                        </div>
-                                            <div class="col-xs-2">
-                                            <strong><h2>{{{HeadingTwo}}}</h2></strong>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <small><h3>{{{HeadingThree}}}</h3></small>
-                                        </div>
-                                        <div class="col-xs-5">
-                                            <div class="col-xs-6 text-right">
-                                                <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <input type="text" class="form-control input-sm" value="1">
-                                            </div>
-                                            <div class="col-xs-2">
-                                                <button type="button" class="btn btn-link btn-xs">
-                                                    <span class="glyphicon glyphicon-trash"> </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                                       <div class="row">
-                                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
-                                        </div>
-                                            <div class="col-xs-2">
-                                            <strong><h2>{{{HeadingTwo}}}</h2></strong>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <small><h3>{{{HeadingThree}}}</h3></small>
-                                        </div>
-                                        <div class="col-xs-5">
-                                            <div class="col-xs-6 text-right">
-                                                <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <input type="text" class="form-control input-sm" value="1">
-                                            </div>
-                                            <div class="col-xs-2">
-                                                <button type="button" class="btn btn-link btn-xs">
-                                                    <span class="glyphicon glyphicon-trash"> </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                                       <div class="row">
-                                        <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
-                                        </div>
-                                            <div class="col-xs-2">
-                                            <strong><h2>{{{HeadingTwo}}}</h2></strong>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <small><h3>{{{HeadingThree}}}</h3></small>
-                                        </div>
-                                        <div class="col-xs-5">
-                                            <div class="col-xs-6 text-right">
-                                                <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <input type="text" class="form-control input-sm" value="1">
-                                            </div>
-                                            <div class="col-xs-2">
-                                                <button type="button" class="btn btn-link btn-xs">
-                                                    <span class="glyphicon glyphicon-trash"> </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                    <div class="row">
-                        <div class="text-center">
-                            <div class="col-xs-9">
-                                <h6 class="text-right">Added items?</h6>
-                            </div>
-                            <div class="col-xs-3">
-                                <button type="button" class="btn btn-default btn-sm btn-block">
-                                    Update cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <div class="row text-center">
-                        <div class="col-xs-9">
-                            <h4 class="text-right">Total $<strong data-dynamic class="price">50.00</strong></h4>
-                        </div>
-                        <div class="col-xs-3">
-                            <button type="button" class="btn btn-success btn-block">
-                                Checkout
-                            </button>
-                        </div>
-                    </div>
-                </div>
-       </script>
+               </script>
 
-       <script type="text/x-handlebars-template" data-component="Order details">
-            <div class="order-details" data-dynamic="component">
+               <script type="text/x-handlebars-template" data-component="Page heading">
+                    <div class="panel panel-default panel-video" data-dynamic="component">
+                        <div class="panel-body">
+                            <div class="page-header">
+                                <h1>
+                                    {{#if HeadingOne}}
+                                        {{{HeadingOne}}}
+                                    {{else}}
+                                        {{currentPageName}}
+                                    {{/if}}
+                                </h1>
+                                    {{#if Image}}
+                                        <img src="{{{Image}}}">
+                                    {{/if}}
+                            </div>
+                        </div>
+                    </div>
+               </script>
+
+               <script type="text/x-handlebars-template" data-component="News list">
                     <div class="panel panel-default">
-                        <div class="row" style="padding-left: 15px; padding-right: 15px">
-                            <div class="col-xs-12">
-
-                                <div class="invoice-title">
-                                    <h2>Invoice</h2>
-                                    <h3 class="pull-right">Order # 12345</h3>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <address>
-                                    <strong>Billed To:</strong><br>
-                                        John Smith<br>
-                                        1234 Main<br>
-                                        Apt. 4B<br>
-                                        Springfield, ST 54321
-                                    </address>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <address>
-                                    <strong>Shipped To:</strong><br>
-                                        Jane Smith<br>
-                                        1234 Main<br>
-                                        Apt. 4B<br>
-                                        Springfield, ST 54321
-                                    </address>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <address>
-                                        <strong>Payment Method:</strong><br>
-                                        Visa ending **** 4242<br>
-                                        jsmith@email.com
-                                    </address>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <address>
-                                        <strong>Order Date:</strong><br>
-                                        March 7, 2014<br><br>
-                                    </address>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><strong>Order summary</strong></h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-condensed">
-                                            <thead>
-                                                <tr>
-                                                    <td><strong>Item</strong>
-                                                    </td>
-                                                    <td class="text-center"><strong>Price</strong>
-                                                    </td>
-                                                    <td class="text-center"><strong>Quantity</strong>
-                                                    </td>
-                                                    <td class="text-right"><strong>Totals</strong>
-                                                    </td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <!-- foreach ($order->lineItems as $line) or some such thing here -->
-                                                <tr>
-                                                    <td>BS-200</td>
-                                                    <td class="text-center">$10.99</td>
-                                                    <td class="text-center">1</td>
-                                                    <td class="text-right">$10.99</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>BS-400</td>
-                                                    <td class="text-center">$20.00</td>
-                                                    <td class="text-center">3</td>
-                                                    <td class="text-right">$60.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>BS-1000</td>
-                                                    <td class="text-center">$600.00</td>
-                                                    <td class="text-center">1</td>
-                                                    <td class="text-right">$600.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="thick-line"></td>
-                                                    <td class="thick-line"></td>
-                                                    <td class="thick-line text-center"><strong>Subtotal</strong>
-                                                    </td>
-                                                    <td class="thick-line text-right">$670.99</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="no-line"></td>
-                                                    <td class="no-line"></td>
-                                                    <td class="no-line text-center"><strong>Shipping</strong>
-                                                    </td>
-                                                    <td class="no-line text-right">$15</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="no-line"></td>
-                                                    <td class="no-line"></td>
-                                                    <td class="no-line text-center"><strong>Total</strong>
-                                                    </td>
-                                                    <td class="no-line text-right">$685.99</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="panel-body">
+                            <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                            <div class="hideIfEmpty">{{{RichContent}}}</div>
+                            <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                            <a class="hideIfEmpty" data-page="{{LinkUrl}}" role="button"></a>
                         </div>
                     </div>
-                </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Order payment">
-            <div class="card-checkout" data-dynamic="component">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png">Payment Details</h3>
-                            </div>
-                            <div class="panel-body">
-                                <form role="form" id="payment-form">
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <label for="cardNumber">CARD NUMBER</label>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" name="cardNumber" placeholder="Valid Card Number" required autofocus data-stripe="number" />
-                                                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-7 col-md-7">
-                                            <div class="form-group">
-                                                <label style="display: block" for="expMonth">EXPIRATION DATE</label>
-                                                <div class="col-xs-6 col-lg-6 pl-ziro custom">
-                                                    <input type="text" class="form-control" name="expMonth" placeholder="MM" required data-stripe="exp_month" />
-                                                </div>
-                                                <div class="col-xs-6 col-lg-6 pl-ziro">
-                                                    <input type="text" class="form-control" name="expYear" placeholder="YY" required data-stripe="exp_year" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-5 col-md-5 pull-right">
-                                            <div class="form-group">
-                                                <label for="cvCode">CV CODE</label>
-                                                <input type="password" class="form-control" name="cvCode" placeholder="CV" required data-stripe="cvc" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <label for="couponCode">COUPON CODE</label>
-                                                <input type="text" class="form-control" name="couponCode" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <button class="btn btn-success btn-lg btn-block" type="submit">Place Order</button>
-                                        </div>
-                                    </div>
-                                    <div class="row" style="display:none;">
-                                        <div class="col-xs-12">
-                                            <p class="payment-errors"></p>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-       </script>
-    
-      <style type="text/css">
-            .panel-video {
-                height: 240px;
-                position: relative;
-                overflow: hidden;
-            }
-            .panel-video .panel-body {
-                position: relative;
-                z-index: 10;
-            }
-            .panel-video video {
-                position: absolute;
-                z-index: 5;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                width: auto;
-                height: auto;
-                min-height: 100%;
-                min-width: 100%;
-            }
-        </style>
-       <script type="text/x-handlebars-template" data-component="Spot with background video">
-            <div class="panel panel-default panel-video">
-                <video width="100%" height="100%" autoplay loop>
-                    <source src="video/Pfa2_converted.m4v" type="video/mp4">
-                </video>
-                <div class="panel-body">
-                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
-                    <p class="hideIfEmpty">{{{RichContent}}}</p>
-                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
-                    <a class="hideIfEmpty" data-dynamic role="button"></a>
-                </div>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component="Spot with background image">
-            <div class="panel panel-default" data-dynamic="component">
-                <div class="panel-body" data-dynamic="backgroundimage">
-                    <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
-                    <p class="hideIfEmpty">{{{RichContent}}}</p>
-                    <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
-                    <a class="hideIfEmpty" data-dynamic role="button"></a>
-                </div>
-            </div>
-       </script>
-
-       <script type="text/x-handlebars-template" data-component=""></script>
-</templates>
-
-    <nav id="main-menu" class="nav navbar-default">
-    </nav>
-
-    <main>  
-        <div class="container">
-        </div>
-    </main>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="https://chriszarate.github.io/sheetrock/dist/jquery.sheetrock.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
-    <script src="js/main.js"></script>
-    <script type="text/javascript">
-       
-        if(window.location.href.indexOf(".html") == -1) {
-            window.location.href = "index.html";
-        }
-
-        var sheetId = 0;
-        if(getUrlParameter('sheet') != null) {
-            var sheetId = getUrlParameter('sheet');
-        }
-
-        var spreadSheet = 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=' + sheetId;
-        var dataTable = $('#datatable');
-
-        $.fn.sheetrock.options.url = spreadSheet;
-        $.fn.sheetrock.options.chunkSize = 50;
-        $.fn.sheetrock.options.formatting = true;
-        $.fn.sheetrock.options.headersOff = true;
-
-        var componentData = new Array();
-        var pageComponents = new Array();
-        var menuObjet = new Object();
-        var pageName = null;
-
-        $(document).on('click', 'a[data-page]', function (e) {
-            var pageId = $(e.target).data('page'),
-                currentLocation = window.location,
-                wWidth = $(window).width();
-
-            if ($(e.target).next('ul').length && wWidth <= 768) {
-                if ($(e.target).hasClass('clicked')) {
-                    window.location.href = addUrlParameter(currentLocation, 'page', pageId);
-                } else {
-                    $('a[data-page]').removeClass('clicked');
-                    $(e.target).addClass('clicked')
-                }
-            } else {
-                window.location.href = addUrlParameter(currentLocation, 'page', pageId);
-            }});    
-
-        function getUrlParameter(param) {
-            var pageUrl = location.search.substring(1);
-            var urlVariables = pageUrl.split('&');
-            for (var i = 0; i < urlVariables.length; i++) {
-                var parameterName = urlVariables[i].split("=");
-                if (parameterName[0] == param) {
-                    return parameterName[1];
-                }
-            }};
-
-        function addUrlParameter(url, param, value) {
-            // Using a positive lookahead (?=\=) to find the
-            // given parameter, preceded by a ? or &, and followed
-            // by a = with a value after than (using a non-greedy selector)
-            // and then followed by a & or the end of the string
-            var val = new RegExp('(\\?|\\&)' + param + '=.*?(?=(&|$))'),
-                parts = url.toString().split('#'),
-                url = parts[0],
-                hash = parts[1]
-                qstring = /\?.+$/,
-                newURL = url;
-
-            // Check if the parameter exists
-            if (val.test(url))
-            {
-                // if it does, replace it, using the captured group
-                // to determine & or ? at the beginning
-                newURL = url.replace(val, '$1' + param + '=' + value);
-            }
-            else if (qstring.test(url))
-            {
-                // otherwise, if there is a query string at all
-                // add the param to the end of it
-                newURL = url + '&' + param + '=' + value;
-            }
-            else
-            {
-                // if there's no query string, add one
-                newURL = url + '?' + param + '=' + value;
-            }
-
-            if (hash)
-            {
-                newURL += '#' + hash;
-            }
-            return newURL;};
-  
-        (function getComponentData(){
-            $(dataTable).sheetrock({
-              // This array becomes the property names of the output JSON object, it must have exactly the same amount of strings as the retrieved columns.
-              url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
+               </script>
               
-              labels:     ['Component'
-                         , 'Filename'
-                         , 'Type'
-                         , 'HeadingOne'
-                         , 'HeadingTwo'
-                         , 'HeadingThree'
-                         , 'Teaser'
-                         , 'RichContent'
-                         , 'LinkText'
-                         , 'LinkUrl'
-                         , 'Image'
-                         , 'Date'
-                         , 'Price'
-                         , 'CTAText'
-                         , 'CTAUrl'],
+               <script type="text/x-handlebars-template" data-component="Teaser">
+                    <div class="panel panel-default panel-video">
+                        <div class="panel-body">
+                            <p>{{Teaser}}</p>
+                        </div>
+                    </div>
+               </script>
 
-              columns: {A: 'Component'
-                        , D: 'Filename'
-                        , E: 'Type'
-                        , F: 'HeadingOne'
-                        , G: 'HeadingTwo'
-                        , H: 'HeadingThree'
-                        , I: 'Teaser'
-                        , J: 'RichContent'
-                        , K: 'LinkText'
-                        , L: 'LinkUrl'
-                        , M: 'Image'
-                        , N: 'Date'
-                        , O: 'Price'
-                        , P: 'CTAText'
-                        , Q: 'CTAUrl'},
+               <script type="text/x-handlebars-template" data-component="Rich text content">
+                    <div class="panel panel-default panel-video">
+                        <div class="panel-body">
+                            <div class="page-content">{{{RichContent}}}</div>
+                        </div>
+                    </div>
+               </script>
 
-              sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%',
+               <script type="text/x-handlebars-template" data-component="Rich text content with tables">
+                    <div class="page-content" data-dynamic="component">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+               </script>
+               
+               <script type="text/x-handlebars-template" data-component="Rich text content with tabs">
+                    <div role="tabpanel" data-dynamic="component">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tab1</a></li>
+                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tab2</a></li>
+                            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Tab3</a></li>
+                            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Tab4</a></li>
+                        </ul>
 
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <div class="panel panel-default">
+                                <div class="panel-body" data-dynamic="richcontent">
+                                        Basic panel example
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <div class="panel panel-default">
+                                <div class="panel-body" data-dynamic="richcontent">
+                                        Basic panel example
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="messages">
+                                <div class="panel panel-default">
+                                <div class="panel-body" data-dynamic="richcontent">
+                                        Basic panel example
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="settings">
+                                <div class="panel panel-default">
+                                <div class="panel-body" data-dynamic="richcontent">
+                                        Basic panel example
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-              rowHandler: function(row){               
-                    componentData.push(row.cells);    
-              },        
-            });})();        
+                    </div>
+               </script>
 
-        function childrenCheck(parentObj, childObj){
-            if(parentObj.Children) {
-                for(var i = parentObj.Children.length; i >= 0; i--){
-                    if(parentObj.Children[i] != null) {
-                        var currentItem = parentObj.Children[i];
-                        if(currentItem.Id == childObj.Parent){
-                            if(!currentItem.Children){
-                                currentItem["Children"] = new Array();
-                            }
-                            currentItem.Children.unshift(childObj);
-                        } else {
-                            childrenCheck(currentItem, childObj);
-                        }
+               <script type="text/x-handlebars-template" data-component="Rich text content with quote">
+                    <blockquote>
+                        <p>{{{RichContent}}}</p>
+                    </blockquote>
+               </script>
+
+               <script type="text/x-handlebars-template" data-component="Rich text content with accordion">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" data-dynamic="component">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                                        {{{HeadingOne}}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    {{{RichContent}}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            {{{HeadingTwo}}}                                
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    {{{RichContent}}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        {{{HeadingThree}}}                                
+                                    </a>                                
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    {{{RichContent}}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </script>
+
+               <script type="text/x-handlebars-template" data-component="Rich text content with inline video">
+                    <div class="panel panel-default" data-dynamic="component">
+                        <div class="panel-body">
+                            <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                            <div class="hideIfEmpty">{{{RichContent}}}</div>
+                            <iframe width="100%" height="200" frameborder="0" allowfullscreen></iframe><br>
+                            <a class="btn btn-default hideIfEmpty" data-dynamic="button" href="{{LinkUrl}}" role="button">{{{LinkText}}}</a><br>
+                            <a class="hideIfEmpty"  role="button">{{{LinkText}}}</a>
+                        </div>
+                    </div>
+               </script>
+
+               <script type="text/x-handlebars-template" data-component="List with page links">
+                    <div class="panel panel-default" data-dynamic="component">
+                        <div class="panel-body">
+                            <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                            <div data-dynamic="richcontent" class="hideIfEmpty"></div>
+                            <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                            <a class="hideIfEmpty" data-dynamic role="button"></a>
+                        </div>
+                    </div>
+               </script>
+
+               <script type="text/x-handlebars-template" data-component="Product info">
+                    <div class="panel product-info" data-dynamic="component">
+                        <br>
+                        <div class="col-md-4">
+                            <!-- Image -->
+                            <img src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}" class="img-responsive">
+
+                        </div>
+                        <div class="col-md-8">
+                            <!-- Title -->
+                            <h1>{{{HeadingOne}}}</h1>
+
+                            <hr>
+
+                            <!-- Small description -->
+                            <p>{{{Teaser}}}
+                            </p>
+
+                            <!-- Informations -->
+                            <ul>
+                                <li><small>Artikelnr:</small><small>27842</small>
+                                </li>
+                                <li><small>Antal i pakke:</small><small>1</small>
+                                </li>
+                                <li><small>Enhed:</small><small>fp</small>
+                                </li>
+                            </ul>
+                            <!-- Full Description -->
+                            <p>{{{RichContent}}}</p>
+                            <big>
+                                    <p>{{{Price}}} kr</p>
+                            </big>   
+                            <div class="buy"><a data-dynamic href="{{{LinkUrl}}}" class="btn btn-success">Add to Cart</a>
+                            </div>
+                            <hr>
+                            <!-- Breadcrumbs -->
+                            <ol class="breadcrumb">
+                                <li>Kontorsmaterial</li>
+                                <li>Engångs-</li>
+                                <li class="active">hygien- &#38; säkerhetsprodukter</li>
+                            </ol>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+               </script>
+
+               <script type="text/x-handlebars-template" data-component="Product list">
+                    <div class="panel panel-info productlist" data-dynamic="component">
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-2"><small style="color: #a7a7a7">Product</small>
+                                </div>
+                                <div class="col-xs-3"><small style="color: #a7a7a7">Description</small>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                                </div>
+                                <div class="col-xs-2">
+                                    <h2>{{{HeadingTwo}}}</h2>
+                                </div>
+                                <div class="col-xs-3">
+                                    <h3>{{{HeadingThree}}}</h3>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="col-xs-4 text-right">
+                                        <h6><strong>Antal:</strong></h6>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <input type="text" class="form-control input-sm" value="1">
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <button type="button" class="btn btn-success btn-block">
+                                        Køb
+                                    </button>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+               </script>
+               
+               <script type="text/x-handlebars-template" data-component="Product highlight">
+                    <div class="thumbnail" >
+                        <br>
+                        <img src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}" alt="">
+                        <div class="caption">
+                            <h3 class="text-center">{{{HeadingThree}}}</h3>
+                            <p class="text-center"><small>{{{Teaser}}}</small>
+                            </p>
+                            <p class="text-center">
+                                <a href="{{{LinkUrl}}}" class="btn btn-primary">Buy Now!</a>
+                                <a href="{{{LinkUrl}}}" class="btn btn-default">More Info</a>
+                            </p>
+                        </div>
+                    </div>    
+               </script>
+
+               <script type="text/x-handlebars-template" data-component="Shopping cart">
+                    <div class="panel panel-info productlist">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <button type="button" class="btn btn-primary btn-sm btn-block">
+                                            <span class="glyphicon glyphicon-share-alt"></span> Continue shopping
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-2"><small style="color: #a7a7a7">Product</small>
+                                </div>
+                                <div class="col-xs-3"><small style="color: #a7a7a7">Description</small>
+                                </div>
+                            </div>                   
+                            <hr>                       
+                                        <div class="row">
+                                                <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                                                </div>
+                                                    <div class="col-xs-2">
+                                                    <strong><h2>{{{HeadingTwo}}}</h2></strong>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <small><h3>{{{HeadingThree}}}</h3></small>
+                                                </div>
+                                                <div class="col-xs-5">
+                                                    <div class="col-xs-6 text-right">
+                                                        <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <input type="text" class="form-control input-sm" value="1">
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        <button type="button" class="btn btn-link btn-xs">
+                                                            <span class="glyphicon glyphicon-trash"> </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                                               <div class="row">
+                                                <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                                                </div>
+                                                    <div class="col-xs-2">
+                                                    <strong><h2>{{{HeadingTwo}}}</h2></strong>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <small><h3>{{{HeadingThree}}}</h3></small>
+                                                </div>
+                                                <div class="col-xs-5">
+                                                    <div class="col-xs-6 text-right">
+                                                        <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <input type="text" class="form-control input-sm" value="1">
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        <button type="button" class="btn btn-link btn-xs">
+                                                            <span class="glyphicon glyphicon-trash"> </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                                               <div class="row">
+                                                <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                                                </div>
+                                                    <div class="col-xs-2">
+                                                    <strong><h2>{{{HeadingTwo}}}</h2></strong>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <small><h3>{{{HeadingThree}}}</h3></small>
+                                                </div>
+                                                <div class="col-xs-5">
+                                                    <div class="col-xs-6 text-right">
+                                                        <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <input type="text" class="form-control input-sm" value="1">
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        <button type="button" class="btn btn-link btn-xs">
+                                                            <span class="glyphicon glyphicon-trash"> </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                                               <div class="row">
+                                                <div class="col-xs-2"><img class="img-responsive" src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}">
+                                                </div>
+                                                    <div class="col-xs-2">
+                                                    <strong><h2>{{{HeadingTwo}}}</h2></strong>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <small><h3>{{{HeadingThree}}}</h3></small>
+                                                </div>
+                                                <div class="col-xs-5">
+                                                    <div class="col-xs-6 text-right">
+                                                        <h6><strong>{{{Price}}} <span class="text-muted">x</span></strong></h6>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <input type="text" class="form-control input-sm" value="1">
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        <button type="button" class="btn btn-link btn-xs">
+                                                            <span class="glyphicon glyphicon-trash"> </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                            <div class="row">
+                                <div class="text-center">
+                                    <div class="col-xs-9">
+                                        <h6 class="text-right">Added items?</h6>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button type="button" class="btn btn-default btn-sm btn-block">
+                                            Update cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row text-center">
+                                <div class="col-xs-9">
+                                    <h4 class="text-right">Total $<strong data-dynamic class="price">50.00</strong></h4>
+                                </div>
+                                <div class="col-xs-3">
+                                    <button type="button" class="btn btn-success btn-block">
+                                        Checkout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+               </script>
+
+               <script type="text/x-handlebars-template" data-component="Order details">
+                    <div class="order-details" data-dynamic="component">
+                            <div class="panel panel-default">
+                                <div class="row" style="padding-left: 15px; padding-right: 15px">
+                                    <div class="col-xs-12">
+
+                                        <div class="invoice-title">
+                                            <h2>Invoice</h2>
+                                            <h3 class="pull-right">Order # 12345</h3>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <address>
+                                            <strong>Billed To:</strong><br>
+                                                John Smith<br>
+                                                1234 Main<br>
+                                                Apt. 4B<br>
+                                                Springfield, ST 54321
+                                            </address>
+                                            </div>
+                                            <div class="col-xs-6 text-right">
+                                                <address>
+                                            <strong>Shipped To:</strong><br>
+                                                Jane Smith<br>
+                                                1234 Main<br>
+                                                Apt. 4B<br>
+                                                Springfield, ST 54321
+                                            </address>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <address>
+                                                <strong>Payment Method:</strong><br>
+                                                Visa ending **** 4242<br>
+                                                jsmith@email.com
+                                            </address>
+                                            </div>
+                                            <div class="col-xs-6 text-right">
+                                                <address>
+                                                <strong>Order Date:</strong><br>
+                                                March 7, 2014<br><br>
+                                            </address>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title"><strong>Order summary</strong></h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-condensed">
+                                                    <thead>
+                                                        <tr>
+                                                            <td><strong>Item</strong>
+                                                            </td>
+                                                            <td class="text-center"><strong>Price</strong>
+                                                            </td>
+                                                            <td class="text-center"><strong>Quantity</strong>
+                                                            </td>
+                                                            <td class="text-right"><strong>Totals</strong>
+                                                            </td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                                        <tr>
+                                                            <td>BS-200</td>
+                                                            <td class="text-center">$10.99</td>
+                                                            <td class="text-center">1</td>
+                                                            <td class="text-right">$10.99</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>BS-400</td>
+                                                            <td class="text-center">$20.00</td>
+                                                            <td class="text-center">3</td>
+                                                            <td class="text-right">$60.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>BS-1000</td>
+                                                            <td class="text-center">$600.00</td>
+                                                            <td class="text-center">1</td>
+                                                            <td class="text-right">$600.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="thick-line"></td>
+                                                            <td class="thick-line"></td>
+                                                            <td class="thick-line text-center"><strong>Subtotal</strong>
+                                                            </td>
+                                                            <td class="thick-line text-right">$670.99</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line text-center"><strong>Shipping</strong>
+                                                            </td>
+                                                            <td class="no-line text-right">$15</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line text-center"><strong>Total</strong>
+                                                            </td>
+                                                            <td class="no-line text-right">$685.99</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+               </script>
+
+               <script type="text/x-handlebars-template" data-component="Order payment">
+                    <div class="card-checkout" data-dynamic="component">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png">Payment Details</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form role="form" id="payment-form">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="cardNumber">CARD NUMBER</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" name="cardNumber" placeholder="Valid Card Number" required autofocus data-stripe="number" />
+                                                            <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-7 col-md-7">
+                                                    <div class="form-group">
+                                                        <label style="display: block" for="expMonth">EXPIRATION DATE</label>
+                                                        <div class="col-xs-6 col-lg-6 pl-ziro custom">
+                                                            <input type="text" class="form-control" name="expMonth" placeholder="MM" required data-stripe="exp_month" />
+                                                        </div>
+                                                        <div class="col-xs-6 col-lg-6 pl-ziro">
+                                                            <input type="text" class="form-control" name="expYear" placeholder="YY" required data-stripe="exp_year" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-5 col-md-5 pull-right">
+                                                    <div class="form-group">
+                                                        <label for="cvCode">CV CODE</label>
+                                                        <input type="password" class="form-control" name="cvCode" placeholder="CV" required data-stripe="cvc" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="couponCode">COUPON CODE</label>
+                                                        <input type="text" class="form-control" name="couponCode" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-success btn-lg btn-block" type="submit">Place Order</button>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="display:none;">
+                                                <div class="col-xs-12">
+                                                    <p class="payment-errors"></p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+               </script>
+            
+              <style type="text/css">
+                    .panel-video {
+                        height: 240px;
+                        position: relative;
+                        overflow: hidden;
                     }
-                }
-            }}
-
-        (function createMenuStructure(){
-            var menuStructure = new Array();
-
-            $(dataTable).sheetrock({
-                // sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
-                sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != "TRUE"',
-
-                rowHandler: function(row){
-                    menuStructure.push(row.cells);
-                },
-                userCallback: function(){
-                    for(var i = menuStructure.length; i >= 0; i--) {
-                        if(menuStructure[i] != null){
-                            currentItem = menuStructure[i];
-                            if(currentItem.Parent != (null || "")){
-                                for(var j = 0; j < menuStructure.length; j++){
-                                    if(menuStructure[j].Id == currentItem.Parent) {
-                                        var parentItem = menuStructure[j];
-                                        if(!parentItem.Children){
-                                            parentItem["Children"] = new Array();
-                                        }
-                                        parentItem.Children.unshift(currentItem);
-                                        menuStructure.splice(menuStructure.indexOf(currentItem), 1);                                       
-                                    } else {
-                                        childrenCheck(menuStructure[j], currentItem);
-                                    }
-                                }
-                            }
-                        }
-
+                    .panel-video .panel-body {
+                        position: relative;
+                        z-index: 10;
                     }
-                    for(var i = menuStructure.length; i >= 0; i--){
-                        var currentItem = menuStructure[i];
-                        if(currentItem != null){
-                            if(currentItem.Parent != (null || "")){
-                                menuStructure.splice(i, 1);
-                            } else {
-                                delete currentItem["Parent"];
-                            }
-                        }
+                    .panel-video video {
+                        position: absolute;
+                        z-index: 5;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        width: auto;
+                        height: auto;
+                        min-height: 100%;
+                        min-width: 100%;
                     }
-                    menuObject = {menuitems: menuStructure};
-                    console.log(menuObject);
-                }
-                
-            })})();
+                </style>
+               <script type="text/x-handlebars-template" data-component="Spot with background video">
+                    <div class="panel panel-default panel-video">
+                        <video width="100%" height="100%" autoplay loop>
+                            <source src="video/Pfa2_converted.m4v" type="video/mp4">
+                        </video>
+                        <div class="panel-body">
+                            <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                            <p class="hideIfEmpty">{{{RichContent}}}</p>
+                            <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                            <a class="hideIfEmpty" data-dynamic role="button"></a>
+                        </div>
+                    </div>
+               </script>
 
-        function getComponentObjectByName(string){
-              for(var i = 0; i < componentData.length; i++){
-                    var currentComponent = componentData[i];
-                    if(currentComponent.Component != (null || "")){
-                        if(currentComponent.Component == string){
-                            obj = currentComponent;
-                            return currentComponent;
-                        }
+               <script type="text/x-handlebars-template" data-component="Spot with background image">
+                    <div class="panel panel-default" data-dynamic="component">
+                        <div class="panel-body" data-dynamic="backgroundimage">
+                            <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
+                            <p class="hideIfEmpty">{{{RichContent}}}</p>
+                            <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
+                            <a class="hideIfEmpty" data-dynamic role="button"></a>
+                        </div>
+                    </div>
+               </script>
+
+               <script type="text/x-handlebars-template" data-component=""></script>
+        </templates>
+
+        <nav id="main-menu" class="nav navbar-default">
+        </nav>
+
+        <main>  
+            <div class="container">
+            </div>
+        </main>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="https://chriszarate.github.io/sheetrock/dist/jquery.sheetrock.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
+        <script src="js/main.js"></script>
+        <script type="text/javascript">
+           
+            if(window.location.href.indexOf(".html") == -1) {
+                window.location.href = "index.html";
+            }
+
+            var sheetId = 0;
+            if(getUrlParameter('sheet') != null) {
+                var sheetId = getUrlParameter('sheet');
+            }
+
+            var spreadSheet = 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=' + sheetId;
+            var dataTable = $('#datatable');
+
+            $.fn.sheetrock.options.url = spreadSheet;
+            $.fn.sheetrock.options.chunkSize = 50;
+            $.fn.sheetrock.options.formatting = true;
+            $.fn.sheetrock.options.headersOff = true;
+
+            var componentData = new Array();
+            var pageComponents = new Array();
+            var menuObjet = new Object();
+            var pageName = null;
+
+           $(document).on('click', 'a[data-page]', function (e) {
+                var pageId = $(e.target).data('page'),
+                    currentLocation = window.location,
+                    wWidth = $(window).width();
+
+                if ($(e.target).next('ul').length && wWidth <= 768) {
+                    if ($(e.target).hasClass('clicked')) {
+                        window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+                    } else {
+                        $('a[data-page]').removeClass('clicked');
+                        $(e.target).addClass('clicked')
+                    }
+                } else {
+                    window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+                }});    
+
+           function getUrlParameter(param) {
+                var pageUrl = location.search.substring(1);
+                var urlVariables = pageUrl.split('&');
+                for (var i = 0; i < urlVariables.length; i++) {
+                    var parameterName = urlVariables[i].split("=");
+                    if (parameterName[0] == param) {
+                        return parameterName[1];
                     }
                 }};
 
-        function populateTemplate(target, obj, templateName) {
-                if(obj != null){
-                    var templateElement = $('script[data-component="'+ templateName +'"]');
-                    if(templateElement.length){
-                        var source = templateElement.html();
-                        var template = Handlebars.compile(source);
-                        var html = template(obj);
-                        target.append(html);
-                        console.log(templateName);
+           function addUrlParameter(url, param, value) {
+                // Using a positive lookahead (?=\=) to find the
+                // given parameter, preceded by a ? or &, and followed
+                // by a = with a value after than (using a non-greedy selector)
+                // and then followed by a & or the end of the string
+                var val = new RegExp('(\\?|\\&)' + param + '=.*?(?=(&|$))'),
+                    parts = url.toString().split('#'),
+                    url = parts[0],
+                    hash = parts[1]
+                    qstring = /\?.+$/,
+                    newURL = url;
 
-                    } else {
-                        console.log('"'+templateName+'" template not found');
-                    }
-                
-                } else {
-                    console.log('"'+templateName+'" not found')
+                // Check if the parameter exists
+                if (val.test(url))
+                {
+                    // if it does, replace it, using the captured group
+                    // to determine & or ? at the beginning
+                    newURL = url.replace(val, '$1' + param + '=' + value);
                 }
-        // old code
-            // } else {
-            //     for(var i = 0; i < componentData.length; i++) {
-            //         if(componentData[i].Component == componentName){
-            //             var currentComponent = componentData[i];
-            //             var filename = currentComponent.Filename;
-            //             $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
-            //                 if(componentType == "layout") {
-            //                     target.replaceWith(data);
-            //                 } else {
-            //                     var boundTarget = target.append(data); 
-            //                     if(boundTarget.find('*[data-dynamic]').length) {
-            //                         var dynamicElements = boundTarget.find('*[data-dynamic]');                                
-            //                         dynamicElements.each(function(){
-            //                             var dynamicElement = $(this);
-            //                             switch(dynamicElement.prop('tagName')) {
-            //                                 case 'H1': 
-            //                                  if(currentComponent.HeadingOne != (null || "")) {
-            //                                     dynamicElement.html(currentComponent.HeadingOne);
-            //                                  } else {
-            //                                     dynamicElement.html(pageName)
-            //                                  }
-            //                                 break;
-            //                                 case 'H2':
-            //                                  if(currentComponent.HeadingTwo != (null || "")) {
-            //                                     dynamicElement.html(currentComponent.HeadingTwo);
-            //                                  }
-            //                                 break;
-            //                                 case 'H3':         
-            //                                  if(currentComponent.HeadingThree != (null || "")) {
-            //                                     dynamicElement.html(currentComponent.HeadingThree);
-            //                                  }
-            //                                 break;
-            //                                 case 'A':
-            //                                   if (dynamicElement.attr('data-dynamic') != 'button') {
-            //                                       if(currentComponent.LinkText != (null || "")) {
-            //                                         dynamicElement.html(currentComponent.LinkText)
-            //                                       }
-            //                                       if(currentComponent.LinkUrl != (null || "")) {
-            //                                         if(currentComponent.LinkUrl.indexOf('http') > -1) {
-            //                                             dynamicElement.attr('href', currentComponent.LinkUrl);
-            //                                         } else if(currentComponent.LinkUrl.match(/\d+$/)){
-            //                                             dynamicElement.attr('data-page', currentComponent.LinkUrl);
-            //                                         }
-            //                                       }
-            //                                   }
-            //                                 break;
-            //                                 case 'IMG': 
-            //                                   if(currentComponent.Image != (null || "")) {
-            //                                      dynamicElement.attr('src', currentComponent.Image);
-            //                                   }
-            //                                 break;                                        
-            //                             }
-            //                             switch(dynamicElement.attr('data-dynamic')) {
-            //                                 case 'h1': 
-            //                                  if(currentComponent.HeadingOne != (null || "")) {
-            //                                     dynamicElement.html(currentComponent.HeadingOne);
-            //                                  } else {
-            //                                     dynamicElement.html(pageName)
-            //                                  }
-            //                                 break;
-            //                                 case 'h2':
-            //                                  if(currentComponent.HeadingTwo != (null || "")) {
-            //                                     dynamicElement.html(currentComponent.HeadingTwo);
-            //                                  }
-            //                                 break;
-            //                                 case 'h3':
-            //                                  if(currentComponent.HeadingThree != (null || "")) {
-            //                                     dynamicElement.html(currentComponent.HeadingThree);
-            //                                  }
-            //                                 break;
-            //                                 case 'teaser':
-            //                                     if(currentComponent.Teaser != (null || "")) {
-            //                                         dynamicElement.html(currentComponent.Teaser);
-            //                                     }
-            //                                 break;
-            //                                 case 'richcontent':
-            //                                     if(currentComponent.RichContent != (null || "")) {
-            //                                         dynamicElement.html(currentComponent.RichContent);
-            //                                     }
-            //                                 break;
-            //                                 case 'price':
-            //                                     if(currentComponent.Price != (null || "")) {
-            //                                         dynamicElement.html(currentComponent.Price);
-            //                                     }
-            //                                 break;
-            //                                 case 'date':
-            //                                     if(currentComponent.Date != (null || "")) {
-            //                                         dynamicElement.html(currentComponent.Date);
-            //                                     }
-            //                                 break;
-            //                                 case 'backgroundimage':
-            //                                     if(currentComponent.Image != (null || "")) {
-            //                                        dynamicElement.attr('style', 'background-size: cover; background-position:center center;background-repeat:no-repeat;background-image: url("'+currentComponent.Image+'");');
-            //                                     }
-            //                                 break;
-            //                                 case 'video':
-            //                                     if(currentComponent.Image != (null || "")) {
-            //                                         dynamicElement.attr('src', currentComponent.Image);
-            //                                     }
-            //                                 break;
-            //                                 case 'component':
-            //                                         dynamicElement.attr('title', currentComponent.Component);
-            //                                 break;
-            //                                 case 'button':
-            //                                   if(currentComponent.CTAText != (null || "")) {
-            //                                     dynamicElement.html(currentComponent.CTAText)
-            //                                   }
-            //                                   if(currentComponent.CTAUrl != (null || "")) {
-            //                                     if(currentComponent.CTAUrl.indexOf('http') > -1) {
-            //                                         dynamicElement.attr('href', currentComponent.CTAUrl);
-            //                                     } else if(currentComponent.CTAUrl.match(/\d+$/)){
-            //                                         dynamicElement.attr('data-page', currentComponent.CTAUrl);
-            //                                     }
-            //                                   }
-            //                                 break;
-            //                             }
-            //                         })
-                                   
-            //                     }
-            //                 }
-            //             })                    
-            //         }
-            //     }
-            
-            // }
-        };
+                else if (qstring.test(url))
+                {
+                    // otherwise, if there is a query string at all
+                    // add the param to the end of it
+                    newURL = url + '&' + param + '=' + value;
+                }
+                else
+                {
+                    // if there's no query string, add one
+                    newURL = url + '?' + param + '=' + value;
+                }
 
-        function getPageComponenents(pageId){
-            $(dataTable).sheetrock({
-                labels: ['Components', 'Name'],
-                headersOff: true,
-                sql: "Select %Components%, %Name% where %Id% = " + pageId,
-                rowHandler: function(row){
-                    if(pageName == null){
-                      pageName = row.cells.Name;
-                    }
-                    pageComponents.push(row.cells);
-                },
-                userCallback: function(){
-                        populateTemplate($('#main-menu'), menuObject, 'Global menu'); 
-                        componentCollection = pageComponents[0].Components,
-                        lbSplitCollection = componentCollection.split("\n");
-                        for(var i=0; i < lbSplitCollection.length; i++) {
-                            $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');                        
-                            var rowCompenents = lbSplitCollection[i].split(','),
-                                latestRow = $('main > .container > .row[data-id="'+ i +'"]');      
-                            for(var j=0; j < rowCompenents.length; j++){
-                                var componentName = rowCompenents[j].trim(),   
-                                    colSize = 12 / rowCompenents.length;
-                                latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
-                                var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                                populateTemplate(latestCol, getComponentObjectByName(componentName), componentName);  
+                if (hash)
+                {
+                    newURL += '#' + hash;
+                }
+                return newURL;};
+      
+           (function getComponentData(){
+                $(dataTable).sheetrock({
+                  // This array becomes the property names of the output JSON object, it must have exactly the same amount of strings as the retrieved columns.
+                  url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
+                  
+                  labels:     ['Component'
+                             , 'Filename'
+                             , 'Type'
+                             , 'HeadingOne'
+                             , 'HeadingTwo'
+                             , 'HeadingThree'
+                             , 'Teaser'
+                             , 'RichContent'
+                             , 'LinkText'
+                             , 'LinkUrl'
+                             , 'Image'
+                             , 'Date'
+                             , 'Price'
+                             , 'CTAText'
+                             , 'CTAUrl'],
+
+                  columns: {A: 'Component'
+                            , D: 'Filename'
+                            , E: 'Type'
+                            , F: 'HeadingOne'
+                            , G: 'HeadingTwo'
+                            , H: 'HeadingThree'
+                            , I: 'Teaser'
+                            , J: 'RichContent'
+                            , K: 'LinkText'
+                            , L: 'LinkUrl'
+                            , M: 'Image'
+                            , N: 'Date'
+                            , O: 'Price'
+                            , P: 'CTAText'
+                            , Q: 'CTAUrl'},
+
+                  sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%',
+
+
+                  rowHandler: function(row){               
+                        componentData.push(row.cells);    
+                  },        
+                });})();        
+
+           function childrenCheck(parentObj, childObj){
+                if(parentObj.Children) {
+                    for(var i = parentObj.Children.length; i >= 0; i--){
+                        if(parentObj.Children[i] != null) {
+                            var currentItem = parentObj.Children[i];
+                            if(currentItem.Id == childObj.Parent){
+                                if(!currentItem.Children){
+                                    currentItem["Children"] = new Array();
+                                }
+                                currentItem.Children.unshift(childObj);
+                            } else {
+                                childrenCheck(currentItem, childObj);
                             }
-                        }     
-                }
-            });
-        };   
-     
-        Handlebars.registerHelper("currentPageName",function(){
-            return pageName;
-        });
-       
-        Handlebars.registerPartial("recursiveMenu", $('script[data-partial="recursiveMenu"]').html());
-        
-        Handlebars.registerHelper("times", function(n, block) {
-            var accum = '';
-            for(var i = 0; i < n; ++i)
-                accum += block.fn(i);
-            return accum;
-        });
+                        }
+                    }
+                }}
 
-        getUrlParameter('page') != null ? getPageComponenents(getUrlParameter('page')) : getPageComponenents(1)        
-    
-    </script>
+           (function createMenuStructure(){
+                var menuStructure = new Array();
+
+                $(dataTable).sheetrock({
+                    sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
+                    // sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != "TRUE"',
+
+                    rowHandler: function(row){
+                        menuStructure.push(row.cells);
+                    },
+                    userCallback: function(){
+                        for(var i = menuStructure.length; i >= 0; i--) {
+                            if(menuStructure[i] != null){
+                                currentItem = menuStructure[i];
+                                if(currentItem.Parent != (null || "")){
+                                    for(var j = 0; j < menuStructure.length; j++){
+                                        if(menuStructure[j].Id == currentItem.Parent) {
+                                            var parentItem = menuStructure[j];
+                                            if(!parentItem.Children){
+                                                parentItem["Children"] = new Array();
+                                            }
+                                            parentItem.Children.unshift(currentItem);
+                                            menuStructure.splice(menuStructure.indexOf(currentItem), 1);                                       
+                                        } else {
+                                            childrenCheck(menuStructure[j], currentItem);
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                        for(var i = menuStructure.length; i >= 0; i--){
+                            var currentItem = menuStructure[i];
+                            if(currentItem != null){
+                                if(currentItem.Parent != (null || "")){
+                                    menuStructure.splice(i, 1);
+                                } else {
+                                    delete currentItem["Parent"];
+                                }
+                            }
+                        }
+                        menuObject = {menuitems: menuStructure};
+                    }
+                    
+                })})();
+
+           function getComponentObjectByName(string){
+                  for(var i = 0; i < componentData.length; i++){
+                        var currentComponent = componentData[i];
+                        if(currentComponent.Component != (null || "")){
+                            if(currentComponent.Component == string){
+                                obj = currentComponent;
+                                return currentComponent;
+                            }
+                        }
+                    }};
+
+           function populateTemplate(target, obj, templateName) {
+                var dfd = $.Deferred();
+                    if(obj != null){
+                        var templateElement = $('script[data-component="'+ templateName +'"]');
+                        if(templateElement.length){
+                            var source = templateElement.html();
+                            var template = Handlebars.compile(source);
+                            var html = template(obj);
+                            target.append(html);
+                            dfd.resolve();
+
+                        } else {
+                            console.log('"'+templateName+'" template not found');
+                            dfd.reject();
+                        }
+                    
+                    } else {
+                        console.log('"'+templateName+'" not found')
+                        dfd.reject();
+                    }
+                    return dfd.promise();
+         // old code
+                // } else {
+                //     for(var i = 0; i < componentData.length; i++) {
+                //         if(componentData[i].Component == componentName){
+                //             var currentComponent = componentData[i];
+                //             var filename = currentComponent.Filename;
+                //             $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
+                //                 if(componentType == "layout") {
+                //                     target.replaceWith(data);
+                //                 } else {
+                //                     var boundTarget = target.append(data); 
+                //                     if(boundTarget.find('*[data-dynamic]').length) {
+                //                         var dynamicElements = boundTarget.find('*[data-dynamic]');                                
+                //                         dynamicElements.each(function(){
+                //                             var dynamicElement = $(this);
+                //                             switch(dynamicElement.prop('tagName')) {
+                //                                 case 'H1': 
+                //                                  if(currentComponent.HeadingOne != (null || "")) {
+                //                                     dynamicElement.html(currentComponent.HeadingOne);
+                //                                  } else {
+                //                                     dynamicElement.html(pageName)
+                //                                  }
+                //                                 break;
+                //                                 case 'H2':
+                //                                  if(currentComponent.HeadingTwo != (null || "")) {
+                //                                     dynamicElement.html(currentComponent.HeadingTwo);
+                //                                  }
+                //                                 break;
+                //                                 case 'H3':         
+                //                                  if(currentComponent.HeadingThree != (null || "")) {
+                //                                     dynamicElement.html(currentComponent.HeadingThree);
+                //                                  }
+                //                                 break;
+                //                                 case 'A':
+                //                                   if (dynamicElement.attr('data-dynamic') != 'button') {
+                //                                       if(currentComponent.LinkText != (null || "")) {
+                //                                         dynamicElement.html(currentComponent.LinkText)
+                //                                       }
+                //                                       if(currentComponent.LinkUrl != (null || "")) {
+                //                                         if(currentComponent.LinkUrl.indexOf('http') > -1) {
+                //                                             dynamicElement.attr('href', currentComponent.LinkUrl);
+                //                                         } else if(currentComponent.LinkUrl.match(/\d+$/)){
+                //                                             dynamicElement.attr('data-page', currentComponent.LinkUrl);
+                //                                         }
+                //                                       }
+                //                                   }
+                //                                 break;
+                //                                 case 'IMG': 
+                //                                   if(currentComponent.Image != (null || "")) {
+                //                                      dynamicElement.attr('src', currentComponent.Image);
+                //                                   }
+                //                                 break;                                        
+                //                             }
+                //                             switch(dynamicElement.attr('data-dynamic')) {
+                //                                 case 'h1': 
+                //                                  if(currentComponent.HeadingOne != (null || "")) {
+                //                                     dynamicElement.html(currentComponent.HeadingOne);
+                //                                  } else {
+                //                                     dynamicElement.html(pageName)
+                //                                  }
+                //                                 break;
+                //                                 case 'h2':
+                //                                  if(currentComponent.HeadingTwo != (null || "")) {
+                //                                     dynamicElement.html(currentComponent.HeadingTwo);
+                //                                  }
+                //                                 break;
+                //                                 case 'h3':
+                //                                  if(currentComponent.HeadingThree != (null || "")) {
+                //                                     dynamicElement.html(currentComponent.HeadingThree);
+                //                                  }
+                //                                 break;
+                //                                 case 'teaser':
+                //                                     if(currentComponent.Teaser != (null || "")) {
+                //                                         dynamicElement.html(currentComponent.Teaser);
+                //                                     }
+                //                                 break;
+                //                                 case 'richcontent':
+                //                                     if(currentComponent.RichContent != (null || "")) {
+                //                                         dynamicElement.html(currentComponent.RichContent);
+                //                                     }
+                //                                 break;
+                //                                 case 'price':
+                //                                     if(currentComponent.Price != (null || "")) {
+                //                                         dynamicElement.html(currentComponent.Price);
+                //                                     }
+                //                                 break;
+                //                                 case 'date':
+                //                                     if(currentComponent.Date != (null || "")) {
+                //                                         dynamicElement.html(currentComponent.Date);
+                //                                     }
+                //                                 break;
+                //                                 case 'backgroundimage':
+                //                                     if(currentComponent.Image != (null || "")) {
+                //                                        dynamicElement.attr('style', 'background-size: cover; background-position:center center;background-repeat:no-repeat;background-image: url("'+currentComponent.Image+'");');
+                //                                     }
+                //                                 break;
+                //                                 case 'video':
+                //                                     if(currentComponent.Image != (null || "")) {
+                //                                         dynamicElement.attr('src', currentComponent.Image);
+                //                                     }
+                //                                 break;
+                //                                 case 'component':
+                //                                         dynamicElement.attr('title', currentComponent.Component);
+                //                                 break;
+                //                                 case 'button':
+                //                                   if(currentComponent.CTAText != (null || "")) {
+                //                                     dynamicElement.html(currentComponent.CTAText)
+                //                                   }
+                //                                   if(currentComponent.CTAUrl != (null || "")) {
+                //                                     if(currentComponent.CTAUrl.indexOf('http') > -1) {
+                //                                         dynamicElement.attr('href', currentComponent.CTAUrl);
+                //                                     } else if(currentComponent.CTAUrl.match(/\d+$/)){
+                //                                         dynamicElement.attr('data-page', currentComponent.CTAUrl);
+                //                                     }
+                //                                   }
+                //                                 break;
+                //                             }
+                //                         })
+                                       
+                //                     }
+                //                 }
+                //             })                    
+                //         }
+                //     }
+                
+                // }
+            };
+
+          function getPageComponenents(pageId){
+                $(dataTable).sheetrock({
+                    labels: ['Components', 'Name'],
+                    headersOff: true,
+                    sql: "Select %Components%, %Name% where %Id% = " + pageId,
+                    rowHandler: function(row){
+                        if(pageName == null){
+                          pageName = row.cells.Name;
+                        }
+                        pageComponents.push(row.cells);
+                    },
+                    userCallback: function(){
+                            populateTemplate($('#main-menu'), menuObject, 'Global menu').done(function(){
+                                           // var currentPage = $('li[data-id="'+ getUrlParameter('page') +'"]');
+                                           // currentPage.addClass('onPage');
+                                           // currentPage.parents('li').addClass('onPage');
+                                           // console.log(currentPage);                                        
+                                    }                                     
+                                ); 
+                            componentCollection = pageComponents[0].Components,
+                            lbSplitCollection = componentCollection.split("\n");
+                            for(var i=0; i < lbSplitCollection.length; i++) {
+                                $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');                        
+                                var rowCompenents = lbSplitCollection[i].split(','),
+                                    latestRow = $('main > .container > .row[data-id="'+ i +'"]');      
+                                for(var j=0; j < rowCompenents.length; j++){
+                                    var componentName = rowCompenents[j].trim(),   
+                                        colSize = 12 / rowCompenents.length;
+                                    latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
+                                    var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
+                                    populateTemplate(latestCol, getComponentObjectByName(componentName), componentName);  
+                                }
+                            }     
+                    }
+                });
+            };   
+     
+            Handlebars.registerHelper("currentPageName",function(){
+                return pageName;
+            });
+           
+            Handlebars.registerPartial("recursiveMenu", $('script[data-partial="recursiveMenu"]').html());
+            
+            Handlebars.registerHelper("times", function(n, block) {
+                var accum = '';
+                for(var i = 0; i < n; ++i)
+                    accum += block.fn(i);
+                return accum;
+            });
+
+            getUrlParameter('page') != null ? getPageComponenents(getUrlParameter('page')) : getPageComponenents(1)        
+        
+        </script>
 </body>
 </html>

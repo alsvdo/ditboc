@@ -228,21 +228,21 @@
                         }
                     }};
 
-           function populateTemplate(target, obj, templateName) {
+           function populateTemplate(target, obj, templateFile) {
                 var dfd = $.Deferred();
                     if(obj != null){
-                        var template = Handlebars.templates[templateName];
+                        var template = Handlebars.templates[templateFile.replace('.handlebars', '')];
                         if (template) {
                             var html = template(obj);
                             target.append(html);
                             dfd.resolve()
                         } else {
-                            console.warn('"'+templateName+'" template not found');
+                            console.warn('"'+templateFile+'" template not found');
                             dfd.reject();
                         }
                     
                     } else {
-                        console.warn('"'+templateName+'" not found')
+                        console.warn('"'+templateFile+'" not found')
                         dfd.reject();
                     }
                     return dfd.promise();

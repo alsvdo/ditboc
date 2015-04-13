@@ -37,6 +37,13 @@ templates['Global menu'] = template({"1":function(depth0,helpers,partials,data) 
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.menuitems : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </ul>\r\n</div>";
 },"usePartial":true,"useData":true});
+templates['Iframe'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<div class=\"panel panel-default\">\r\n    <div class=\"panel-body\">\r\n       <iframe width=\"100%\" height=\"200\" frameborder=\"0\" src=\""
+    + this.escapeExpression(((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper)))
+    + "\" allowfullscreen></iframe><br>\r\n    </div>\r\n</div>";
+},"useData":true});
 templates['List with page links'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 

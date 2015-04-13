@@ -3,8 +3,14 @@
         <h3 class="panel-title">{{{HeadingThree}}}</h3>
     </div>
     <div class="panel-body">
-        <div>{{{RichContent}}}</div>
-        <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
-        <a class="hideIfEmpty" data-dynamic role="button"></a>
+        {{#if RichContent}}
+			<div>{{{RichContent}}}</div>
+		{{/if}}
+		{{#if CTAText}}
+			<a class="btn btn-default" {{link CTAUrl}} role="button">{{CTAText}}</a><br>
+		{{/if}}
+		{{#if LinkText}}
+			<a {{link LinkUrl}}>{{LinkText}}</a><br>
+		{{/if}}
     </div>
 </div>

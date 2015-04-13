@@ -1,13 +1,13 @@
 <div class="panel panel-default" title="{{Component}}">
-    <div class="panel-body">
-        {{#if HeadingTwo}}
+	<div class="panel-body">
+		{{#if HeadingTwo}}
 			<h2>{{HeadingTwo}}</h2>
 		{{/if}}
 		{{#if RichContent}}
 			<div>{{{RichContent}}}</div>
 		{{/if}}
 		{{#if Image}}
-			<iframe width="100%" height="200" frameborder="0" src="{{Image}}" allowfullscreen></iframe><br>
+			<img style="max-width:100%;" src="{{Image}}"></img><br>
 		{{/if}}
 		{{#if CTAText}}
 			<a class="btn btn-default" {{link CTAUrl}} role="button">{{CTAText}}</a><br>
@@ -15,5 +15,5 @@
 		{{#if LinkText}}
 			<a {{link LinkUrl}}>{{LinkText}}</a><br>
 		{{/if}}
-    </div>
+	</div>
 </div>

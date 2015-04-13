@@ -3,9 +3,17 @@
         <source src="video/Pfa2_converted.m4v" type="video/mp4">
     </video>
     <div class="panel-body">
-        <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
-        <p class="hideIfEmpty">{{{RichContent}}}</p>
-        <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
-        <a class="hideIfEmpty" data-dynamic role="button"></a>
+        {{#if HeadingTwo}}
+			<h2>{{HeadingTwo}}</h2>
+		{{/if}}
+		{{#if RichContent}}
+			<div>{{{RichContent}}}</div>
+		{{/if}}
+		{{#if CTAText}}
+			<a class="btn btn-default" {{link CTAUrl}} role="button">{{CTAText}}</a><br>
+		{{/if}}
+		{{#if LinkText}}
+			<a {{link LinkUrl}}>{{LinkText}}</a><br>
+		{{/if}}
     </div>
 </div>

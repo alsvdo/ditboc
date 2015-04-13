@@ -1,8 +1,16 @@
-<div class="panel panel-default" data-dynamic="component">
-    <div class="panel-body" data-dynamic="backgroundimage">
-        <h2 class="hideIfEmpty">{{{HeadingTwo}}}</h2>
-        <p class="hideIfEmpty">{{{RichContent}}}</p>
-        <a class="btn btn-default hideIfEmpty" data-dynamic="button" role="button"></a><br>
-        <a class="hideIfEmpty" data-dynamic role="button"></a>
+<div class="panel panel-default" title="{{Component}}">
+    <div class="panel-body" style="background-size: cover; background-position:50% 50%; background-repeat:no-repeat; background-image: url('{{Image}}');">
+        {{#if HeadingTwo}}
+			<h2>{{HeadingTwo}}</h2>
+		{{/if}}
+		{{#if RichContent}}
+			<div>{{{RichContent}}}</div>
+		{{/if}}
+		{{#if CTAText}}
+			<a class="btn btn-default" {{link CTAUrl}} role="button">{{CTAText}}</a><br>
+		{{/if}}
+		{{#if LinkText}}
+			<a {{link LinkUrl}}>{{LinkText}}</a><br>
+		{{/if}}
     </div>
 </div>

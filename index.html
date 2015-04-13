@@ -234,7 +234,6 @@
                         var template = Handlebars.templates[templateName];
                         if (template) {
                             var html = template(obj);
-                            console.log(obj);
                             target.append(html);
                             dfd.resolve()
                         } else {

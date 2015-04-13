@@ -421,6 +421,21 @@ templates['recursiveMenu'] = template({"1":function(depth0,helpers,partials,data
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Children : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</li>";
 },"usePartial":true,"useData":true});
+templates['search-form'] = template({"1":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<h2>"
+    + this.escapeExpression(((helper = (helper = helpers.HeadingOne || (depth0 != null ? depth0.HeadingOne : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingOne","hash":{},"data":data}) : helper)))
+    + "</h2>";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<div class=\"panel panel-default\" title=\""
+    + this.escapeExpression(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\">\r\n	<div class=\"panel-body\">\r\n		<div class=\"page-header\">\r\n            "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingOne : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\r\n            <form>\r\n              <div class=\"form-group\">\r\n                <label for=\"exampleInputEmail1\">Username</label>\r\n                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" >\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"exampleInputPassword1\">Password</label>\r\n                <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">\r\n              </div>\r\n              <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n            </form>\r\n		</div>\r\n	</div>\r\n</div>";
+},"useData":true});
 templates['shopping-cart'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 

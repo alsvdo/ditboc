@@ -404,7 +404,7 @@
                                         colSize = 12 / rowCompenents.length;
                                     latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                                     var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                                    populateTemplate(latestCol, getComponentObjectByName(componentName), componentName);  
+                                    populateTemplate(latestCol, getComponentObjectByName(componentName), getComponentObjectByName(componentName).FileName);  
                                 }
                             }     
                     }

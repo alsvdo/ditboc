@@ -1,0 +1,14 @@
+ <li {{#if Children}} data-dropdown {{/if}} data-id="{{Id}}">
+    <a data-page="{{{Id}}}">{{Name}}  
+        {{#if Children}}
+            <span class="caret"></span>
+        {{/if}}
+    </a> 
+    {{#if Children}}
+        <ul>
+            {{#each Children}}
+                {{> recursiveMenu}}    
+            {{/each}}                                       
+        </ul>
+    {{/if}}                             
+</li>

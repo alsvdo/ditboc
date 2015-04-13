@@ -90,6 +90,33 @@ a[data-page] {
   display: none;
 }
 
+/* line 56, ../sass/1-Base/_base.scss */
+.panel-video {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 61, ../sass/1-Base/_base.scss */
+.panel-video .panel-body {
+  position: relative;
+  z-index: 10;
+}
+
+/* line 65, ../sass/1-Base/_base.scss */
+.panel-video video {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  min-height: 100%;
+  min-width: 100%;
+}
+
 /* line 2, ../sass/2-Modules/_main-menu.scss */
 #main-menu * {
   z-index: 999;

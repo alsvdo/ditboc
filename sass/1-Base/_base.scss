@@ -52,3 +52,25 @@ a[data-page] {
 .hideIfEmpty:empty {
 	display: none;
 }
+
+.panel-video {
+	height: 240px;
+	position: relative;
+	overflow: hidden;
+}
+.panel-video .panel-body {
+	position: relative;
+	z-index: 10;
+}
+.panel-video video {
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	height: auto;
+	min-height: 100%;
+	min-width: 100%;
+}

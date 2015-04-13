@@ -1,0 +1,43 @@
+<div class="panel product-info" data-dynamic="component">
+    <br>
+    <div class="col-md-4">
+        <!-- Image -->
+        <img src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}" class="img-responsive">
+
+    </div>
+    <div class="col-md-8">
+        <!-- Title -->
+        <h1>{{{HeadingOne}}}</h1>
+
+        <hr>
+
+        <!-- Small description -->
+        <p>{{{Teaser}}}
+        </p>
+
+        <!-- Informations -->
+        <ul>
+            <li><small>Artikelnr:</small><small>27842</small>
+            </li>
+            <li><small>Antal i pakke:</small><small>1</small>
+            </li>
+            <li><small>Enhed:</small><small>fp</small>
+            </li>
+        </ul>
+        <!-- Full Description -->
+        <p>{{{RichContent}}}</p>
+        <big>
+                <p>{{{Price}}} kr</p>
+        </big>   
+        <div class="buy"><a data-dynamic href="{{{LinkUrl}}}" class="btn btn-success">Add to Cart</a>
+        </div>
+        <hr>
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb">
+            <li>Kontorsmaterial</li>
+            <li>Engångs-</li>
+            <li class="active">hygien- &#38; säkerhetsprodukter</li>
+        </ol>
+    </div>
+    <div class="clearfix"></div>
+</div>

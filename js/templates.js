@@ -424,17 +424,17 @@ templates['recursiveMenu'] = template({"1":function(depth0,helpers,partials,data
 templates['search-form'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<h2>"
+  return "                <h2>"
     + this.escapeExpression(((helper = (helper = helpers.HeadingOne || (depth0 != null ? depth0.HeadingOne : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingOne","hash":{},"data":data}) : helper)))
-    + "</h2>";
+    + "</h2>\r\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return "<div class=\"panel panel-default\" title=\""
     + this.escapeExpression(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
-    + "\">\r\n	<div class=\"panel-body\">\r\n		<div class=\"page-header\">\r\n            "
+    + "\">\r\n	<div class=\"panel-body\">\r\n		<div class=\"page-header\">\r\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingOne : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\r\n            <form>\r\n              <div class=\"input-group\">\r\n             <input type=\"text\" class=\"form-control\" placeholder=\"Type query\" aria-describedby=\"basic-addon1\">\r\n            </div>\r\n              <button type=\"submit\" class=\"btn btn-default\">Search</button>\r\n            </form>\r\n		</div>\r\n	</div>\r\n</div>";
+    + "            <form>\r\n              <div class=\"input-group\">\r\n             <input type=\"text\" class=\"form-control\" placeholder=\"\" aria-describedby=\"basic-addon1\">\r\n            </div>\r\n              <button type=\"submit\" class=\"btn btn-default\">Search</button>\r\n            </form>\r\n		</div>\r\n	</div>\r\n</div>";
 },"useData":true});
 templates['search-result'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -739,5 +739,43 @@ templates['teaser'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function
     + "\">\r\n    <div class=\"panel-body\">\r\n        <p>"
     + alias3(((helper = (helper = helpers.Teaser || (depth0 != null ? depth0.Teaser : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Teaser","hash":{},"data":data}) : helper)))
     + "</p>\r\n    </div>\r\n</div>";
+},"useData":true});
+templates['vacancies'] = template({"1":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "			<h2>"
+    + this.escapeExpression(((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper)))
+    + "</h2>\r\n";
+},"3":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "			<div>"
+    + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "</div>\r\n";
+},"5":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
+
+  return "			<a class=\"btn btn-default\" "
+    + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.CTAUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + " role=\"button\">"
+    + alias2(((helper = (helper = helpers.CTAText || (depth0 != null ? depth0.CTAText : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"CTAText","hash":{},"data":data}) : helper)))
+    + "</a><br>\r\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<div class=\"panel panel-default\" title=\""
+    + this.escapeExpression(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\">\r\n	<div class=\"panel-body\" style=\"text-align:center;\">\r\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingTwo : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.RichContent : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.CTAText : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "	</div>\r\n</div>";
+},"useData":true});
+templates['vacancy'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<div class=\"panel panel-default\" title=\""
+    + this.escapeExpression(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\">\r\n	<div class=\"panel-body\">\r\n		<ul>\r\n			<li>\r\n				<strong><a href=\"#\">Job 1</a></strong><br>\r\n				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus erat pharetra feugiat sodales. Vivamus pharetra luctus sagittis. Duis et sollicitudin neque. Praesent ut tempor velit. Etiam nec rutrum elit.</p>\r\n			</li>\r\n			<li>\r\n				<strong><a href=\"#\">Job 2</a></strong><br>\r\n				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus erat pharetra feugiat sodales. Vivamus pharetra luctus sagittis. Duis et sollicitudin neque. Praesent ut tempor velit. Etiam nec rutrum elit.</p>\r\n			</li>\r\n			<li>\r\n				<strong><a href=\"#\">Job 3</a></strong><br>\r\n				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus erat pharetra feugiat sodales. Vivamus pharetra luctus sagittis. Duis et sollicitudin neque. Praesent ut tempor velit. Etiam nec rutrum elit.</p>\r\n			</li>\r\n			<li>\r\n				<strong><a href=\"#\">Job 4</a></strong><br>\r\n				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus erat pharetra feugiat sodales. Vivamus pharetra luctus sagittis. Duis et sollicitudin neque. Praesent ut tempor velit. Etiam nec rutrum elit.</p>\r\n			</li>\r\n		</ul>\r\n\r\n		<nav>\r\n          <ul class=\"pagination\">\r\n            <li>\r\n              <a href=\"#\" aria-label=\"Previous\">\r\n                <span aria-hidden=\"true\">&laquo;</span>\r\n              </a>\r\n            </li>\r\n            <li><a href=\"#\">1</a></li>\r\n            <li><a href=\"#\">2</a></li>\r\n            <li><a href=\"#\">3</a></li>\r\n            <li><a href=\"#\">4</a></li>\r\n            <li><a href=\"#\">5</a></li>\r\n            <li>\r\n              <a href=\"#\" aria-label=\"Next\">\r\n                <span aria-hidden=\"true\">&raquo;</span>\r\n              </a>\r\n            </li>\r\n          </ul>\r\n        </nav>\r\n	</div>\r\n</div>";
 },"useData":true});
 })();

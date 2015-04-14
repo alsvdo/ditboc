@@ -1,0 +1,13 @@
+<div class="panel panel-default" title="{{Component}}">
+	<div class="panel-body" style="text-align:center;">
+		{{#if HeadingTwo}}
+			<h2>{{HeadingTwo}}</h2>
+		{{/if}}
+		{{#if RichContent}}
+			<div>{{{RichContent}}}</div>
+		{{/if}}
+		{{#if CTAText}}
+			<a class="btn btn-default" {{link CTAUrl}} role="button">{{CTAText}}</a><br>
+		{{/if}}
+	</div>
+</div>

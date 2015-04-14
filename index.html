@@ -149,7 +149,8 @@
                              , 'Date'
                              , 'Price'
                              , 'CTAText'
-                             , 'CTAUrl'],
+                             , 'CTAUrl'
+                             , 'UserStoryForPresentation'],
 
                   columns: {A: 'Component'
                             , D: 'Filename'
@@ -165,9 +166,10 @@
                             , N: 'Date'
                             , O: 'Price'
                             , P: 'CTAText'
-                            , Q: 'CTAUrl'},
+                            , Q: 'CTAUrl'
+                            , S: 'UserStoryForPresentation'},
 
-                  sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%',
+                  sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%, %UserStoryForPresentation%' ,
 
 
                   rowHandler: function(row){               

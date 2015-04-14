@@ -408,10 +408,10 @@
                     },
                     userCallback: function(){
                             populateTemplate($('#main-menu'), menuObject, 'navbar-default').done(function(){
-                                           // var currentPage = $('li[data-id="'+ getUrlParameter('page') +'"]');
-                                           // currentPage.addClass('onPage');
-                                           // currentPage.parents('li').addClass('onPage');
-                                           // console.log(currentPage);                                        
+                                   var currentPage = $('li[data-id="'+ getUrlParameter('page') +'"]');
+                                   currentPage.addClass('onPage');
+                                   currentPage.parents('li').addClass('onPage');
+                                   console.log(currentPage);                                        
                                     }                                     
                                 ); 
                             componentCollection = pageComponents[0].Components,

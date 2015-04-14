@@ -142,7 +142,7 @@ templates['heading'] = template({"1":function(depth0,helpers,partials,data) {
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "		</div>\r\n	</div>\r\n</div>";
 },"useData":true});
-templates['iframe'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+templates['Iframe'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"panel panel-default\" title=\""
@@ -282,7 +282,7 @@ templates['order-payment'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":f
     + this.escapeExpression(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
     + "\">\r\n    <div class=\"col-lg-12\">\r\n        <div class=\"panel panel-default\">\r\n            <div class=\"panel-heading\">\r\n                <h3 class=\"panel-title\"><img class=\"pull-right\" src=\"http://i76.imgup.net/accepted_c22e0.png\">Payment Details</h3>\r\n            </div>\r\n            <div class=\"panel-body\">\r\n                <form role=\"form\" id=\"payment-form\">\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"cardNumber\">CARD NUMBER</label>\r\n                                <div class=\"input-group\">\r\n                                    <input type=\"text\" class=\"form-control\" name=\"cardNumber\" placeholder=\"Valid Card Number\" required autofocus data-stripe=\"number\" />\r\n                                    <span class=\"input-group-addon\"><i class=\"fa fa-credit-card\"></i></span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-7 col-md-7\">\r\n                            <div class=\"form-group\">\r\n                                <label style=\"display: block\" for=\"expMonth\">EXPIRATION DATE</label>\r\n                                <div class=\"col-xs-6 col-lg-6 pl-ziro custom\">\r\n                                    <input type=\"text\" class=\"form-control\" name=\"expMonth\" placeholder=\"MM\" required data-stripe=\"exp_month\" />\r\n                                </div>\r\n                                <div class=\"col-xs-6 col-lg-6 pl-ziro\">\r\n                                    <input type=\"text\" class=\"form-control\" name=\"expYear\" placeholder=\"YY\" required data-stripe=\"exp_year\" />\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-xs-5 col-md-5 pull-right\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"cvCode\">CV CODE</label>\r\n                                <input type=\"password\" class=\"form-control\" name=\"cvCode\" placeholder=\"CV\" required data-stripe=\"cvc\" />\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"couponCode\">COUPON CODE</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"couponCode\" />\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\">Place Order</button>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\" style=\"display:none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <p class=\"payment-errors\"></p>\r\n                        </div>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
 },"useData":true});
-templates['panel'] = template({"1":function(depth0,helpers,partials,data) {
+templates['Panel'] = template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return "			<div>"
@@ -484,7 +484,7 @@ templates['shopping-cart'] = template({"1":function(depth0,helpers,partials,data
     + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
     + ">\r\n                <button type=\"button\" class=\"btn btn-success btn-block\">\r\n                    Checkout\r\n                </button>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>";
 },"useData":true});
-templates['slider'] = template({"1":function(depth0,helpers,partials,data) {
+templates['Slider'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
   return this.escapeExpression(((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper)));
@@ -731,7 +731,7 @@ templates['spot-with-link-list'] = template({"1":function(depth0,helpers,partial
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.LinkText : depth0),{"name":"if","hash":{},"fn":this.program(7, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "	</div>\r\n</div>";
 },"useData":true});
-templates['teaser'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+templates['Teaser'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"panel panel-default\" title=\""

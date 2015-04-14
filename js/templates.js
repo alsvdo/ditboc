@@ -26,6 +26,21 @@ templates['content-with-accordion'] = template({"compiler":[6,">= 2.0.0-beta.1"]
     + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
 },"useData":true});
+templates['content-with-columns'] = template({"1":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "            "
+    + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "\r\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<div class=\"panel panel-default\" title=\""
+    + this.escapeExpression(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\">\r\n    <div class=\"panel-body\" style=\"column-count: 3;-webkit-column-count: 3;column-gap: 40px;-webkit-column-gap: 40px;\">\r\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.RichContent : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\r\n</div>";
+},"useData":true});
 templates['content-with-inline-video'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 

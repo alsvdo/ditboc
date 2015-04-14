@@ -22,45 +22,66 @@
         <script src="js/templates.js"></script>
         <script src="js/main.js"></script>
         <script type="text/javascript">
-           
+
+            function getClient()
+            {
+                var clients = {
+                    pfa: {
+                        components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
+                        edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=356843021'
+                    },
+                    standard: {
+                        components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
+                        edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
+                    }
+                };
+
+                switch(getUrlParameter('client'))
+                {
+                    case 'pfa':
+                        return clients.pfa;
+                }
+
+                return clients.standard;
+            }
+
+            // Store client urls
+            var client = getClient();
+
             if (window.location.href.indexOf(".html") == -1) {
                 window.location.href = "index.html" + window.location.search;
             }
 
-            var sheetId = 0;
-            if(getUrlParameter('sheet') != null) {
-                var sheetId = getUrlParameter('sheet');
-            }
-
-            var spreadSheet = 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=' + sheetId;
             var dataTable = $('#datatable');
 
-            $.fn.sheetrock.options.url = spreadSheet;
+            $.fn.sheetrock.options.url = client.edit;
             $.fn.sheetrock.options.chunkSize = 50;
             $.fn.sheetrock.options.formatting = true;
             $.fn.sheetrock.options.headersOff = true;
 
             var componentData = new Array();
             var pageComponents = new Array();
-            var menuObjet = new Object();
             var pageName = null;
 
-           $(document).on('click', 'a[data-page]', function (e) {
-                var pageId = $(e.target).data('page'),
-                      currentLocation = window.location,
-                      wWidth = $(window).width();
-                if(pageId != null){         
-                    if ($(e.target).next('ul').length && wWidth <= 768) {
-                        if ($(e.target).hasClass('clicked')) {
+            $(document).on('click', 'a[data-page]', function (e) {
+                var $that = $(this),
+                    pageId = $that.data('page'),
+                    currentLocation = window.location,
+                    wWidth = $(window).width();
+                
+                if(pageId != null) {         
+                    if ($that.next('ul').length && wWidth <= 768) {
+                        if ($that.hasClass('clicked')) {
                             window.location.href = addUrlParameter(currentLocation, 'page', pageId);
                         } else {
                             $('a[data-page]').removeClass('clicked');
-                            $(e.target).addClass('clicked')
+                            $that.addClass('clicked')
                         }
                     } else {
                         window.location.href = addUrlParameter(currentLocation, 'page', pageId);
                     }
-                }});    
+                }
+            });    
 
            function getUrlParameter(param) {
                 var pageUrl = location.search.substring(1);
@@ -110,9 +131,9 @@
                 return newURL;};
       
            (function getComponentData(){
-                $(dataTable).sheetrock({
+                dataTable.sheetrock({
                   // This array becomes the property names of the output JSON object, it must have exactly the same amount of strings as the retrieved columns.
-                  url: 'https://docs.google.com/a/addition.dk/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
+                  url: client.components,
                   
                   labels:     ['Component'
                              , 'Filename'
@@ -174,7 +195,7 @@
            (function createMenuStructure(){
                 var menuStructure = new Array();
 
-                $(dataTable).sheetrock({
+                dataTable.sheetrock({
                     sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
                     // sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != "TRUE"',
 
@@ -375,7 +396,7 @@
             };
 
           function getPageComponenents(pageId){
-                $(dataTable).sheetrock({
+                dataTable.sheetrock({
                     labels: ['Components', 'Name'],
                     headersOff: true,
                     sql: "Select %Components%, %Name% where %Id% = " + pageId,

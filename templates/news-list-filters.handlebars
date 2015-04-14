@@ -1,0 +1,49 @@
+<div class="panel panel-default" title="{{Component}}">
+	<div class="panel-body">
+		{{#if HeadingTwo}}
+			<h2>{{HeadingTwo}}</h2>
+		{{/if}}
+		<!-- Small button group -->
+		<div class="btn-group" style="float:right;">
+		  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+		   	2015 <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a href="#">2014</a></li>
+		    <li><a href="#">2013</a></li>
+		    <li><a href="#">2012</a></li>
+		  </ul>
+		</div>
+		<ul class="nav nav-pills" role="tablist">
+		  <li role="presentation"><a href="#">Filter 1 <span class="badge">42</span></a></li>
+		  <li role="presentation"><a href="#">Filter 2</a></li>
+		  <li role="presentation"><a href="#">Filter 3 <span class="badge">3</span></a></li>
+		  <li role="presentation" class="active"><a href="#">All <span class="badge">47</span></a></li>
+		</ul>
+		<br>
+		{{#if RichContent}}
+			<div>{{{RichContent}}}</div>
+		{{/if}}
+
+
+		 <nav>
+	          <ul class="pagination">
+	            <li>
+	              <a href="#" aria-label="Previous">
+	                <span aria-hidden="true">&laquo;</span>
+	              </a>
+	            </li>
+	            <li><a href="#">1</a></li>
+	            <li><a href="#">2</a></li>
+	            <li><a href="#">3</a></li>
+	            <li><a href="#">4</a></li>
+	            <li><a href="#">5</a></li>
+	            <li>
+	              <a href="#" aria-label="Next">
+	                <span aria-hidden="true">&raquo;</span>
+	              </a>
+	            </li>
+	          </ul>
+	        </nav>
+	</div>
+</div>

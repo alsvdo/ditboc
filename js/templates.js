@@ -243,6 +243,29 @@ templates['navbar-default'] = template({"1":function(depth0,helpers,partials,dat
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.menuitems : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </ul>\r\n</div>";
 },"usePartial":true,"useData":true});
+templates['news-list-filters'] = template({"1":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "			<h2>"
+    + this.escapeExpression(((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper)))
+    + "</h2>\r\n";
+},"3":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "			<div>"
+    + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "</div>\r\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<div class=\"panel panel-default\" title=\""
+    + this.escapeExpression(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\">\r\n	<div class=\"panel-body\">\r\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingTwo : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "		<!-- Small button group -->\r\n		<div class=\"btn-group\" style=\"float:right;\">\r\n		  <button class=\"btn btn-default btn-sm dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" aria-expanded=\"false\">\r\n		   	2015 <span class=\"caret\"></span>\r\n		  </button>\r\n		  <ul class=\"dropdown-menu\" role=\"menu\">\r\n		    <li><a href=\"#\">2014</a></li>\r\n		    <li><a href=\"#\">2013</a></li>\r\n		    <li><a href=\"#\">2012</a></li>\r\n		  </ul>\r\n		</div>\r\n		<ul class=\"nav nav-pills\" role=\"tablist\">\r\n		  <li role=\"presentation\"><a href=\"#\">Filter 1 <span class=\"badge\">42</span></a></li>\r\n		  <li role=\"presentation\"><a href=\"#\">Filter 2</a></li>\r\n		  <li role=\"presentation\"><a href=\"#\">Filter 3 <span class=\"badge\">3</span></a></li>\r\n		  <li role=\"presentation\" class=\"active\"><a href=\"#\">All <span class=\"badge\">47</span></a></li>\r\n		</ul>\r\n		<br>\r\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.RichContent : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\r\n\r\n		 <nav>\r\n	          <ul class=\"pagination\">\r\n	            <li>\r\n	              <a href=\"#\" aria-label=\"Previous\">\r\n	                <span aria-hidden=\"true\">&laquo;</span>\r\n	              </a>\r\n	            </li>\r\n	            <li><a href=\"#\">1</a></li>\r\n	            <li><a href=\"#\">2</a></li>\r\n	            <li><a href=\"#\">3</a></li>\r\n	            <li><a href=\"#\">4</a></li>\r\n	            <li><a href=\"#\">5</a></li>\r\n	            <li>\r\n	              <a href=\"#\" aria-label=\"Next\">\r\n	                <span aria-hidden=\"true\">&raquo;</span>\r\n	              </a>\r\n	            </li>\r\n	          </ul>\r\n	        </nav>\r\n	</div>\r\n</div>";
+},"useData":true});
 templates['news-list'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 

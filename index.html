@@ -10,7 +10,9 @@
 	</head>
 	<body>       
 		<table id="datatable"></table>
+		
 		<nav id="main-menu" class="nav navbar-default"></nav>
+		
 		<main>  
 			<div class="container"></div>
 		</main>
@@ -62,25 +64,7 @@
 
 		    (function getComponentData(){
 			    	dataTable.sheetrock({
-			    	// This array becomes the property names of the output JSON object, it must have exactly the same amount of strings as the retrieved columns.
 			        url: client.components,
-
-			    	labels: ['Component'
-					        , 'Filename'
-					        , 'Type'
-					        , 'HeadingOne'
-					        , 'HeadingTwo'
-					        , 'HeadingThree'
-					        , 'Teaser'
-					        , 'RichContent'
-					        , 'LinkText'
-					        , 'LinkUrl'
-					        , 'Image'
-					        , 'Date'
-					        , 'Price'
-					        , 'CTAText'
-					        , 'CTAUrl'
-					        , 'UserStoryForPresentation'],
 
 			        columns: {A: 'Component'
 					        , D: 'Filename'
@@ -99,8 +83,25 @@
 					        , Q: 'CTAUrl'
 					        , S: 'UserStoryForPresentation'},
 
-			    	sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%, %UserStoryForPresentation%' ,
+			        // This array becomes the property names of the output javascript object, it must have exactly the same amount of strings as the retrieved columns.
+			    	labels: ['Component'
+					        , 'Filename'
+					        , 'Type'
+					        , 'HeadingOne'
+					        , 'HeadingTwo'
+					        , 'HeadingThree'
+					        , 'Teaser'
+					        , 'RichContent'
+					        , 'LinkText'
+					        , 'LinkUrl'
+					        , 'Image'
+					        , 'Date'
+					        , 'Price'
+					        , 'CTAText'
+					        , 'CTAUrl'
+					        , 'UserStoryForPresentation'],
 
+			    	sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%, %UserStoryForPresentation%' ,
 
 			        rowHandler: function(row){               
 			        	componentData.push(row.cells);    
@@ -110,8 +111,6 @@
 
 		    (function createMenuStructure(){
 		    	var menuStructure = new Array();
-		    	console.log('createMenuStructure');
-
 		        // checks the list of objects for a "children" property recursively.
 		        function childrenCheck(parentObj, childObj){
 		        	if(parentObj.Children) {
@@ -191,6 +190,24 @@
 		    		}
 		    	}
 		    });    
+
+		    $(document).on('mouseenter mouseleave', '#main-menu ul li[data-dropdown]', function(e) {
+		    	var currentElement = $(e.target);
+
+		    	console.log(currentElement);
+		    	$('main').css('padding-top', currentElement.offset().top + 50);
+		    	if(e.type == "mouseenter") {
+					$('.onPage > ul').css('display', 'none');
+
+		    	} else {
+		    		$('.onPage > ul').css('display', 'block');
+		    		if($('.onPage').length) {
+    					$('main').css('padding-top', 50 * $('.onPage').length);
+    				}
+		    	}
+
+		    });
+
 
 		    function getUrlParameter(param) {
 		    	var pageUrl = location.search.substring(1);
@@ -413,9 +430,10 @@
 		    				var currentPage = $('li[data-id="'+ getUrlParameter('page') +'"]');
 		    				currentPage.addClass('onPage');
 		    				currentPage.parents('li').addClass('onPage');
-		    				console.log(currentPage);                                        
-		    			}                                     
-		    			); 
+		    				if($('.onPage').length) {
+		    					$('main').css('padding-top', 50 * $('.onPage').length);
+		    				}
+		    			}); 
 		    			componentCollection = pageComponents[0].Components,
 		    			lbSplitCollection = componentCollection.split("\n");
 		    			for(var i=0; i < lbSplitCollection.length; i++) {

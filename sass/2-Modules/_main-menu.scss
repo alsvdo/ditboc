@@ -7,7 +7,6 @@
 #main-menu {
 	margin: 0 15px 10px;
 	min-height: 50px;
-	padding: 0 10px;
 	@include breakpoint($tablet) {
 		margin: 0 0 15px;
 	}
@@ -22,19 +21,20 @@
 			}
 			ul {
 				position: relative;
-				height: 0;
-				overflow: hidden;
-				z-index: 1000;
+				display: none;
+				right: 0;
+				left: 0;
 				padding: 0;
+				background: #ededed;
 				&:after {
 					content: "";
 					display: table;
 					clear: both;
 				}
 				@include breakpoint($tablet) {
-					position: static;
+					position: absolute;
+					padding: 0 10px;
 				}
-				
 			}
 			li {
 				list-style-type: none;
@@ -49,8 +49,7 @@
 			
 			&:hover {
 				> ul {
-					height: 50px;
-					overflow: visible;
+					display: block !important;
 					z-index: 9999;
 				}
 			}
@@ -58,8 +57,7 @@
 			&.onPage,
 			.onPage {
 				> ul {
-					height: 50px;
-					overflow: visible;
+					display: block;
 				}
 				> a {
 					color: #2980b9;

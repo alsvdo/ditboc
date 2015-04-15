@@ -566,7 +566,7 @@ templates['shopping-cart'] = template({"1":function(depth0,helpers,partials,data
     + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
     + ">\r\n                <button type=\"button\" class=\"btn btn-success btn-block\">\r\n                    Checkout\r\n                </button>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>";
 },"useData":true});
-templates['Slider'] = template({"1":function(depth0,helpers,partials,data) {
+templates['slider'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
   return this.escapeExpression(((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper)));

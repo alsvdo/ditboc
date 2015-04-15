@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="css/main.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	</head>
 	<body>       
 		<table id="datatable"></table>
@@ -45,7 +46,6 @@
 	        	}
 	        	return clients.standard;
 	        })();
-
 	        // var client = getClient();           
 
 	        if (window.location.href.indexOf(".html") == -1) {
@@ -106,7 +106,7 @@
 			        rowHandler: function(row){               
 			        	componentData.push(row.cells);    
 			        },        
-				})
+			})
 			})();        
 
 		    (function createMenuStructure(){
@@ -193,8 +193,6 @@
 
 		    $(document).on('mouseenter mouseleave', '#main-menu ul li[data-dropdown]', function(e) {
 		    	var currentElement = $(e.target);
-
-		    	console.log(currentElement);
 		    	$('main').css('padding-top', currentElement.offset().top + 50);
 		    	if(e.type == "mouseenter") {
 					$('.onPage > ul').css('display', 'none');
@@ -205,7 +203,6 @@
     					$('main').css('padding-top', 50 * $('.onPage').length);
     				}
 		    	}
-
 		    });
 
 
@@ -442,7 +439,7 @@
 		    				latestRow = $('main > .container > .row[data-id="'+ i +'"]');      
 		    				for(var j=0; j < rowCompenents.length; j++){
 		    					var componentName = rowCompenents[j].trim(),   
-		    					colSize = 12 / rowCompenents.length;
+		    					colSize = 12 / Math.floor(rowCompenents.length);
 		    					latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
 		    					var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
 		    					var componentObject = getComponentObjectByName(componentName);

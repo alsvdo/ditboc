@@ -194,16 +194,14 @@
 		    $(document).on('mouseenter mouseleave', '#main-menu ul li[data-dropdown]', function(e) {
 		    	var currentElement = $(e.target);
 		    	// console.log(currentElement.prop("tagName"))
-		    	// if(currentElement.find('+ul').length){
-    		    	$('main').css('padding-top', 50 * currentElement.parents('li[data-dropdown]').length);
-		    	// }
-
+		    	$('main').css('padding-top', 50 * currentElement.parents('li[data-dropdown]').length);
+		    	
 	    		if(e.type == "mouseenter") {
 					$('.onPage > ul').css('display', 'none');
 		    	} else {
 		    		$('.onPage > ul').css('display', 'block');
 		    		if($('.onPage').length) {
-						$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
+						$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length : 0))
 					}
 		    	}
 		    });
@@ -430,7 +428,7 @@
 		    				currentPage.addClass('onPage');
 		    				currentPage.parents('li').addClass('onPage');
 		    				if($('.onPage').length) {
-		    					$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
+		    					$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length : 0))
 		    				}
 		    			}); 
 		    			componentCollection = pageComponents[0].Components,

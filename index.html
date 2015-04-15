@@ -439,7 +439,7 @@
 		    				latestRow = $('main > .container > .row[data-id="'+ i +'"]');      
 		    				for(var j=0; j < rowCompenents.length; j++){
 		    					var componentName = rowCompenents[j].trim(),   
-		    					colSize = 12 / Math.floor(rowCompenents.length;
+		    					colSize = 12 / rowCompenents.length;
 		    					latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
 		    					var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
 		    					var componentObject = getComponentObjectByName(componentName);

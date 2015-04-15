@@ -191,12 +191,13 @@
 		    	}
 		    });    
 
-		    $(document).on('mouseenter mouseleave', '#main-menu ul li[data-dropdown] a', function(e) {
+		    $(document).on('mouseenter mouseleave', '#main-menu ul li[data-dropdown]', function(e) {
 		    	var currentElement = $(e.target);
 		    	// console.log(currentElement.prop("tagName"))
-		    	if(currentElement.find('+ul').length){
-    		    	$('main').css('padding-top', currentElement.offset().top + 50);
-		    	}
+		    	// if(currentElement.find('+ul').length){
+    		    	$('main').css('padding-top', 50 * currentElement.parents('li[data-dropdown]').length);
+		    	// }
+
 	    		if(e.type == "mouseenter") {
 					$('.onPage > ul').css('display', 'none');
 		    	} else {

@@ -27,24 +27,24 @@
 		<script type="text/javascript">
 	        // Store client urls
 	        // = getClient();
-	        var client = (function ()
-	        {
-	        	var clients = {
-	        		pfa: {
-	        			components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
-	        			edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=356843021'
-	        		},
-	        		standard: {
-	        			components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
-	        			edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
-	        		}
-	        	};
-	        	switch(getUrlParameter('client'))
-	        	{
-	        		case 'pfa':
-	        		return clients.pfa;
-	        	}
-	        	return clients.standard;
+        	var client = (function ()
+		        {
+		        	var clients = {
+		        		pfa: {
+		        			components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
+		        			edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=356843021'
+		        		},
+		        		standard: {
+		        			components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
+		        			edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
+		        		}
+		        	};
+		        	switch(getUrlParameter('client'))
+		        	{
+		        		case 'pfa':
+		        		return clients.pfa;
+		        	}
+		        	return clients.standard;
 	        })();
 	        // var client = getClient();           
 
@@ -197,18 +197,15 @@
 		    	if(currentElement.find('+ul').length){
     		    	$('main').css('padding-top', currentElement.offset().top + 50);
 		    	}
-		    	
 	    		if(e.type == "mouseenter") {
 					$('.onPage > ul').css('display', 'none');
-
 		    	} else {
 		    		$('.onPage > ul').css('display', 'block');
 		    		if($('.onPage').length) {
-    					$('main').css('padding-top', 50 * $('.onPage').length);
-    				}
+						$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
+					}
 		    	}
 		    });
-
 
 		    function getUrlParameter(param) {
 		    	var pageUrl = location.search.substring(1);
@@ -432,7 +429,7 @@
 		    				currentPage.addClass('onPage');
 		    				currentPage.parents('li').addClass('onPage');
 		    				if($('.onPage').length) {
-		    					$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length++ : 0))
+		    					$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
 		    				}
 		    			}); 
 		    			componentCollection = pageComponents[0].Components,

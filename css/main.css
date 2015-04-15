@@ -278,6 +278,376 @@ a[data-page] {
   display: inline-block !important;
 }
 
+/* carousel */
+/* line 2, ../sass/2-Modules/_similar-products.scss */
+.media-carousel {
+  margin-bottom: 0;
+  padding: 0 40px 30px 40px;
+  margin-top: 30px;
+}
+
+/* Previous button  */
+/* line 9, ../sass/2-Modules/_similar-products.scss */
+.media-carousel .carousel-control.left {
+  left: -12px;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width: 40px;
+  margin-top: 30px;
+}
+
+/* Next button  */
+/* line 21, ../sass/2-Modules/_similar-products.scss */
+.media-carousel .carousel-control.right {
+  right: -12px !important;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width: 40px;
+  margin-top: 30px;
+}
+
+/* Changes the position of the indicators */
+/* line 33, ../sass/2-Modules/_similar-products.scss */
+.media-carousel .carousel-indicators {
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+
+/* Changes the colour of the indicators */
+/* line 41, ../sass/2-Modules/_similar-products.scss */
+.media-carousel .carousel-indicators li {
+  background: #c0c0c0;
+}
+
+/* line 45, ../sass/2-Modules/_similar-products.scss */
+.media-carousel .carousel-indicators .active {
+  background: #333333;
+}
+
+/* line 49, ../sass/2-Modules/_similar-products.scss */
+.media-carousel img {
+  width: 250px;
+  height: 100px;
+}
+
+/* End carousel */
+/* line 1, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs {
+  /********************************************************************/
+  /*** PANEL DEFAULT ***/
+  /********************************************************************/
+  /*** PANEL PRIMARY ***/
+  /********************************************************************/
+  /*** PANEL SUCCESS ***/
+  /********************************************************************/
+  /*** PANEL INFO ***/
+  /********************************************************************/
+  /*** PANEL WARNING ***/
+  /********************************************************************/
+  /*** PANEL DANGER ***/
+}
+/* line 2, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .panel.with-nav-tabs .panel-heading {
+  padding: 5px 5px 0 5px;
+}
+/* line 5, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .panel.with-nav-tabs .nav-tabs {
+  border-bottom: none;
+}
+/* line 8, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .panel.with-nav-tabs .nav-justified {
+  margin-bottom: -1px;
+}
+/* line 14, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li > a,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+  color: #777;
+}
+/* line 19, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > .open > a,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > .open > a:hover,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > .open > a:focus,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+  color: #777;
+  background-color: #ddd;
+  border-color: transparent;
+}
+/* line 28, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.active > a,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.active > a:hover,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.active > a:focus {
+  color: #555;
+  background-color: #fff;
+  border-color: #ddd;
+  border-bottom-color: transparent;
+}
+/* line 36, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu {
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+/* line 40, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a {
+  color: #777;
+}
+/* line 43, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+  background-color: #ddd;
+}
+/* line 47, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.product-tabs .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+  color: #fff;
+  background-color: #555;
+}
+/* line 56, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li > a,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+  color: #fff;
+}
+/* line 61, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > .open > a,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > .open > a:hover,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > .open > a:focus,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+  color: #fff;
+  background-color: #3071a9;
+  border-color: transparent;
+}
+/* line 70, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.active > a,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.active > a:hover,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.active > a:focus {
+  color: #428bca;
+  background-color: #fff;
+  border-color: #428bca;
+  border-bottom-color: transparent;
+}
+/* line 78, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu {
+  background-color: #428bca;
+  border-color: #3071a9;
+}
+/* line 82, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a {
+  color: #fff;
+}
+/* line 85, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+  background-color: #3071a9;
+}
+/* line 89, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.product-tabs .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+  background-color: #4a9fe9;
+}
+/* line 97, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li > a,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li > a:focus {
+  color: #3c763d;
+}
+/* line 102, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > .open > a,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > .open > a:hover,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > .open > a:focus,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li > a:focus {
+  color: #3c763d;
+  background-color: #d6e9c6;
+  border-color: transparent;
+}
+/* line 111, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.active > a,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.active > a:hover,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.active > a:focus {
+  color: #3c763d;
+  background-color: #fff;
+  border-color: #d6e9c6;
+  border-bottom-color: transparent;
+}
+/* line 119, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+/* line 123, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > li > a {
+  color: #3c763d;
+}
+/* line 126, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+  background-color: #d6e9c6;
+}
+/* line 130, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.product-tabs .with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+  color: #fff;
+  background-color: #3c763d;
+}
+/* line 139, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li > a,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li > a:focus {
+  color: #31708f;
+}
+/* line 144, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > .open > a,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > .open > a:hover,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > .open > a:focus,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li > a:focus {
+  color: #31708f;
+  background-color: #bce8f1;
+  border-color: transparent;
+}
+/* line 153, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.active > a,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.active > a:hover,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.active > a:focus {
+  color: #31708f;
+  background-color: #fff;
+  border-color: #bce8f1;
+  border-bottom-color: transparent;
+}
+/* line 161, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+/* line 165, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > li > a {
+  color: #31708f;
+}
+/* line 168, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+  background-color: #bce8f1;
+}
+/* line 172, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.product-tabs .with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+  color: #fff;
+  background-color: #31708f;
+}
+/* line 181, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li > a,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li > a:focus {
+  color: #8a6d3b;
+}
+/* line 186, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > .open > a,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > .open > a:hover,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > .open > a:focus,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li > a:focus {
+  color: #8a6d3b;
+  background-color: #faebcc;
+  border-color: transparent;
+}
+/* line 195, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.active > a,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.active > a:hover,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.active > a:focus {
+  color: #8a6d3b;
+  background-color: #fff;
+  border-color: #faebcc;
+  border-bottom-color: transparent;
+}
+/* line 203, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+/* line 207, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > li > a {
+  color: #8a6d3b;
+}
+/* line 210, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+  background-color: #faebcc;
+}
+/* line 214, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.product-tabs .with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+  color: #fff;
+  background-color: #8a6d3b;
+}
+/* line 223, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li > a,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li > a:focus {
+  color: #a94442;
+}
+/* line 228, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > .open > a,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > .open > a:hover,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > .open > a:focus,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li > a:hover,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li > a:focus {
+  color: #a94442;
+  background-color: #ebccd1;
+  border-color: transparent;
+}
+/* line 237, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.active > a,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.active > a:hover,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.active > a:focus {
+  color: #a94442;
+  background-color: #fff;
+  border-color: #ebccd1;
+  border-bottom-color: transparent;
+}
+/* line 245, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu {
+  background-color: #f2dede;
+  /* bg color */
+  border-color: #ebccd1;
+  /* border color */
+}
+/* line 252, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > li > a {
+  color: #a94442;
+  /* normal text color */
+}
+/* line 256, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+  background-color: #ebccd1;
+  /* hover bg color */
+}
+/* line 261, ../sass/2-Modules/_product-tabs.scss */
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.product-tabs .with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+  color: #fff;
+  /* active text color */
+  background-color: #a94442;
+  /* active bg color */
+}
+
 /* line 2, ../sass/2-Modules/_orders.scss */
 .order-details .invoice-title h2, .order-details .invoice-title h3 {
   display: inline-block;

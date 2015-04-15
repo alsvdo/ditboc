@@ -126,6 +126,7 @@ a[data-page] {
 #main-menu {
   margin: 0 15px 10px;
   min-height: 50px;
+  padding: 0 10px;
 }
 @media (min-width: 768px) {
   /* line 7, ../sass/2-Modules/_main-menu.scss */
@@ -133,26 +134,25 @@ a[data-page] {
     margin: 0 0 15px;
   }
 }
-/* line 14, ../sass/2-Modules/_main-menu.scss */
+/* line 15, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] {
   position: static;
 }
-/* line 16, ../sass/2-Modules/_main-menu.scss */
+/* line 17, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a {
   text-decoration: none;
 }
-/* line 18, ../sass/2-Modules/_main-menu.scss */
+/* line 19, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] a:hover {
   text-decoration: none;
 }
-/* line 22, ../sass/2-Modules/_main-menu.scss */
+/* line 23, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul {
   position: relative;
-  display: none;
-  right: 0;
-  left: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: 1000;
   padding: 0;
-  background: #ededed;
 }
 /* line 29, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown] ul:after {
@@ -161,10 +161,9 @@ a[data-page] {
   clear: both;
 }
 @media (min-width: 768px) {
-  /* line 22, ../sass/2-Modules/_main-menu.scss */
+  /* line 23, ../sass/2-Modules/_main-menu.scss */
   #main-menu ul li[data-dropdown] ul {
-    position: absolute;
-    padding: 0 10px;
+    position: static;
   }
 }
 /* line 39, ../sass/2-Modules/_main-menu.scss */
@@ -184,28 +183,30 @@ a[data-page] {
 }
 /* line 51, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown]:hover > ul {
-  display: block !important;
+  height: 50px;
+  overflow: visible;
   z-index: 9999;
 }
-/* line 59, ../sass/2-Modules/_main-menu.scss */
+/* line 60, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown].onPage > ul,
 #main-menu ul li[data-dropdown] .onPage > ul {
-  display: block;
+  height: 50px;
+  overflow: visible;
 }
-/* line 62, ../sass/2-Modules/_main-menu.scss */
+/* line 64, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li[data-dropdown].onPage > a,
 #main-menu ul li[data-dropdown] .onPage > a {
   color: #2980b9;
 }
-/* line 67, ../sass/2-Modules/_main-menu.scss */
+/* line 69, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul li a {
   color: #000;
 }
-/* line 70, ../sass/2-Modules/_main-menu.scss */
+/* line 72, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul a:hover {
   color: #3498db !important;
 }
-/* line 74, ../sass/2-Modules/_main-menu.scss */
+/* line 76, ../sass/2-Modules/_main-menu.scss */
 #main-menu ul[role="navigation"] {
   text-align: center;
 }

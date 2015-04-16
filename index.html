@@ -204,7 +204,7 @@
 		    	} else {
 		    		$('.onPage > ul').css('display', 'block');
 		    		if($('.onPage').length) {
-						$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length : 0))
+						$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
 					}
 		    	}
 		    });
@@ -305,7 +305,7 @@
 		    				currentPage.addClass('onPage');
 		    				currentPage.parents('li').addClass('onPage');
 		    				if($('.onPage').length) {
-		    					$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length : 0))
+		    					$('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
 		    				}
 		    			}); 
 		    			componentCollection = pageComponents[0].Components,

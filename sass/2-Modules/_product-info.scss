@@ -2,11 +2,11 @@
 	padding-bottom: 20px;
 	padding-left: 6px;
 	padding-right: 6px;
-	
+
 	li  {
 		list-style-type: none;
 	}
-	
+
 	h1 {
 		margin-top: 0;
 	}
@@ -41,6 +41,12 @@
 		display: inline-block;
 		background: #ededed;
 		padding: 8px 20px;
+
+		p {
+			background: #ccc;
+			padding: 3px 6px;
+			margin: 0;
+		}
 	}
 	[data-dynamic="price"] {
 		margin: 5px 0;
@@ -49,9 +55,8 @@
 		color: #33;
 	}
 	.buy {
-		span {
+		a {
 			padding: 20px 70px !important;
-			display: inline-block !important;
 		}
 		margin: 20px 0;
 	}

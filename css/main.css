@@ -262,20 +262,25 @@ a[data-page] {
   padding: 8px 20px;
 }
 /* line 45, ../sass/2-Modules/_product-info.scss */
+.product-info big p {
+  background: #ccc;
+  padding: 3px 6px;
+  margin: 0;
+}
+/* line 51, ../sass/2-Modules/_product-info.scss */
 .product-info [data-dynamic="price"] {
   margin: 5px 0;
   padding: 2px 20px;
   background: #ccc;
   color: #33;
 }
-/* line 51, ../sass/2-Modules/_product-info.scss */
+/* line 57, ../sass/2-Modules/_product-info.scss */
 .product-info .buy {
   margin: 20px 0;
 }
-/* line 52, ../sass/2-Modules/_product-info.scss */
-.product-info .buy span {
+/* line 58, ../sass/2-Modules/_product-info.scss */
+.product-info .buy a {
   padding: 20px 70px !important;
-  display: inline-block !important;
 }
 
 /* carousel */

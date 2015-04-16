@@ -27,6 +27,9 @@
 		<script type="text/javascript">
 	        // Store client urls
 	        // = getClient();
+
+	        
+
         	var client = (function ()
 		        {
 		        	var clients = {
@@ -282,133 +285,7 @@
 	    			console.warn('"'+templateFile+'" not found')
 	    			dfd.reject();
 	    		}
-	    		return dfd.promise();
-	        // old code
-		        // } else {
-		        //     for(var i = 0; i < componentData.length; i++) {
-		        //         if(componentData[i].Component == componentName){
-		        //             var currentComponent = componentData[i];
-		        //             var filename = currentComponent.Filename;
-		        //             $.get('components/'+ componentType +'-managed/'+ filename).success(function(data){
-		        //                 if(componentType == "layout") {
-		        //                     target.replaceWith(data);
-		        //                 } else {
-		        //                     var boundTarget = target.append(data); 
-		        //                     if(boundTarget.find('*[data-dynamic]').length) {
-		        //                         var dynamicElements = boundTarget.find('*[data-dynamic]');                                
-		        //                         dynamicElements.each(function(){
-		        //                             var dynamicElement = $(this);
-		        //                             switch(dynamicElement.prop('tagName')) {
-		        //                                 case 'H1': 
-		        //                                  if(currentComponent.HeadingOne != (null || "")) {
-		        //                                     dynamicElement.html(currentComponent.HeadingOne);
-		        //                                  } else {
-		        //                                     dynamicElement.html(pageName)
-		        //                                  }
-		        //                                 break;
-		        //                                 case 'H2':
-		        //                                  if(currentComponent.HeadingTwo != (null || "")) {
-		        //                                     dynamicElement.html(currentComponent.HeadingTwo);
-		        //                                  }
-		        //                                 break;
-		        //                                 case 'H3':         
-		        //                                  if(currentComponent.HeadingThree != (null || "")) {
-		        //                                     dynamicElement.html(currentComponent.HeadingThree);
-		        //                                  }
-		        //                                 break;
-		        //                                 case 'A':
-		        //                                   if (dynamicElement.attr('data-dynamic') != 'button') {
-		        //                                       if(currentComponent.LinkText != (null || "")) {
-		        //                                         dynamicElement.html(currentComponent.LinkText)
-		        //                                       }
-		        //                                       if(currentComponent.LinkUrl != (null || "")) {
-		        //                                         if(currentComponent.LinkUrl.indexOf('http') > -1) {
-		        //                                             dynamicElement.attr('href', currentComponent.LinkUrl);
-		        //                                         } else if(currentComponent.LinkUrl.match(/\d+$/)){
-		        //                                             dynamicElement.attr('data-page', currentComponent.LinkUrl);
-		        //                                         }
-		        //                                       }
-		        //                                   }
-		        //                                 break;
-		        //                                 case 'IMG': 
-		        //                                   if(currentComponent.Image != (null || "")) {
-		        //                                      dynamicElement.attr('src', currentComponent.Image);
-		        //                                   }
-		        //                                 break;                                        
-		        //                             }
-		        //                             switch(dynamicElement.attr('data-dynamic')) {
-		        //                                 case 'h1': 
-		        //                                  if(currentComponent.HeadingOne != (null || "")) {
-		        //                                     dynamicElement.html(currentComponent.HeadingOne);
-		        //                                  } else {
-		        //                                     dynamicElement.html(pageName)
-		        //                                  }
-		        //                                 break;
-		        //                                 case 'h2':
-		        //                                  if(currentComponent.HeadingTwo != (null || "")) {
-		        //                                     dynamicElement.html(currentComponent.HeadingTwo);
-		        //                                  }
-		        //                                 break;
-		        //                                 case 'h3':
-		        //                                  if(currentComponent.HeadingThree != (null || "")) {
-		        //                                     dynamicElement.html(currentComponent.HeadingThree);
-		        //                                  }
-		        //                                 break;
-		        //                                 case 'teaser':
-		        //                                     if(currentComponent.Teaser != (null || "")) {
-		        //                                         dynamicElement.html(currentComponent.Teaser);
-		        //                                     }
-		        //                                 break;
-		        //                                 case 'richcontent':
-		        //                                     if(currentComponent.RichContent != (null || "")) {
-		        //                                         dynamicElement.html(currentComponent.RichContent);
-		        //                                     }
-		        //                                 break;
-		        //                                 case 'price':
-		        //                                     if(currentComponent.Price != (null || "")) {
-		        //                                         dynamicElement.html(currentComponent.Price);
-		        //                                     }
-		        //                                 break;
-		        //                                 case 'date':
-		        //                                     if(currentComponent.Date != (null || "")) {
-		        //                                         dynamicElement.html(currentComponent.Date);
-		        //                                     }
-		        //                                 break;
-		        //                                 case 'backgroundimage':
-		        //                                     if(currentComponent.Image != (null || "")) {
-		        //                                        dynamicElement.attr('style', 'background-size: cover; background-position:center center;background-repeat:no-repeat;background-image: url("'+currentComponent.Image+'");');
-		        //                                     }
-		        //                                 break;
-		        //                                 case 'video':
-		        //                                     if(currentComponent.Image != (null || "")) {
-		        //                                         dynamicElement.attr('src', currentComponent.Image);
-		        //                                     }
-		        //                                 break;
-		        //                                 case 'component':
-		        //                                         dynamicElement.attr('title', currentComponent.Component);
-		        //                                 break;
-		        //                                 case 'button':
-		        //                                   if(currentComponent.CTAText != (null || "")) {
-		        //                                     dynamicElement.html(currentComponent.CTAText)
-		        //                                   }
-		        //                                   if(currentComponent.CTAUrl != (null || "")) {
-		        //                                     if(currentComponent.CTAUrl.indexOf('http') > -1) {
-		        //                                         dynamicElement.attr('href', currentComponent.CTAUrl);
-		        //                                     } else if(currentComponent.CTAUrl.match(/\d+$/)){
-		        //                                         dynamicElement.attr('data-page', currentComponent.CTAUrl);
-		        //                                     }
-		        //                                   }
-		        //                                 break;
-		        //                             }
-		        //                         })
-
-		        //                     }
-		        //                 }
-		        //             })                    
-		        //         }
-		        //     }
-
-		        // }
+	    		return dfd.promise();	      
 	    	};
 
 		    function getPageComponenents(pageId){

@@ -175,7 +175,7 @@ templates['heading'] = template({"1":function(depth0,helpers,partials,data) {
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "		</div>\r\n	</div>\r\n</div>";
 },"useData":true});
-templates['Iframe'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+templates['iframe'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"panel panel-default\" title=\""
@@ -185,6 +185,17 @@ templates['Iframe'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function
     + "\">\r\n    <div class=\"panel-body\">\r\n       <iframe width=\"100%\" height=\"200\" frameborder=\"0\" src=\""
     + alias3(((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper)))
     + "\" allowfullscreen></iframe><br>\r\n    </div>\r\n</div>";
+},"useData":true});
+templates['intro-text'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"panel panel-default\" title=\""
+    + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\r\n\r\n"
+    + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
+    + "\">\r\n    <div class=\"panel-body\">\r\n        <p>"
+    + alias3(((helper = (helper = helpers.IntroText || (depth0 != null ? depth0.IntroText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"IntroText","hash":{},"data":data}) : helper)))
+    + "</p>\r\n    </div>\r\n</div>";
 },"useData":true});
 templates['list-group'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
@@ -355,7 +366,7 @@ templates['order-payment'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":f
     + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
     + "\">\r\n    <div class=\"col-lg-12\">\r\n        <div class=\"panel panel-default\">\r\n            <div class=\"panel-heading\">\r\n                <h3 class=\"panel-title\"><img class=\"pull-right\" src=\"http://i76.imgup.net/accepted_c22e0.png\">Payment Details</h3>\r\n            </div>\r\n            <div class=\"panel-body\">\r\n                <form role=\"form\" id=\"payment-form\">\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"cardNumber\">CARD NUMBER</label>\r\n                                <div class=\"input-group\">\r\n                                    <input type=\"text\" class=\"form-control\" name=\"cardNumber\" placeholder=\"Valid Card Number\" required autofocus data-stripe=\"number\" />\r\n                                    <span class=\"input-group-addon\"><i class=\"fa fa-credit-card\"></i></span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-7 col-md-7\">\r\n                            <div class=\"form-group\">\r\n                                <label style=\"display: block\" for=\"expMonth\">EXPIRATION DATE</label>\r\n                                <div class=\"col-xs-6 col-lg-6 pl-ziro custom\">\r\n                                    <input type=\"text\" class=\"form-control\" name=\"expMonth\" placeholder=\"MM\" required data-stripe=\"exp_month\" />\r\n                                </div>\r\n                                <div class=\"col-xs-6 col-lg-6 pl-ziro\">\r\n                                    <input type=\"text\" class=\"form-control\" name=\"expYear\" placeholder=\"YY\" required data-stripe=\"exp_year\" />\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-xs-5 col-md-5 pull-right\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"cvCode\">CV CODE</label>\r\n                                <input type=\"password\" class=\"form-control\" name=\"cvCode\" placeholder=\"CV\" required data-stripe=\"cvc\" />\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"couponCode\">COUPON CODE</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"couponCode\" />\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\">Place Order</button>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\" style=\"display:none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <p class=\"payment-errors\"></p>\r\n                        </div>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
 },"useData":true});
-templates['Panel'] = template({"1":function(depth0,helpers,partials,data) {
+templates['panel'] = template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return "			<div>"
@@ -392,6 +403,15 @@ templates['Panel'] = template({"1":function(depth0,helpers,partials,data) {
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.LinkText : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\r\n</div>";
 },"useData":true});
+templates['product-banner'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"panel panel-default\" title=\""
+    + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\r\n\r\n"
+    + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
+    + "\">\r\n\r\n\r\n\r\n\r\n</div>\r\n";
+},"useData":true});
 templates['product-highlight'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -412,7 +432,7 @@ templates['product-highlight'] = template({"1":function(depth0,helpers,partials,
     + "\" alt=\"\">\r\n    <div class=\"caption\">\r\n        <h3 class=\"text-center\">"
     + ((stack1 = ((helper = (helper = helpers.HeadingThree || (depth0 != null ? depth0.HeadingThree : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingThree","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</h3>\r\n        <p class=\"text-center\"><small>"
-    + ((stack1 = ((helper = (helper = helpers.Teaser || (depth0 != null ? depth0.Teaser : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Teaser","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + ((stack1 = ((helper = (helper = helpers.IntroText || (depth0 != null ? depth0.IntroText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"IntroText","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</small>\r\n        </p>\r\n        <p class=\"text-center\">\r\n            <a "
     + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
     + " class=\"btn btn-primary\">Buy Now!</a>\r\n            <a "
@@ -439,7 +459,7 @@ templates['product-info'] = template({"1":function(depth0,helpers,partials,data)
     + "\" class=\"img-responsive\">\r\n\r\n    </div>\r\n    <div class=\"col-md-8\">\r\n        <!-- Title -->\r\n        <h1>"
     + ((stack1 = ((helper = (helper = helpers.HeadingOne || (depth0 != null ? depth0.HeadingOne : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingOne","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</h1>\r\n\r\n        <hr>\r\n\r\n        <!-- Small description -->\r\n        <p>"
-    + ((stack1 = ((helper = (helper = helpers.Teaser || (depth0 != null ? depth0.Teaser : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Teaser","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + ((stack1 = ((helper = (helper = helpers.IntroText || (depth0 != null ? depth0.IntroText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"IntroText","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\r\n        </p>\r\n\r\n        <!-- Informations -->\r\n        <ul>\r\n            <li><small>Artikelnr:</small><small>27842</small>\r\n            </li>\r\n            <li><small>Antal i pakke:</small><small>1</small>\r\n            </li>\r\n            <li><small>Enhed:</small><small>fp</small>\r\n            </li>\r\n        </ul>\r\n        <!-- Full Description -->\r\n        <p>"
     + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</p>\r\n        <big>\r\n                <p>"
@@ -599,7 +619,7 @@ templates['similar-products'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main
     + ((stack1 = ((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</h2>\r\n	</div>\r\n	<div class='row'>\r\n		<div class='col-xs-12'>\r\n			<div class=\"carousel slide media-carousel\" id=\"media\">\r\n				<div class=\"carousel-inner\">\r\n					<div class=\"item  active\">\r\n						<div class=\"row\">\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class=\"item\">\r\n						<div class=\"row\">\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class=\"item\">\r\n						<div class=\"row\">\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\">\r\n								</a>\r\n							</div>\r\n						</div>\r\n					</div>\r\n				</div>\r\n				<a data-slide=\"prev\" href=\"#media\" class=\"left carousel-control\">‹</a>\r\n				<a data-slide=\"next\" href=\"#media\" class=\"right carousel-control\">›</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>";
 },"useData":true});
-templates['Slider'] = template({"1":function(depth0,helpers,partials,data) {
+templates['slider'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
   return this.escapeExpression(((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper)));
@@ -617,19 +637,19 @@ templates['Slider'] = template({"1":function(depth0,helpers,partials,data) {
     + "\" style=\"width:100%\" class=\"img-responsive\">\r\n            <div class=\"container\">\r\n                <div class=\"carousel-caption\">\r\n                    <h1>"
     + ((stack1 = ((helper = (helper = helpers.HeadingOne || (depth0 != null ? depth0.HeadingOne : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingOne","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</h1>\r\n                    <p data-dynamic=\"teaser\"><a class=\"btn btn-lg btn-primary\" href=\"http://getbootstrap.com\">"
-    + ((stack1 = ((helper = (helper = helpers.Teaser || (depth0 != null ? depth0.Teaser : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Teaser","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + ((stack1 = ((helper = (helper = helpers.IntroText || (depth0 != null ? depth0.IntroText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"IntroText","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</a>\r\n                    </p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <img data-dynamic src=\""
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "\" style=\"width:100%\" class=\"img-responsive\">\r\n            <div class=\"container\">\r\n                <div class=\"carousel-caption\">\r\n                    <h1>"
     + ((stack1 = ((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</h1>\r\n                    <p>"
-    + ((stack1 = ((helper = (helper = helpers.Teaser || (depth0 != null ? depth0.Teaser : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Teaser","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + ((stack1 = ((helper = (helper = helpers.IntroText || (depth0 != null ? depth0.IntroText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"IntroText","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</p>\r\n                    <p><a class=\"btn btn-large btn-primary\" href=\"#\">Learn more</a>\r\n                    </p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <img data-dynamic src=\""
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "\" style=\"width:100%\" class=\"img-responsive\">\r\n            <div class=\"container\">\r\n                <div class=\"carousel-caption\">\r\n                    <h1>"
     + ((stack1 = ((helper = (helper = helpers.HeadingThree || (depth0 != null ? depth0.HeadingThree : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingThree","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</h1>                                \r\n                    <p data-dynamic=\"teaser\">\r\n                        "
-    + ((stack1 = ((helper = (helper = helpers.Teaser || (depth0 != null ? depth0.Teaser : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Teaser","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + ((stack1 = ((helper = (helper = helpers.IntroText || (depth0 != null ? depth0.IntroText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"IntroText","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\r\n                    <a class=\"btn btn-large btn-primary\" href=\"#\">Browse gallery</a>\r\n                    </p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- Controls -->\r\n    <a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\">\r\n        <span class=\"icon-prev\"></span>\r\n    </a>\r\n    <a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\">\r\n        <span class=\"icon-next\"></span>\r\n    </a>\r\n</div>";
 },"useData":true});
 templates['spot-with-background-image'] = template({"1":function(depth0,helpers,partials,data) {
@@ -857,17 +877,6 @@ templates['spot-with-link-list'] = template({"1":function(depth0,helpers,partial
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.CTAText : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.LinkText : depth0),{"name":"if","hash":{},"fn":this.program(7, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "	</div>\r\n</div>";
-},"useData":true});
-templates['Teaser'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
-
-  return "<div class=\"panel panel-default\" title=\""
-    + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
-    + "\r\n\r\n"
-    + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
-    + "\">\r\n    <div class=\"panel-body\">\r\n        <p>"
-    + alias3(((helper = (helper = helpers.Teaser || (depth0 != null ? depth0.Teaser : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Teaser","hash":{},"data":data}) : helper)))
-    + "</p>\r\n    </div>\r\n</div>";
 },"useData":true});
 templates['vacancies'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;

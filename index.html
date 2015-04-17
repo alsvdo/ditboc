@@ -37,7 +37,7 @@
                         components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
                         edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=356843021'
                     },
-                    'english.prototype.pfa.dk': {
+                    'english.english.pfa.dk': {
                         components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
                         edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=127466075'
                     },
@@ -49,7 +49,7 @@
                 switch(getUrlParameter('client'))
                 {
                     case 'edit.pfa.dk': case 'pfa': return clients['edit.pfa.dk'];
-                    case 'english.prototype.pfa.dk': return clients['english.prototype.pfa.dk'];
+                    case 'english.english.pfa.dk': return clients['english.english.pfa.dk'];
                 }
                 return clients.standard;
             })();

@@ -26,9 +26,7 @@
         <script src="js/main.js"></script>
         <script type="text/javascript">
             // Store client urls
-            // = getClient();
-
-            
+            // = getClient();            
 
             var client = (function ()
             {
@@ -42,7 +40,7 @@
                         edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=127466075'
                     },
                     standard: {
-                        components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=671887640',
+                        components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
                         edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
                     }
                 };
@@ -111,8 +109,12 @@
                     sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %IntroText%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%, %UserStoryForPresentation%' ,
 
                     rowHandler: function(row){               
-                        componentData.push(row.cells);    
-                    },        
+                        componentData.push(row.cells);  
+                    },  
+                    userCallback: function(){
+                        console.log(componentData)
+                        console.log(componentData.length + " Components loaded")
+                    }      
             })
             })();        
 
@@ -260,11 +262,13 @@
                 }
                 return newURL
             ;};          
-
+            
             function getComponentObjectByName(string){
+                console.log(string);
                 for(var i = 0; i < componentData.length; i++){
                     var currentComponent = componentData[i];
                     if(currentComponent.Component != (null || "")){
+                        // console.log(currentComponent.Component + " (" + string + ")");
                         if(currentComponent.Component == string){
                             obj = currentComponent;
                             return currentComponent;

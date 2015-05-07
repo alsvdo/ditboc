@@ -252,7 +252,19 @@
                 } else {
                     $('.onPage > ul').css('display', 'block');
                     if($('.onPage').length) {
-                        $('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
+                        // $('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length: 1))
+
+                        if($('.onPage').length > 0) {
+
+                          if( $('.onPage:last').attr('data-dropdown') !== undefined) {
+                            $('main').css('padding-top', 50 * $('.onPage').length)
+                          }
+                          else {
+                            $('main').css('padding-top', 50 * ($('.onPage').length - 1))
+                          }
+
+                        }
+
                     }
                 }
             });
@@ -363,11 +375,20 @@
                             currentPage.addClass('onPage');
                             currentPage.parents('li').addClass('onPage');
                             if($('.onPage').length) {
-                                // if($('.onPage').length > 0 && $('.onPage').length !== 1) {
-                                //
-                                // }
+                                // $('main').css('padding-top', 50 * ($('.onPage').length > 1 ? $('.onPage').length - 1 : 1))
 
-                                $('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
+                                if($('.onPage').length > 0) {
+
+                                  if( $(currentPage).attr('data-dropdown') !== undefined) {
+                                    $('main').css('padding-top', 50 * $('.onPage').length)
+                                  }
+                                  else {
+                                    $('main').css('padding-top', 50 * ($('.onPage').length - 1))
+                                  }
+
+                                }
+
+
 
 
                                 console.log($('.onPage').length);

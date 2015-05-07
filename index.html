@@ -11,51 +11,47 @@
     <body>
         <table id="datatable"></table>
 
-        <header id="onemed-header">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-1">
-                        <img role="logo" src="images/onemed.jpg" alt="">
-                    </div>
-
-
-                    <div class="col-md-4">
-                        <div class="search-form">
-                            <input type="search">
-                            <input type="submit" value="søg">
+        <div id="special-header">
+            <!-- <header id="onemed-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-1">
+                            <img role="logo" src="images/onemed.jpg" alt="">
                         </div>
-                    </div>
 
 
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Kontakta OneMed
+                        <div class="col-md-4">
+                            <div class="search-form">
+                                <input type="search">
+                                <input type="submit" value="søg">
                             </div>
-                            <div class="col-md-6">
-                                Min inköpslista
-                            </div>
-                            <div class="col-md-6">
-                                Logga in
-                            </div>
-                            <div class="col-md-6">
-                                Min profil
-                            </div>
-                            <div class="col-md-6">
-                                Min kundevagn
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    Kontakta OneMed
+                                </div>
+                                <div class="col-md-6">
+                                    Min inköpslista
+                                </div>
+                                <div class="col-md-6">
+                                    Logga in
+                                </div>
+                                <div class="col-md-6">
+                                    Min profil
+                                </div>
+                                <div class="col-md-6">
+                                    Min kundevagn
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- login -->
-            <!-- min profil -->
-            <!-- kuindevogn -->
-            <!-- inkøbslist -->
-            <!-- kontakt -->
-
-        </header>
+            </header> -->
+        </div>
 
 
         <nav id="main-menu" class="nav navbar-default"></nav>
@@ -270,6 +266,14 @@
                         return parameterName[1];
                     }
                 }};
+
+            (function checkClient() {
+                if(getUrlParameter('client') == "onemed") {
+                    var content = "<header id='onemed-header'><div class='container-fluid'><div class='row'><div class='col-md-3 col-md-offset-1'><img role='logo' src='images/onemed.jpg'></div><div class='col-md-4'><div class='search-form'><input type='search'><input type='submit' value='søg'></div></div><div class='col-md-4'><div class='row'><div class='col-md-6'>Kontakta OneMed</div><div class='col-md-6'>Min inköpslista</div><div class='col-md-6'>Logga in</div><div class='col-md-6'>Min profil</div><div class='col-md-6'>Min kundevagn</div></div></div></div></div></header>";
+                    $('#special-header').append(content);
+
+                }
+            })();
 
             function addUrlParameter(url, param, value) {
                 // Using a positive lookahead (?=\=) to find the

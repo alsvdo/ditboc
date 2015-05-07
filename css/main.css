@@ -769,7 +769,7 @@ a[data-page] {
 .filter-lockup select {
   display: inline-block;
   margin: 0;
-  padding: 8px 6px;
+  padding: 7px 6px;
   color: #666;
   border: 1px solid #666;
 }
@@ -780,6 +780,47 @@ a[data-page] {
 /* line 61, ../sass/2-Modules/onemed.scss */
 .filter-lockup nav ul {
   margin: 0;
+}
+/* line 66, ../sass/2-Modules/onemed.scss */
+.filter-lockup .custom-pagination {
+  font-size: 0;
+  padding: 0;
+}
+/* line 70, ../sass/2-Modules/onemed.scss */
+.filter-lockup .custom-pagination li {
+  padding: 7px 13px;
+  border: 1px solid #333;
+  display: inline-block;
+  list-style-type: none;
+  font-size: 14px;
+}
+/* line 77, ../sass/2-Modules/onemed.scss */
+.filter-lockup .custom-pagination li:first-of-type {
+  border-right: 0;
+}
+/* line 80, ../sass/2-Modules/onemed.scss */
+.filter-lockup .custom-pagination li:last-of-type {
+  border-left: 0;
+}
+/* line 84, ../sass/2-Modules/onemed.scss */
+.filter-lockup .custom-pagination li a {
+  text-decoration: none;
+}
+/* line 88, ../sass/2-Modules/onemed.scss */
+.filter-lockup .custom-pagination li span {
+  color: #333;
+}
+/* line 91, ../sass/2-Modules/onemed.scss */
+.filter-lockup .custom-pagination li:first-of-type, .filter-lockup .custom-pagination li:last-of-type {
+  cursor: pointer;
+}
+/* line 95, ../sass/2-Modules/onemed.scss */
+.filter-lockup .custom-pagination li:first-of-type:hover, .filter-lockup .custom-pagination li:last-of-type:hover {
+  background-color: #666;
+}
+/* line 98, ../sass/2-Modules/onemed.scss */
+.filter-lockup .custom-pagination li:first-of-type:hover span, .filter-lockup .custom-pagination li:last-of-type:hover span {
+  color: #fff;
 }
 
 /* line 2, ../sass/2-Modules/product-list-item.scss */

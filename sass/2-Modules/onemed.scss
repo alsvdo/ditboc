@@ -51,7 +51,7 @@
     select {
         display: inline-block;
         margin: 0;
-        padding: 8px 6px;
+        padding: 7px 6px;
         color: #666;
         border: 1px solid #666;
     }
@@ -61,6 +61,47 @@
         ul {
             margin: 0;
         }
+    }
+
+    .custom-pagination {
+        font-size: 0;
+        padding: 0;
+
+        li {
+            padding: 7px 13px;
+            border: 1px solid #333;
+            display: inline-block;
+            list-style-type: none;
+            font-size: 14px;
+
+            &:first-of-type {
+                border-right: 0;
+            }
+            &:last-of-type {
+                border-left: 0;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            span {
+                color: #333;
+            }
+            &:first-of-type,
+            &:last-of-type {
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #666;
+
+                    span {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
     }
 
 }

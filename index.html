@@ -269,7 +269,7 @@
 
             (function checkClient() {
                 if(getUrlParameter('client') == "onemed") {
-                    var content = "<header id='onemed-header'><div class='container-fluid'><div class='row'><div class='col-md-3 col-md-offset-1'><img role='logo' src='images/onemed.jpg'></div><div class='col-md-4'><div class='search-form'><input type='search'><input type='submit' value='søg'></div></div><div class='col-md-4'><div class='row'><div class='col-md-6'>Kontakta OneMed</div><div class='col-md-6'>Min inköpslista</div><div class='col-md-6'>Logga in</div><div class='col-md-6'>Min profil</div><div class='col-md-6'>Min kundevagn</div></div></div></div></div></header>";
+                    var content = "<header id='onemed-header'><div class='container-fluid'><div class='row'><div class='col-md-3 col-md-offset-1'><img role='logo' src='images/onemed.jpg'></div><div class='col-md-4'><div class='search-form'><input type='search'><input type='submit' value='søg'></div></div><div class='col-md-4'><div class='row'><div class='col-md-6'>Kontakta OneMed</div><div class='col-md-6'>Min inköpslista</div><div class='col-md-6'><a href='?page=14'>Logga in</a></div><div class='col-md-6'>Min profil</div><div class='col-md-6'>Min kundevagn</div></div></div></div></div></header>";
                     $('#special-header').append(content);
 
                 }
@@ -363,7 +363,14 @@
                             currentPage.addClass('onPage');
                             currentPage.parents('li').addClass('onPage');
                             if($('.onPage').length) {
+                                // if($('.onPage').length > 0 && $('.onPage').length !== 1) {
+                                //
+                                // }
+
                                 $('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
+
+
+                                console.log($('.onPage').length);
                             }
                         });
                         componentCollection = pageComponents[0].Components,

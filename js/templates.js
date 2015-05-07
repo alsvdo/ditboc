@@ -486,16 +486,8 @@ templates['product-list-item'] = template({"1":function(depth0,helpers,partials,
 },"3":function(depth0,helpers,partials,data) {
     return " http://placehold.it/400x500 ";
 },"5":function(depth0,helpers,partials,data) {
-    var stack1, helper;
-
-  return " "
-    + ((stack1 = ((helper = (helper = helpers.HeadingOne || (depth0 != null ? depth0.HeadingOne : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingOne","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + " ";
-},"7":function(depth0,helpers,partials,data) {
-    return " White Kittel ";
-},"9":function(depth0,helpers,partials,data) {
     return " HeadingTwo ";
-},"11":function(depth0,helpers,partials,data) {
+},"7":function(depth0,helpers,partials,data) {
     return " 35 ";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -507,13 +499,13 @@ templates['product-list-item'] = template({"1":function(depth0,helpers,partials,
     + "\">\r\n\r\n    <article class=\"product-list-item\">\r\n\r\n        <img src=\""
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "\" alt=\"\" />\r\n\r\n        <h1>"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingOne : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = ((helper = (helper = helpers.HeadingOne || (depth0 != null ? depth0.HeadingOne : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingOne","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "</h1>\r\n\r\n        <!-- <small>"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingTwo : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingTwo : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + " se</small> -->\r\n\r\n        <div class=\"button-group\">\r\n            <a type=\"button\" class=\"btn btn-info\" href=\""
     + ((stack1 = ((helper = (helper = helpers.LinkUrl || (depth0 != null ? depth0.LinkUrl : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"LinkUrl","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\">Tilføj til indkøbslise</a>\r\n            <a type=\"button\" class=\"btn btn-success\" href=\""
-    + ((stack1 = ((helper = (helper = helpers.LinkUrl || (depth0 != null ? depth0.LinkUrl : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"LinkUrl","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + ((stack1 = ((helper = (helper = helpers.CTAUrl || (depth0 != null ? depth0.CTAUrl : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"CTAUrl","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\">Tilføj til inkøbskurv</a>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div>\r\n";
 },"useData":true});
 templates['product-list'] = template({"1":function(depth0,helpers,partials,data) {

@@ -46,15 +46,15 @@
 					float: left;
 				}
 			}
-			
+
 			&:hover {
 				> ul {
 					display: block !important;
 					z-index: 9999;
 				}
 			}
-			
-			
+
+
 			&.onPage,
 			.onPage {
 				> ul {
@@ -64,8 +64,8 @@
 					color: #2980b9;
 				}
 			}
-			
-			
+
+
 		}
 		li a {
 			color: #000;

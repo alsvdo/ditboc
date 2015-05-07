@@ -1,0 +1,24 @@
+/* line 2, ../../sass/2-Modules/product-list-item.scss */
+.product-list-item img {
+  width: 100%;
+  display: block;
+}
+/* line 7, ../../sass/2-Modules/product-list-item.scss */
+.product-list-item h1 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-top: 10px;
+}
+/* line 15, ../../sass/2-Modules/product-list-item.scss */
+.product-list-item .button-group {
+  text-align: center;
+  margin-bottom: 10px;
+}
+/* line 20, ../../sass/2-Modules/product-list-item.scss */
+.product-list-item [type="button"] {
+  width: 100%;
+  border-radius: 0;
+  padding: 8px 0;
+}

@@ -4,17 +4,63 @@
         <meta charset="UTF-8">
         <title>Ditboc</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
     </head>
-    <body>       
+    <body>
         <table id="datatable"></table>
-        
+
+        <header id="onemed-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <img role="logo" src="images/onemed.jpg" alt="">
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="search-form">
+                            <input type="search">
+                            <input type="submit" value="søg">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                Kontakta OneMed
+                            </div>
+                            <div class="col-md-6">
+                                Min inköpslista
+                            </div>
+                            <div class="col-md-6">
+                                Logga in
+                            </div>
+                            <div class="col-md-6">
+                                Min profil
+                            </div>
+                            <div class="col-md-6">
+                                Min kundevagn
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- login -->
+            <!-- min profil -->
+            <!-- kuindevogn -->
+            <!-- inkøbslist -->
+            <!-- kontakt -->
+
+        </header>
+
+
         <nav id="main-menu" class="nav navbar-default"></nav>
-        
-        <main>  
+
+        <main>
             <div class="container"></div>
         </main>
 
@@ -26,7 +72,7 @@
         <script src="js/main.js"></script>
         <script type="text/javascript">
             // Store client urls
-            // = getClient();            
+            // = getClient();
 
             var client = (function ()
             {
@@ -51,7 +97,7 @@
                 }
                 return clients.standard;
             })();
-            // var client = getClient();           
+            // var client = getClient();
 
             if (window.location.href.indexOf(".html") == -1) {
                 window.location.href = "index.html" + window.location.search;
@@ -108,15 +154,15 @@
 
                     sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %IntroText%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%, %UserStoryForPresentation%' ,
 
-                    rowHandler: function(row){               
-                        componentData.push(row.cells);  
-                    },  
+                    rowHandler: function(row){
+                        componentData.push(row.cells);
+                    },
                     userCallback: function(){
                         console.log(componentData)
                         console.log(componentData.length + " Components loaded")
-                    }      
+                    }
             })
-            })();        
+            })();
 
             (function createMenuStructure(){
                 var menuStructure = new Array();
@@ -157,7 +203,7 @@
                                                 parentItem["Children"] = new Array();
                                             }
                                             parentItem.Children.unshift(currentItem);
-                                            menuStructure.splice(menuStructure.indexOf(currentItem), 1);                                       
+                                            menuStructure.splice(menuStructure.indexOf(currentItem), 1);
                                         } else {
                                             childrenCheck(menuStructure[j], currentItem);
                                         }
@@ -186,7 +232,7 @@
                 currentLocation = window.location,
                 wWidth = $(window).width();
 
-                if(pageId != null) {         
+                if(pageId != null) {
                     if ($that.next('ul').length && wWidth <= 768) {
                         if ($that.hasClass('clicked')) {
                             window.location.href = addUrlParameter(currentLocation, 'page', pageId);
@@ -198,13 +244,13 @@
                         window.location.href = addUrlParameter(currentLocation, 'page', pageId);
                     }
                 }
-            });    
+            });
 
             $(document).on('mouseenter mouseleave', '#main-menu ul li[data-dropdown]', function(e) {
                 var currentElement = $(e.target);
                 // console.log(currentElement.prop("tagName"))
                 $('main').css('padding-top', 50 * currentElement.parents('li[data-dropdown]').length);
-                
+
                 if(e.type == "mouseenter") {
                     $('.onPage > ul').css('display', 'none');
                 } else {
@@ -261,8 +307,8 @@
                     newURL += '#' + hash;
                 }
                 return newURL
-            ;};          
-            
+            ;};
+
             function getComponentObjectByName(string){
                 console.log(string);
                 for(var i = 0; i < componentData.length; i++){
@@ -293,7 +339,7 @@
                     console.warn('"'+templateFile+'" not found')
                     dfd.reject();
                 }
-                return dfd.promise();         
+                return dfd.promise();
             };
 
             function getPageComponenents(pageId){
@@ -315,25 +361,25 @@
                             if($('.onPage').length) {
                                 $('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length-1 : 0))
                             }
-                        }); 
+                        });
                         componentCollection = pageComponents[0].Components,
                         lbSplitCollection = componentCollection.split("\n");
                         for(var i=0; i < lbSplitCollection.length; i++) {
-                            $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');                        
+                            $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');
                             var rowCompenents = lbSplitCollection[i].split(','),
-                            latestRow = $('main > .container > .row[data-id="'+ i +'"]');      
+                            latestRow = $('main > .container > .row[data-id="'+ i +'"]');
                             for(var j=0; j < rowCompenents.length; j++){
-                                var componentName = rowCompenents[j].trim(),   
+                                var componentName = rowCompenents[j].trim(),
                                 colSize = 12 / rowCompenents.length;
                                 latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
                                 var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
                                 var componentObject = getComponentObjectByName(componentName);
-                                populateTemplate(latestCol, componentObject, componentObject.Filename);  
+                                populateTemplate(latestCol, componentObject, componentObject.Filename);
                             }
-                        }     
+                        }
                     }
                 });
-            };   
+            };
 
             Handlebars.registerHelper("currentPageName",function(){
                 return pageName;
@@ -349,7 +395,7 @@
             });
 
             Handlebars.registerHelper("contains" ,function(string, val){
-                return (val.indexOf(string) > -1);                
+                return (val.indexOf(string) > -1);
             });
 
             Handlebars.registerHelper('link', function(link) {

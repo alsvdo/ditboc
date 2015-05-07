@@ -1,0 +1,26 @@
+.product-list-item {
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    h1 {
+        font-size: 14px;
+        font-weight: 700;
+        color: #333;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .button-group {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    [type="button"] {
+        width: 100%;
+        border-radius: 0;
+        padding: 8px 0;
+    }
+
+}

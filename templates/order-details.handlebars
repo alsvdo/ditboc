@@ -1,5 +1,7 @@
 <div class="order-details" title="{{Component}}
 
+
+
 {{UserStoryForPresentation}}">
     <div class="panel panel-default">
         <div class="row" style="padding-left: 15px; padding-right: 15px">
@@ -7,107 +9,134 @@
 
                 <div class="invoice-title">
                     <h2>Invoice</h2>
-                    <h3 class="pull-right">Order # 12345</h3>
+                    <h3 class="pull-right">Order #W1649697</h3>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-xs-6">
                         <address>
-                    <strong>Billed To:</strong><br>
-                        John Smith<br>
-                        1234 Main<br>
-                        Apt. 4B<br>
-                        Springfield, ST 54321
-                    </address>
+                            <strong>Customer Details</strong>
+                            <!-- <details open></details> -->
+                            <p>
+                                <strong>The Client:</strong> John Smith
+                            </p>
+
+                            <p>
+                                <strong>Customer No:</strong> 204046 (Kundservice E-butik)
+                            </p>
+
+                            <p>
+                                <strong>Company:</strong> Kundservice E-butik Används av kundservice Dockplatsen 1, 6v 211 19 MALMÖ
+                            </p>
+
+                        </address>
                     </div>
                     <div class="col-xs-6 text-right">
                         <address>
-                    <strong>Shipped To:</strong><br>
-                        Jane Smith<br>
-                        1234 Main<br>
-                        Apt. 4B<br>
-                        Springfield, ST 54321
-                    </address>
+                            <strong>Order Details:</strong>
+                            <p>
+                                <strong>Your Order:</strong> W1649697
+                            </p>
+
+                            <p>
+                                <strong>Order Date:</strong> 2015-05-19 22:38
+                            </p>
+
+                            <p>
+                                <strong>Goods Marking:</strong> m.
+                            </p>
+
+                            <p>
+                                <strong>Shipping Date:</strong> 2015-06-05
+                            </p>
+
+                            <p>
+                                <strong>Shipping Address:</strong> Används av kundservice Dockplatsen 1, 6v 211 19 MALMÖ
+                            </p>
+
+                        </address>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-6">
-                        <address>
-                        <strong>Payment Method:</strong><br>
-                        Visa ending **** 4242<br>
-                        jsmith@email.com
-                    </address>
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <address>
-                        <strong>Order Date:</strong><br>
-                        March 7, 2014<br><br>
-                    </address>
-                    </div>
-                </div>
+
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><strong>Order summary</strong></h3>
+                    <h3 class="panel-title">
+                        <strong>Order summary</strong>
+                    </h3>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table table-condensed">
                             <thead>
                                 <tr>
-                                    <td><strong>Item</strong>
+                                    <td>
+                                        <strong>Art nr.</strong>
                                     </td>
-                                    <td class="text-center"><strong>Price</strong>
+                                    <td>
+                                        <strong>Product Name</strong>
                                     </td>
-                                    <td class="text-center"><strong>Quantity</strong>
+                                    <td class="text-right">
+                                        <strong>Amount</strong>
                                     </td>
-                                    <td class="text-right"><strong>Totals</strong>
+                                    <td class="text-right">
+                                        <strong>Price</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <strong>Sum</strong>
                                     </td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- foreach ($order->lineItems as $line) or some such thing here -->
                                 <tr>
-                                    <td>BS-200</td>
-                                    <td class="text-center">$10.99</td>
-                                    <td class="text-center">1</td>
-                                    <td class="text-right">$10.99</td>
+                                    <td>262224</td>
+                                    <td>Tension-free Vaginal Tape TVT Abbrevo</td>
+                                    <td class="text-right">4</td>
+                                    <td class="text-right">8 904,46kr</td>
+                                    <td class="text-right">35 617,86kr</td>
                                 </tr>
                                 <tr>
-                                    <td>BS-400</td>
-                                    <td class="text-center">$20.00</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-right">$60.00</td>
+                                    <td>62324</td>
+                                    <td>Klädhängare plast tvärslå och krokar 9-pack</td>
+                                    <td class="text-right">1</td>
+                                    <td class="text-right">182,55kr</td>
+                                    <td class="text-right">182,55kr</td>
                                 </tr>
                                 <tr>
-                                    <td>BS-1000</td>
-                                    <td class="text-center">$600.00</td>
-                                    <td class="text-center">1</td>
-                                    <td class="text-right">$600.00</td>
+                                    <td>315231</td>
+                                    <td>Klädhängare plast tvärslå och krokar 9-pack</td>
+                                    <td class="text-right">11</td>
+                                    <td class="text-right">182,55kr</td>
+                                    <td class="text-right">2002kr</td>
                                 </tr>
                                 <tr>
                                     <td class="thick-line"></td>
                                     <td class="thick-line"></td>
-                                    <td class="thick-line text-center"><strong>Subtotal</strong>
+                                    <td class="thick-line"></td>
+                                    <td class="thick-line text-center">
                                     </td>
-                                    <td class="thick-line text-right">$670.99</td>
+                                    <td class="thick-line text-right"></td>
                                 </tr>
                                 <tr>
                                     <td class="no-line"></td>
                                     <td class="no-line"></td>
-                                    <td class="no-line text-center"><strong>Shipping</strong>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-center">
                                     </td>
-                                    <td class="no-line text-right">$15</td>
+                                    <td class="no-line text-right"></td>
                                 </tr>
                                 <tr>
                                     <td class="no-line"></td>
                                     <td class="no-line"></td>
-                                    <td class="no-line text-center"><strong>Total</strong>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-right">
+                                        <strong>Total</strong>
                                     </td>
-                                    <td class="no-line text-right">$685.99</td>
+                                    <td class="no-line text-right">37 941,86kr</td>
                                 </tr>
                             </tbody>
                         </table>

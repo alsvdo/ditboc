@@ -696,7 +696,7 @@ a[data-page] {
   display: inline-block;
 }
 /* line 42, ../sass/2-Modules/_confirm-order.scss */
-.confirm-order .btn {
+.confirm-order .big-btn {
   width: 180px;
   line-height: 40px;
   margin-left: 220px;

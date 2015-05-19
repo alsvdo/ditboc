@@ -659,6 +659,56 @@ a[data-page] {
   /* active bg color */
 }
 
+/* line 3, ../sass/2-Modules/_confirm-order.scss */
+.confirm-order .confirm-order-form {
+  padding: 15px;
+}
+/* line 6, ../sass/2-Modules/_confirm-order.scss */
+.confirm-order .confirm-order-form .comment {
+  border: 1px solid #ccc;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+  color: #a7a7a7;
+  min-height: 100px;
+  padding: 8px;
+}
+/* line 16, ../sass/2-Modules/_confirm-order.scss */
+.confirm-order .confirm-order-form .comment:focus {
+  outline: none;
+}
+/* line 23, ../sass/2-Modules/_confirm-order.scss */
+.confirm-order .confirm-order-form input[type="text"] {
+  padding: 8px;
+}
+/* line 27, ../sass/2-Modules/_confirm-order.scss */
+.confirm-order .confirm-order-form input {
+  width: 220px;
+}
+/* line 31, ../sass/2-Modules/_confirm-order.scss */
+.confirm-order .confirm-order-form div {
+  margin-bottom: 10px;
+}
+/* line 35, ../sass/2-Modules/_confirm-order.scss */
+.confirm-order .confirm-order-form span {
+  width: 200px;
+  display: inline-block;
+}
+/* line 42, ../sass/2-Modules/_confirm-order.scss */
+.confirm-order .btn {
+  width: 180px;
+  line-height: 40px;
+  margin-left: 220px;
+  margin-bottom: 15px;
+}
+/* line 49, ../sass/2-Modules/_confirm-order.scss */
+.confirm-order .information {
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
 /* line 2, ../sass/2-Modules/_orders.scss */
 .order-details .invoice-title h2, .order-details .invoice-title h3 {
   display: inline-block;
@@ -846,32 +896,32 @@ a[data-page] {
 .order-history .row {
   margin-bottom: 10px;
 }
-/* line 19, ../sass/2-Modules/_panel-shortcuts.scss */
+/* line 20, ../sass/2-Modules/_panel-shortcuts.scss */
 .order-history .row input[type="search"] {
   padding: 7px;
 }
-/* line 22, ../sass/2-Modules/_panel-shortcuts.scss */
+/* line 23, ../sass/2-Modules/_panel-shortcuts.scss */
 .order-history .row input {
   border: 1px solid #a7a7a7;
 }
-/* line 27, ../sass/2-Modules/_panel-shortcuts.scss */
+/* line 28, ../sass/2-Modules/_panel-shortcuts.scss */
 .order-history table {
   width: 100%;
 }
-/* line 30, ../sass/2-Modules/_panel-shortcuts.scss */
+/* line 31, ../sass/2-Modules/_panel-shortcuts.scss */
 .order-history table .panel-info {
   border-color: transparent;
 }
-/* line 35, ../sass/2-Modules/_panel-shortcuts.scss */
+/* line 36, ../sass/2-Modules/_panel-shortcuts.scss */
 .order-history table thead th {
   padding: 8px;
   border: 1px solid #ddd;
 }
-/* line 42, ../sass/2-Modules/_panel-shortcuts.scss */
+/* line 43, ../sass/2-Modules/_panel-shortcuts.scss */
 .order-history table tbody tr {
   padding-bottom: 10px;
 }
-/* line 45, ../sass/2-Modules/_panel-shortcuts.scss */
+/* line 46, ../sass/2-Modules/_panel-shortcuts.scss */
 .order-history table tbody tr td {
   border: 1px solid #ddd;
   padding: 8px;

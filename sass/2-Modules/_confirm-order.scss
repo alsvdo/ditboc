@@ -1,0 +1,54 @@
+.confirm-order {
+
+    .confirm-order-form {
+    padding: 15px;
+
+        .comment {
+            border: 1px solid #ccc;
+            font-size: 18px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            width: 100%;
+            color: #a7a7a7;
+            min-height: 100px;
+            padding: 8px;
+
+            &:focus {
+                outline: none;
+            }
+
+
+        }
+
+        input[type="text"] {
+            padding: 8px;
+        }
+
+        input {
+            width: 220px;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+
+        span {
+            width: 200px;
+            display: inline-block;
+        }
+
+    }
+
+    .btn {
+        width: 180px;
+        line-height: 40px;
+        margin-left: 220px;
+        margin-bottom: 15px;
+    }
+
+    .information {
+        margin-left: 15px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+}

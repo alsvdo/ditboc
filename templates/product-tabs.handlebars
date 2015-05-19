@@ -1,46 +1,55 @@
-<div class="product-tabs">
+<div class="product-tabs panel panel-default">
 	<div class="row">
 		<div class="col-xs-12">
-			<div class="panel with-nav-tabs panel-default">
-				<div class="panel-heading">
-					<ul class="nav nav-tabs">
-						<li class="active"><a href="#tab1default" data-toggle="tab">Spefications</a>
-						</li>
-						<li><a href="#tab2default" data-toggle="tab">Stock amount</a>
-						</li>
-						<li><a href="#tab3default" data-toggle="tab">Customer Feedback</a>
-						</li>
-						<li><a href="#tab4default" data-toggle="tab">More Information</a>
-						</li>
-					</ul>
-				</div>
-				<div class="panel-body">
-					<div class="tab-content">
-						<div class="tab-pane fade in active" id="tab1default">
-							<p>Model nr: 23142</p>
-							<p>Color: Red</p>
-							<p>ID: 23123123</p>
-							<p>Material: Cloth</p>
-						</div>
-						<div class="tab-pane fade" id="tab2default">
-							<p>Stockholm: 202</p>
-							<p>Copenhagen: 140</p>
-							<p>Amsterdam: 69</p>
-						</div>
-						<div class="tab-pane fade" id="tab3default">
-							<div>
-								<small style="display: block">John Doe</small>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, ea assumenda provident enim sit nisi.
-								</p>
+
+			{{#if HeadingTwo}}
+				<h2>{{HeadingTwo}}</h2>
+			{{/if}}
+
+			{{#if RichContent}}
+				{{{RichContent}}}
+			{{else}}
+				<div class="panel with-nav-tabs panel-default">
+					<div class="panel-heading">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#tab1default" data-toggle="tab">Spefications</a>
+							</li>
+							<li><a href="#tab2default" data-toggle="tab">Stock amount</a>
+							</li>
+							<li><a href="#tab3default" data-toggle="tab">Customer Feedback</a>
+							</li>
+							<li><a href="#tab4default" data-toggle="tab">More Information</a>
+							</li>
+						</ul>
+					</div>
+					<div class="panel-body">
+						<div class="tab-content">
+							<div class="tab-pane fade in active" id="tab1default">
+								<p>Model nr: 23142</p>
+								<p>Color: Red</p>
+								<p>ID: 23123123</p>
+								<p>Material: Cloth</p>
 							</div>
-						</div>
-						<div class="tab-pane fade" id="tab4default">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quisquam quos ut vero ipsam quibusdam quasi amet at accusantium quas reiciendis, doloribus animi distinctio sint rerum expedita, aperiam, omnis repudiandae!</p>
+							<div class="tab-pane fade" id="tab2default">
+								<p>Stockholm: 202</p>
+								<p>Copenhagen: 140</p>
+								<p>Amsterdam: 69</p>
+							</div>
+							<div class="tab-pane fade" id="tab3default">
+								<div>
+									<small style="display: block">John Doe</small>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, ea assumenda provident enim sit nisi.
+									</p>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="tab4default">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quisquam quos ut vero ipsam quibusdam quasi amet at accusantium quas reiciendis, doloribus animi distinctio sint rerum expedita, aperiam, omnis repudiandae!</p>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			{{/if}}
 		</div>
 	</div>
 </div>

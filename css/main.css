@@ -215,72 +215,78 @@ a[data-page] {
   padding-bottom: 20px;
   padding-left: 6px;
   padding-right: 6px;
+  border: 1px solid #ddd;
 }
-/* line 6, ../sass/2-Modules/_product-info.scss */
+/* line 7, ../sass/2-Modules/_product-info.scss */
 .product-info li {
   list-style-type: none;
 }
-/* line 10, ../sass/2-Modules/_product-info.scss */
+/* line 11, ../sass/2-Modules/_product-info.scss */
 .product-info h1 {
   margin-top: 0;
 }
-/* line 13, ../sass/2-Modules/_product-info.scss */
+/* line 14, ../sass/2-Modules/_product-info.scss */
 .product-info [data-dynamic="teaser"] {
   color: #666;
   font-size: 14px;
 }
-/* line 17, ../sass/2-Modules/_product-info.scss */
+/* line 18, ../sass/2-Modules/_product-info.scss */
 .product-info .print-out {
   color: orange;
   margin-bottom: 0;
   margin-top: 30px;
   text-decoration: underline;
 }
-/* line 23, ../sass/2-Modules/_product-info.scss */
+/* line 24, ../sass/2-Modules/_product-info.scss */
 .product-info ul {
   margin: 20px 0;
   padding: 0;
 }
-/* line 27, ../sass/2-Modules/_product-info.scss */
+/* line 28, ../sass/2-Modules/_product-info.scss */
 .product-info ul li small:first-child {
   min-width: 90px;
   display: inline-block;
 }
-/* line 33, ../sass/2-Modules/_product-info.scss */
+/* line 34, ../sass/2-Modules/_product-info.scss */
 .product-info hr {
   margin: 20px 0;
 }
-/* line 36, ../sass/2-Modules/_product-info.scss */
+/* line 37, ../sass/2-Modules/_product-info.scss */
 .product-info .breadcrumb {
   margin: 0;
 }
-/* line 39, ../sass/2-Modules/_product-info.scss */
+/* line 40, ../sass/2-Modules/_product-info.scss */
 .product-info big {
-  margin: 10px 0;
+  margin: 10px 0 15px;
   display: inline-block;
   background: #ededed;
   padding: 8px 20px;
 }
-/* line 45, ../sass/2-Modules/_product-info.scss */
+/* line 46, ../sass/2-Modules/_product-info.scss */
 .product-info big p {
   background: #ccc;
   padding: 3px 6px;
   margin: 0;
 }
-/* line 51, ../sass/2-Modules/_product-info.scss */
+/* line 52, ../sass/2-Modules/_product-info.scss */
 .product-info [data-dynamic="price"] {
   margin: 5px 0;
   padding: 2px 20px;
   background: #ccc;
   color: #33;
 }
-/* line 57, ../sass/2-Modules/_product-info.scss */
+/* line 58, ../sass/2-Modules/_product-info.scss */
 .product-info .buy {
   margin: 20px 0;
 }
-/* line 58, ../sass/2-Modules/_product-info.scss */
+/* line 59, ../sass/2-Modules/_product-info.scss */
 .product-info .buy a {
   padding: 20px 70px !important;
+}
+
+/* line 66, ../sass/2-Modules/_product-info.scss */
+.btn {
+  border-radius: 0 !important;
 }
 
 /* carousel */
@@ -710,39 +716,39 @@ a[data-page] {
   margin-top: 2px;
 }
 
-/* line 1, ../sass/2-Modules/onemed.scss */
+/* line 1, ../sass/2-Modules/_onemed.scss */
 #onemed-header {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-/* line 5, ../sass/2-Modules/onemed.scss */
+/* line 5, ../sass/2-Modules/_onemed.scss */
 #onemed-header img[role="logo"] {
   margin-bottom: 40px;
   display: block;
 }
 @media (min-width: 992px) {
-  /* line 5, ../sass/2-Modules/onemed.scss */
+  /* line 5, ../sass/2-Modules/_onemed.scss */
   #onemed-header img[role="logo"] {
     margin-bottom: 0;
   }
 }
-/* line 14, ../sass/2-Modules/onemed.scss */
+/* line 14, ../sass/2-Modules/_onemed.scss */
 #onemed-header input {
   margin-bottom: 40px;
 }
 @media (min-width: 992px) {
-  /* line 14, ../sass/2-Modules/onemed.scss */
+  /* line 14, ../sass/2-Modules/_onemed.scss */
   #onemed-header input {
     margin-bottom: 0;
   }
 }
-/* line 21, ../sass/2-Modules/onemed.scss */
+/* line 21, ../sass/2-Modules/_onemed.scss */
 #onemed-header input[type="search"] {
   border: 1px solid #ccc;
   padding: 4px;
   min-width: 230px;
 }
-/* line 27, ../sass/2-Modules/onemed.scss */
+/* line 27, ../sass/2-Modules/_onemed.scss */
 #onemed-header input[type="submit"] {
   position: relative;
   left: -5px;
@@ -753,19 +759,19 @@ a[data-page] {
   text-transform: uppercase;
 }
 
-/* line 40, ../sass/2-Modules/onemed.scss */
+/* line 40, ../sass/2-Modules/_onemed.scss */
 .filter-lockup {
   padding-top: 8px;
   padding-bottom: 8px;
 }
-/* line 44, ../sass/2-Modules/onemed.scss */
+/* line 44, ../sass/2-Modules/_onemed.scss */
 .filter-lockup p {
   display: inline-block;
   font-weight: 700;
   color: #333;
   margin-right: 20px;
 }
-/* line 51, ../sass/2-Modules/onemed.scss */
+/* line 51, ../sass/2-Modules/_onemed.scss */
 .filter-lockup select {
   display: inline-block;
   margin: 0;
@@ -773,20 +779,20 @@ a[data-page] {
   color: #666;
   border: 1px solid #666;
 }
-/* line 59, ../sass/2-Modules/onemed.scss */
+/* line 59, ../sass/2-Modules/_onemed.scss */
 .filter-lockup nav {
   float: right;
 }
-/* line 61, ../sass/2-Modules/onemed.scss */
+/* line 61, ../sass/2-Modules/_onemed.scss */
 .filter-lockup nav ul {
   margin: 0;
 }
-/* line 66, ../sass/2-Modules/onemed.scss */
+/* line 66, ../sass/2-Modules/_onemed.scss */
 .filter-lockup .custom-pagination {
   font-size: 0;
   padding: 0;
 }
-/* line 70, ../sass/2-Modules/onemed.scss */
+/* line 70, ../sass/2-Modules/_onemed.scss */
 .filter-lockup .custom-pagination li {
   padding: 7px 13px;
   border: 1px solid #333;
@@ -794,41 +800,89 @@ a[data-page] {
   list-style-type: none;
   font-size: 14px;
 }
-/* line 77, ../sass/2-Modules/onemed.scss */
+/* line 77, ../sass/2-Modules/_onemed.scss */
 .filter-lockup .custom-pagination li:first-of-type {
   border-right: 0;
 }
-/* line 80, ../sass/2-Modules/onemed.scss */
+/* line 80, ../sass/2-Modules/_onemed.scss */
 .filter-lockup .custom-pagination li:last-of-type {
   border-left: 0;
 }
-/* line 84, ../sass/2-Modules/onemed.scss */
+/* line 84, ../sass/2-Modules/_onemed.scss */
 .filter-lockup .custom-pagination li a {
   text-decoration: none;
 }
-/* line 88, ../sass/2-Modules/onemed.scss */
+/* line 88, ../sass/2-Modules/_onemed.scss */
 .filter-lockup .custom-pagination li span {
   color: #333;
 }
-/* line 91, ../sass/2-Modules/onemed.scss */
+/* line 91, ../sass/2-Modules/_onemed.scss */
 .filter-lockup .custom-pagination li:first-of-type, .filter-lockup .custom-pagination li:last-of-type {
   cursor: pointer;
 }
-/* line 95, ../sass/2-Modules/onemed.scss */
+/* line 95, ../sass/2-Modules/_onemed.scss */
 .filter-lockup .custom-pagination li:first-of-type:hover, .filter-lockup .custom-pagination li:last-of-type:hover {
   background-color: #666;
 }
-/* line 98, ../sass/2-Modules/onemed.scss */
+/* line 98, ../sass/2-Modules/_onemed.scss */
 .filter-lockup .custom-pagination li:first-of-type:hover span, .filter-lockup .custom-pagination li:last-of-type:hover span {
   color: #fff;
 }
 
-/* line 2, ../sass/2-Modules/product-list-item.scss */
+/* line 2, ../sass/2-Modules/_panel-shortcuts.scss */
+.panel-shortcuts a.btn {
+  border: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 16px;
+}
+/* line 9, ../sass/2-Modules/_panel-shortcuts.scss */
+.panel-shortcuts span {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+/* line 17, ../sass/2-Modules/_panel-shortcuts.scss */
+.order-history .row {
+  margin-bottom: 10px;
+}
+/* line 19, ../sass/2-Modules/_panel-shortcuts.scss */
+.order-history .row input[type="search"] {
+  padding: 7px;
+}
+/* line 22, ../sass/2-Modules/_panel-shortcuts.scss */
+.order-history .row input {
+  border: 1px solid #a7a7a7;
+}
+/* line 27, ../sass/2-Modules/_panel-shortcuts.scss */
+.order-history table {
+  width: 100%;
+}
+/* line 30, ../sass/2-Modules/_panel-shortcuts.scss */
+.order-history table .panel-info {
+  border-color: transparent;
+}
+/* line 35, ../sass/2-Modules/_panel-shortcuts.scss */
+.order-history table thead th {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+/* line 42, ../sass/2-Modules/_panel-shortcuts.scss */
+.order-history table tbody tr {
+  padding-bottom: 10px;
+}
+/* line 45, ../sass/2-Modules/_panel-shortcuts.scss */
+.order-history table tbody tr td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* line 2, ../sass/2-Modules/_product-list-item.scss */
 .product-list-item img {
   width: 100%;
   display: block;
 }
-/* line 7, ../sass/2-Modules/product-list-item.scss */
+/* line 7, ../sass/2-Modules/_product-list-item.scss */
 .product-list-item h1 {
   font-size: 14px;
   font-weight: 700;
@@ -836,12 +890,12 @@ a[data-page] {
   text-align: center;
   margin-top: 10px;
 }
-/* line 15, ../sass/2-Modules/product-list-item.scss */
+/* line 15, ../sass/2-Modules/_product-list-item.scss */
 .product-list-item .button-group {
   text-align: center;
   margin-bottom: 10px;
 }
-/* line 20, ../sass/2-Modules/product-list-item.scss */
+/* line 20, ../sass/2-Modules/_product-list-item.scss */
 .product-list-item [type="button"] {
   width: 100%;
   border-radius: 0;
@@ -855,4 +909,19 @@ a[data-page] {
 /* line 6, ../sass/2-Modules/_productlist.scss */
 .productlist h3 {
   font-size: 14px;
+}
+
+/* line 15, ../sass/2-Modules/_productlist.scss */
+[name="shoppingCart"] {
+  margin-bottom: 30px;
+}
+/* line 18, ../sass/2-Modules/_productlist.scss */
+[name="shoppingCart"] .panel-info {
+  margin-bottom: 0;
+  border-color: transparent;
+  border-radius: 0;
+}
+/* line 24, ../sass/2-Modules/_productlist.scss */
+[name="shoppingCart"] .col-xs-1 {
+  font-size: 12px;
 }

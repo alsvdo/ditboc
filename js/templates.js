@@ -156,33 +156,33 @@ templates['filter'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function
 templates['heading'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "                    "
+  return "				"
     + this.escapeExpression(((helper = (helper = helpers.HeadingOne || (depth0 != null ? depth0.HeadingOne : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingOne","hash":{},"data":data}) : helper)))
-    + "\r\n";
+    + "\n";
 },"3":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "                    "
+  return "				"
     + this.escapeExpression(((helper = (helper = helpers.currentPageName || (depth0 != null ? depth0.currentPageName : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"currentPageName","hash":{},"data":data}) : helper)))
-    + "\r\n";
+    + "\n";
 },"5":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "                <img src=\""
+  return "			<img src=\""
     + ((stack1 = ((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "\">\r\n";
+    + "\">\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"panel panel-default\" title=\""
     + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
-    + "\r\n\r\n"
+    + "\n\n\n\n"
     + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
-    + "\">\r\n	<div class=\"panel-body\">\r\n		<div class=\"page-header\">\r\n            <h1>\r\n"
+    + "\">\n	<div class=\"panel-body\">\n		<h1>\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingOne : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "            </h1>\r\n"
+    + "		</h1>\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "		</div>\r\n	</div>\r\n</div>\r\n";
+    + "	</div>\n</div>\n";
 },"useData":true});
 templates['iframe'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -366,6 +366,15 @@ templates['order-details'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":f
     + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
     + "\">\r\n    <div class=\"panel panel-default\">\r\n        <div class=\"row\" style=\"padding-left: 15px; padding-right: 15px\">\r\n            <div class=\"col-xs-12\">\r\n\r\n                <div class=\"invoice-title\">\r\n                    <h2>Invoice</h2>\r\n                    <h3 class=\"pull-right\">Order # 12345</h3>\r\n                </div>\r\n                <hr>\r\n                <div class=\"row\">\r\n                    <div class=\"col-xs-6\">\r\n                        <address>\r\n                    <strong>Billed To:</strong><br>\r\n                        John Smith<br>\r\n                        1234 Main<br>\r\n                        Apt. 4B<br>\r\n                        Springfield, ST 54321\r\n                    </address>\r\n                    </div>\r\n                    <div class=\"col-xs-6 text-right\">\r\n                        <address>\r\n                    <strong>Shipped To:</strong><br>\r\n                        Jane Smith<br>\r\n                        1234 Main<br>\r\n                        Apt. 4B<br>\r\n                        Springfield, ST 54321\r\n                    </address>\r\n                    </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                    <div class=\"col-xs-6\">\r\n                        <address>\r\n                        <strong>Payment Method:</strong><br>\r\n                        Visa ending **** 4242<br>\r\n                        jsmith@email.com\r\n                    </address>\r\n                    </div>\r\n                    <div class=\"col-xs-6 text-right\">\r\n                        <address>\r\n                        <strong>Order Date:</strong><br>\r\n                        March 7, 2014<br><br>\r\n                    </address>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\"><strong>Order summary</strong></h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <div class=\"table-responsive\">\r\n                        <table class=\"table table-condensed\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <td><strong>Item</strong>\r\n                                    </td>\r\n                                    <td class=\"text-center\"><strong>Price</strong>\r\n                                    </td>\r\n                                    <td class=\"text-center\"><strong>Quantity</strong>\r\n                                    </td>\r\n                                    <td class=\"text-right\"><strong>Totals</strong>\r\n                                    </td>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <!-- foreach ($order->lineItems as $line) or some such thing here -->\r\n                                <tr>\r\n                                    <td>BS-200</td>\r\n                                    <td class=\"text-center\">$10.99</td>\r\n                                    <td class=\"text-center\">1</td>\r\n                                    <td class=\"text-right\">$10.99</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>BS-400</td>\r\n                                    <td class=\"text-center\">$20.00</td>\r\n                                    <td class=\"text-center\">3</td>\r\n                                    <td class=\"text-right\">$60.00</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>BS-1000</td>\r\n                                    <td class=\"text-center\">$600.00</td>\r\n                                    <td class=\"text-center\">1</td>\r\n                                    <td class=\"text-right\">$600.00</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td class=\"thick-line\"></td>\r\n                                    <td class=\"thick-line\"></td>\r\n                                    <td class=\"thick-line text-center\"><strong>Subtotal</strong>\r\n                                    </td>\r\n                                    <td class=\"thick-line text-right\">$670.99</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td class=\"no-line\"></td>\r\n                                    <td class=\"no-line\"></td>\r\n                                    <td class=\"no-line text-center\"><strong>Shipping</strong>\r\n                                    </td>\r\n                                    <td class=\"no-line text-right\">$15</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td class=\"no-line\"></td>\r\n                                    <td class=\"no-line\"></td>\r\n                                    <td class=\"no-line text-center\"><strong>Total</strong>\r\n                                    </td>\r\n                                    <td class=\"no-line text-right\">$685.99</td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
 },"useData":true});
+templates['order-history'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div name=\"shoppingCart\" class=\"panel panel-info productlist\" title=\""
+    + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\n\n\n\n"
+    + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
+    + "\">\n    <div class=\"panel panel-info\">\n        <div class=\"panel-heading\">\n            <div class=\"panel-title\">\n                <div class=\"row\">\n                    <div class=\"col-xs-12\">\n                        <h5>\n                            <span class=\"glyphicon glyphicon-shopping-cart\"></span> Order History</h5>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"row\">\n                <div class=\"col-xs-2\">\n                    <small style=\"color: #a7a7a7\">Date</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Order No</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Own Order No</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Person no</small>\n                </div>\n                <div class=\"col-xs-2\">\n                    <small style=\"color: #a7a7a7\">Customer no</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Order by</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Delivery Date</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Sum</small>\n                </div>\n                <div class=\"col-xs-2\">\n                    <small style=\"color: #a7a7a7\">Status</small>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-xs-2\">\n                    2015-04-02\n                </div>\n                <div class=\"col-xs-1\">\n                    w31423125\n                </div>\n                <div class=\"col-xs-1\">\n\n                </div>\n                <div class=\"col-xs-1\">\n                </div>\n                <div class=\"col-xs-1\">\n                    additiontest\n                </div>\n                <div class=\"col-xs-2\">\n                    addition test\n                </div>\n                <div class=\"col-xs-1\">\n                    2014-24-24\n                </div>\n                <div class=\"col-xs-1\">\n                    2374,32kr\n                </div>\n                <div class=\"col-xs-2\">\n                    Under Registration</div>\n\n            </div>\n            <hr>\n\n            <hr>\n\n\n        </div>\n        <hr>\n    </div>\n\n</div>\n";
+},"useData":true});
 templates['order-payment'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
@@ -374,6 +383,33 @@ templates['order-payment'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":f
     + "\r\n\r\n"
     + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
     + "\">\r\n    <div class=\"col-lg-12\">\r\n        <div class=\"panel panel-default\">\r\n            <div class=\"panel-heading\">\r\n                <h3 class=\"panel-title\"><img class=\"pull-right\" src=\"http://i76.imgup.net/accepted_c22e0.png\">Payment Details</h3>\r\n            </div>\r\n            <div class=\"panel-body\">\r\n                <form role=\"form\" id=\"payment-form\">\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"cardNumber\">CARD NUMBER</label>\r\n                                <div class=\"input-group\">\r\n                                    <input type=\"text\" class=\"form-control\" name=\"cardNumber\" placeholder=\"Valid Card Number\" required autofocus data-stripe=\"number\" />\r\n                                    <span class=\"input-group-addon\"><i class=\"fa fa-credit-card\"></i></span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-7 col-md-7\">\r\n                            <div class=\"form-group\">\r\n                                <label style=\"display: block\" for=\"expMonth\">EXPIRATION DATE</label>\r\n                                <div class=\"col-xs-6 col-lg-6 pl-ziro custom\">\r\n                                    <input type=\"text\" class=\"form-control\" name=\"expMonth\" placeholder=\"MM\" required data-stripe=\"exp_month\" />\r\n                                </div>\r\n                                <div class=\"col-xs-6 col-lg-6 pl-ziro\">\r\n                                    <input type=\"text\" class=\"form-control\" name=\"expYear\" placeholder=\"YY\" required data-stripe=\"exp_year\" />\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-xs-5 col-md-5 pull-right\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"cvCode\">CV CODE</label>\r\n                                <input type=\"password\" class=\"form-control\" name=\"cvCode\" placeholder=\"CV\" required data-stripe=\"cvc\" />\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"couponCode\">COUPON CODE</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"couponCode\" />\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <button class=\"btn btn-success btn-lg btn-block\" type=\"submit\">Place Order</button>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\" style=\"display:none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <p class=\"payment-errors\"></p>\r\n                        </div>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
+},"useData":true});
+templates['panel-shortcuts'] = template({"1":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "                        <h2 class=\"panel-title\">\n                            <span class=\"glyphicon glyphicon-bookmark\"></span> "
+    + this.escapeExpression(((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper)))
+    + "</h2>\n";
+},"3":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "                    "
+    + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "\n";
+},"5":function(depth0,helpers,partials,data) {
+    return "                    <div class=\"panel-body\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-6\">\n                                <a style=\"background: #C0392B\" href=\"?page=24&client=onemed\" class=\"btn btn-danger btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-time\"></span>\n                                    <br/>Order History</a>\n                                <a style=\"background: #F5AB35\" href=\"?page=22&client=onemed\" class=\"btn btn-warning btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-bookmark\"></span>\n                                    <br/>Shopping Lists</a>\n                                <a style=\"background: #22A7F0\" href=\"?page=25&client=onemed\" class=\"btn btn-primary btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-signal\"></span>\n                                    <br/>Statistics</a>\n                                <a style=\"background: #4DAF7C\" href=\"?page=26&client=onemed\" class=\"btn btn-primary btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-list-alt\"></span>\n                                    <br/>Price Lists</a>\n                                <a style=\"background: #5C97BF\" href=\"?page=27&client=onemed\" class=\"btn btn-primary btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-pencil\"></span>\n                                    <br/>Terms of service</a>\n                                <a style=\"background: #9B59B6\" href=\"?page=28&client=onemed\" class=\"btn btn-primary btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-repeat\"></span>\n                                    <br/>Return Policy</a>\n\n                            </div>\n                            <div class=\"col-sm-6\">\n                                <a style=\"background: #C0392B\" href=\"?page=23&client=onemed\" class=\"btn btn-success btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-user\"></span>\n                                    <br/>My Account</a>\n                                <a style=\"background: #F5AB35\" href=\"?page=29&client=onemed\" class=\"btn btn-info btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-check\"></span>\n                                    <br/>Administration</a>\n                                <a style=\"background: #22A7F0\" href=\"?page=30&client=onemed\" class=\"btn btn-primary btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-barcode\"></span>\n                                    <br/>Bar Codes</a>\n                                <a style=\"background: #4DAF7C\" href=\"?page=31&client=onemed\" class=\"btn btn-primary btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-indent-right\"></span>\n                                    <br/>Bar Code Equipment</a>\n                                <a style=\"background: #5C97BF\" href=\"?page=32&client=onemed\" class=\"btn btn-primary btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-lock\"></span>\n                                    <br/>Change Password</a>\n                                <a style=\"background: #9B59B6\" href=\"?page=33&client=onemed\" class=\"btn btn-primary btn-lg col-xs-4\" role=\"button\">\n                                    <span class=\"glyphicon glyphicon-home\"></span>\n                                    <br/>Change Addresse</a>\n                            </div>\n                        </div>\n                        <!--<a href=\"http://www.jquery2dotnet.com/\" class=\"btn btn-success btn-lg btn-block\" role=\"button\">\n                            <span class=\"glyphicon glyphicon-globe\"></span> Website</a>-->\n                    </div>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"panel-shortcuts\" title=\""
+    + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\n\n\n"
+    + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
+    + "\">\n\n    <div class=\"row\">\n        <div class=\"col-xs-12\">\n            <div class=\"panel panel-primary\">\n                <div class=\"panel-heading\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingTwo : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "                </div>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.RichContent : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "            </div>\n        </div>\n    </div>\n\n</div>\n";
 },"useData":true});
 templates['panel'] = template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper;
@@ -422,31 +458,59 @@ templates['product-banner'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":
     + "\">\r\n\r\n\r\n\r\n\r\n</div>\r\n";
 },"useData":true});
 templates['product-highlight'] = template({"1":function(depth0,helpers,partials,data) {
-    var helper;
+    var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
-  return " "
-    + this.escapeExpression(((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper)))
-    + " ";
+  return "			<h2><a style=\"color: #333; text-decoration: none\" "
+    + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + ">"
+    + alias2(((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper)))
+    + "</a></h2>\n";
 },"3":function(depth0,helpers,partials,data) {
-    return " http://placehold.it/400x500 ";
+    var stack1, helper;
+
+  return "			<div>"
+    + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "</div>\n";
+},"5":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "        <p>\n            "
+    + ((stack1 = ((helper = (helper = helpers.Price || (depth0 != null ? depth0.Price : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Price","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "\n        </p>\n";
+},"7":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
+
+  return "			<a class=\"btn btn-primary\" "
+    + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.CTAUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + " role=\"button\" style=\"border-radius: 0\">"
+    + alias2(((helper = (helper = helpers.CTAText || (depth0 != null ? depth0.CTAText : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"CTAText","hash":{},"data":data}) : helper)))
+    + "</a>\n";
+},"9":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
+
+  return "			<a class=\"btn btn-default\" style=\"border-radius: 0\" "
+    + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.CTATwoUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + ">"
+    + alias2(((helper = (helper = helpers.CTATwoText || (depth0 != null ? depth0.CTATwoText : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"CTATwoText","hash":{},"data":data}) : helper)))
+    + "</a><br>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<div class=\"thumbnail\" title=\""
+  return "<div class=\"panel panel-default\" title=\""
     + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
-    + "\r\n\r\n"
+    + "\n\n"
     + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
-    + "\">\r\n    <br>\r\n    <img src=\""
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\" alt=\"\">\r\n    <div class=\"caption\">\r\n        <h3 class=\"text-center\">"
-    + ((stack1 = ((helper = (helper = helpers.HeadingThree || (depth0 != null ? depth0.HeadingThree : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingThree","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</h3>\r\n        <p class=\"text-center\"><small>"
-    + ((stack1 = ((helper = (helper = helpers.IntroText || (depth0 != null ? depth0.IntroText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"IntroText","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</small>\r\n        </p>\r\n        <p class=\"text-center\">\r\n            <a "
-    + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + " class=\"btn btn-primary\">Buy Now!</a>\r\n            <a "
-    + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + " class=\"btn btn-default\">More Info</a>\r\n        </p>\r\n    </div>\r\n</div>  ";
+    + "\">\n    <div class=\"panel-body\" style=\"background-size: cover; background-position:50% 50%; background-repeat:no-repeat; background-image: url('"
+    + alias3(((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper)))
+    + "');\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingTwo : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.RichContent : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Price : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.CTAText : depth0),{"name":"if","hash":{},"fn":this.program(7, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.CTATwoText : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\n</div>\n";
 },"useData":true});
 templates['product-info'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
@@ -456,26 +520,55 @@ templates['product-info'] = template({"1":function(depth0,helpers,partials,data)
     + " ";
 },"3":function(depth0,helpers,partials,data) {
     return " http://placehold.it/400x500 ";
+},"5":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "            <p>"
+    + ((stack1 = ((helper = (helper = helpers.Teaser || (depth0 != null ? depth0.Teaser : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Teaser","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "</p>\n";
+},"7":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "            "
+    + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "\n";
+},"9":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
+
+  return "        <a data-dynamic "
+    + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.CTAUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + " class=\"btn btn-primary\">"
+    + alias2(((helper = (helper = helpers.CTAText || (depth0 != null ? depth0.CTAText : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"CTAText","hash":{},"data":data}) : helper)))
+    + "</a>\n";
+},"11":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
+
+  return "        <a data-dynamic "
+    + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.CTATwoUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + " class=\"btn btn-default\">"
+    + alias2(((helper = (helper = helpers.CTATwoText || (depth0 != null ? depth0.CTATwoText : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"CTATwoText","hash":{},"data":data}) : helper)))
+    + "</a>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"panel product-info\" title=\""
     + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
-    + "\r\n\r\n"
+    + "\n\n\n\n"
     + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
-    + "\">\r\n    <br>\r\n    <div class=\"col-md-4\">\r\n        <!-- Image -->\r\n        <img src=\""
+    + "\">\n    <br>\n    <div class=\"col-md-4\">\n        <!-- Image -->\n        <img src=\""
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\" class=\"img-responsive\">\r\n\r\n    </div>\r\n    <div class=\"col-md-8\">\r\n        <!-- Title -->\r\n        <h1>"
+    + "\" class=\"img-responsive\">\n\n    </div>\n    <div class=\"col-md-8\">\n        <!-- Title -->\n        <h1>"
     + ((stack1 = ((helper = (helper = helpers.HeadingOne || (depth0 != null ? depth0.HeadingOne : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingOne","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</h1>\r\n\r\n        <hr>\r\n\r\n        <!-- Small description -->\r\n        <p>"
-    + ((stack1 = ((helper = (helper = helpers.IntroText || (depth0 != null ? depth0.IntroText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"IntroText","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "\r\n        </p>\r\n\r\n        <!-- Informations -->\r\n        <ul>\r\n            <li><small>Artikelnr:</small><small>27842</small>\r\n            </li>\r\n            <li><small>Antal i pakke:</small><small>1</small>\r\n            </li>\r\n            <li><small>Enhed:</small><small>fp</small>\r\n            </li>\r\n        </ul>\r\n        <!-- Full Description -->\r\n        <p>"
-    + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</p>\r\n        <big>\r\n                <p>"
-    + ((stack1 = ((helper = (helper = helpers.Price || (depth0 != null ? depth0.Price : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Price","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + " kr</p>\r\n        </big>\r\n        <div class=\"buy\"><a data-dynamic "
-    + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + " class=\"btn btn-success\">Add to Cart</a>\r\n        </div>\r\n        <hr>\r\n        <!-- Breadcrumbs -->\r\n        <ol class=\"breadcrumb\">\r\n            <li>Kontorsmaterial</li>\r\n            <li>Engångs-</li>\r\n            <li class=\"active\">hygien- &#38; säkerhetsprodukter</li>\r\n        </ol>\r\n    </div>\r\n    <div class=\"clearfix\"></div>\r\n</div>\r\n";
+    + "</h1>\n\n        <hr>\n\n        <!-- Small description -->\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Teaser : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "        <!-- Informations -->\n\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.RichContent : depth0),{"name":"if","hash":{},"fn":this.program(7, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n        <!-- Full Description -->\n        <big>\n            "
+    + alias3(((helper = (helper = helpers.Price || (depth0 != null ? depth0.Price : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Price","hash":{},"data":data}) : helper)))
+    + "\n        </big>\n        <div>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.CTAText : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.CTATwoText : depth0),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\n\n        <hr>\n        <!-- Breadcrumbs -->\n        <!-- <ol class=\"breadcrumb\">\n            <li>Kontorsmaterial</li>\n            <li>Engångs-</li>\n            <li class=\"active\">hygien- &#38; säkerhetsprodukter</li>\n        </ol> -->\n    </div>\n    <div class=\"clearfix\"></div>\n</div>\n";
 },"useData":true});
 templates['product-list-item'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
@@ -489,10 +582,38 @@ templates['product-list-item'] = template({"1":function(depth0,helpers,partials,
     return " HeadingTwo ";
 },"7":function(depth0,helpers,partials,data) {
     return " 35 ";
+},"9":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "            <p class=\"text-center\">\n                <small>"
+    + ((stack1 = ((helper = (helper = helpers.Teaser || (depth0 != null ? depth0.Teaser : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Teaser","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "</small>\n            </p>\n";
+},"11":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "            <h4 class=\"text-center\">"
+    + ((stack1 = ((helper = (helper = helpers.Price || (depth0 != null ? depth0.Price : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Price","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "</h4>\n";
+},"13":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing;
+
+  return "                <a "
+    + this.escapeExpression((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.CTAUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + " style=\"border-radius: 0\" class=\"btn btn-primary\">"
+    + ((stack1 = ((helper = (helper = helpers.CTAText || (depth0 != null ? depth0.CTAText : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"CTAText","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "</a>\n";
+},"15":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing;
+
+  return "                <a "
+    + this.escapeExpression((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.CTATwoUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + " style=\"border-radius: 0\" class=\"btn btn-default\">"
+    + ((stack1 = ((helper = (helper = helpers.CTATwoText || (depth0 != null ? depth0.CTATwoText : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"CTATwoText","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "</a>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<div class=\"panel product-info\" title=\""
+  return "<!-- <div class=\"panel product-info\" title=\""
     + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
     + "\r\n\r\n"
     + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
@@ -500,13 +621,32 @@ templates['product-list-item'] = template({"1":function(depth0,helpers,partials,
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "\" alt=\"\" />\r\n\r\n        <h1>"
     + ((stack1 = ((helper = (helper = helpers.HeadingOne || (depth0 != null ? depth0.HeadingOne : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingOne","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</h1>\r\n\r\n        <!-- <small>"
+    + "</h1> -->\n\n<!-- <small>"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingTwo : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + " se</small> -->\r\n\r\n        <div class=\"button-group\">\r\n            <a type=\"button\" class=\"btn btn-info\" href=\""
+    + " se</small> -->\n\n<!-- <div class=\"button-group\">\r\n            <a type=\"button\" class=\"btn btn-info\" href=\""
     + ((stack1 = ((helper = (helper = helpers.LinkUrl || (depth0 != null ? depth0.LinkUrl : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"LinkUrl","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\">Tilføj til indkøbslise</a>\r\n            <a type=\"button\" class=\"btn btn-success\" href=\""
     + ((stack1 = ((helper = (helper = helpers.CTAUrl || (depth0 != null ? depth0.CTAUrl : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"CTAUrl","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "\">Tilføj til inkøbskurv</a>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div>\r\n";
+    + "\">Tilføj til inkøbskurv</a>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div> -->\n\n\n<div class=\"thumbnail\" title=\""
+    + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
+    + "\n\n\n\n"
+    + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
+    + "\">\n    <br>\n    <a "
+    + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + ">\n        <img src=\""
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "\" alt=\"\">\n    </a>\n    <div class=\"caption\">\n        <h3 class=\"text-center\"><a style=\"color: #333; text-decoration: none\" "
+    + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
+    + ">"
+    + ((stack1 = ((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "</a></h3>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Teaser : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Price : depth0),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n        <p class=\"text-center\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.CTAText : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.CTATwoText : depth0),{"name":"if","hash":{},"fn":this.program(15, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "        </p>\n    </div>\n</div>\n";
 },"useData":true});
 templates['product-list'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
@@ -549,8 +689,28 @@ templates['product-list'] = template({"1":function(depth0,helpers,partials,data)
     + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
     + ">\r\n                    Køb\r\n                </a>\r\n            </div>\r\n        </div>\r\n        <hr>\r\n    </div>\r\n</div>\r\n";
 },"useData":true});
-templates['product-tabs'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"product-tabs\">\r\n	<div class=\"row\">\r\n		<div class=\"col-xs-12\">\r\n			<div class=\"panel with-nav-tabs panel-default\">\r\n				<div class=\"panel-heading\">\r\n					<ul class=\"nav nav-tabs\">\r\n						<li class=\"active\"><a href=\"#tab1default\" data-toggle=\"tab\">Spefications</a>\r\n						</li>\r\n						<li><a href=\"#tab2default\" data-toggle=\"tab\">Stock amount</a>\r\n						</li>\r\n						<li><a href=\"#tab3default\" data-toggle=\"tab\">Customer Feedback</a>\r\n						</li>\r\n						<li><a href=\"#tab4default\" data-toggle=\"tab\">More Information</a>\r\n						</li>\r\n					</ul>\r\n				</div>\r\n				<div class=\"panel-body\">\r\n					<div class=\"tab-content\">\r\n						<div class=\"tab-pane fade in active\" id=\"tab1default\">\r\n							<p>Model nr: 23142</p>\r\n							<p>Color: Red</p>\r\n							<p>ID: 23123123</p>\r\n							<p>Material: Cloth</p>\r\n						</div>\r\n						<div class=\"tab-pane fade\" id=\"tab2default\">\r\n							<p>Stockholm: 202</p>\r\n							<p>Copenhagen: 140</p>\r\n							<p>Amsterdam: 69</p>\r\n						</div>\r\n						<div class=\"tab-pane fade\" id=\"tab3default\">\r\n							<div>\r\n								<small style=\"display: block\">John Doe</small>\r\n								<p>\r\n									Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, ea assumenda provident enim sit nisi.\r\n								</p>\r\n							</div>\r\n						</div>\r\n						<div class=\"tab-pane fade\" id=\"tab4default\">\r\n							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quisquam quos ut vero ipsam quibusdam quasi amet at accusantium quas reiciendis, doloribus animi distinctio sint rerum expedita, aperiam, omnis repudiandae!</p>\r\n						</div>\r\n					</div>\r\n				</div>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>";
+templates['product-tabs'] = template({"1":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "				<h2>"
+    + this.escapeExpression(((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper)))
+    + "</h2>\n";
+},"3":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "				"
+    + ((stack1 = ((helper = (helper = helpers.RichContent || (depth0 != null ? depth0.RichContent : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"RichContent","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "\n";
+},"5":function(depth0,helpers,partials,data) {
+    return "				<div class=\"panel with-nav-tabs panel-default\">\n					<div class=\"panel-heading\">\n						<ul class=\"nav nav-tabs\">\n							<li class=\"active\"><a href=\"#tab1default\" data-toggle=\"tab\">Spefications</a>\n							</li>\n							<li><a href=\"#tab2default\" data-toggle=\"tab\">Stock amount</a>\n							</li>\n							<li><a href=\"#tab3default\" data-toggle=\"tab\">Customer Feedback</a>\n							</li>\n							<li><a href=\"#tab4default\" data-toggle=\"tab\">More Information</a>\n							</li>\n						</ul>\n					</div>\n					<div class=\"panel-body\">\n						<div class=\"tab-content\">\n							<div class=\"tab-pane fade in active\" id=\"tab1default\">\n								<p>Model nr: 23142</p>\n								<p>Color: Red</p>\n								<p>ID: 23123123</p>\n								<p>Material: Cloth</p>\n							</div>\n							<div class=\"tab-pane fade\" id=\"tab2default\">\n								<p>Stockholm: 202</p>\n								<p>Copenhagen: 140</p>\n								<p>Amsterdam: 69</p>\n							</div>\n							<div class=\"tab-pane fade\" id=\"tab3default\">\n								<div>\n									<small style=\"display: block\">John Doe</small>\n									<p>\n										Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, ea assumenda provident enim sit nisi.\n									</p>\n								</div>\n							</div>\n							<div class=\"tab-pane fade\" id=\"tab4default\">\n								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quisquam quos ut vero ipsam quibusdam quasi amet at accusantium quas reiciendis, doloribus animi distinctio sint rerum expedita, aperiam, omnis repudiandae!</p>\n							</div>\n						</div>\n					</div>\n				</div>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"product-tabs panel panel-default\">\n	<div class=\"row\">\n		<div class=\"col-xs-12\">\n\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingTwo : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.RichContent : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "		</div>\n	</div>\n</div>\n";
 },"useData":true});
 templates['recursiveMenu'] = template({"1":function(depth0,helpers,partials,data) {
     return " data-dropdown ";
@@ -609,135 +769,107 @@ templates['search-result'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":f
     + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
     + "\">\r\n            <div class=\"panel-body\">\r\n                <ul>\r\n                    <li>\r\n                        <strong>Headline</strong><br>\r\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nunc quis ipsum porttitor sollicitudin eu et risus. Integer urna lectus, tincidunt non ullamcorper sed, euismod et nibh. Donec vel suscipit quam, sit amet aliquet augue. Sed et lacinia lacus. Sed eu erat sapien. Mauris</p>\r\n                    </li>\r\n                    <li>\r\n                        <strong>Headline</strong><br>\r\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nunc quis ipsum porttitor sollicitudin eu et risus. Integer urna lectus, tincidunt non ullamcorper sed, euismod et nibh. Donec vel suscipit quam, sit amet aliquet augue. Sed et lacinia lacus. Sed eu erat sapien. Mauris</p>\r\n                    </li>\r\n                    <li>\r\n                        <strong>Headline</strong><br>\r\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nunc quis ipsum porttitor sollicitudin eu et risus. Integer urna lectus, tincidunt non ullamcorper sed, euismod et nibh. Donec vel suscipit quam, sit amet aliquet augue. Sed et lacinia lacus. Sed eu erat sapien. Mauris</p>\r\n                    </li>\r\n                    <li>\r\n                        <strong>Headline</strong><br>\r\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nunc quis ipsum porttitor sollicitudin eu et risus. Integer urna lectus, tincidunt non ullamcorper sed, euismod et nibh. Donec vel suscipit quam, sit amet aliquet augue. Sed et lacinia lacus. Sed eu erat sapien. Mauris</p>\r\n                    </li>\r\n                    <li>\r\n                        <strong>Headline</strong><br>\r\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nunc quis ipsum porttitor sollicitudin eu et risus. Integer urna lectus, tincidunt non ullamcorper sed, euismod et nibh. Donec vel suscipit quam, sit amet aliquet augue. Sed et lacinia lacus. Sed eu erat sapien. Mauris</p>\r\n                    </li>\r\n                </ul>\r\n\r\n                <nav>\r\n                  <ul class=\"pagination\">\r\n                    <li>\r\n                      <a href=\"#\" aria-label=\"Previous\">\r\n                        <span aria-hidden=\"true\">&laquo;</span>\r\n                      </a>\r\n                    </li>\r\n                    <li><a href=\"#\">1</a></li>\r\n                    <li><a href=\"#\">2</a></li>\r\n                    <li><a href=\"#\">3</a></li>\r\n                    <li><a href=\"#\">4</a></li>\r\n                    <li><a href=\"#\">5</a></li>\r\n                    <li>\r\n                      <a href=\"#\" aria-label=\"Next\">\r\n                        <span aria-hidden=\"true\">&raquo;</span>\r\n                      </a>\r\n                    </li>\r\n                  </ul>\r\n                </nav>\r\n            </div>\r\n        </div>";
 },"useData":true});
-templates['shopping-cart'] = template({"1":function(depth0,helpers,partials,data) {
-    var helper;
+templates['shopping-cart'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return " "
-    + this.escapeExpression(((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper)))
-    + " ";
-},"3":function(depth0,helpers,partials,data) {
-    return " http://placehold.it/400x500 ";
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
-
-  return "<div class=\"panel panel-info productlist\" title=\""
+  return "<div name=\"shoppingCart\" class=\"panel panel-info productlist\" title=\""
     + alias3(((helper = (helper = helpers.Component || (depth0 != null ? depth0.Component : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Component","hash":{},"data":data}) : helper)))
-    + "\r\n\r\n"
+    + "\n\n"
     + alias3(((helper = (helper = helpers.UserStoryForPresentation || (depth0 != null ? depth0.UserStoryForPresentation : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"UserStoryForPresentation","hash":{},"data":data}) : helper)))
-    + "\">\r\n    <div class=\"panel-heading\">\r\n        <div class=\"panel-title\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-6\">\r\n                    <h5><span class=\"glyphicon glyphicon-shopping-cart\"></span> Shopping Cart</h5>\r\n                </div>\r\n                <div class=\"col-xs-6\">\r\n                    <button type=\"button\" class=\"btn btn-primary btn-sm btn-block\">\r\n                        <span class=\"glyphicon glyphicon-share-alt\"></span> Continue shopping\r\n                    </button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"panel-body\">\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-2\"></div>\r\n            <div class=\"col-xs-2\"><small style=\"color: #a7a7a7\">Product</small>\r\n            </div>\r\n            <div class=\"col-xs-3\"><small style=\"color: #a7a7a7\">Description</small>\r\n            </div>\r\n        </div>                   \r\n        <hr>          \r\n                    <div class=\"row\">\r\n                            <div class=\"col-xs-2\"><img class=\"img-responsive\" src=\""
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n                            </div>\r\n                                <div class=\"col-xs-2\">\r\n                                <strong><h2>"
-    + ((stack1 = ((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "  </h2></strong>\r\n                            </div>\r\n                            <div class=\"col-xs-3\">\r\n                                <small><h3>"
-    + ((stack1 = ((helper = (helper = helpers.HeadingThree || (depth0 != null ? depth0.HeadingThree : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingThree","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</h3></small>\r\n                            </div>\r\n                            <div class=\"col-xs-5\">\r\n                                <div class=\"col-xs-6 text-right\">\r\n                                    <h6><strong>"
-    + ((stack1 = ((helper = (helper = helpers.Price || (depth0 != null ? depth0.Price : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Price","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + " <span class=\"text-muted\">x</span></strong></h6>\r\n                                </div>\r\n                                <div class=\"col-xs-4\">\r\n                                    <input type=\"text\" class=\"form-control input-sm\" value=\"1\">\r\n                                </div>\r\n                                <div class=\"col-xs-2\">\r\n                                    <button type=\"button\" class=\"btn btn-link btn-xs\">\r\n                                        <span class=\"glyphicon glyphicon-trash\"> </span>\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <hr>\r\n                             <div class=\"row\">\r\n                            <div class=\"col-xs-2\"><img class=\"img-responsive\" src=\""
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n                            </div>\r\n                                <div class=\"col-xs-2\">\r\n                                <strong><h2>"
-    + ((stack1 = ((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</h2></strong>\r\n                            </div>\r\n                            <div class=\"col-xs-3\">\r\n                                <small><h3>"
-    + ((stack1 = ((helper = (helper = helpers.HeadingThree || (depth0 != null ? depth0.HeadingThree : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingThree","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</h3></small>\r\n                            </div>\r\n                            <div class=\"col-xs-5\">\r\n                                <div class=\"col-xs-6 text-right\">\r\n                                    <h6><strong>"
-    + ((stack1 = ((helper = (helper = helpers.Price || (depth0 != null ? depth0.Price : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Price","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + " <span class=\"text-muted\">x</span></strong></h6>\r\n                                </div>\r\n                                <div class=\"col-xs-4\">\r\n                                    <input type=\"text\" class=\"form-control input-sm\" value=\"1\">\r\n                                </div>\r\n                                <div class=\"col-xs-2\">\r\n                                    <button type=\"button\" class=\"btn btn-link btn-xs\">\r\n                                        <span class=\"glyphicon glyphicon-trash\"> </span>\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <hr>\r\n                             <div class=\"row\">\r\n                            <div class=\"col-xs-2\"><img class=\"img-responsive\" src=\""
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n                            </div>\r\n                                <div class=\"col-xs-2\">\r\n                                <strong><h2>"
-    + ((stack1 = ((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</h2></strong>\r\n                            </div>\r\n                            <div class=\"col-xs-3\">\r\n                                <small><h3>"
-    + ((stack1 = ((helper = (helper = helpers.HeadingThree || (depth0 != null ? depth0.HeadingThree : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"HeadingThree","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</h3></small>\r\n                            </div>\r\n                            <div class=\"col-xs-5\">\r\n                                <div class=\"col-xs-6 text-right\">\r\n                                    <h6><strong>"
-    + ((stack1 = ((helper = (helper = helpers.Price || (depth0 != null ? depth0.Price : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"Price","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + " <span class=\"text-muted\">x</span></strong></h6>\r\n                                </div>\r\n                                <div class=\"col-xs-4\">\r\n                                    <input type=\"text\" class=\"form-control input-sm\" value=\"1\">\r\n                                </div>\r\n                                <div class=\"col-xs-2\">\r\n                                    <button type=\"button\" class=\"btn btn-link btn-xs\">\r\n                                        <span class=\"glyphicon glyphicon-trash\"> </span>\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <hr>\r\n        <div class=\"row\">\r\n            <div class=\"text-center\">\r\n                <div class=\"col-xs-9\">\r\n                    <h6 class=\"text-right\">Added items?</h6>\r\n                </div>\r\n                <div class=\"col-xs-3\">\r\n                    <button type=\"button\" class=\"btn btn-default btn-sm btn-block\">\r\n                        Update cart\r\n                    </button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"panel-footer\">\r\n        <div class=\"row text-center\">\r\n            <div class=\"col-xs-9\">\r\n                <h4 class=\"text-right\">Total $<strong data-dynamic class=\"price\">50.00</strong></h4>\r\n            </div>\r\n            <div class=\"col-xs-3\">\r\n            <a "
-    + alias3((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + ">\r\n                <button type=\"button\" class=\"btn btn-success btn-block\">\r\n                    Checkout\r\n                </button>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>";
+    + "\">\n    <div class=\"panel panel-info\">\n        <div class=\"panel-heading\">\n            <div class=\"panel-title\">\n                <div class=\"row\">\n                    <div class=\"col-xs-6\">\n                        <h5>\n                            <span class=\"glyphicon glyphicon-shopping-cart\"></span> Shopping Cart</h5>\n                    </div>\n                    <div class=\"col-xs-6\">\n                        <button type=\"button\" class=\"btn btn-primary btn-sm btn-block\">\n                            <span class=\"glyphicon glyphicon-share-alt\"></span> Continue shopping\n                        </button>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"row\">\n                <div class=\"col-xs-2\">\n                    <small style=\"color: #a7a7a7\">Product</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Stock</small>\n                </div>\n                <div class=\"col-xs-2\">\n                    <small style=\"color: #a7a7a7\">Product Name</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Amount</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Amount in Product</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Price</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Price/Stk</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Type</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Whole Price</small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <small style=\"color: #a7a7a7\">Ta bort</small>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-xs-2\">\n                    <img class=\"img-responsive\" src=\"http://placehold.it/150x100\">\n                    <small style=\"display: block; margin-top: 5px; color: #969696\" class=\"text-center\">Art nr:\n                        <small style=\"color: #a7a7a7; font-size: 12px\">262224</small>\n                    </small>\n                </div>\n                <div class=\"col-xs-1\">\n                    <img src=\"http://www.onemed.se/Archive/Images/SWEDEN/Bestallningsvara.gif\" alt=\"\">\n                </div>\n                <div class=\"col-xs-2\">\n                    Tension-free Vaginal Tape\nTVT Abbrevo\n                </div>\n                <div class=\"col-xs-1\">\n                    <input style=\"width: 100%; display: inline-block\" type=\"number\" value=\"4\">\n                </div>\n                <div class=\"col-xs-1\">\n                    1\n                </div>\n                <div class=\"col-xs-1\">\n                    8 904,46kr\n                </div>\n                <div class=\"col-xs-1\">\n                    8 904,46kr\n                </div>\n                <div class=\"col-xs-1\">\n                    fp\n                </div>\n                <div class=\"col-xs-1\">\n                    35 617,86kr\n                </div>\n                <div class=\"col-xs-1\">\n                    <a type=\"button\" style=\"width: 100%; padding-left: 3px; padding-right: 3px; border-radius: 0; font-size: 11px\" class=\"btn btn-info\">Update</a>\n                    <a type=\"button\" style=\"width: 100%; padding-left: 3px; padding-right: 3px; border-radius: 0; font-size: 11px\" class=\"btn btn-success\">Remove</a>\n                </div>\n            </div>\n             <hr>\n             <div class=\"row\">\n                 <div class=\"col-xs-2\">\n                     <img class=\"img-responsive\" src=\"http://placehold.it/150x100\">\n                     <small style=\"display: block; margin-top: 5px; color: #969696\" class=\"text-center\">Art nr:\n                         <small style=\"color: #a7a7a7; font-size: 12px\">262224</small>\n                     </small>\n                 </div>\n                 <div class=\"col-xs-1\">\n                     <img src=\"http://www.onemed.se/Archive/Images/SWEDEN/Bestallningsvara.gif\" alt=\"\">\n                 </div>\n                 <div class=\"col-xs-2\">\n                     Klädhängare plast tvärslå och krokar 9-pack\n                 </div>\n                 <div class=\"col-xs-1\">\n                     <input style=\"width: 100%; display: inline-block\" type=\"number\" value=\"4\">\n                 </div>\n                 <div class=\"col-xs-1\">\n                     9\n                 </div>\n                 <div class=\"col-xs-1\">\n                     182,55kr\n                 </div>\n                 <div class=\"col-xs-1\">\n                     20,28kr\n                 </div>\n                 <div class=\"col-xs-1\">\n                     fp\n                 </div>\n                 <div class=\"col-xs-1\">\n                     182,55kr\n                 </div>\n                 <div class=\"col-xs-1\">\n                     <a type=\"button\" style=\"width: 100%; padding-left: 3px; padding-right: 3px; border-radius: 0; font-size: 11px\" class=\"btn btn-info\">Update</a>\n                     <a type=\"button\" style=\"width: 100%; padding-left: 3px; padding-right: 3px; border-radius: 0; font-size: 11px\" class=\"btn btn-success\">Remove</a>\n                 </div>\n             </div>\n             <hr>\n             <div class=\"row\">\n                 <div class=\"col-xs-2\">\n                     <img class=\"img-responsive\" src=\"http://placehold.it/150x100\">\n                     <small style=\"display: block; margin-top: 5px; color: #969696\" class=\"text-center\">Art nr:\n                         <small style=\"color: #a7a7a7; font-size: 12px\">262224</small>\n                     </small>\n                 </div>\n                 <div class=\"col-xs-1\">\n                     <img src=\"http://www.onemed.se/Archive/Images/SWEDEN/Bestallningsvara.gif\" alt=\"\">\n                 </div>\n                 <div class=\"col-xs-2\">\n                     Klädhängare plast tvärslå och krokar 9-pack\n                 </div>\n                 <div class=\"col-xs-1\">\n                     <input style=\"width: 100%; display: inline-block\" type=\"number\" value=\"4\">\n                 </div>\n                 <div class=\"col-xs-1\">\n                     9\n                 </div>\n                 <div class=\"col-xs-1\">\n                     182,55kr\n                 </div>\n                 <div class=\"col-xs-1\">\n                     20,28kr\n                 </div>\n                 <div class=\"col-xs-1\">\n                     fp\n                 </div>\n                 <div class=\"col-xs-1\">\n                     182,55kr\n                 </div>\n                 <div class=\"col-xs-1\">\n                     <a type=\"button\" style=\"width: 100%; padding-left: 3px; padding-right: 3px; border-radius: 0; font-size: 11px\" class=\"btn btn-info\">Update</a>\n                     <a type=\"button\" style=\"width: 100%; padding-left: 3px; padding-right: 3px; border-radius: 0; font-size: 11px\" class=\"btn btn-success\">Remove</a>\n                 </div>\n             </div>\n\n        </div>\n        <hr>\n    </div>\n    <div class=\"panel-footer\">\n        <div class=\"row text-center\">\n            <div class=\"col-xs-9\">\n                <h4 class=\"text-right\">Total\n                    <strong>$50.00</strong>\n                </h4>\n            </div>\n            <div class=\"col-xs-3\">\n                <button type=\"button\" class=\"btn btn-success btn-block\">\n                    Checkout\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n";
 },"useData":true});
 templates['similar-products'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
+  return "		<h2 style=\"padding-left: 54px\">"
+    + this.escapeExpression(((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper)))
+    + "</h2>\n";
+},"3":function(depth0,helpers,partials,data) {
+    var helper;
+
   return " "
     + this.escapeExpression(((helper = (helper = helpers.Image || (depth0 != null ? depth0.Image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"Image","hash":{},"data":data}) : helper)))
     + " ";
-},"3":function(depth0,helpers,partials,data) {
+},"5":function(depth0,helpers,partials,data) {
     return " http://placehold.it/150x150 ";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
+    var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
-  return "<div class=\"container\">\r\n	<div class=\"row\">\r\n		<h2 style=\"padding-left: 54px\">"
-    + ((stack1 = ((helper = (helper = helpers.HeadingTwo || (depth0 != null ? depth0.HeadingTwo : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"HeadingTwo","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "</h2>\r\n	</div>\r\n	<div class='row'>\r\n		<div class='col-xs-12'>\r\n			<div class=\"carousel slide media-carousel\" id=\"media\">\r\n				<div class=\"carousel-inner\">\r\n					<div class=\"item  active\">\r\n						<div class=\"row\">\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+  return "<div class=\"panel panel-default\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.HeadingTwo : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "	<div class='row'>\n		<div class='col-xs-12'>\n			<div class=\"carousel slide media-carousel\" id=\"media\">\n				<div class=\"carousel-inner\">\n					<div class=\"item  active\">\n						<div class=\"row\">\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class=\"item\">\r\n						<div class=\"row\">\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\"  "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n						</div>\n					</div>\n					<div class=\"item\">\n						<div class=\"row\">\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class=\"item\">\r\n						<div class=\"row\">\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n						</div>\n					</div>\n					<div class=\"item\">\n						<div class=\"row\">\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n							<div class=\"col-md-2\">\r\n								<a class=\"thumbnail\" "
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n							<div class=\"col-md-2\">\n								<a class=\"thumbnail\" "
     + alias2((helpers.link || (depth0 && depth0.link) || alias1).call(depth0,(depth0 != null ? depth0.LinkUrl : depth0),{"name":"link","hash":{},"data":data}))
-    + "><img alt=\"\" src=\" "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\">\r\n								</a>\r\n							</div>\r\n						</div>\r\n					</div>\r\n				</div>\r\n				<a data-slide=\"prev\" href=\"#media\" class=\"left carousel-control\">‹</a>\r\n				<a data-slide=\"next\" href=\"#media\" class=\"right carousel-control\">›</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n";
+    + ">\n									<img alt=\"\" src=\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.Image : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n								</a>\n							</div>\n						</div>\n					</div>\n				</div>\n				<a data-slide=\"prev\" href=\"#media\" class=\"left carousel-control\">‹</a>\n				<a data-slide=\"next\" href=\"#media\" class=\"right carousel-control\">›</a>\n			</div>\n		</div>\n	</div>\n</div>\n";
 },"useData":true});
 templates['slider'] = template({"1":function(depth0,helpers,partials,data) {
     var helper;

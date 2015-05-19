@@ -1,0 +1,53 @@
+.panel-shortcuts {
+    a.btn {
+        border: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 16px;
+    }
+
+    span {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+}
+
+.order-history {
+
+    .row {
+        margin-bottom: 10px;
+        
+        input[type="search"] {
+            padding: 7px;
+        }
+        input {
+            border: 1px solid #a7a7a7;
+        }
+    }
+
+    table {
+        width: 100%;
+
+        .panel-info {
+            border-color: transparent;
+        }
+
+        thead {
+            th {
+                padding: 8px;
+                border: 1px solid #ddd;
+            }
+        }
+
+        tbody {
+            tr {
+                padding-bottom: 10px;
+
+                td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                }
+            }
+        }
+    }
+}

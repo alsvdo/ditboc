@@ -1,5 +1,7 @@
 <div class="panel product-info" title="{{Component}}
 
+
+
 {{UserStoryForPresentation}}">
     <br>
     <div class="col-md-4">
@@ -14,32 +16,35 @@
         <hr>
 
         <!-- Small description -->
-        <p>{{{IntroText}}}
-        </p>
-
+        {{#if Teaser}}
+            <p>{{{Teaser}}}</p>
+        {{/if}}
         <!-- Informations -->
-        <ul>
-            <li><small>Artikelnr:</small><small>27842</small>
-            </li>
-            <li><small>Antal i pakke:</small><small>1</small>
-            </li>
-            <li><small>Enhed:</small><small>fp</small>
-            </li>
-        </ul>
+
+        {{#if RichContent}}
+            {{{RichContent}}}
+        {{/if}}
+
         <!-- Full Description -->
-        <p>{{{RichContent}}}</p>
         <big>
-                <p>{{{Price}}} kr</p>
+            {{Price}}
         </big>
-        <div class="buy"><a data-dynamic {{link LinkUrl}} class="btn btn-success">Add to Cart</a>
-        </div>
+        <div>
+        {{#if CTAText}}
+        <a data-dynamic {{link CTAUrl}} class="btn btn-primary">{{CTAText}}</a>
+        {{/if}}
+        {{#if CTATwoText}}
+        <a data-dynamic {{link CTATwoUrl}} class="btn btn-default">{{CTATwoText}}</a>
+        {{/if}}
+    </div>
+
         <hr>
         <!-- Breadcrumbs -->
-        <ol class="breadcrumb">
+        <!-- <ol class="breadcrumb">
             <li>Kontorsmaterial</li>
             <li>Engångs-</li>
             <li class="active">hygien- &#38; säkerhetsprodukter</li>
-        </ol>
+        </ol> -->
     </div>
     <div class="clearfix"></div>
 </div>

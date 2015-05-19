@@ -2,6 +2,7 @@
 	padding-bottom: 20px;
 	padding-left: 6px;
 	padding-right: 6px;
+	border: 1px solid #ddd;
 
 	li  {
 		list-style-type: none;
@@ -37,7 +38,7 @@
 		margin: 0;
 	}
 	big {
-		margin: 10px 0;
+		margin: 10px 0 15px;
 		display: inline-block;
 		background: #ededed;
 		padding: 8px 20px;
@@ -60,4 +61,8 @@
 		}
 		margin: 20px 0;
 	}
+}
+
+.btn {
+	border-radius: 0 !important;
 }

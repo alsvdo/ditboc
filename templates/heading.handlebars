@@ -1,18 +1,18 @@
 <div class="panel panel-default" title="{{Component}}
 
+
+
 {{UserStoryForPresentation}}">
 	<div class="panel-body">
-		<div class="page-header">
-            <h1>
-                {{#if HeadingOne}}
-                    {{HeadingOne}}
-                {{else}}
-                    {{currentPageName}}
-                {{/if}}
-            </h1>
-            {{#if Image}}
-                <img src="{{{Image}}}">
-            {{/if}}
-		</div>
+		<h1>
+			{{#if HeadingOne}}
+				{{HeadingOne}}
+			{{else}}
+				{{currentPageName}}
+			{{/if}}
+		</h1>
+		{{#if Image}}
+			<img src="{{{Image}}}">
+		{{/if}}
 	</div>
 </div>

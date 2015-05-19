@@ -100,7 +100,7 @@
             }
 
             $.fn.sheetrock.options.url = client.edit;
-            $.fn.sheetrock.options.chunkSize = 50;
+            $.fn.sheetrock.options.chunkSize = 200;
             $.fn.sheetrock.options.formatting = true;
             $.fn.sheetrock.options.headersOff = true;
 
@@ -119,7 +119,7 @@
                             , F: 'HeadingOne'
                             , G: 'HeadingTwo'
                             , H: 'HeadingThree'
-                            , I: 'IntroText'
+                            , I: 'Teaser'
                             , J: 'RichContent'
                             , K: 'LinkText'
                             , L: 'LinkUrl'
@@ -128,7 +128,9 @@
                             , O: 'Price'
                             , P: 'CTAText'
                             , Q: 'CTAUrl'
-                            , S: 'UserStoryForPresentation'},
+                            , R: 'CTATwoText'
+                            , S: 'CTATwoUrl'
+                            , U: 'UserStoryForPresentation'},
 
                     // This array becomes the property names of the output javascript object, it must have exactly the same amount of strings as the retrieved columns.
                     labels: ['Component'
@@ -137,7 +139,7 @@
                             , 'HeadingOne'
                             , 'HeadingTwo'
                             , 'HeadingThree'
-                            , 'IntroText'
+                            , 'Teaser'
                             , 'RichContent'
                             , 'LinkText'
                             , 'LinkUrl'
@@ -146,9 +148,11 @@
                             , 'Price'
                             , 'CTAText'
                             , 'CTAUrl'
+                            , 'CTATwoText'
+                            , 'CTATwoUrl'
                             , 'UserStoryForPresentation'],
 
-                    sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %IntroText%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%, %UserStoryForPresentation%' ,
+                    sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%, %CTATwoText%, %CTATwoUrl%, %UserStoryForPresentation%' ,
 
                     rowHandler: function(row){
                         componentData.push(row.cells);
@@ -285,7 +289,7 @@
 
             (function checkClient() {
                 if(getUrlParameter('client') == "onemed") {
-                    var content = "<header id='onemed-header'><div class='container-fluid'><div class='row'><div class='col-md-3 col-md-offset-1'><img role='logo' src='images/onemed.jpg'></div><div class='col-md-4'><div class='search-form'><input type='search'><input type='submit' value='søg'></div></div><div class='col-md-4'><div class='row'><div class='col-md-6'>Kontakta OneMed</div><div class='col-md-6'>Min inköpslista</div><div class='col-md-6'><a href='?page=14'>Logga in</a></div><div class='col-md-6'>Min profil</div><div class='col-md-6'>Min kundevagn</div></div></div></div></div></header>";
+                    var content = "<header id='onemed-header'><div class='container-fluid'><div class='row'><div class='col-md-3 col-md-offset-1'><img role='logo' src='images/onemed.jpg'></div><div class='col-md-4'><div class='search-form'><input type='search'><input type='submit' value='Search'></div></div><div class='col-md-4'><div class='row'><div class='col-md-6'><a href='?page=21&client=onemed'>Contact OneMed</a></div><div class='col-md-6'><a href='?page=22&client=onemed'>My Shopping Lists</a></div><div class='col-md-6'><a href='?page=14&client=onemed'>Login</a></div><div class='col-md-6'><a href='?page=23&client=onemed'>My Account</a></div><div class='col-md-6'><a href='?page=16&client=onemed'>Shopping Basket</a></div><div class='col-md-6'><a href='?page=19&client=onemed'>My OneMed</a></div></div></div></div></div></header>";
                     $('#special-header').append(content);
 
                 }

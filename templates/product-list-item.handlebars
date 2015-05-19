@@ -1,4 +1,4 @@
-<div class="panel product-info" title="{{Component}}
+<!-- <div class="panel product-info" title="{{Component}}
 
 {{UserStoryForPresentation}}">
 
@@ -6,15 +6,48 @@
 
         <img src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}" alt="" />
 
-        <h1>{{{HeadingOne}}}</h1>
+        <h1>{{{HeadingOne}}}</h1> -->
 
-        <!-- <small>{{#if HeadingTwo}} HeadingTwo {{else}} 35 {{/if}} se</small> -->
+<!-- <small>{{#if HeadingTwo}} HeadingTwo {{else}} 35 {{/if}} se</small> -->
 
-        <div class="button-group">
+<!-- <div class="button-group">
             <a type="button" class="btn btn-info" href="{{{LinkUrl}}}">Tilføj til indkøbslise</a>
             <a type="button" class="btn btn-success" href="{{{CTAUrl}}}">Tilføj til inkøbskurv</a>
         </div>
 
     </div>
 
+</div> -->
+
+
+<div class="thumbnail" title="{{Component}}
+
+
+
+{{UserStoryForPresentation}}">
+    <br>
+    <a {{link LinkUrl}}>
+        <img src="{{#if Image}} {{Image}} {{else}} http://placehold.it/400x500 {{/if}}" alt="">
+    </a>
+    <div class="caption">
+        <h3 class="text-center"><a style="color: #333; text-decoration: none" {{link LinkUrl}}>{{{HeadingTwo}}}</a></h3>
+        {{#if Teaser}}
+            <p class="text-center">
+                <small>{{{Teaser}}}</small>
+            </p>
+        {{/if}}
+
+        {{#if Price}}
+            <h4 class="text-center">{{{Price}}}</h4>
+        {{/if}}
+
+        <p class="text-center">
+            {{#if CTAText}}
+                <a {{link CTAUrl}} style="border-radius: 0" class="btn btn-primary">{{{CTAText}}}</a>
+            {{/if}}
+            {{#if CTATwoText}}
+                <a {{link CTATwoUrl}} style="border-radius: 0" class="btn btn-default">{{{CTATwoText}}}</a>
+            {{/if}}
+        </p>
+    </div>
 </div>

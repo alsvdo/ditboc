@@ -1,69 +1,69 @@
-"use strict";
+// "use strict";
 
-var DITBOC = DITBOC || {};
+// var DITBOC = DITBOC || {};
 
-DITBOC.Breadcrumb = (function (DITBOC)
+ditboc.breadcrumb = (function (ditboc)
 {
-	var stickyAt = 100,
+	var stickyat = 100,
 		selected = 0,
-		$navigation = $('.stickyNav'),
-		navigationHeight = $navigation.height(),
-		$elements = $('.stickyElm'),
-		scrollPos;
+		$navigation = $('.stickynav'),
+		navigationheight = $navigation.height(),
+		$elements = $('.stickyelm'),
+		scrollpos;
 
-	// Set first
-	//$navigation.children().eq(selected).addClass('selected');
+	// set first
+	//$navigation.children().eq(selected).addclass('selected');
 
 	function position()
 	{
-		scrollPos = $(top.window).scrollTop();
+		scrollpos = $(top.window).scrolltop();
 
-		if (scrollPos > (stickyAt - navigationHeight) )
+		if (scrollpos > (stickyat - navigationheight) )
 		{
-			$navigation.addClass('sticky');
+			$navigation.addclass('sticky');
 		}
 		else
 		{
-			$navigation.removeClass('sticky');
+			$navigation.removeclass('sticky');
 		}
 
-		selectByPosition();
+		selectbyposition();
 	}
 
-	function selectByPosition()
+	function selectbyposition()
 	{
 		$elements
 			.each(function()
 			{
 				var that = $(this);
 
-				if ( that.inView() )
+				if ( that.inview() )
 				{
-					that.addClass('inView');
+					that.addclass('inview');
 				}
 				else
 				{
-					that.removeClass('inView');
+					that.removeclass('inview');
 				}
 			})
 
-			// Remove old active state
-			.removeClass('active')
+			// remove old active state
+			.removeclass('active')
 
-			// Set active on current element
-			.filter('.inView:first').addClass('active');
+			// set active on current element
+			.filter('.inview:first').addclass('active');
 
-		// Animate active nav item
-		setActiveNav( $elements.index($elements.filter('.inView:first')) );
+		// animate active nav item
+		setactivenav( $elements.index($elements.filter('.inview:first')) );
 	}
 
-	function setActiveNav(index)
+	function setactivenav(index)
 	{
 		// var $current = $navigation.children().eq(index+1),
 		// 	$toggler = $navigation.children().first();
 
 		// $toggler.css({
-		// 	width: $current.outerWidth(),
+		// 	width: $current.outerwidth(),
 		// 	left: function() {
 		// 		$current
 		// 		return '20px';
@@ -80,29 +80,29 @@ DITBOC.Breadcrumb = (function (DITBOC)
 			});
 		}
 	};
-})(DITBOC);
+})(ditboc);
 
-DITBOC.start = function ()
+ditboc.start = function ()
 {
-	DITBOC.Breadcrumb.init();
+	ditboc.breadcrumb.init();
 };
 
-// Domready
+// domready
 $(function()
 {
-	if ( !document.addEventListener )
-		DITBOC.start();
+	if ( !document.addeventlistener )
+		ditboc.start();
 	else
-		document.addEventListener('deviceready', DITBOC.start(), false);
+		document.addeventlistener('deviceready', ditboc.start(), false);
 });
 
 
-// Plugins
+// plugins
 (function ($) {
-	$.fn.inView = function () {
+	$.fn.inview = function () {
 		var element = this;
-		var rect = $(element).get(0).getBoundingClientRect();
+		var rect = $(element).get(0).getboundingclientrect();
 
 		return rect.bottom >= 0 && rect.top <= $(window).height();
 	};
-})(jQuery);
+})(jquery);

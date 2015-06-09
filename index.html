@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Ditboc</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    </head>
-    <body>
-        <table id="datatable"></table>
+<head>
+    <meta charset="UTF-8">
+    <title>Ditboc</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-        <div id="special-header">
-            <!-- <header id="onemed-header">
+<body>
+    <table id="datatable"></table>
+    <!--     <div id="special-header">
+        <header id="onemed-header">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-3 col-md-offset-1">
@@ -50,403 +50,487 @@
                     </div>
                 </div>
 
-            </header> -->
+            </header>
+    </div> -->
+    <!--     <nav id="main-menu" class="nav navbar-default"></nav>
+ -->
+    <main>
+        <div class="container">
         </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/jquery.sheetrock.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.runtime.min.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+    // Store client urls
+    // = getClient();
 
-
-        <nav id="main-menu" class="nav navbar-default"></nav>
-
-        <main>
-            <div class="container"></div>
-        </main>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="js/jquery.sheetrock.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.runtime.min.js"></script>
-        <script src="js/templates.js"></script>
-        <script src="js/main.js"></script>
-        <script type="text/javascript">
-            // Store client urls
-            // = getClient();
-
-            var client = (function ()
-            {
-                var clients = {
-                    'edit.pfa.dk': {
-                        components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
-                        edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=356843021'
-                    },
-                    'english.pfa.dk': {
-                        components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
-                        edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=127466075'
-                    },
-                    standard: {
-                        components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
-                        edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
-                    }
-                };
-                switch(getUrlParameter('client'))
-                {
-                    case 'edit.pfa.dk': case 'pfa': return clients['edit.pfa.dk'];
-                    case 'english.pfa.dk': return clients['english.pfa.dk'];
-                }
-                return clients.standard;
-            })();
-            // var client = getClient();
-
-            if (window.location.href.indexOf(".html") == -1) {
-                window.location.href = "index.html" + window.location.search;
+    var client = (function() {
+        var clients = {
+            'edit.pfa.dk': {
+                components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
+                edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=356843021'
+            },
+            'english.pfa.dk': {
+                components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
+                edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=127466075'
+            },
+            standard: {
+                components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
+                edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
             }
+        };
+        switch (getUrlParameter('client')) {
+            case 'edit.pfa.dk':
+            case 'pfa':
+                return clients['edit.pfa.dk'];
+            case 'english.pfa.dk':
+                return clients['english.pfa.dk'];
+        }
+        return clients.standard;
+    })();
+    // var client = getClient();
 
-            $.fn.sheetrock.options.url = client.edit;
-            $.fn.sheetrock.options.chunkSize = 200;
-            $.fn.sheetrock.options.formatting = true;
-            $.fn.sheetrock.options.headersOff = true;
+    if (window.location.href.indexOf(".html") == -1) {
+        window.location.href = "index.html" + window.location.search;
+    }
 
-            var dataTable = $('#datatable');
-            var componentData = new Array();
-            var pageComponents = new Array();
-            var pageName;
+    $.fn.sheetrock.options.url = client.edit;
+    $.fn.sheetrock.options.chunkSize = 200;
+    $.fn.sheetrock.options.formatting = true;
+    $.fn.sheetrock.options.headersOff = true;
 
-            (function getComponentData(){
-                    dataTable.sheetrock({
-                    url: client.components,
+    var dataTable = $('#datatable');
+    var componentData = new Array();
+    var pageComponents = new Array();
+    var pageName;
 
-                    columns: {A: 'Component'
-                            , D: 'Filename'
-                            , E: 'Type'
-                            , F: 'HeadingOne'
-                            , G: 'HeadingTwo'
-                            , H: 'HeadingThree'
-                            , I: 'Teaser'
-                            , J: 'RichContent'
-                            , K: 'LinkText'
-                            , L: 'LinkUrl'
-                            , M: 'Image'
-                            , N: 'Date'
-                            , O: 'Price'
-                            , P: 'CTAText'
-                            , Q: 'CTAUrl'
-                            , R: 'CTATwoText'
-                            , S: 'CTATwoUrl'
-                            , U: 'UserStoryForPresentation'},
+    (function getComponentData() {
+        dataTable.sheetrock({
+            url: client.components,
 
-                    // This array becomes the property names of the output javascript object, it must have exactly the same amount of strings as the retrieved columns.
-                    labels: ['Component'
-                            , 'Filename'
-                            , 'Type'
-                            , 'HeadingOne'
-                            , 'HeadingTwo'
-                            , 'HeadingThree'
-                            , 'Teaser'
-                            , 'RichContent'
-                            , 'LinkText'
-                            , 'LinkUrl'
-                            , 'Image'
-                            , 'Date'
-                            , 'Price'
-                            , 'CTAText'
-                            , 'CTAUrl'
-                            , 'CTATwoText'
-                            , 'CTATwoUrl'
-                            , 'UserStoryForPresentation'],
+            columns: {
+                A: 'Component',
+                B: 'Category',
+                D: 'Filename',
+                E: 'Type',
+                F: 'HeadingOne',
+                G: 'HeadingTwo',
+                H: 'HeadingThree',
+                I: 'Teaser',
+                J: 'RichContent',
+                K: 'LinkText',
+                L: 'LinkUrl',
+                M: 'Image',
+                N: 'Date',
+                O: 'Price',
+                P: 'CTAText',
+                Q: 'CTAUrl',
+                R: 'CTATwoText',
+                S: 'CTATwoUrl',
+                U: 'UserStoryForPresentation',
+                X: 'Placement'
+            },
 
-                    sql: 'Select %Component%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%, %CTATwoText%, %CTATwoUrl%, %UserStoryForPresentation%' ,
+            // This array becomes the property names of the output javascript object, it must have exactly the same amount of strings as the retrieved columns.
+            labels: ['Component', 'Category', 'Filename', 'Type', 'HeadingOne', 'HeadingTwo', 'HeadingThree', 'Teaser', 'RichContent', 'LinkText', 'LinkUrl', 'Image', 'Date', 'Price', 'CTAText', 'CTAUrl', 'CTATwoText', 'CTATwoUrl', 'UserStoryForPresentation', 'Placement'],
 
-                    rowHandler: function(row){
-                        componentData.push(row.cells);
-                    },
-                    userCallback: function(){
-                        console.log(componentData)
-                        console.log(componentData.length + " Components loaded")
+            sql: 'Select %Component%, %Category%, %Filename%, %Type%, %HeadingOne%, %HeadingTwo%, %HeadingThree%, %Teaser%, %RichContent%, %LinkText%, %LinkUrl%, %Image%, %Date%, %Price%, %CTAText%, %CTAUrl%, %CTATwoText%, %CTATwoUrl%, %UserStoryForPresentation%, %Placement%',
+
+            rowHandler: function(row) {
+                componentData.push(row.cells);
+            },
+            userCallback: function() {
+                console.log(componentData)
+                console.log(componentData.length + " Components loaded")
+            }
+        })
+    })();
+
+    (function createMenuStructure() {
+        var menuStructure = new Array();
+        // checks the list of objects for a "children" property recursively.
+        function childrenCheck(parentObj, childObj) {
+            if (parentObj.Children) {
+                for (var i = parentObj.Children.length; i >= 0; i--) {
+                    if (parentObj.Children[i] != null) {
+                        var currentItem = parentObj.Children[i];
+                        if (currentItem.Id == childObj.Parent) {
+                            if (!currentItem.Children) {
+                                currentItem["Children"] = new Array();
+                            }
+                            currentItem.Children.unshift(childObj);
+                        } else {
+                            childrenCheck(currentItem, childObj);
+                        }
                     }
-            })
-            })();
+                }
+            }
+        }
 
-            (function createMenuStructure(){
-                var menuStructure = new Array();
-                // checks the list of objects for a "children" property recursively.
-                function childrenCheck(parentObj, childObj){
-                    if(parentObj.Children) {
-                        for(var i = parentObj.Children.length; i >= 0; i--){
-                            if(parentObj.Children[i] != null) {
-                                var currentItem = parentObj.Children[i];
-                                if(currentItem.Id == childObj.Parent){
-                                    if(!currentItem.Children){
-                                        currentItem["Children"] = new Array();
+        dataTable.sheetrock({
+            sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
+            // sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != "TRUE"',
+
+            rowHandler: function(row) {
+                menuStructure.push(row.cells);
+            },
+            userCallback: function() {
+                for (var i = menuStructure.length; i >= 0; i--) {
+                    if (menuStructure[i] != null) {
+                        currentItem = menuStructure[i];
+                        if (currentItem.Parent != (null || "")) {
+                            for (var j = 0; j < menuStructure.length; j++) {
+                                if (menuStructure[j].Id == currentItem.Parent) {
+                                    var parentItem = menuStructure[j];
+                                    if (!parentItem.Children) {
+                                        parentItem["Children"] = new Array();
                                     }
-                                    currentItem.Children.unshift(childObj);
+                                    parentItem.Children.unshift(currentItem);
+                                    menuStructure.splice(menuStructure.indexOf(currentItem), 1);
                                 } else {
-                                    childrenCheck(currentItem, childObj);
+                                    childrenCheck(menuStructure[j], currentItem);
                                 }
                             }
                         }
-                    }}
+                    }
 
-                    dataTable.sheetrock({
-                        sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != TRUE',
-                // sql: 'select %Id%, %Parent%, %Name% where %Name% is not null and %HideInLists% != "TRUE"',
+                }
+                for (var i = menuStructure.length; i >= 0; i--) {
+                    var currentItem = menuStructure[i];
+                    if (currentItem != null) {
+                        if (currentItem.Parent != (null || "")) {
+                            menuStructure.splice(i, 1);
+                        } else {
+                            delete currentItem["Parent"];
+                        }
+                    }
+                }
+                menuObject = {
+                    menuitems: menuStructure
+                };
+            }
+        })
+    })();
 
-                    rowHandler: function(row){
-                        menuStructure.push(row.cells);
-                    },
-                    userCallback: function(){
-                        for(var i = menuStructure.length; i >= 0; i--) {
-                            if(menuStructure[i] != null){
-                                currentItem = menuStructure[i];
-                                if(currentItem.Parent != (null || "")){
-                                    for(var j = 0; j < menuStructure.length; j++){
-                                        if(menuStructure[j].Id == currentItem.Parent) {
-                                            var parentItem = menuStructure[j];
-                                            if(!parentItem.Children){
-                                                parentItem["Children"] = new Array();
+    $(document).on('click', 'a[data-page]', function(e) {
+        var $that = $(this),
+            pageId = $that.data('page'),
+            currentLocation = window.location,
+            wWidth = $(window).width();
+
+        if (pageId != null) {
+            if ($that.next('ul').length && wWidth <= 768) {
+                if ($that.hasClass('clicked')) {
+                    window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+                } else {
+                    $('a[data-page]').removeClass('clicked');
+                    $that.addClass('clicked')
+                }
+            } else {
+                window.location.href = addUrlParameter(currentLocation, 'page', pageId);
+            }
+        }
+    });
+
+    $(document).on('mouseenter mouseleave', '#main-menu ul li[data-dropdown]', function(e) {
+        var currentElement = $(e.target);
+        // console.log(currentElement.prop("tagName"))
+        $('main').css('padding-top', 50 * currentElement.parents('li[data-dropdown]').length);
+
+        if (e.type == "mouseenter") {
+            $('.onPage > ul').css('display', 'none');
+        } else {
+            $('.onPage > ul').css('display', 'block');
+            if ($('.onPage').length) {
+                // $('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length: 1))
+
+                if ($('.onPage').length > 0) {
+
+                    if ($('.onPage:last').attr('data-dropdown') !== undefined) {
+                        $('main').css('padding-top', 50 * $('.onPage').length)
+                    } else {
+                        $('main').css('padding-top', 50 * ($('.onPage').length - 1))
+                    }
+
+                }
+
+            } else {
+                $('main').css('padding-top', '0')
+            }
+
+        }
+    });
+
+    function getUrlParameter(param) {
+        var pageUrl = location.search.substring(1);
+        var urlVariables = pageUrl.split('&');
+        for (var i = 0; i < urlVariables.length; i++) {
+            var parameterName = urlVariables[i].split("=");
+            if (parameterName[0] == param) {
+                return parameterName[1];
+            }
+        }
+    };
+
+    // (function checkClient() {
+    //     if (getUrlParameter('client') == "onemed") {
+    //         var content = "<header id='onemed-header'><div class='container-fluid'><div class='row'><div class='col-md-3 col-md-offset-1'><img role='logo' src='images/onemed.jpg'></div><div class='col-md-4'><div class='search-form'><input type='search'><input type='submit' value='Search'></div></div><div class='col-md-4'><div class='row'><div class='col-md-6'><a href='?page=21&client=onemed'>Contact OneMed</a></div><div class='col-md-6'><a href='?page=22&client=onemed'>My Shopping Lists</a></div><div class='col-md-6'><a href='?page=14&client=onemed'>Login</a></div><div class='col-md-6'><a href='?page=23&client=onemed'>My Account</a></div><div class='col-md-6'><a href='?page=16&client=onemed'>Shopping Basket</a></div><div class='col-md-6'><a href='?page=19&client=onemed'>My OneMed</a></div></div></div></div></div></header>";
+    //         $('#special-header').append(content);
+
+    //     }
+    // })();
+
+    function addUrlParameter(url, param, value) {
+        // Using a positive lookahead (?=\=) to find the
+        // given parameter, preceded by a ? or &, and followed
+        // by a = with a value after than (using a non-greedy selector)
+        // and then followed by a & or the end of the string
+        var val = new RegExp('(\\?|\\&)' + param + '=.*?(?=(&|$))'),
+            parts = url.toString().split('#'),
+            url = parts[0],
+            hash = parts[1]
+        qstring = /\?.+$/,
+            newURL = url;
+
+        // Check if the parameter exists
+        if (val.test(url)) {
+            // if it does, replace it, using the captured group
+            // to determine & or ? at the beginning
+            newURL = url.replace(val, '$1' + param + '=' + value);
+        } else if (qstring.test(url)) {
+            // otherwise, if there is a query string at all
+            // add the param to the end of it
+            newURL = url + '&' + param + '=' + value;
+        } else {
+            // if there's no query string, add one
+            newURL = url + '?' + param + '=' + value;
+        }
+
+        if (hash) {
+            newURL += '#' + hash;
+        }
+        return newURL;
+    };
+
+    function getComponentObjectByName(string) {
+        for (var i = 0; i < componentData.length; i++) {
+            var currentComponent = componentData[i];
+            if (currentComponent.Component != (null || "")) {
+                // console.log(currentComponent.Component + " (" + string + ")");
+                if (currentComponent.Component == string) {
+                    obj = currentComponent;
+                    return currentComponent;
+                }
+            }
+        }
+    };
+
+    function populateTemplate(target, obj, templateFile) {
+        var dfd = $.Deferred();
+        if (obj != null) {
+            var template = Handlebars.templates[templateFile.replace('.handlebars', '')];
+            if (template) {
+                var html = template(obj);
+                $(target).attr('id') != "layoutTemp" ? target.append(html) : target.replaceWith(html);
+                dfd.resolve()
+            } else {
+                console.warn('"' + templateFile + '" template not found');
+                dfd.reject();
+            }
+
+        } else {
+            console.warn('"' + templateFile + '" not found')
+            dfd.reject();
+        }
+        return dfd.promise();
+    };
+
+    function getPageComponenents(pageId) {
+        dataTable.sheetrock({
+            labels: ['Components', 'Name'],
+            headersOff: true,
+            sql: "Select %Components%, %Name% where %Id% = " + pageId,
+            rowHandler: function(row) {
+                if (pageName == null) {
+                    pageName = row.cells.Name;
+                }
+                pageComponents.push(row.cells);
+            },
+            userCallback: function() {
+                var componentCollection = pageComponents[0].Components;
+                var splitCollection = componentCollection.split("\n");
+
+                for (var i = 0; i < splitCollection.length; i++) {
+                    var rowComponents = splitCollection[i].split(','),
+                        editorialComponents = new Array(),
+                        layoutComponents = new Array();
+
+                    for (var j = 0; j < rowComponents.length; j++) {
+
+                        var componentName = rowComponents[j].trim();
+                        var component = getComponentObjectByName(componentName);
+
+                        component.Type.toLowerCase() === "editorial managed" ? editorialComponents.push(component) : layoutComponents.push(component);
+
+                    }
+                    if (editorialComponents.length) {
+                        $('main > .container').append('<div class="row" data-id="' + i + '"</div>');
+                        var latestRow = $('main > .container > .row[data-id="' + i + '"]');
+
+                        var columnSize = 12 / editorialComponents.length;
+                        for (var j = 0; j < editorialComponents.length; j++) {
+                            var component = editorialComponents[j];
+                            latestRow.append('<div class="component col-md-' + columnSize + '" data-component="' + j + '" data-row="' + i + '"></div>');
+                            var latestCol = $('.component[data-component="' + j + '"][data-row="' + i + '"]');
+                            populateTemplate(latestCol, component, component.Filename);
+                        }
+                    }
+                    if (layoutComponents.length) {
+
+                        for (var j = 0; j < layoutComponents.length; j++) {
+                            var component = layoutComponents[j];
+                            var tempString = '<div id="layoutTemp"></div>';
+                            var $main = $('main');
+                            if (component.Placement != (null || "")) {
+
+                                switch (component.Placement.toLowerCase()) {
+
+                                    case "content bottom":
+                                        $main.find('.container .row:last-of-type').append(tempString)
+                                        break;
+
+                                    case "content top":
+                                        $main.find('.container .row:first-of-type').prepend(tempString);
+                                        break;
+
+                                    case "top":
+                                        $main.before(tempString);
+                                        break;
+
+                                    case "bottom":
+                                        $main.after(tempString);
+                                        break;
+
+                                    default:
+                                        $main.before(tempString);
+                                        break;
+                                }
+                            } else {
+                                $main.before(tempString);
+                            }
+                            var temp = $('#layoutTemp');
+                            var obj;
+                            switch (component.Category.toLowerCase()) {
+                                case "navigation":
+                                    obj = menuObject;
+                                    break;
+                                default:
+                                    obj = component;
+                                    break;
+                            }                          
+                            populateTemplate(temp, obj, component.Filename).done(function() {
+
+                                switch (component.Component.toLowerCase()) {
+                                    case "global menu":
+                                        initializeGlobalMenu();
+                                    break;
+
+                                }
+
+                                function initializeGlobalMenu() {
+                                    var currentPage = $('li[data-id="' + getUrlParameter('page') + '"]');
+                                    currentPage.addClass('onPage');
+                                    currentPage.parents('li').addClass('onPage');
+                                    if ($('.onPage').length) {
+                                        // $('main').css('padding-top', 50 * ($('.onPage').length > 1 ? $('.onPage').length - 1 : 1))
+
+                                        if ($('.onPage').length > 0) {
+
+                                            if ($(currentPage).attr('data-dropdown') !== undefined) {
+                                                $('main').css('padding-top', 50 * $('.onPage').length)
+                                            } else {
+                                                $('main').css('padding-top', 50 * ($('.onPage').length -1))
                                             }
-                                            parentItem.Children.unshift(currentItem);
-                                            menuStructure.splice(menuStructure.indexOf(currentItem), 1);
-                                        } else {
-                                            childrenCheck(menuStructure[j], currentItem);
+
                                         }
                                     }
                                 }
-                            }
 
-                        }
-                        for(var i = menuStructure.length; i >= 0; i--){
-                            var currentItem = menuStructure[i];
-                            if(currentItem != null){
-                                if(currentItem.Parent != (null || "")){
-                                    menuStructure.splice(i, 1);
-                                } else {
-                                    delete currentItem["Parent"];
-                                }
-                            }
-                        }
-                        menuObject = {menuitems: menuStructure};
-                    }
-            })})();
-
-            $(document).on('click', 'a[data-page]', function (e) {
-                var $that = $(this),
-                pageId = $that.data('page'),
-                currentLocation = window.location,
-                wWidth = $(window).width();
-
-                if(pageId != null) {
-                    if ($that.next('ul').length && wWidth <= 768) {
-                        if ($that.hasClass('clicked')) {
-                            window.location.href = addUrlParameter(currentLocation, 'page', pageId);
-                        } else {
-                            $('a[data-page]').removeClass('clicked');
-                            $that.addClass('clicked')
-                        }
-                    } else {
-                        window.location.href = addUrlParameter(currentLocation, 'page', pageId);
-                    }
-                }
-            });
-
-            $(document).on('mouseenter mouseleave', '#main-menu ul li[data-dropdown]', function(e) {
-                var currentElement = $(e.target);
-                // console.log(currentElement.prop("tagName"))
-                $('main').css('padding-top', 50 * currentElement.parents('li[data-dropdown]').length);
-
-                if(e.type == "mouseenter") {
-                    $('.onPage > ul').css('display', 'none');
-                } else {
-                    $('.onPage > ul').css('display', 'block');
-                    if($('.onPage').length) {
-                        // $('main').css('padding-top', 50 * ($('.onPage').length > 0 ? $('.onPage').length: 1))
-
-                        if($('.onPage').length > 0) {
-
-                          if( $('.onPage:last').attr('data-dropdown') !== undefined) {
-                            $('main').css('padding-top', 50 * $('.onPage').length)
-                          }
-                          else {
-                            $('main').css('padding-top', 50 * ($('.onPage').length - 1))
-                          }
-
+                            });
                         }
 
                     }
-                    else {
-                      $('main').css('padding-top','0')
-                    }
-
-                }
-            });
-
-            function getUrlParameter(param) {
-                var pageUrl = location.search.substring(1);
-                var urlVariables = pageUrl.split('&');
-                for (var i = 0; i < urlVariables.length; i++) {
-                    var parameterName = urlVariables[i].split("=");
-                    if (parameterName[0] == param) {
-                        return parameterName[1];
-                    }
-                }};
-
-            (function checkClient() {
-                if(getUrlParameter('client') == "onemed") {
-                    var content = "<header id='onemed-header'><div class='container-fluid'><div class='row'><div class='col-md-3 col-md-offset-1'><img role='logo' src='images/onemed.jpg'></div><div class='col-md-4'><div class='search-form'><input type='search'><input type='submit' value='Search'></div></div><div class='col-md-4'><div class='row'><div class='col-md-6'><a href='?page=21&client=onemed'>Contact OneMed</a></div><div class='col-md-6'><a href='?page=22&client=onemed'>My Shopping Lists</a></div><div class='col-md-6'><a href='?page=14&client=onemed'>Login</a></div><div class='col-md-6'><a href='?page=23&client=onemed'>My Account</a></div><div class='col-md-6'><a href='?page=16&client=onemed'>Shopping Basket</a></div><div class='col-md-6'><a href='?page=19&client=onemed'>My OneMed</a></div></div></div></div></div></header>";
-                    $('#special-header').append(content);
-
-                }
-            })();
-
-            function addUrlParameter(url, param, value) {
-                // Using a positive lookahead (?=\=) to find the
-                // given parameter, preceded by a ? or &, and followed
-                // by a = with a value after than (using a non-greedy selector)
-                // and then followed by a & or the end of the string
-                var val = new RegExp('(\\?|\\&)' + param + '=.*?(?=(&|$))'),
-                parts = url.toString().split('#'),
-                url = parts[0],
-                hash = parts[1]
-                qstring = /\?.+$/,
-                newURL = url;
-
-                // Check if the parameter exists
-                if (val.test(url))
-                {
-                // if it does, replace it, using the captured group
-                // to determine & or ? at the beginning
-                newURL = url.replace(val, '$1' + param + '=' + value);
-                }
-                else if (qstring.test(url))
-                {
-                    // otherwise, if there is a query string at all
-                    // add the param to the end of it
-                    newURL = url + '&' + param + '=' + value;
-                }
-                else
-                {
-                    // if there's no query string, add one
-                    newURL = url + '?' + param + '=' + value;
                 }
 
-                if (hash)
-                {
-                    newURL += '#' + hash;
-                }
-                return newURL
-            ;};
+                // populateTemplate($('#main-menu'), menuObject, 'navbar-default').done(function() {
+                //     var currentPage = $('li[data-id="' + getUrlParameter('page') + '"]');
+                //     currentPage.addClass('onPage');
+                //     currentPage.parents('li').addClass('onPage');
+                //     if ($('.onPage').length) {
+                //         // $('main').css('padding-top', 50 * ($('.onPage').length > 1 ? $('.onPage').length - 1 : 1))
 
-            function getComponentObjectByName(string){
-                console.log(string);
-                for(var i = 0; i < componentData.length; i++){
-                    var currentComponent = componentData[i];
-                    if(currentComponent.Component != (null || "")){
-                        // console.log(currentComponent.Component + " (" + string + ")");
-                        if(currentComponent.Component == string){
-                            obj = currentComponent;
-                            return currentComponent;
-                        }
-                    }
-                }};
+                //         if ($('.onPage').length > 0) {
 
-            function populateTemplate(target, obj, templateFile) {
-                var dfd = $.Deferred();
-                if(obj != null){
-                    var template = Handlebars.templates[templateFile.replace('.handlebars', '')];
-                    if (template) {
-                        var html = template(obj);
-                        target.append(html);
-                        dfd.resolve()
-                    } else {
-                        console.warn('"'+templateFile+'" template not found');
-                        dfd.reject();
-                    }
+                //             if ($(currentPage).attr('data-dropdown') !== undefined) {
+                //                 $('main').css('padding-top', 50 * $('.onPage').length)
+                //             } else {
+                //                 $('main').css('padding-top', 50 * ($('.onPage').length - 1))
+                //             }
 
-                } else {
-                    console.warn('"'+templateFile+'" not found')
-                    dfd.reject();
-                }
-                return dfd.promise();
-            };
+                //         }
+                //         console.log($('.onPage').length);
+                //     }
+                // });
+                // componentCollection = pageComponents[0].Components,
+                //     lbSplitCollection = componentCollection.split("\n");
+                // for (var i = 0; i < lbSplitCollection.length; i++) {
+                //     $('main > .container').append('<div class="row" data-id="' + i + '"></div>');
+                //     var rowCompenents = lbSplitCollection[i].split(','),
+                //         latestRow = $('main > .container > .row[data-id="' + i + '"]');
+                //     for (var j = 0; j < rowCompenents.length; j++) {
+                //         var componentName = rowCompenents[j].trim();
+                //         var componentObject = getComponentObjectByName(componentName);
+                //         colSize = 12 / rowCompenents.length;
+                //         latestRow.append('<div class="component col-md-' + colSize + '" data-component="' + j + '" data-row="' + i + '"></div>');
+                //         var latestCol = $('.component[data-component="' + j + '"][data-row="' + i + '"]');
+                //         populateTemplate(latestCol, componentObject, componentObject.Filename);
+                //     }
+                // }
+            }
+        });
+    };
 
-            function getPageComponenents(pageId){
-                dataTable.sheetrock({
-                    labels: ['Components', 'Name'],
-                    headersOff: true,
-                    sql: "Select %Components%, %Name% where %Id% = " + pageId,
-                    rowHandler: function(row){
-                        if(pageName == null){
-                            pageName = row.cells.Name;
-                        }
-                        pageComponents.push(row.cells);
-                    },
-                    userCallback: function(){
-                        populateTemplate($('#main-menu'), menuObject, 'navbar-default').done(function(){
-                            var currentPage = $('li[data-id="'+ getUrlParameter('page') +'"]');
-                            currentPage.addClass('onPage');
-                            currentPage.parents('li').addClass('onPage');
-                            if($('.onPage').length) {
-                                // $('main').css('padding-top', 50 * ($('.onPage').length > 1 ? $('.onPage').length - 1 : 1))
+    Handlebars.registerHelper("currentPageName", function() {
+        return pageName;
+    });
 
-                                if($('.onPage').length > 0) {
+    Handlebars.registerPartial("recursiveMenu", Handlebars.templates['recursiveMenu']);
 
-                                  if( $(currentPage).attr('data-dropdown') !== undefined) {
-                                    $('main').css('padding-top', 50 * $('.onPage').length)
-                                  }
-                                  else {
-                                    $('main').css('padding-top', 50 * ($('.onPage').length - 1))
-                                  }
+    Handlebars.registerHelper("times", function(n, block) {
+        var accum = '';
+        for (var i = 0; i < n; ++i)
+            accum += block.fn(i);
+        return accum;
+    });
 
-                                }
+    Handlebars.registerHelper("contains", function(string, val) {
+        return (val.indexOf(string) > -1);
+    });
 
+    Handlebars.registerHelper('link', function(link) {
+        if (link.indexOf('http') > -1) {
+            return 'href="' + link + '"';
+        } else {
+            return 'data-page=' + link;
+        }
+    });
 
+    getUrlParameter('page') != null ? getPageComponenents(getUrlParameter('page')) : getPageComponenents(1);
+    </script>
+</body>
 
-
-                                console.log($('.onPage').length);
-                            }
-                        });
-                        componentCollection = pageComponents[0].Components,
-                        lbSplitCollection = componentCollection.split("\n");
-                        for(var i=0; i < lbSplitCollection.length; i++) {
-                            $('main > .container').append('<div class="row" data-id="'+ i +'"></div>');
-                            var rowCompenents = lbSplitCollection[i].split(','),
-                            latestRow = $('main > .container > .row[data-id="'+ i +'"]');
-                            for(var j=0; j < rowCompenents.length; j++){
-                                var componentName = rowCompenents[j].trim(),
-                                colSize = 12 / rowCompenents.length;
-                                latestRow.append('<div class="component col-md-' + colSize +'" data-component="'+ j +'" data-row="'+ i +'"></div>');
-                                var latestCol = $('.component[data-component="'+ j +'"][data-row="'+ i +'"]');
-                                var componentObject = getComponentObjectByName(componentName);
-                                populateTemplate(latestCol, componentObject, componentObject.Filename);
-                            }
-                        }
-                    }
-                });
-            };
-
-            Handlebars.registerHelper("currentPageName",function(){
-                return pageName;
-            });
-
-            Handlebars.registerPartial("recursiveMenu", Handlebars.templates['recursiveMenu']);
-
-            Handlebars.registerHelper("times", function(n, block) {
-                var accum = '';
-                for(var i = 0; i < n; ++i)
-                    accum += block.fn(i);
-                return accum;
-            });
-
-            Handlebars.registerHelper("contains" ,function(string, val){
-                return (val.indexOf(string) > -1);
-            });
-
-            Handlebars.registerHelper('link', function(link) {
-                if(link.indexOf('http') > -1){
-                    return 'href="'+ link +'"';
-                } else {
-                    return 'data-page='+ link;
-                }
-            });
-
-            getUrlParameter('page') != null ? getPageComponenents(getUrlParameter('page')) : getPageComponenents(1);
-        </script>
-    </body>
 </html>

@@ -1,0 +1,33 @@
+<div class="custom-sidebar" title="{{Component}}
+
+
+
+{{UserStoryForPresentation}}">
+    <div class="list-group">
+        <span href="#" class="list-group-item active">
+            <span>
+                {{#if HeadingOne}}
+                    {{HeadingOne}}
+                {{else}}
+                    Submenu
+                {{/if}}
+            </span>
+            <span class="pull-right" id="slide-submenu">
+                <i class="fa fa-times"></i>
+            </span>
+        </span>
+        {{#if RichContent}}
+            {{{RichContent}}}
+        {{else}}
+            <a href="#" class="list-group-item">
+                Lorem ipsum
+            </a>
+            <a href="#" class="list-group-item">
+                Lorem ipsum
+            </a>
+            <a href="#" class="list-group-item">
+                Lorem ipsum
+        </a>
+        {{/if}}
+    </div>
+</div>

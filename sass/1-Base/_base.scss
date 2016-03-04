@@ -74,3 +74,22 @@ a[data-page] {
 	min-height: 100%;
 	min-width: 100%;
 }
+
+.btn {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.btn-default--inverted {
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #adadad;
+
+	&:hover {
+		color: #333;
+	    background-color: #fff;
+	    border-color: #ccc;
+
+	}
+
+}

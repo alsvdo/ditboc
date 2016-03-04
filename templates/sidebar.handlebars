@@ -1,0 +1,33 @@
+<div class="right-sidebar " title="{{Component}}
+
+
+
+{{UserStoryForPresentation}}">
+    <div class="">
+        <span href="#" class="list-group-item active">
+            <span>
+                {{#if HeadingOne}}
+                    {{HeadingOne}}
+                {{else}}
+                    sidebar
+                {{/if}}
+            </span>
+            <!-- <span class="pull-right" id="slide-submenu">
+                <i class="fa fa-times"></i>
+            </span> -->
+        </span>
+        {{#if RichContent}}
+            {{{RichContent}}}
+        {{else}}
+            <a href="#" class="list-group-item">
+                Sidebar item 1
+            </a>
+            <a href="#" class="list-group-item">
+                Sidebar item 2
+            </a>
+            <a href="#" class="list-group-item">
+                Sidebar item 3
+            </a>
+        {{/if}}
+    </div>
+</div>

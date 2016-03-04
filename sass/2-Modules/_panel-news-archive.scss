@@ -1,0 +1,47 @@
+.col-md-3 {
+    .nav-pills > li {
+        float: none;
+        max-width: 120px;
+    }
+}
+
+
+.btn-group {
+
+    &__align-right {
+        width: 100%;
+    }
+
+}
+
+// Limit pagination to 5 li's, including start/end li
+[class$="-3"] {
+
+    .pagination {
+
+        li {
+
+            @include breakpoint($desktop) {
+                &:nth-child(n+5) {
+                    display: none;
+
+                    @include breakpoint($lgDesktop) {
+                        display: inline;
+                    }
+                }
+            }
+
+            @include breakpoint($lgDesktop) {
+                &:nth-child(n+6) {
+                    display: none;
+                }
+            }
+
+            &:last-child {
+                display: inline;
+            }
+
+
+        }
+    }
+}

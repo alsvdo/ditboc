@@ -27,6 +27,8 @@ var client = (function () {
             return clients['edit.pfa.dk'];
         case 'english.pfa.dk':
             return clients['english.pfa.dk'];
+        case 'iss':
+            return clients['iss'];
         case 'iss.manual':
             return clients['iss.manual']
     }
@@ -306,6 +308,8 @@ function getPageComponenents(pageId) {
 
                     var componentName = rowComponents[j].trim();
                     var component = getComponentObjectByName(componentName);
+
+                    console.log(component.Type);
 
                     component.Type.toLowerCase() === "editorial managed" ? editorialComponents.push(component) : layoutComponents.push(component);
 

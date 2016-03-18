@@ -10,6 +10,7 @@ var client = (function () {
         },
         'iss': {
             components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
+            //edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=1367716908' //edit.pfa.dk
             edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=911671213'
         },
         'iss.manual': {
@@ -19,6 +20,10 @@ var client = (function () {
         standard: {
             components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
             edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
+        },
+        'servicefutures': {
+            components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
+            edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=2035244876'
         }
     };
     switch (getUrlParameter('client')) {
@@ -30,7 +35,9 @@ var client = (function () {
         case 'iss':
             return clients['iss'];
         case 'iss.manual':
-            return clients['iss.manual']
+            return clients['iss.manual'];
+        case 'servicefutures':
+            return clients['servicefutures']
     }
     return clients.standard;
 })();
@@ -296,6 +303,7 @@ function getPageComponenents(pageId) {
             pageComponents.push(row.cells);
         },
         userCallback: function () {
+            console.log('page components: ' + pageComponents);
             var componentCollection = pageComponents[0].Components;
             var splitCollection = componentCollection.split("\n");
 
@@ -310,8 +318,7 @@ function getPageComponenents(pageId) {
                     var component = getComponentObjectByName(componentName);
 
                     console.log(component.Type);
-
-                    component.Type.toLowerCase() === "editorial managed" ? editorialComponents.push(component) : layoutComponents.push(component);
+                     component.Type.toLowerCase() === "editorial managed" ? editorialComponents.push(component) : layoutComponents.push(component);
 
                 }
                 if (editorialComponents.length) {

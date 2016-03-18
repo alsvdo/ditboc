@@ -1,6 +1,6 @@
     var clients = {
         var client = (function () {
-        'prototype.master': {
+        'master': { //prototype.master
             components: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=1693330084',
             edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=956447144'
         },
@@ -30,8 +30,8 @@
         }
     };
     switch (getUrlParameter('client')) {
-        case 'edit.master':
-            return clients['edit.master'];
+        case 'master':
+            return clients['master'];
         case 'edit.pfa.dk':
         case 'pfa':
             return clients['edit.pfa.dk'];

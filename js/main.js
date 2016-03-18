@@ -22,7 +22,8 @@
         },
         standard: {
             components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
-            edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
+            // edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
+            edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=956447144'
         },
         'servicefutures': {
             components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',

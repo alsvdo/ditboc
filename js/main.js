@@ -1,5 +1,9 @@
-var client = (function () {
     var clients = {
+        var client = (function () {
+        'prototype.master': {
+            components: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=1693330084',
+            edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=956447144'
+        },
         'edit.pfa.dk': {
             components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
             edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=1367716908'
@@ -10,11 +14,10 @@ var client = (function () {
         },
         'iss': {
             components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
-            //edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=1367716908' //edit.pfa.dk
             edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=911671213'
         },
         'iss.manual': {
-            components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1486164458',
+            components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
             edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=913242986'
         },
         standard: {
@@ -27,6 +30,8 @@ var client = (function () {
         }
     };
     switch (getUrlParameter('client')) {
+        case 'edit.master':
+            return clients['edit.master'];
         case 'edit.pfa.dk':
         case 'pfa':
             return clients['edit.pfa.dk'];

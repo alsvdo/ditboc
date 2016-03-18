@@ -1,35 +1,36 @@
-    var clients = {
-        var client = (function () {
-        'master': { //prototype.master
-            components: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=1693330084',
-            edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=956447144'
-        },
-        'edit.pfa.dk': {
-            components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
-            edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=1367716908'
-        },
-        'english.pfa.dk': {
-            components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
-            edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=127466075'
-        },
-        'iss': {
-            components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
-            edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=911671213'
-        },
-        'iss.manual': {
-            components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
-            edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=913242986'
-        },
-        standard: {
-            components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
-            // edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
-            edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=956447144',
-        },
-        'servicefutures': {
-            components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
-            edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=2035244876'
-        }
-    };
+    var client = (function() {
+        var clients = {
+            'master': { //prototype.master
+                components: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=1693330084',
+                edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=956447144'
+            },
+            'edit.pfa.dk': {
+                components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
+                edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=1367716908'
+            },
+            'english.pfa.dk': {
+                components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
+                edit: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I/edit#gid=127466075'
+            },
+            'iss': {
+                components: 'https://docs.google.com/spreadsheets/d/1dYT1l22KHG6VedgQfd_DF_bQy4AEnst7nFE15u8GT3I#gid=671887640',
+                edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=911671213'
+            },
+            'iss.manual': {
+                components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
+                edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=913242986'
+            },
+            standard: {
+                components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
+                // edit: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8#gid=0',
+                edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=956447144',
+            },
+            'servicefutures': {
+                components: 'https://docs.google.com/spreadsheets/d/1PAS_OmAgq9SmkYTr-eNcBsPrGpDuF9DWOguKlIl3yh8/edit#gid=1693330084',
+                edit: 'https://docs.google.com/spreadsheets/d/1NWQbwm4SLCuR3HMjsp-w3UmqERV0Dv84x-pyVDwgraM/edit#gid=2035244876'
+            }
+        };
+
     console.log(client);
     switch (getUrlParameter('client')) {
         case 'master':

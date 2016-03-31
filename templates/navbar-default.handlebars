@@ -1,30 +1,40 @@
 <nav id="main-menu" class="nav navbar-default">
-<div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-</div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul role="navigation" class="nav navbar-nav">
-        {{#each menuitems}}
-            <li {{#if Children}} data-dropdown {{/if}} data-id="{{Id}}">
-                <a data-page="{{{Id}}}">{{Name}}  
-                    {{#if Children}}
-                        <span class="caret"></span>
-                    {{/if}}
-                </a> 
-                {{#if Children}}
-                    <ul>
-                        {{#each Children}}
-                            {{> recursiveMenu}}    
-                        {{/each}}                                      
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="row">
+            <div class="container">
+                <div class="col-sm-12">
+
+
+                    <ul role="navigation" class="nav navbar-nav">
+                        {{#each menuitems}}
+                            <li {{#if Children}} data-dropdown {{/if}} data-id="{{Id}}">
+                                <a data-page="{{{Id}}}">{{Name}}
+                                    {{#if Children}}
+                                        <span class="caret"></span>
+                                    {{/if}}
+                                </a>
+                                {{#if Children}}
+                                    <ul>
+                                        {{#each Children}}
+                                            {{> recursiveMenu}}
+                                        {{/each}}
+                                    </ul>
+                                {{/if}}
+                            </li>
+                        {{/each}}
                     </ul>
-                {{/if}}                             
-            </li>
-        {{/each}}
-    </ul>
-</div>
+                </div>
+
+            </div>
+        </div>
 </nav>

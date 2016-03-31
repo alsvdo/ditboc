@@ -1,6 +1,10 @@
 <div class="panel panel-default" title="{{Component}}
 
-{{UserStoryForPresentation}}">
+USER STORY FOR PRESENTATION
+{{UserStoryForPresentation}}
+
+USER STORY FOR EDITING
+{{UserStoryForEditing}}">
     <div class="panel-body" style="background-size: cover; background-position:50% 50%; background-repeat:no-repeat; background-image: url('{{Image}}');">
         {{#if HeadingTwo}}
 			<h2>{{HeadingTwo}}</h2>
@@ -9,7 +13,7 @@
 			<div>{{{RichContent}}}</div>
 		{{/if}}
 		{{#if CTAText}}
-			<a class="btn btn-default" {{link CTAUrl}} role="button">{{CTAText}}</a><br>
+			<a class="btn btn-default" {{{link CTAUrl}}} role="button">{{CTAText}}</a><br>
 		{{/if}}
 		{{#if LinkText}}
 			<a {{link LinkUrl}}>{{LinkText}}</a><br>

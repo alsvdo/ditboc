@@ -30,7 +30,7 @@ var client = (function() {
         }
     };
 
-    //console.log(client);
+    console.log(client);
     switch (getUrlParameter('client')) {
         case 'master':
             return clients['master'];

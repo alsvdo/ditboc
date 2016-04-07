@@ -86,9 +86,13 @@ a[data-page] {
   margin-top: 10px;
   margin-bottom: 5px; }
 
-.btn-default:hover {
+.btn-default {
   color: #FFF;
   background-color: #FF4584; }
+
+.btn-default:hover {
+  color: #FF4584;
+  background-color: #FFF; }
 
 .btn-default--inverted {
   color: #333;

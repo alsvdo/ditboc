@@ -80,9 +80,14 @@ a[data-page] {
 	margin-bottom: 5px;
 }
 
-.btn-default:hover {
+.btn-default {
 	color: #FFF;
 	background-color: #FF4584;
+}
+
+.btn-default:hover {
+	color: #FF4584;
+	background-color: #FFF;
 }
 
 

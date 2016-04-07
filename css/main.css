@@ -86,11 +86,13 @@ a[data-page] {
   margin-top: 10px;
   margin-bottom: 5px; }
 
-.btn-default {
+.btn-default,
+input[type="submit"] {
   color: #FFF;
   background-color: #FF4584; }
 
-.btn-default:hover {
+.btn-default:hover,
+input[type="submit"]:hover {
   color: #FF4584;
   background-color: #FFF; }
 
